@@ -79,7 +79,8 @@ $table_prefix  = 'wp_rZp54_';
  */
 define('WP_DEBUG', false);
 
-//define('RELOCATE', true);
+// migration
+// define('RELOCATE', true);
 
 /* C'est tout, ne touchez pas à ce qui suit ! Bon blogging ! */
 
