@@ -1,7 +1,28 @@
-#page h1 {
-    background: blue;
-}
+// Styles for ASCOMETAL
 
-#test002{
-	  background: yellow;
+/*---------------------------------------------------------------
+GENERAL
+---------------------------------------------------------------*/
+
+
+/*---------------------------------------------------------------
+Header-image
+---------------------------------------------------------------*/
+
+header.header-image {
+    position: relative;
+    #featured-hero {
+        max-width: 1280px;
+        max-height: 225px;
+        overflow: hidden;
+    }
+    h1 {
+        position: absolute;
+        left: 0px;
+        top: 70px;
+        color: #f9f9f9;
+        text-transform: uppercase;
+        font-size: rem-calc(57);
+        padding-left: 40px;
+    }
 }
