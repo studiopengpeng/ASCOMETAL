@@ -1,10 +1,17 @@
 // Styles for ASCOMETAL
-
 /*---------------------------------------------------------------
 GENERAL
 ---------------------------------------------------------------*/
 
+body {
+    letter-spacing: 1.4px;
+}
 
+// * * * * * * * * * * * * * page.php * * * * * * * * * * * * * 
+#page {
+    margin-top: 0;
+    background: #fff;
+}
 /*---------------------------------------------------------------
 Header-image
 ---------------------------------------------------------------*/
@@ -15,6 +22,7 @@ header.header-image {
         max-width: 1280px;
         max-height: 225px;
         overflow: hidden;
+        margin: 0 -15px;
     }
     h1 {
         position: absolute;
@@ -26,3 +34,76 @@ header.header-image {
         padding-left: 40px;
     }
 }
+/*---------------------------------------------------------------
+Main container
+---------------------------------------------------------------*/
+
+#main-container {
+    background: #f5f5f5;
+    padding: 30px 15px 30px 50px;
+    -webkit-box-shadow: inset 14px 0px 30px -10px rgba(143, 143, 143, 0.2);
+    -moz-box-shadow: inset 14px 0px 30px -10px rgba(143, 143, 143, 0.2);
+    box-shadow: inset 14px 0px 30px -10px rgba(143, 143, 143, 0.2);
+    h2 {
+        color: #5e5e5e;
+        text-transform: uppercase;
+        font-size: rem-calc(36);
+        padding-bottom: 15px;
+        border-bottom: 2px solid #989898;
+        font-weight: 600;
+        margin-bottom: .7em;
+    }
+    h4 {
+        color: #e52713;
+        font-size: rem-calc(18);
+        font-family: "Lora", serif;
+        font-weight: 700;
+        font-style: italic;
+        margin-bottom: 2em;
+    }
+}
+
+nav.slidenav {
+    width: 100%;
+}
+
+div.verticalnav {
+    background: white;
+}
+/*---------------------------------------------------------------
+Top-bar
+---------------------------------------------------------------*/
+
+.top-bar,
+.top-bar ul,
+.top-bar li,
+.top-bar-left,
+.top-bar-right {
+    background-color: #fff;
+    height: 70px;
+}
+
+nav#site-navigation {
+    height: 70px;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.top-bar {
+    li {
+        padding: 0px 5px;
+}
+    .menu a {
+        display: block;
+        font-family: $body-font-family;
+        font-weight: 400;
+        text-transform: uppercase;
+        font-size: rem-calc(16);
+        color: #000;
+    }
+    .menu a:hover {
+        border-top: 6px solid #e52713;
+    }
+}
+
