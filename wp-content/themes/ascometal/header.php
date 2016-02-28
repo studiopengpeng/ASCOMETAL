@@ -45,7 +45,7 @@
 		<nav id="site-navigation" class="main-navigation top-bar" role="navigation">
 			<div class="top-bar-left">
 				<ul class="menu">
-					<li class="home"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></li>
+					<li class="home"><a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><div class="indent"><?php bloginfo( 'name' ); ?></div><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo.svg" alt="Logo d'Ascometal"></a></li>
 				</ul>
 			</div>
 			<div class="top-bar-right">

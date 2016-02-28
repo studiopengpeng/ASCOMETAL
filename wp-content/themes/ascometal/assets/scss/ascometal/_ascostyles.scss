@@ -1,6 +1,6 @@
-// Styles for ASCOMETAL
+// Styles propres à ASCOMETAL
 /*---------------------------------------------------------------
-GENERAL
+REGLAGES GLOBAUX / GLOBAL SETTINGS
 ---------------------------------------------------------------*/
 
 body {
@@ -11,9 +11,12 @@ body {
 #page {
     margin-top: 0;
     background: #fff;
+    border-top: solid 3px #b5bf1e;
 }
+
+// * * * * * * * * * * * * * END page.php * * * * * * * * * * *
 /*---------------------------------------------------------------
-Header-image
+IMAGE D'ENTETE / HEADER-IMAGE
 ---------------------------------------------------------------*/
 
 header.header-image {
@@ -35,7 +38,7 @@ header.header-image {
     }
 }
 /*---------------------------------------------------------------
-Main container
+CONTENU DE SAISIE / MAIN-CONTAINER
 ---------------------------------------------------------------*/
 
 #main-container {
@@ -66,12 +69,8 @@ Main container
 nav.slidenav {
     width: 100%;
 }
-
-div.verticalnav {
-    background: white;
-}
 /*---------------------------------------------------------------
-Top-bar
+MENU PRINCIPAL / TOP-BAR
 ---------------------------------------------------------------*/
 
 .top-bar,
@@ -80,30 +79,118 @@ Top-bar
 .top-bar-left,
 .top-bar-right {
     background-color: #fff;
-    height: 70px;
+    height: 50px;
 }
 
 nav#site-navigation {
-    height: 70px;
     max-width: 80rem;
     margin-left: auto;
     margin-right: auto;
 }
 
-.top-bar {
-    li {
-        padding: 0px 5px;
+.top-bar .menu a:hover:not(.button) {
+    background-color: #fff;
 }
+
+#masthead {
+    padding-bottom: 6px;
+    padding-top: 7px;
+}
+
+.top-bar {
+    padding: 0;
+    li {
+        background-color: #fff;
+        height: auto;
+        padding: 0px 3px;
+    }
     .menu a {
+        padding: 0;
+        text-align: center;
+        padding: 20px 10px 20px 10px!important;
+        letter-spacing: .5px;
         display: block;
+        height: auto;
         font-family: $body-font-family;
         font-weight: 400;
         text-transform: uppercase;
         font-size: rem-calc(16);
         color: #000;
+        transition: all 0.2s ease-out;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
     }
     .menu a:hover {
-        border-top: 6px solid #e52713;
+        box-shadow: inset 0px 5px 0px 0px #e52713;
+    }
+    li.active {
+        box-shadow: inset 0px 5px 0px 0px #e52713;
+    }
+    ul li ul li.active {
+        box-shadow: none;
+    }
+    ul li ul li {
+        background-color: #ededed;
+        padding: 0;
+    }
+    ul li ul li a:hover {
+        box-shadow: inset 5px 0px 0px 0px #e52713!important;
     }
 }
 
+.top-bar-section .dropdown {
+    li {
+        height: auto;
+    }
+}
+
+// * * * * * * * * * * * * * Logo * * * * * * * * * * * * * 
+.top-bar-left {
+    position: relative;
+    .logo img {
+        position: absolute;
+        top: 5px;
+        left: 0;
+    }
+    a:hover {
+        box-shadow: none!important;
+    }
+    div.indent {
+        text-indent: -8000px;
+        height: 0px
+    }
+    width: 275px;
+}
+
+// * * * * * * * * * * * END - Logo * * * * * * * * * * * *
+/*---------------------------------------------------------------
+MENU SECONDAIRE / TOUCHSCROLLER
+---------------------------------------------------------------*/
+
+#touchscroller {
+    text-transform: uppercase;
+
+    a {
+        color: #989898;
+    }
+    ul li{
+    list-style: none;
+        font-weight: 700;
+        }
+    ul li ul li {
+        padding-left: 15px;
+        font-style: italic;
+        font-weight: 400;
+    }
+    ul li ul li a:hover {
+        transition: all 0.2s ease-out;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+    }
+    
+     ul li ul li a:hover {
+        color: $rouge-asco;
+    }
+}

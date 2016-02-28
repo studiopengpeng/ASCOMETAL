@@ -25,7 +25,6 @@
         <!--END header de page-->
         <?php do_action( 'foundationpress_before_content' ); ?>
             <?php while ( have_posts() ) : the_post(); ?>
-        <div class="verticalnav">
                     <!--menu secondaire : Menu gauche -> page.php-->
                     <?php
 $args_menu1 = array(
@@ -49,7 +48,6 @@ $args_menu1 = array(
 wp_nav_menu( $args_menu1 );
 ?>
                         <!--END menu secondaire-->
-        </div>
         <article id="main-container" class="small-12 medium-9 large-9 columns" <?php post_class( 'main-content') ?> id="post-
                             <?php the_ID(); ?>">
                                 <header>
