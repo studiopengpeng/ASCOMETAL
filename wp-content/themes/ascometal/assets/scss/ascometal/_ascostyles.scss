@@ -14,6 +14,7 @@ body {
     border-top: solid 3px #b5bf1e;
 }
 
+
 // * * * * * * * * * * * * * END page.php * * * * * * * * * * *
 /*---------------------------------------------------------------
 IMAGE D'ENTETE / HEADER-IMAGE
@@ -264,4 +265,34 @@ MENU SECONDAIRE / TOUCHSCROLLER
     ul li ul li a:hover {
         color: $rouge-asco;
     }
+}
+
+
+/*---------------------------------------------------------------
+WIDGET BOUTONS PERSO
+---------------------------------------------------------------*/
+// * * * * * * * * * * * Bouton simple * * * * * * * * * * * *
+.button.simple-btn {
+	display: inline-block;
+    text-align: left;
+    line-height: 1;
+    cursor: pointer;
+    -webkit-appearance: none;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    border-radius: 0;
+    padding: 0.85em 1em;
+    margin: 0 0 1rem 0;
+    font-size: 0.9rem;
+    background-color: #CCC;
+    color: #000;
+	transition:all .3s;
+}
+.button.simple-btn:hover {
+	background-color: #FFF;
+    color: #000;
+}
+.button.long {
+width:100%;	
 }

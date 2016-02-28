@@ -1,0 +1,55 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: plaste_buttons\n"
+"POT-Creation-Date: 2015-05-03 22:14+0100\n"
+"PO-Revision-Date: 2015-05-03 22:14+0100\n"
+"Last-Translator: Nicolas Mercier <mercier@plaste.fr>\n"
+"Language-Team: Nicolas Mercier <mercier@plaste.fr>\n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__;_x;_n\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2;plural=(n>1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: E:\\Xampp\\htdocs\\shadok\\wp-content\\plugins"
+"\\plaste-buttons\n"
+
+#: E:\Xampp\htdocs\shadok\wp-content\plugins\plaste-buttons/plaste-buttons.php:41
+msgid "Add custom buttons"
+msgstr "Bouton(s) personnalisé(s)"
+
+#: E:\Xampp\htdocs\shadok\wp-content\plugins\plaste-buttons/plaste-buttons.php:42
+msgid ""
+"Add custom buttons in your sidebars, matching the styles created in your own "
+"CSS files."
+msgstr "Ajouter des boutons conformes à votre thème dans les sidebars."
+
+#: E:\Xampp\htdocs\shadok\wp-content\plugins\plaste-buttons/plaste-buttons.php:137
+msgid "How many buttons ? (5 max)"
+msgstr "Combien de boutons ? (5 max)"
+
+#: E:\Xampp\htdocs\shadok\wp-content\plugins\plaste-buttons/plaste-buttons.php:146
+msgid "New title"
+msgstr "Nouveau titre"
+
+#: E:\Xampp\htdocs\shadok\wp-content\plugins\plaste-buttons/plaste-buttons.php:161
+msgid "Title:"
+msgstr "Titre :"
+
+#: E:\Xampp\htdocs\shadok\wp-content\plugins\plaste-buttons/plaste-buttons.php:165
+msgid "Link:"
+msgstr "Lien :"
+
+#: E:\Xampp\htdocs\shadok\wp-content\plugins\plaste-buttons/plaste-buttons.php:170
+msgid "Open in a new window"
+msgstr "Ouvrir dans une nouvelle fenêtre"
+
+#: E:\Xampp\htdocs\shadok\wp-content\plugins\plaste-buttons/plaste-buttons.php:174
+msgid "type"
+msgstr "type"
+
+#~ msgid "Hello, World!"
+#~ msgstr "Salut le monde !"
