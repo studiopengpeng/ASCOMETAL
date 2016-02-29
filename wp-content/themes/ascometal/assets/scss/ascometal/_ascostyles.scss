@@ -238,6 +238,15 @@ nav#site-navigation {
 }
 
 // * * * * * * * * * * * END - Logo * * * * * * * * * * * *
+@media screen and (max-width: 640px) {
+    .top-bar,
+    .top-bar ul,
+    .top-bar li,
+    .top-bar-left,
+    .top-bar-right {
+        height: auto;
+    }
+}
 /*---------------------------------------------------------------
 MENU SECONDAIRE / TOUCHSCROLLER
 ---------------------------------------------------------------*/
