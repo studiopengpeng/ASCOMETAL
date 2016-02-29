@@ -101,7 +101,7 @@ CONTENU DE SAISIE / MAIN-CONTAINER
         font-weight: 400;
         font-style: italic;
     }
-    blockquote:first-letter {
+    blockquote p::first-letter {
         font-size: rem-calc(50);
         font-weight: 700;
         margin-right: 5px;
