@@ -1,6 +1,6 @@
 <?php 
 /* 
-Template Name: Page d'accueil 
+Template Name: Page d'accueil foundationpress
 */ 
  get_header(); ?>
 

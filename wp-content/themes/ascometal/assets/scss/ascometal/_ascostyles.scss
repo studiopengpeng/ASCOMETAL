@@ -1,11 +1,8 @@
 // Styles propres à ASCOMETAL
+
 /*---------------------------------------------------------------
 REGLAGES GLOBAUX / GLOBAL SETTINGS
 ---------------------------------------------------------------*/
-
-body {
-    letter-spacing: 1.4px;
-}
 
 // * * * * * * * * * * * * * page.php * * * * * * * * * * * * * 
 #page {
@@ -14,8 +11,218 @@ body {
     border-top: solid 3px #b5bf1e;
 }
 
-
 // * * * * * * * * * * * * * END page.php * * * * * * * * * * *
+
+/*---------------------------------------------------------------
+MARCHES HOME (présentation + effets au survol) 
+---------------------------------------------------------------*/
+.ih-item {
+    -webkit-box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
+    -moz-box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
+    box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
+    position: relative;
+    -webkit-transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
+}
+
+.ih-item,
+.ih-item * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.ih-item a {
+    color: #333;
+}
+
+.ih-item a:hover {
+    text-decoration: none;
+}
+
+//.ih-item img {
+//    width: 100%;
+//    height: 100%;
+//}
+.ih-item.square {
+    position: relative;
+}
+
+.ih-item.square .info {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.ih-item.square.effect13 {
+    overflow: hidden;
+}
+
+.ih-item.square.effect13.colored .info {
+    background: #1a4a72;
+    background: rgba(26, 74, 114, 0.6);
+}
+
+.ih-item.square.effect13.colored .info h3 {
+    background: rgba(12, 34, 52, 0.6);
+}
+
+.ih-item.square.effect13 .img {
+    -webkit-transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
+
+.ih-item.square.effect13 .info {
+    background: #333333;
+    background: rgba(0, 0, 0, 0.6);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
+}
+
+.ih-item.square.effect13 .mec {
+    background: rgba(174, 62, 40, 0.75);
+}
+
+.ih-item.square.effect13 .rol {
+    background: rgba(242, 142, 0, 0.75);
+    background-blend-mode: darken;
+}
+
+.ih-item.square.effect13 .aut {
+    background: rgba(153, 190, 81, 0.75);
+}
+
+.ih-item.square.effect13 .pet {
+    background: rgba(3, 136, 142, 0.75);
+}
+
+.ih-item.square.effect13 .info h3 {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    line-height: rem-calc(65);
+}
+
+.ih-item.square.effect13 .info p {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    position: relative;
+    color: #fff;
+    padding: 0px 45px;
+    text-align: center;
+}
+
+article.auto .ih-item.square.effect13 .info p {
+    padding: 0px 20px;
+}
+
+.ih-item.square.effect13 a:hover .img {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.ih-item.square.effect13 a:hover .info {
+    visibility: visible;
+    opacity: 1;
+}
+
+.ih-item.square.effect13.top_to_bottom .info {
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
+
+.ih-item.square.effect13.top_to_bottom a:hover .info {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+}
+
+.ih-item.square.effect13.top_to_bottom a h3.title-auto,
+.ih-item.square.effect13.top_to_bottom a h3.title-rolling,
+.ih-item.square.effect13.top_to_bottom a h3.title-mechanical,
+.ih-item.square.effect13.top_to_bottom a h3.title-petrol {
+    text-transform: uppercase;
+    width: 100%;
+    line-height: rem-calc(65);
+    position: absolute;
+    text-align: center;
+    font-weight: 700;
+    z-index: 100;
+    color: #fff;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+.title-auto {
+    background-color: rgba(153, 190, 81, 0.7);
+}
+
+.title-rolling {
+    background-color: rgba(242, 142, 0, 0.7);
+}
+
+.title-mechanical {
+    background-color: rgba(174, 62, 40, 0.7);
+}
+
+.title-petrol {
+    background-color: rgba(3, 136, 142, 0.7);
+}
+
+.ih-item.square.effect13.top_to_bottom a:hover h3.title-auto,
+.ih-item.square.effect13.top_to_bottom a:hover h3.title-rolling,
+.ih-item.square.effect13.top_to_bottom a:hover h3.title-mechanical,
+.ih-item.square.effect13.top_to_bottom a:hover h3.title-petrol {
+    opacity: 0;
+}
+
+.info img {
+    margin: 0 auto 20px auto;
+    padding-bottom: 0;
+}
+
+article .ih-item.square.effect13 .info .seemore {
+    text-transform: uppercase;
+    font-size: rem-calc(24);
+}
+
+#markets {
+    padding: 30px 0px;
+    article {
+        margin-bottom: 30px;
+    }
+}
+
+
 /*---------------------------------------------------------------
 IMAGE D'ENTETE / HEADER-IMAGE
 ---------------------------------------------------------------*/
@@ -30,6 +237,7 @@ header.header-image {
     }
     h1 {
         position: absolute;
+        line-height: 55px;
         left: 0px;
         top: 70px;
         color: #f9f9f9;
@@ -38,6 +246,8 @@ header.header-image {
         padding-left: 40px;
     }
 }
+
+
 /*---------------------------------------------------------------
 CONTENU DE SAISIE / MAIN-CONTAINER
 ---------------------------------------------------------------*/
@@ -137,9 +347,12 @@ CONTENU DE SAISIE / MAIN-CONTAINER
 nav.slidenav {
     width: 100%;
 }
+
+
 /*---------------------------------------------------------------
 MENU PRINCIPAL / TOP-BAR
 ---------------------------------------------------------------*/
+
 
 .top-bar,
 .top-bar ul,
@@ -148,6 +361,7 @@ MENU PRINCIPAL / TOP-BAR
 .top-bar-right {
     background-color: #fff;
     height: 50px;
+    z-index: 200;
 }
 
 nav#site-navigation {
@@ -239,7 +453,7 @@ nav#site-navigation {
 
 // * * * * * * * * * * * END - Logo * * * * * * * * * * * *
 @media screen and (max-width: 640px) {
-   #main-container .top-bar,
+    #main-container .top-bar,
     .top-bar ul,
     .top-bar li,
     .top-bar-left,
@@ -247,6 +461,8 @@ nav#site-navigation {
         height: auto;
     }
 }
+
+
 /*---------------------------------------------------------------
 MENU SECONDAIRE / TOUCHSCROLLER
 ---------------------------------------------------------------*/
@@ -280,9 +496,10 @@ MENU SECONDAIRE / TOUCHSCROLLER
 /*---------------------------------------------------------------
 WIDGET BOUTONS PERSO
 ---------------------------------------------------------------*/
+
 // * * * * * * * * * * * Bouton simple * * * * * * * * * * * *
 .button.simple-btn {
-	display: inline-block;
+    display: inline-block;
     text-align: left;
     line-height: 1;
     cursor: pointer;
@@ -296,14 +513,17 @@ WIDGET BOUTONS PERSO
     font-size: 0.9rem;
     background-color: #CCC;
     color: #000;
-	transition:all .3s;
+    transition: all .3s;
 }
+
 .button.simple-btn:hover {
-	background-color: #FFF;
+    background-color: #FFF;
     color: #000;
 }
+
 .button.long {
-width:100%;	
+    width: 100%;
 }
+
 
 /*2comit*/
