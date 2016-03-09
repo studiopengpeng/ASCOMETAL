@@ -16,6 +16,31 @@
 				<?php do_action( 'foundationpress_before_footer' ); ?>
 				<?php dynamic_sidebar( 'footer-widgets' ); ?>
 				<?php do_action( 'foundationpress_after_footer' ); ?>
+				
+				<!--menu secondaire : Menu gauche -> page.php-->
+                    <?php
+$args_menu1 = array(
+'theme_location'  => '',
+'menu'            => '38',
+'container'       => 'nav',
+'container_class' => 'small-12 medium-12 large-12 columns',
+'container_id'    => 'footernav',
+'menu_class'      => 'menu-footer',
+'menu_id'         => '',
+'echo'            => true,
+'fallback_cb'     => 'false',
+'before'          => '',
+'after'           => '',
+'link_before'     => '',
+'link_after'      => '',
+'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+'depth'           => 0,
+'walker'          => ''
+);
+wp_nav_menu( $args_menu1 );
+?>
+                        <!--END menu secondaire-->
+				
 			</footer>
 		</div>
 

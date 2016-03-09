@@ -7,8 +7,9 @@ REGLAGES GLOBAUX / GLOBAL SETTINGS
 // * * * * * * * * * * * * * page.php * * * * * * * * * * * * * 
 #page {
     margin-top: 0;
-    background: #fff;
+    background: #fafafa;
     border-top: solid 3px #b5bf1e;
+    padding-bottom: 30px;
 }
 
 // * * * * * * * * * * * * * END page.php * * * * * * * * * * *
@@ -16,6 +17,7 @@ REGLAGES GLOBAUX / GLOBAL SETTINGS
 /*---------------------------------------------------------------
 MARCHES HOME (présentation + effets au survol) 
 ---------------------------------------------------------------*/
+
 .ih-item {
     -webkit-box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
     -moz-box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
@@ -65,7 +67,6 @@ MARCHES HOME (présentation + effets au survol)
 }
 
 .ih-item.square.effect13.colored .info {
-    background: #1a4a72;
     background: rgba(26, 74, 114, 0.6);
 }
 
@@ -112,6 +113,10 @@ MARCHES HOME (présentation + effets au survol)
     background: rgba(3, 136, 142, 0.75);
 }
 
+.ih-item.square.effect13 .asco {
+    background: rgba(255, 255, 255, 0.3);
+}
+
 .ih-item.square.effect13 .info h3 {
     text-transform: uppercase;
     font-weight: 700;
@@ -120,6 +125,18 @@ MARCHES HOME (présentation + effets au survol)
     text-transform: uppercase;
     width: 100%;
     line-height: rem-calc(65);
+}
+
+#about .ih-item.square.effect13 .info {
+    p {
+        color: #5e5e5e;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    h3 {
+        color: #e52713;
+    }
 }
 
 .ih-item.square.effect13 .info p {
@@ -168,7 +185,8 @@ article.auto .ih-item.square.effect13 .info p {
 .ih-item.square.effect13.top_to_bottom a h3.title-auto,
 .ih-item.square.effect13.top_to_bottom a h3.title-rolling,
 .ih-item.square.effect13.top_to_bottom a h3.title-mechanical,
-.ih-item.square.effect13.top_to_bottom a h3.title-petrol {
+.ih-item.square.effect13.top_to_bottom a h3.title-petrol,
+.ih-item.square.effect13.top_to_bottom a h3.title-asco {
     text-transform: uppercase;
     width: 100%;
     line-height: rem-calc(65);
@@ -180,6 +198,10 @@ article.auto .ih-item.square.effect13 .info p {
     -webkit-transition: all 0.2s linear;
     -moz-transition: all 0.2s linear;
     transition: all 0.2s linear;
+}
+
+.ih-item.square.effect13.top_to_bottom a h3.title-asco {
+    color: #e52713;
 }
 
 .title-auto {
@@ -198,10 +220,15 @@ article.auto .ih-item.square.effect13 .info p {
     background-color: rgba(3, 136, 142, 0.7);
 }
 
+.title-asco {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
 .ih-item.square.effect13.top_to_bottom a:hover h3.title-auto,
 .ih-item.square.effect13.top_to_bottom a:hover h3.title-rolling,
 .ih-item.square.effect13.top_to_bottom a:hover h3.title-mechanical,
-.ih-item.square.effect13.top_to_bottom a:hover h3.title-petrol {
+.ih-item.square.effect13.top_to_bottom a:hover h3.title-petrol,
+.ih-item.square.effect13.top_to_bottom a:hover h3.title-asco {
     opacity: 0;
 }
 
@@ -353,7 +380,6 @@ nav.slidenav {
 MENU PRINCIPAL / TOP-BAR
 ---------------------------------------------------------------*/
 
-
 .top-bar,
 .top-bar ul,
 .top-bar li,
@@ -494,6 +520,52 @@ MENU SECONDAIRE / TOUCHSCROLLER
 
 
 /*---------------------------------------------------------------
+MENU FOOTER
+---------------------------------------------------------------*/
+
+#footer-container {
+    background-color: #989898;
+}
+
+#footernav {
+    a {
+        color: #fff;
+        text-transform: uppercase;
+    }
+    ul li {
+        list-style: none;
+        font-weight: 700;
+        width: 19.361245%;
+        float: left;
+        padding-right: 20px;
+        margin-right: 10px;
+    }
+    ul li:last-child {
+        margin-right: 0;
+    }
+    ul li ul li {
+        font-weight: 400;
+        float: none;
+        width: 100%;
+        line-height: 15px;
+        padding-bottom: 13px;
+    }
+    ul li ul li a:hover {
+        transition: all 0.2s ease-out;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+    }
+    ul li ul li a:hover {
+        color: #d4d4d4;
+    }
+    ul li ul li a {
+        text-transform: lowercase;
+    }
+}
+
+
+/*---------------------------------------------------------------
 WIDGET BOUTONS PERSO
 ---------------------------------------------------------------*/
 
@@ -526,4 +598,24 @@ WIDGET BOUTONS PERSO
 }
 
 
-/*2comit*/
+/*---------------------------------------------------------------
+SECTION LOGOS - ils nous font confiance
+---------------------------------------------------------------*/
+
+.lshowcase-logos {
+    max-width: 100%;
+    .bx-wrapper {
+        max-width: 100%;
+        img {
+            width: auto;
+            margin: 45px auto;
+            max-height: 77px;
+            opacity: .5;
+            -webkit-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+            -ms-filter: grayscale(100%);
+            -o-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
+    }
+}
