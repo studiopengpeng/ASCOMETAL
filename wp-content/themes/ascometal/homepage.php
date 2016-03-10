@@ -131,7 +131,8 @@ get_header(); ?>
 
                                 </section>
                                 <!-- Logos -->
-                                <?php echo do_shortcode("[show-logos orderby='none' category='0' activeurl='inactive' style='normal' interface='hcarousel' tooltip='false' description='false' limit='0' filter='false' carousel='false,4000,false,false,500,10,true,false,true,1,0,1']"); ?>
+                                
+                                <?php echo do_shortcode("[show-logos orderby='none' category='0' activeurl='new' style='hgrayscale' interface='hcarousel' tooltip='false' description='false' limit='0' filter='false' carousel='true,1700,false,false,500,10,true,false,true,1,0,1']"); ?> 
                                     <!-- END logos -->
                                     <footer>
                                         <?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ), 'after' => '</p></nav>' ) ); ?>
