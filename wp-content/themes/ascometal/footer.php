@@ -21,7 +21,7 @@
                     <?php
 $args_menu1 = array(
 'theme_location'  => '',
-'menu'            => '38',
+'menu'            => '39',
 'container'       => 'nav',
 'container_class' => 'small-12 medium-12 large-12 columns',
 'container_id'    => 'footernav',
@@ -39,8 +39,7 @@ $args_menu1 = array(
 );
 wp_nav_menu( $args_menu1 );
 ?>
-                        <!--END menu secondaire-->
-				
+                <!--END menu secondaire-->
 			</footer>
 		</div>
 
@@ -57,7 +56,7 @@ wp_nav_menu( $args_menu1 );
 <?php do_action( 'foundationpress_before_closing_body' ); ?>
 <!--live reload-->
 <script type='text/javascript' id="__bs_script__">//<![CDATA[
-    //document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.11.1.js'><\/script>".replace("HOST", location.hostname));
+    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.11.1.js'><\/script>".replace("HOST", location.hostname));
 //]]></script>
 <!--live reload END-->
 </body>

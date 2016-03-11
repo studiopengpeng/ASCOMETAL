@@ -124,25 +124,26 @@ get_header(); ?>
                                     <!-- Actualités -->
                                     <article class=" news small-12 medium-12 large-7 columns">
                                         <div class="ih-item">
-                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/actu.png" alt="">
-                                         </div>
+                                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/actu.png" alt="">
+                                        </div>
                                     </article>
                                     <!-- END Actualités -->
 
                                 </section>
-                                <!-- Logos -->
-                                
-                                <?php echo do_shortcode("[show-logos orderby='none' category='0' activeurl='new' style='hgrayscale' interface='hcarousel' tooltip='false' description='false' limit='0' filter='false' carousel='true,1700,false,false,500,10,true,false,true,1,0,1']"); ?> 
-                                    <!-- END logos -->
-                                    <footer>
-                                        <?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ), 'after' => '</p></nav>' ) ); ?>
-                                            <p>
-                                                <?php the_tags(); ?>
-                                            </p>
-                                    </footer>
-                                    <?php do_action( 'foundationpress_page_before_comments' ); ?>
-                                        <?php comments_template(); ?>
-                                            <?php do_action( 'foundationpress_page_after_comments' ); ?>
+                                <!-- Logos-customers -->
+                                <section class="customers small-12 medium-12 large-12 columns">
+                                    <?php echo do_shortcode("[show-logos orderby='none' category='0' activeurl='inactive' style='hgrayscale' interface='hcarousel' tooltip='false' description='false' limit='0' filter='false' ]"); ?>
+                                </section>
+                                <!-- END logos-customers -->
+                                <footer>
+                                    <?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ), 'after' => '</p></nav>' ) ); ?>
+                                        <p>
+                                            <?php the_tags(); ?>
+                                        </p>
+                                </footer>
+                                <?php do_action( 'foundationpress_page_before_comments' ); ?>
+                                    <?php comments_template(); ?>
+                                        <?php do_action( 'foundationpress_page_after_comments' ); ?>
                             </div>
                 </div>
 
