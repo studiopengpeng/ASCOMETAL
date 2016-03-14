@@ -640,3 +640,20 @@ SECTION LOGOS - ils nous font confiance
             max-width: 100%!important;
         }
     }
+
+/*
+.accordion .accordion-navigation > .content * {
+    display: none;
+}
+
+.accordion .accordion-navigation > .content {
+    display: run-in  !important;
+}
+
+.accordion .accordion-navigation > .content.active{
+    display: block  !important;
+}
+
+.accordion .accordion-navigation > .content.active * {
+    display: run-in !important;
+}*/
