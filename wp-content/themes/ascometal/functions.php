@@ -46,3 +46,9 @@ require_once( 'library/sticky-posts.php' );
 
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
 // require_once( 'library/protocol-relative-theme-assets.php' );
+
+//** Tailles d'images personnalisées
+add_theme_support('post-thumbnails');
+if (function_exists('add_image_size')) {
+     add_image_size('vignette_actu', 190, 190, true);
+}
