@@ -622,7 +622,6 @@ WIDGET BOUTONS PERSO
         background-color: #FFF;
         color: #000;
     }
-    
     .button.long {
         width: 100%;
     }
@@ -641,19 +640,11 @@ SECTION LOGOS - ils nous font confiance
         }
     }
 
-/*
-.accordion .accordion-navigation > .content * {
+
+p.byline.author {
     display: none;
 }
 
-.accordion .accordion-navigation > .content {
-    display: run-in  !important;
+.category-actualites {
+    background-color: #fff;
 }
-
-.accordion .accordion-navigation > .content.active{
-    display: block  !important;
-}
-
-.accordion .accordion-navigation > .content.active * {
-    display: run-in !important;
-}*/

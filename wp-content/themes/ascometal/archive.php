@@ -20,6 +20,7 @@ get_header(); ?>
 <div id="page" role="main">
 	<article class="main-content">
 	<?php if ( have_posts() ) : ?>
+	<h1>test</h1>
 		<?php /* Start the Loop */ ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 			<?php get_template_part( 'template-parts/content', get_post_format() ); ?>

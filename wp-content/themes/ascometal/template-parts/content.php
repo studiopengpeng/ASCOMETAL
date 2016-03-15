@@ -12,7 +12,7 @@
     <div id="post-<?php the_ID(); ?>" <?php post_class( 'blogpost-entry'); ?>>
         <article class="ih-item">
             <header>
-                <p>Lien vers fichier parmettant l'affichage des derniers articles dans archive.php = <strong>template-parts/content.php</strong></p>
+<!--                <p>Lien vers fichier parmettant l'affichage des derniers articles dans archive.php = <strong>template-parts/content.php</strong></p>-->
                 <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                 <?php the_post_thumbnail('vignette_actu'); ?>
 
