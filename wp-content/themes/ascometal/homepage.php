@@ -131,7 +131,7 @@ get_header(); ?>
 
                                 </section>
                                 <!-- Logos-customers -->
-                                <h4 class="large-12 columns">Ils nous font confiance</h4>
+                                <h4 class="large-12 columns">Ils nous font confiance...</h4>
                                 <section class="customers small-12 medium-12 large-12 columns">
                                     <?php echo do_shortcode("[show-logos orderby='none' category='0' activeurl='inactive' style='hgrayscale' interface='hcarousel' tooltip='false' description='false' limit='0' filter='false' ]"); ?>
                                 </section>

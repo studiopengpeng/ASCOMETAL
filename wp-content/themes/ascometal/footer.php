@@ -59,5 +59,19 @@ wp_nav_menu( $args_menu1 );
     document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.11.1.js'><\/script>".replace("HOST", location.hostname));
 //]]></script>
 <!--live reload END-->
+<!--Toggle sur le champs de recherche-->
+<script>
+$( "li.searchbtn" ).click(function() {
+  $( ".offsearch" ).toggleClass( "onsearch" );
+});
+</script>
+<!--END Toggle sur le champs de recherche-->
+<!--Toggle sur le champs d'appel-->
+<script>
+$( "li.callbtn" ).click(function() {
+  $( ".offcall" ).toggleClass( "oncall" );
+});
+</script>
+<!--END Toggle sur le champs d'appel-->
 </body>
 </html>

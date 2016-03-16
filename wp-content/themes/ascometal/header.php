@@ -34,6 +34,8 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
+        <!--        librairie Jquery-->
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         <?php wp_head(); ?>
     </head>
 
@@ -49,7 +51,32 @@
                                 <?php do_action( 'foundationpress_layout_start' ); ?>
 
                                     <header id="masthead" class="site-header" role="banner">
+                                        <section id="navtools" class="row">
+                                            <nav class="large-12 columns">
+                                                <ul>
+                                                    <li class="offcall">
+                                                        <span>+39 3 88 11 22 33</span>
+                                                    </li>
+                                                    <li class="callbtn"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/phone.svg" alt="téléphone"></li>
+                                                    <li class="searchbtn">
+                                                        <a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/magnifier.svg" alt="rechercher">
+                                              </a></li>
+                                                    <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/lock.svg" alt="accès membres"></a></li>
+                                                    <li>
+                                                        <ul class="translation">
+                                                            <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/greatbritain-flag.svg" alt="drapeau anglais"></li>
+                                                            <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/france-flag.svg" alt="drapeau français"></li>
+                                                            <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/germany-flag.svg" alt="drapeau allemand"></li>
+                                                            <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/italy-flag.svg" alt="drapeau italien"></li>
 
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                <div class="offsearch">
+                                                    <?php get_search_form (); ?>
+                                                </div>
+                                            </nav>
+                                        </section>
                                         <div class="title-bar" data-responsive-toggle="site-navigation">
                                             <button class="menu-icon" type="button" data-toggle="mobile-menu"></button>
                                             <div class="title-bar-title">
