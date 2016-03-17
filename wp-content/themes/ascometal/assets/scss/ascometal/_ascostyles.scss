@@ -9,7 +9,6 @@ REGLAGES GLOBAUX / GLOBAL SETTINGS
 #single-post {
     margin-top: 0;
     background: #fafafa;
-    border-top: solid 3px #b5bf1e;
     padding-bottom: 30px;
 }
 
@@ -297,6 +296,12 @@ article .ih-item.square.effect13 .info .seemore {
     }
 }
 
+@media screen and (max-width: 640px) {
+    #markets {
+        padding: 25px 0px 0px 0px;
+    }
+}
+
 
 /*---------------------------------------------------------------
 IMAGE D'ENTETE / HEADER-IMAGE
@@ -309,6 +314,7 @@ header.header-image {
         max-height: 225px;
         overflow: hidden;
         margin: 0 -15px;
+        border-top: solid 3px #b5bf1e;
     }
     h1 {
         position: absolute;
@@ -513,8 +519,8 @@ nav#site-navigation {
     position: relative;
     .logo img {
         position: absolute;
-        top: 5px;
-        left: 0;
+        top: 0;
+        left: 30px;
     }
     a:hover {
         box-shadow: none!important;
@@ -527,6 +533,46 @@ nav#site-navigation {
 }
 
 // * * * * * * * * * * * END - Logo * * * * * * * * * * * *
+@media screen and (max-width: 1070px) {
+    .top-bar {
+        .top-bar-left {
+            width: 200px;
+        }
+        .menu a {
+            letter-spacing: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #main-container .top-bar,
+    .top-bar ul,
+    .top-bar li,
+    .top-bar-left,
+    .top-bar-right {
+        height: auto;
+        width: 100%;
+    }
+    #menu-menu-principal {
+        display: none;
+    }
+    .top-bar-left {
+        display: none;
+    }
+    #masthead {
+        padding-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    header.header-image h1 {
+        line-height: 50px;
+        top: 25%;
+        font-size: 50px;
+        padding: 0 20px;
+    }
+}
+
 @media screen and (max-width: 640px) {
     #main-container .top-bar,
     .top-bar ul,
@@ -534,6 +580,20 @@ nav#site-navigation {
     .top-bar-left,
     .top-bar-right {
         height: auto;
+    }
+    header.header-image h1 {
+        line-height: 40px;
+        top: 25%;
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    header.header-image h1 {
+        line-height: 35px;
+        top: 25%;
+        font-size: 30px;
+        padding: 0 20px;
     }
 }
 
@@ -615,6 +675,12 @@ MENU LANGUES / RECHERCHE / CONNEXION / CONTACT DIRECT
 //drapeaux cachés dans le menu "outils" 
 .translation {
     display: none;
+}
+
+@media screen and (max-width: 470px) {
+    #searchform [type='submit'] {
+        width: auto;
+    }
 }
 
 
@@ -744,4 +810,11 @@ PAGE LISTE D'ACTUALITES
 
 .category-actualites {
     background-color: #fff;
+}
+
+@media screen and (max-width: 1024px) {
+    #mobile-menu,
+    .title-bar {
+        display: block !important;
+    }
 }
