@@ -2,12 +2,12 @@
 
 .desktop-menu,
 .top-bar-left {
-    @include show-for(medium);
+    @include show-for(large);
 }
 
 #mobile-menu,
 .title-bar {
-    @include show-for(medium);
+    @include show-for(small);
 }
 
 
