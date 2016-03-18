@@ -29,6 +29,6 @@
                     </p>
                     <?php } ?>
             </footer>
-            </artile>
+            </article>
             <hr />
     </div>
