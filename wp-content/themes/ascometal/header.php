@@ -77,23 +77,24 @@
                                                 </div>
                                             </nav>
                                         </section>
-                                        <div class="title-bar" data-responsive-toggle="site-navigation">
-                                            <button class="menu-icon" type="button" data-toggle="mobile-menu"></button>
+                                        <div class="title-bar" data-responsive-toggle="site-navigation" data-hide-for="large">
+                                            <button class="menu-icon dark" type="button" data-toggle="mobile-menu"></button>
                                             <div class="title-bar-title">
-                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                                                    <?php bloginfo( 'name' ); ?>
-                                                </a>
+                                                <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                                                    <h2 class="indent">
+                                                                <?php bloginfo( 'name' ); ?>
+                                                            </h2><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo.svg" alt="Logo d'Ascometal"></a>
                                             </div>
-                                        </div>
+                                        </div>    
 
                                         <nav id="site-navigation" class="main-navigation top-bar" role="navigation">
                                             <div class="top-bar-left">
                                                 <ul class="menu">
                                                     <li class="home">
                                                         <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                                                            <div class="indent">
+                                                            <h2 class="indent">
                                                                 <?php bloginfo( 'name' ); ?>
-                                                            </div><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo.svg" alt="Logo d'Ascometal"></a>
+                                                            </h2><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo.svg" alt="Logo d'Ascometal"></a>
                                                     </li>
                                                 </ul>
                                             </div>

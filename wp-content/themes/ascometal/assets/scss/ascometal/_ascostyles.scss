@@ -13,6 +13,12 @@ REGLAGES GLOBAUX / GLOBAL SETTINGS
 }
 
 // * * * * * * * * * * * * * END page.php * * * * * * * * * * *
+.indent {
+    text-indent: -8000px;
+    height: 0px;
+    margin: 0;
+}
+
 
 /*---------------------------------------------------------------
 MARCHES HOME (présentation + effets au survol) 
@@ -525,10 +531,6 @@ nav#site-navigation {
     a:hover {
         box-shadow: none!important;
     }
-    div.indent {
-        text-indent: -8000px;
-        height: 0px
-    }
     width: 275px;
 }
 
@@ -562,6 +564,12 @@ nav#site-navigation {
     #masthead {
         padding-bottom: 0;
     }
+    .menu.vertical > li {
+        border-bottom: 1px solid #bebebe;
+    }
+    .menu.nested, .vertical {
+        margin-left: 0!important;
+    }
 }
 
 @media screen and (max-width: 750px) {
@@ -594,6 +602,12 @@ nav#site-navigation {
         top: 25%;
         font-size: 30px;
         padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .title-bar-title {
+        width: 80%;
     }
 }
 
@@ -812,9 +826,19 @@ PAGE LISTE D'ACTUALITES
     background-color: #fff;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1025px) {
     #mobile-menu,
     .title-bar {
         display: block !important;
+        background-color: #D6D6D6;
     }
+    .menu-icon.dark:hover::after {
+        background: #E42618;
+        box-shadow: 0 7px 0 #E42618, 0 14px 0 #E42618;
+    }
+}
+
+.title-bar-title img {
+    width: 60%;
+    padding-left: 5px;
 }
