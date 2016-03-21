@@ -52,3 +52,10 @@ add_theme_support('post-thumbnails');
 if (function_exists('add_image_size')) {
      add_image_size('vignette_actu', 190, 190, true);
 }
+
+//** titre de la page parente dans le header
+function parent_page_title() {
+	global $post;
+	$parent = empty( $post->post_parent ) ? '' : get_the_title($post->post_parent);
+    echo $parent;
+}
