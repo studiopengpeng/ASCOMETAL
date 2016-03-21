@@ -126,11 +126,12 @@ MARCHES HOME (présentation + effets au survol)
 .ih-item.square.effect13 .info h3 {
     text-transform: uppercase;
     font-weight: 700;
+    font-size: 30px;
     color: #fff;
     text-align: center;
     text-transform: uppercase;
     width: 100%;
-    line-height: rem-calc(65);
+    line-height: 4.0625rem;
 }
 
 #about {
@@ -155,12 +156,8 @@ MARCHES HOME (présentation + effets au survol)
     line-height: 24px;
     position: relative;
     color: #fff;
-    padding: 0px 45px;
-    text-align: center;
-}
-
-article.auto .ih-item.square.effect13 .info p {
     padding: 0px 20px;
+    text-align: center;
 }
 
 .ih-item.square.effect13 a:hover .img {
@@ -198,6 +195,7 @@ article.auto .ih-item.square.effect13 .info p {
 .ih-item.square.effect13.top_to_bottom a h3.title-petrol,
 .ih-item.square.effect13.top_to_bottom a h3.title-asco {
     text-transform: uppercase;
+    font-size: 30px;
     width: 100%;
     line-height: rem-calc(65);
     position: absolute;
@@ -274,14 +272,13 @@ article .ih-item.square.effect13 .info .seemore {
     }
     article.auto .ih-item.square.effect13 .info p {
         padding: 0px 15px;
-        margin-bottom: 40px;
+        margin-bottom: 10px;
     }
 }
 
 @media screen and (max-width: 1024px) {
     .ih-item.square.effect13 .info {
         img {
-            width: 40%;
             margin: 25px auto 40px auto;
         }
         p {
@@ -291,20 +288,48 @@ article .ih-item.square.effect13 .info .seemore {
             margin-bottom: 10px;
         }
     }
-    article.auto .ih-item.square.effect13 .info {
-        p {
-            padding: 0px 10px;
-            margin-bottom: 10px;
-        }
-        img {
-            margin: 0px auto 0px auto;
-        }
+    //    article.auto .ih-item.square.effect13 .info {
+    //        p {
+    //            padding: 0px 10px;
+    //            margin-bottom: 10px;
+    //        }
+    //        img {
+    //            margin: 0px auto 0px auto;
+    //        }
+    //    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 740px) {
+    .ih-item.square.effect13 .info img {
+        margin: 0px auto 10px auto;
     }
 }
 
 @media screen and (max-width: 640px) {
     #markets {
         padding: 25px 0px 0px 0px;
+    }
+    article.ascometal .ih-item.square.effect13 .info img {
+        width: 10%;
+        margin: 10px auto 10px auto;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    article.ascometal .ih-item.square.effect13 .info p {
+        line-height: 20px;
+    }
+    #about .ih-item.square.effect13 .info p {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .ih-item.square.effect13 .info img {
+        margin: 10px auto 10px auto;
+    }
+    article.ascometal .ih-item.square.effect13 .info img {
+        display: none;
     }
 }
 
@@ -586,7 +611,8 @@ nav#site-navigation {
     .menu.vertical > li {
         border-bottom: 1px solid #bebebe;
     }
-    .menu.nested, .vertical {
+    .menu.nested,
+    .vertical {
         margin-left: 0!important;
     }
 }
@@ -860,4 +886,24 @@ PAGE LISTE D'ACTUALITES
 .title-bar-title img {
     width: 60%;
     padding-left: 5px;
+}
+
+.article-preview {
+    overflow: auto;
+    .thumb, .infos {
+        float: left;
+    }
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    h2 {
+        line-height: rem-calc(20);
+         border: none;
+        a {
+            font-size: rem-calc(18);
+            font-family: "Lora", serif;
+            text-transform: lowercase;
+           
+        }
+    }
 }

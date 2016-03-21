@@ -15,18 +15,21 @@
 
 get_header(); ?>
 
-<div id="page" role="main">
-<!--header de page : contient le bandeau image + le titre de la rubrique principale-->
-        <article class="small-12 medium-12 large-12 columns">
+    <div id="page" role="main">
+        <!--header de page : contient le bandeau image + le titre de la rubrique principale-->
+        <div class="row">
+            <article class="small-12 medium-12 large-12 columns">
                 <header class="header-image">
                     <?php get_template_part( 'template-parts/featured-image' ); ?>
-                    <h1>Actualités</h1>
+                        <h1>Actualités</h1>
                 </header>
-        </article>
+            </article>
+        </div>
+       
         <!--END header de page-->
         <?php do_action( 'foundationpress_before_content' ); ?>
-                    <!--menu secondaire : Menu gauche -> page.php-->
-                    <?php
+            <!--menu secondaire : Menu gauche -> page.php-->
+            <?php
 $args_menu1 = array(
 'theme_location'  => '',
 'menu'            => '13',
@@ -47,38 +50,36 @@ $args_menu1 = array(
 );
 wp_nav_menu( $args_menu1 );
 ?>
-                        <!--END menu secondaire-->
-	<article class="main-content">
-	<?php if ( have_posts() ) : ?>
+                <!--END menu secondaire-->
+                    <article class="main-content">
+                        <?php if ( have_posts() ) : ?>
 
-		<?php /* Start the Loop */ ?>
-		<?php while ( have_posts() ) : the_post(); ?>
-			<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
-		<?php endwhile; ?>
+                            <?php /* Start the Loop */ ?>
+                                <?php while ( have_posts() ) : the_post(); ?>
+                                    <?php get_template_part( 'template-parts/content', get_post_format() ); ?>
+                                        <?php endwhile; ?>
 
-		<?php else : ?>
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
+                                            <?php else : ?>
+                                                <?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-		<?php endif; // End have_posts() check. ?>
+                                                    <?php endif; // End have_posts() check. ?>
 
-		<?php /* Display navigation to next/previous pages when applicable */ ?>
-		<?php if ( function_exists( 'foundationpress_pagination' ) ) { foundationpress_pagination(); } else if ( is_paged() ) { ?>
-			<nav id="post-nav">
-				<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?></div>
-				<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
-			</nav>
-		<?php } ?>
+                                                        <?php /* Display navigation to next/previous pages when applicable */ ?>
+                                                            <?php if ( function_exists( 'foundationpress_pagination' ) ) { foundationpress_pagination(); } else if ( is_paged() ) { ?>
+                                                                <nav id="post-nav">
+                                                                    <div class="post-previous">
+                                                                        <?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?>
+                                                                    </div>
+                                                                    <div class="post-next">
+                                                                        <?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?>
+                                                                    </div>
+                                                                </nav>
+                                                                <?php } ?>
 
-	</article>
-	
-	<?php get_sidebar(); ?>
+                    </article>
 
-</div>
+                <?php //get_sidebar(); ?>
 
-<?php get_footer();
-
-
-
-
-
-
+    
+ </div>
+    <?php get_footer();
