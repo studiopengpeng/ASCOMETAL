@@ -13,6 +13,7 @@
 //global $classeRubrique;
 global $contexte_blocs;
 global $idBloc;
+global $exception_couleur;
 
 // préparation des variables à réutiliser dans la page
 if ($contexte_blocs=="avecID") {
@@ -24,10 +25,13 @@ if ($contexte_blocs=="avecID") {
 	$imgSrc = types_render_field( "image-bloc", array("alt"=>"", "output"=>"raw"));
 	$description = types_render_field("description-bloc", array("output"=>"raw"));
 }
+
+$classColorException="";
+if ($exception_couleur==true) {$classColorException="contact";}
 								 
 ?>
 
-	<article class="rolling small-12 medium-6 large-3 columns">
+	<article class="rolling small-12 medium-6 large-3 columns <?php echo $classColorException; ?>">
 
 		<div class="ih-item square effect13 top_to_bottom">
 			<a href="<?php the_permalink(); ?>">

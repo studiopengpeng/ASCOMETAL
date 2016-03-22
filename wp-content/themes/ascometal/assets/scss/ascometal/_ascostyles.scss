@@ -838,7 +838,22 @@ MENU SECONDAIRE / TOUCHSCROLLER
     }
 }
 
+/*---------------------------------------------------------------
+MENU GAUCHE / MASQUAGE sous rubriques non actuelles
+---------------------------------------------------------------*/
 
+#touchscroller {
+	
+	.sub-menu
+	{ 
+		display: none; 
+	}
+
+	.current-menu-ancestor .sub-menu { 
+		display: block; 
+	}
+
+}
 /*---------------------------------------------------------------
 MENU FOOTER
 ---------------------------------------------------------------*/

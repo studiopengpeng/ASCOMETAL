@@ -13,7 +13,7 @@ global $idBloc;
 ?>
 
     <div id="page" role="main">
-        <article class="main-content">
+        <article class="main-content corporate">
 			<?php get_template_part( 'template-parts/header-banner-marches' ); ?>
 			
 			<div class="row">
