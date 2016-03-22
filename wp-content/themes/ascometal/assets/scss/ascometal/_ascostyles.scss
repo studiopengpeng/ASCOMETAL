@@ -343,9 +343,11 @@ header.header-image {
     #featured-hero {
         max-width: 1280px;
         max-height: 225px;
+		min-height: 225px;
         overflow: hidden;
         margin: 0 -15px;
         border-top: solid 3px #b5bf1e;
+		background-color:#ccc;
     }
     h1 {
         position: absolute;
@@ -359,25 +361,26 @@ header.header-image {
     }
 }
 
+
 /*---------------------------------------------------------------
 BREADCRUMBS
 ---------------------------------------------------------------*/
+
 .breadcrumbs {
-    padding: 23px 25px 0px 37px;	
-	color:#DDD;
-	line-height:rem-calc(17);
-	font-size:rem-calc(15);
-	max-height:rem-calc(75);
-	
-	a {
-		color:#FFF;
-	}
-	
-	.bc_home_icon {
-		margin-right:10px;
-		margin-top:-5px;
-	}
+    padding: 23px 25px 0px 37px;
+    color: #DDD;
+    line-height: rem-calc(17);
+    font-size: rem-calc(15);
+    max-height: rem-calc(75);
+    a {
+        color: #FFF;
+    }
+    .bc_home_icon {
+        margin-right: 10px;
+        margin-top: -5px;
+    }
 }
+
 
 /*---------------------------------------------------------------
 CONTENU DE SAISIE / MAIN-CONTAINER
@@ -578,6 +581,23 @@ nav#site-navigation {
     width: 275px;
 }
 
+@media screen and (max-width: 1025px) {
+    #mobile-menu,
+    .title-bar {
+        display: block !important;
+        background-color: #D6D6D6;
+    }
+    .menu-icon.dark:hover::after {
+        background: #E42618;
+        box-shadow: 0 7px 0 #E42618, 0 14px 0 #E42618;
+    }
+}
+
+.title-bar-title img {
+    width: 60%;
+    padding-left: 5px;
+}
+
 // * * * * * * * * * * * END - Logo * * * * * * * * * * * *
 @media screen and (max-width: 1070px) {
     .top-bar {
@@ -731,10 +751,105 @@ MENU LANGUES / RECHERCHE / CONNEXION / CONTACT DIRECT
     left: -150px;
 }
 
-//drapeaux cachés dans le menu "outils" 
-.translation {
-    display: none;
+/* header dropdown menu des langues*/
+#navtools nav {
+    overflow:visible;
 }
+#navtools #lang_sel li {
+    float: left;
+    width: 40px;
+}
+#navtools #lang_sel ul ul {
+	width:auto;
+}
+/* memo : ! effacer les modifications d'opacité (donc l'animation) si soucis sur mobiles ! */
+#lang_sel ul ul {
+    width: auto;
+    visibility: hidden;
+	opacity:0;
+	transition:all .3s;
+}
+#lang_sel ul li:hover ul, #lang_sel ul a:hover ul {
+    visibility: visible;
+	opacity:1;
+}
+#navtools #lang_sel ul li {
+	/*display:block;
+	float:none;*/
+	display: inline-block;
+	float:left;
+}
+#navtools #lang_sel ul:first-child {
+    margin-top: 15px !important;
+	li:first-child {
+		width: 60px !important;
+	}
+}
+#navtools #lang_sel ul ul {
+    width: 210px;
+    position:relative;
+	left:-44px;
+	top:5px;
+<<<<<<< HEAD
+}
+
+#navtools #lang_sel li a.icl-fr img, #navtools #lang_sel li.icl-fr a img {
+	content : url('../images/france-flag.svg');
+}
+#navtools #lang_sel li.icl-en a img, #navtools #lang_sel li a.icl-en img {
+	content : url('../images/greatbritain-flag.svg');
+}
+#navtools #lang_sel li.icl-de a img, #navtools #lang_sel li a.icl-de img {
+	content : url('../images/germany-flag.svg');
+}
+#navtools #lang_sel li.icl-it a img, #navtools #lang_sel li a.icl-it img {
+	content : url('../images/italy-flag.svg');
+}
+
+#navtools  #lang_sel ul li img.iclflag {
+    width: 24px;
+    height: auto;
+    position: relative;
+    top: 0;
+    left: -10px;
+}
+#navtools  #lang_sel ul li:first-child img.iclflag {
+    left: -11px;
+=======
+>>>>>>> origin/master
+}
+#navtools  #lang_sel ul ul a {
+    padding: 5px 0px;
+}
+/* fin menu des langues */
+
+#navtools #lang_sel li a.icl-fr img, #navtools #lang_sel li.icl-fr a img {
+	content : url('../images/france-flag.svg');
+}
+#navtools #lang_sel li.icl-en a img, #navtools #lang_sel li a.icl-en img {
+	content : url('../images/greatbritain-flag.svg');
+}
+#navtools #lang_sel li.icl-de a img, #navtools #lang_sel li a.icl-de img {
+	content : url('../images/germany-flag.svg');
+}
+#navtools #lang_sel li.icl-it a img, #navtools #lang_sel li a.icl-it img {
+	content : url('../images/italy-flag.svg');
+}
+
+#navtools  #lang_sel ul li img.iclflag {
+    width: 24px;
+    height: auto;
+    position: relative;
+    top: 0;
+    left: -10px;
+}
+#navtools  #lang_sel ul li:first-child img.iclflag {
+    left: -11px;
+}
+#navtools  #lang_sel ul ul a {
+    padding: 5px 0px;
+}
+/* fin menu des langues */
 
 @media screen and (max-width: 470px) {
     #searchform [type='submit'] {
@@ -772,7 +887,30 @@ MENU SECONDAIRE / TOUCHSCROLLER
     }
 }
 
+/*---------------------------------------------------------------
+MENU GAUCHE / MASQUAGE sous rubriques non actuelles
+---------------------------------------------------------------*/
 
+#touchscroller {
+	
+	.sub-menu
+	{ 
+		display: none; 
+	}
+<<<<<<< HEAD
+
+	.current-menu-ancestor .sub-menu { 
+		display: block; 
+	}
+
+=======
+
+	.current-menu-ancestor .sub-menu { 
+		display: block; 
+	}
+
+>>>>>>> origin/master
+}
 /*---------------------------------------------------------------
 MENU FOOTER
 ---------------------------------------------------------------*/
@@ -871,39 +1009,52 @@ PAGE LISTE D'ACTUALITES
     background-color: #fff;
 }
 
-@media screen and (max-width: 1025px) {
-    #mobile-menu,
-    .title-bar {
-        display: block !important;
-        background-color: #D6D6D6;
-    }
-    .menu-icon.dark:hover::after {
-        background: #E42618;
-        box-shadow: 0 7px 0 #E42618, 0 14px 0 #E42618;
-    }
-}
-
-.title-bar-title img {
-    width: 60%;
-    padding-left: 5px;
-}
-
 .article-preview {
     overflow: auto;
-    .thumb, .infos {
-        float: left;
-    }
     background-color: #fff;
     padding: 20px;
     margin-bottom: 30px;
+    .thumb,
+    .infos {
+        float: left;
+    }
+    p {
+        background-color: green;
+        a.more-link {
+            float: right;
+            text-decoration: none;
+            padding: 10px 0px 0px 0px;
+            background-color: pink;
+        }
+    }
     h2 {
         line-height: rem-calc(20);
-         border: none;
+        border: none;
+        margin-bottom: 0;
         a {
             font-size: rem-calc(18);
             font-family: "Lora", serif;
             text-transform: lowercase;
-           
+        }
+    }
+    .infos {
+        background-color: red;
+        padding: 0px rem-calc(15);
+    }
+    .thumb {
+        background: yellow;
+        padding-right: 15px; 
+        display: block;
+        div {
+           height: 190px;
+                width: auto;
+
         }
     }
 }
+
+
+@media screen and (max-width: 640px) {
+    
+}
+

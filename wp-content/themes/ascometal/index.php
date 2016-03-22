@@ -27,9 +27,12 @@ get_header(); ?>
         </div>
        
         <!--END header de page-->
-        <?php do_action( 'foundationpress_before_content' ); ?>
-            <!--menu secondaire : Menu gauche -> page.php-->
-            <?php
+
+
+ <div class="row">
+   <?php do_action( 'foundationpress_before_content' ); ?>
+                    <!--menu secondaire : Menu gauche -> page.php-->
+                    <?php
 $args_menu1 = array(
 'theme_location'  => '',
 'menu'            => '13',
@@ -50,36 +53,44 @@ $args_menu1 = array(
 );
 wp_nav_menu( $args_menu1 );
 ?>
-                <!--END menu secondaire-->
-                    <article class="main-content">
-                        <?php if ( have_posts() ) : ?>
+                        <!--END menu secondaire-->
+                      
+<!-- J'ai retiré la classe main-content qui était appliquée sur le div article et ça roule, elle doit comprendre des css qui entrent en conflit. Peut être que le main content à des propriétés spéciales... Le main-content ne doit peut être pas s'appliquer sur ce genre de listes mais juste sur le contenu d'un article. -->
+        <article class="small-12 medium-9 large-9 columns"> 
+                <?php if ( have_posts() ) : ?>
 
-                            <?php /* Start the Loop */ ?>
-                                <?php while ( have_posts() ) : the_post(); ?>
-                                    <?php get_template_part( 'template-parts/content', get_post_format() ); ?>
-                                        <?php endwhile; ?>
+                    <?php /* Start the Loop */ ?>
+                        <?php while ( have_posts() ) : the_post(); ?>
+                            <?php get_template_part( 'template-parts/content', get_post_format() ); ?>
+                        <?php endwhile; ?>
 
-                                            <?php else : ?>
-                                                <?php get_template_part( 'template-parts/content', 'none' ); ?>
+                <?php else : ?>
+                    <?php get_template_part( 'template-parts/content', 'none' ); ?>
+                <?php endif; // End have_posts() check. ?>
 
-                                                    <?php endif; // End have_posts() check. ?>
+                <?php /* Display navigation to next/previous pages when applicable */ ?>
+                    <?php if ( function_exists( 'foundationpress_pagination' ) ) { foundationpress_pagination(); } else if ( is_paged() ) { ?>
+                        <nav id="post-nav">
+                            <div class="post-previous">
+                                <?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?>
+                            </div>
+                            <div class="post-next">
+                                <?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?>
+                            </div>
+                        </nav>
+                    <?php } ?>
 
-                                                        <?php /* Display navigation to next/previous pages when applicable */ ?>
-                                                            <?php if ( function_exists( 'foundationpress_pagination' ) ) { foundationpress_pagination(); } else if ( is_paged() ) { ?>
-                                                                <nav id="post-nav">
-                                                                    <div class="post-previous">
-                                                                        <?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?>
-                                                                    </div>
-                                                                    <div class="post-next">
-                                                                        <?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?>
-                                                                    </div>
-                                                                </nav>
-                                                                <?php } ?>
+            </article>
+                      
+                       </div>
+                    </div>
 
-                    </article>
-
-                <?php //get_sidebar(); ?>
-
-    
- </div>
     <?php get_footer();
+
+
+
+
+
+
+
+
