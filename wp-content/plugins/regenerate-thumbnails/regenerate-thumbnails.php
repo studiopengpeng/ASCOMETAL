@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php /*
 
 **************************************************************************
@@ -407,6 +408,8 @@ function RegenerateThumbnails() {
 =======
 =======
 >>>>>>> origin/master
+=======
+>>>>>>> origin/master
 <?php /*
 
 **************************************************************************
@@ -812,6 +815,9 @@ function RegenerateThumbnails() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 =======
 >>>>>>> origin/master

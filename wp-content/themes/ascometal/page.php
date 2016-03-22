@@ -16,6 +16,7 @@
     <div id="page" role="main">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <!--header de page : contient le bandeau image + le titre de la rubrique principale-->
         <article class="small-12 medium-12 large-12 columns">
             <header class="header-image">
@@ -28,6 +29,8 @@
         <!--menu secondaire : Menu gauche -> page.php-->
         <?php
 =======
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 		<?php get_template_part( 'template-parts/header-banner' ); ?>
@@ -55,18 +58,7 @@ $args_menu1 = array(
 );
 wp_nav_menu( $args_menu1 );
 ?>
-<<<<<<< HEAD
-            <!--END menu secondaire-->
-            <?php do_action( 'foundationpress_before_content' ); ?>
-                <?php while ( have_posts() ) : the_post(); ?>
-                   <div class="row">
-                    <article id="main-container" class="small-12 medium-9 large-9 columns" <?php post_class( 'main-content') ?> id="post-
-                        <?php the_ID(); ?>">
-                            <header>
-                                <h2 class="entry-title"><?php the_title(); ?></h2>
-                            </header>
-                            <?php do_action( 'foundationpress_page_before_entry_content' ); ?>
-=======
+
                         <!--END menu secondaire-->
 		
 		<!-- début boucle content posts -->
@@ -78,7 +70,7 @@ wp_nav_menu( $args_menu1 );
                                     <h2 class="entry-title"><?php the_title(); ?></h2>
                                 </header>
                                 <?php do_action( 'foundationpress_page_before_entry_content' ); ?>
->>>>>>> origin/master
+
 
                                 <div class="entry-content">
 

@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 === Regenerate Thumbnails ===
 Contributors: Viper007Bond
 Donate link: http://www.viper007bond.com/donate/
@@ -128,6 +129,8 @@ Fixes lots of "Are you sure you want to do this?" error messages.
 =======
 =======
 >>>>>>> origin/master
+=======
+>>>>>>> origin/master
 === Regenerate Thumbnails ===
 Contributors: Viper007Bond
 Donate link: http://www.viper007bond.com/donate/
@@ -254,6 +257,9 @@ Fixes lots of "Are you sure you want to do this?" error messages.
 
 = 2.2.1 =
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 =======
 >>>>>>> origin/master
