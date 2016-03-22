@@ -51,6 +51,7 @@ require_once( 'library/sticky-posts.php' );
 add_theme_support('post-thumbnails');
 if (function_exists('add_image_size')) {
      add_image_size('vignette_actu', 190, 190, true);
+	 add_image_size('vignette_blocs', 590, 590, array('center', 'center'));
 }
 
 //** titre de la page parente dans le header

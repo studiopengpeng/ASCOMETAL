@@ -343,9 +343,11 @@ header.header-image {
     #featured-hero {
         max-width: 1280px;
         max-height: 225px;
+		min-height: 225px;
         overflow: hidden;
         margin: 0 -15px;
         border-top: solid 3px #b5bf1e;
+		background-color:#ccc;
     }
     h1 {
         position: absolute;
@@ -731,10 +733,74 @@ MENU LANGUES / RECHERCHE / CONNEXION / CONTACT DIRECT
     left: -150px;
 }
 
-//drapeaux cachés dans le menu "outils" 
-.translation {
-    display: none;
+/* header dropdown menu des langues*/
+#navtools nav {
+    overflow:visible;
 }
+#navtools #lang_sel li {
+    float: left;
+    width: 40px;
+}
+#navtools #lang_sel ul ul {
+	width:auto;
+}
+/* memo : ! effacer les modifications d'opacité (donc l'animation) si soucis sur mobiles ! */
+#lang_sel ul ul {
+    width: auto;
+    visibility: hidden;
+	opacity:0;
+	transition:all .3s;
+}
+#lang_sel ul li:hover ul, #lang_sel ul a:hover ul {
+    visibility: visible;
+	opacity:1;
+}
+#navtools #lang_sel ul li {
+	/*display:block;
+	float:none;*/
+	display: inline-block;
+	float:left;
+}
+#navtools #lang_sel ul:first-child {
+    margin-top: 15px !important;
+	li:first-child {
+		width: 60px !important;
+	}
+}
+#navtools #lang_sel ul ul {
+    width: 210px;
+    position:relative;
+	left:-44px;
+	top:5px;
+}
+
+#navtools #lang_sel li a.icl-fr img, #navtools #lang_sel li.icl-fr a img {
+	content : url('../images/france-flag.svg');
+}
+#navtools #lang_sel li.icl-en a img, #navtools #lang_sel li a.icl-en img {
+	content : url('../images/greatbritain-flag.svg');
+}
+#navtools #lang_sel li.icl-de a img, #navtools #lang_sel li a.icl-de img {
+	content : url('../images/germany-flag.svg');
+}
+#navtools #lang_sel li.icl-it a img, #navtools #lang_sel li a.icl-it img {
+	content : url('../images/italy-flag.svg');
+}
+
+#navtools  #lang_sel ul li img.iclflag {
+    width: 24px;
+    height: auto;
+    position: relative;
+    top: 0;
+    left: -10px;
+}
+#navtools  #lang_sel ul li:first-child img.iclflag {
+    left: -11px;
+}
+#navtools  #lang_sel ul ul a {
+    padding: 5px 0px;
+}
+/* fin menu des langues */
 
 @media screen and (max-width: 470px) {
     #searchform [type='submit'] {

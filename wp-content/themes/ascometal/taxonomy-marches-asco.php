@@ -15,28 +15,44 @@
  * @since FoundationPress 1.0.0
  */
 
-get_header(); ?>
+get_header(); 
+$contexte_blocs="nc";
+global $contexte_blocs;
+?>
 
     <div id="page" role="main">
+		<?php get_template_part( 'template-parts/header-banner-marches' ); ?>
+		
         <article class="main-content">
             <?php if ( have_posts() ) : ?>
-                <h1>Page taxonomie marchés</h1>
+                <h1><?php parent_page_title() ?></h1>
+			
+			<div class="row">
+            <div class="small-12 columns" <?php post_class( 'main-content') ?> id="post-
+                <?php the_ID(); ?>">
+                    <?php do_action( 'foundationpress_page_before_entry_content' ); ?>
+				
+			
                 <?php /* Start the Loop */ ?>
-                    <?php while ( have_posts() ) : the_post(); ?>
-                        <?php get_template_part( 'template-parts/content', 'blocs' ); ?>
-                            <?php endwhile; ?>
+            <?php while ( have_posts() ) : the_post(); 
+				$contexte_blocs="sansID";
+				if (types_render_field("afficher-bloc", array("output"=>"raw")) == 1) :
+				get_template_part( 'template-parts/content', 'blocs' ); 
+				endif;
+				
+				endwhile; ?>
 
-                                <?php else : ?>
-                                    <?php get_template_part( 'template-parts/content', 'none' ); ?>
+                               
+            <?php endif; // End have_posts() check. ?>
+		</div>
+   	</div>
 
-                                        <?php endif; // End have_posts() check. ?>
 
                                             <?php /* Display navigation to next/previous pages when applicable */ ?>
+				     
 
 
         </article>
         <?php get_sidebar(); ?>
-
     </div>
-
-    <?php get_footer();
+    <?php get_footer(); ?>
