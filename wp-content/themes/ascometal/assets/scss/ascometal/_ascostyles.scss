@@ -834,7 +834,6 @@ MENU LANGUES / RECHERCHE / CONNEXION / CONTACT DIRECT
 
 #navtools #lang_sel ul li:first-child img.iclflag {
     left: -11px;
-    =======>>>>>>> origin/master
 }
 
 #navtools #lang_sel ul ul a {
@@ -859,45 +858,6 @@ MENU LANGUES / RECHERCHE / CONNEXION / CONTACT DIRECT
     content: url('../images/germany-flag.svg');
 }
 
-#navtools #lang_sel li.icl-it a img,
-#navtools #lang_sel li a.icl-it img {
-    content: url('../images/italy-flag.svg');
-}
-
-#navtools #lang_sel ul li img.iclflag {
-    width: 24px;
-    height: auto;
-    position: relative;
-    top: 0;
-    left: -10px;
-}
-
-#navtools #lang_sel ul li:first-child img.iclflag {
-    left: -11px;
-    =======>>>>>>> origin/master
-}
-
-#navtools #lang_sel ul ul a {
-    padding: 5px 0px;
-}
-
-
-/* fin menu des langues */
-
-#navtools #lang_sel li a.icl-fr img,
-#navtools #lang_sel li.icl-fr a img {
-    content: url('../images/france-flag.svg');
-}
-
-#navtools #lang_sel li.icl-en a img,
-#navtools #lang_sel li a.icl-en img {
-    content: url('../images/greatbritain-flag.svg');
-}
-
-#navtools #lang_sel li.icl-de a img,
-#navtools #lang_sel li a.icl-de img {
-    content: url('../images/germany-flag.svg');
-}
 
 #navtools #lang_sel li.icl-it a img,
 #navtools #lang_sel li a.icl-it img {
