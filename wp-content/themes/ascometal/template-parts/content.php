@@ -14,27 +14,25 @@
 		$image = $image[0];
 ?>
     <div class="ih-item article-preview" id="post-<?php the_ID(); ?>" <?php post_class( 'blogpost-entry'); ?>>
-            <!--                <p>boucle vers fichier parmettant l'affichage des derniers articles dans archive.php = <strong>template-parts/content.php</strong></p>-->
-            <div class= "thumb small-12 medium-3 large-3">
-                <a ref="<?php the_permalink(); ?>">
-                    <div style="background-image: url('<?php echo $image ?>')">
-                    </div>
-                </a>
+        <!--                <p>boucle vers fichier parmettant l'affichage des derniers articles dans archive.php = <strong>template-parts/content.php</strong></p>-->
+        <div class="thumb small-12 medium-3 large-3">
+            <div style="background-image: url('<?php echo $image ?>')">
             </div>
-            <?php endif; ?>
-            <div  class="infos small-12 medium-9 large-9">
-            <?php foundationpress_entry_meta(); ?>
+        </div>
+        <?php endif; ?>
+            <div class="infos small-12 medium-9 large-9">
+                <?php foundationpress_entry_meta(); ?>
                     <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
-        <div class="entry-content">
-            <?php the_content( __( 'Voir +', 'foundationpress' ) ); ?>
-        </div>
-        </div>
-        <footer>
-            <?php $tag = get_the_tags(); if ( $tag ) { ?>
-                <p>
-                    <?php the_tags(); ?>
-                </p>
-                <?php } ?>
-        </footer>
+                    <div class="entry-content">
+                        <?php the_content( __( 'Voir +', 'foundationpress' ) ); ?>
+                    </div>
+            </div>
+            <footer>
+                <?php $tag = get_the_tags(); if ( $tag ) { ?>
+                    <p>
+                        <?php the_tags(); ?>
+                    </p>
+                    <?php } ?>
+            </footer>
     </div>
