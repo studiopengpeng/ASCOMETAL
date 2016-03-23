@@ -63,14 +63,10 @@
                                               </a></li>
                                                     <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/lock.svg" alt="accès membres"></a></li>
                                                     <li>
-                                                        <ul class="translation">
-                                                            <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/greatbritain-flag.svg" alt="drapeau anglais"></li>
-                                                            <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/france-flag.svg" alt="drapeau français"></li>
-                                                            <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/germany-flag.svg" alt="drapeau allemand"></li>
-                                                            <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/italy-flag.svg" alt="drapeau italien"></li>
-
-                                                        </ul>
-                                                    </li>
+														<?php // sélecteur de langues
+														do_action('wpml_add_language_selector');
+														?>
+													</li>
                                                 </ul>
                                                 <div class="offsearch">
                                                     <?php get_search_form (); ?>

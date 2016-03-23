@@ -1,4 +1,4 @@
-// Styles propres à ASCOMETAL
+        // Styles propres à ASCOMETAL
 
 /*---------------------------------------------------------------
 REGLAGES GLOBAUX / GLOBAL SETTINGS
@@ -288,15 +288,6 @@ article .ih-item.square.effect13 .info .seemore {
             margin-bottom: 10px;
         }
     }
-    //    article.auto .ih-item.square.effect13 .info {
-    //        p {
-    //            padding: 0px 10px;
-    //            margin-bottom: 10px;
-    //        }
-    //        img {
-    //            margin: 0px auto 0px auto;
-    //        }
-    //    }
 }
 
 @media screen and (min-width: 640px) and (max-width: 740px) {
@@ -812,270 +803,239 @@ MENU LANGUES / RECHERCHE / CONNEXION / CONTACT DIRECT
 #navtools #lang_sel li.icl-en a img,
 #navtools #lang_sel li a.icl-en img {
     content: url('../images/greatbritain-flag.svg');
-}
-
-#navtools #lang_sel li.icl-de a img,
-#navtools #lang_sel li a.icl-de img {
-    content: url('../images/germany-flag.svg');
-}
-
-#navtools #lang_sel li.icl-it a img,
-#navtools #lang_sel li a.icl-it img {
-    content: url('../images/italy-flag.svg');
-}
-
-#navtools #lang_sel ul li img.iclflag {
-    width: 24px;
-    height: auto;
-    position: relative;
-    top: 0;
-    left: -10px;
-}
-
-#navtools #lang_sel ul li:first-child img.iclflag {
-    left: -11px;
-}
-
-#navtools #lang_sel ul ul a {
-    padding: 5px 0px;
-}
-
-
-/* fin menu des langues */
-
-#navtools #lang_sel li a.icl-fr img,
-#navtools #lang_sel li.icl-fr a img {
-    content: url('../images/france-flag.svg');
-}
-
-#navtools #lang_sel li.icl-en a img,
-#navtools #lang_sel li a.icl-en img {
-    content: url('../images/greatbritain-flag.svg');
-}
-
-#navtools #lang_sel li.icl-de a img,
-#navtools #lang_sel li a.icl-de img {
-    content: url('../images/germany-flag.svg');
-}
-
-#navtools #lang_sel li.icl-it a img,
-#navtools #lang_sel li a.icl-it img {
-    content: url('../images/italy-flag.svg');
-}
-
-#navtools #lang_sel ul li img.iclflag {
-    width: 24px;
-    height: auto;
-    position: relative;
-    top: 0;
-    left: -10px;
-}
-
-#navtools #lang_sel ul li:first-child img.iclflag {
-    left: -11px;
-}
-
-#navtools #lang_sel ul ul a {
-    padding: 5px 0px;
-}
-
-
-/* fin menu des langues */
-
-@media screen and (max-width: 470px) {
-    #searchform [type='submit'] {
-        width: auto;
+    #navtools #lang_sel li.icl-de a img,
+    #navtools #lang_sel li a.icl-de img {
+        content: url('../images/germany-flag.svg');
     }
-}
-
-
-/*---------------------------------------------------------------
+    #navtools #lang_sel li.icl-it a img,
+    #navtools #lang_sel li a.icl-it img {
+        content: url('../images/italy-flag.svg');
+    }
+    #navtools #lang_sel ul li img.iclflag {
+        width: 24px;
+        height: auto;
+        position: relative;
+        top: 0;
+        left: -10px;
+    }
+    #navtools #lang_sel ul li:first-child img.iclflag {
+        left: -11px;
+    }
+    #navtools #lang_sel ul ul a {
+        padding: 5px 0px;
+    }
+    /* fin menu des langues */
+    #navtools #lang_sel li a.icl-fr img,
+    #navtools #lang_sel li.icl-fr a img {
+        content: url('../images/france-flag.svg');
+    }
+    #navtools #lang_sel li.icl-en a img,
+    #navtools #lang_sel li a.icl-en img {
+        content: url('../images/greatbritain-flag.svg');
+    }
+    #navtools #lang_sel li.icl-de a img,
+    #navtools #lang_sel li a.icl-de img {
+        content: url('../images/germany-flag.svg');
+    }
+    #navtools #lang_sel li.icl-it a img,
+    #navtools #lang_sel li a.icl-it img {
+        content: url('../images/italy-flag.svg');
+    }
+    #navtools #lang_sel ul li img.iclflag {
+        width: 24px;
+        height: auto;
+        position: relative;
+        top: 0;
+        left: -10px;
+    }
+    #navtools #lang_sel ul li:first-child img.iclflag {
+        left: -11px;
+    }
+    #navtools #lang_sel ul ul a {
+        padding: 5px 0px;
+    }
+    /* fin menu des langues */
+    @media screen and (max-width: 470px) {
+        #searchform [type='submit'] {
+            width: auto;
+        }
+    }
+    /*---------------------------------------------------------------
 MENU SECONDAIRE / TOUCHSCROLLER
 ---------------------------------------------------------------*/
-
-#touchscroller {
-    text-transform: uppercase;
-    a {
-        color: #989898;
-    }
-    ul li {
-        list-style: none;
-        font-weight: 700;
-    }
-    ul li ul li {
-        padding-left: 15px;
-        font-style: italic;
-        font-weight: 400;
-    }
-    ul li ul li a:hover {
-        transition: all 0.2s ease-out;
-        -webkit-transition: all 0.2s ease-out;
-        -moz-transition: all 0.2s ease-out;
-        -o-transition: all 0.2s ease-out;
-    }
-    ul li ul li a:hover {
-        color: $rouge-asco;
-    }
-}
-
-
-/*---------------------------------------------------------------
-MENU GAUCHE / MASQUAGE sous rubriques non actuelles
----------------------------------------------------------------*/
-
-#touchscroller {
-    .sub-menu {
-        display: none;
-    }
-    .current-menu-ancestor .sub-menu {
-        display: block;
-    }
-}
-
-
-/*---------------------------------------------------------------
-MENU FOOTER
----------------------------------------------------------------*/
-
-#footer-container {
-    background-color: #989898;
-    margin-top: 0;
-    text-align: center;
-    padding: 15px 0px;
-    border-top: solid 3px #b5bf1e;
-}
-
-#footernav {
-    ul li {
-        display: inline-block;
-        list-style: none;
-        border-left: solid 2px #dedede;
-        padding: 0px 20px;
+    
+    #touchscroller {
+        text-transform: uppercase;
         a {
-            color: #dedede;
-            text-transform: uppercase;
+            color: #989898;
+        }
+        ul li {
+            list-style: none;
+            font-weight: 700;
+        }
+        ul li ul li {
+            padding-left: 15px;
+            font-style: italic;
+            font-weight: 400;
+        }
+        ul li ul li a:hover {
             transition: all 0.2s ease-out;
-            font-weight: 600;
             -webkit-transition: all 0.2s ease-out;
             -moz-transition: all 0.2s ease-out;
             -o-transition: all 0.2s ease-out;
         }
-        a:hover {
-            color: #fff;
+        ul li ul li a:hover {
+            color: $rouge-asco;
         }
     }
-    ul li:first-child {
-        border: none;
-        padding-left: 0;
+    /*---------------------------------------------------------------
+MENU GAUCHE / MASQUAGE sous rubriques non actuelles
+---------------------------------------------------------------*/
+    
+    #touchscroller {
+        .sub-menu {
+            display: none;
+        }
+        .current-menu-ancestor .sub-menu {
+            display: block;
+        }
     }
-    ul li:last-child {
-        padding-right: 0;
+    /*---------------------------------------------------------------
+MENU FOOTER
+---------------------------------------------------------------*/
+    
+    #footer-container {
+        background-color: #989898;
+        margin-top: 0;
+        text-align: center;
+        padding: 15px 0px;
+        border-top: solid 3px #b5bf1e;
     }
-}
-
-
-/*---------------------------------------------------------------
+    #footernav {
+        ul li {
+            display: inline-block;
+            list-style: none;
+            border-left: solid 2px #dedede;
+            padding: 0px 20px;
+            a {
+                color: #dedede;
+                text-transform: uppercase;
+                transition: all 0.2s ease-out;
+                font-weight: 600;
+                -webkit-transition: all 0.2s ease-out;
+                -moz-transition: all 0.2s ease-out;
+                -o-transition: all 0.2s ease-out;
+            }
+            a:hover {
+                color: #fff;
+            }
+        }
+        ul li:first-child {
+            border: none;
+            padding-left: 0;
+        }
+        ul li:last-child {
+            padding-right: 0;
+        }
+    }
+    /*---------------------------------------------------------------
 WIDGET BOUTONS PERSO
 ---------------------------------------------------------------*/
-
-// * * * * * * * * * * * Bouton simple * * * * * * * * * * * *
-.button.simple-btn {
-    display: inline-block;
-    text-align: left;
-    line-height: 1;
-    cursor: pointer;
-    -webkit-appearance: none;
-    transition: background-color 0.25s ease-out, color 0.25s ease-out;
-    vertical-align: middle;
-    border: 1px solid transparent;
-    border-radius: 0;
-    padding: 0.85em 1em;
-    margin: 0 0 1rem 0;
-    font-size: 0.9rem;
-    background-color: #CCC;
-    color: #000;
-    transition: all .3s;
-}
-
-.button.simple-btn:hover {
-    background-color: #FFF;
-    color: #000;
-}
-
-.button.long {
-    width: 100%;
-}
-
-
-/*---------------------------------------------------------------
+    
+    // * * * * * * * * * * * Bouton simple * * * * * * * * * * * *
+    .button.simple-btn {
+        display: inline-block;
+        text-align: left;
+        line-height: 1;
+        cursor: pointer;
+        -webkit-appearance: none;
+        transition: background-color 0.25s ease-out, color 0.25s ease-out;
+        vertical-align: middle;
+        border: 1px solid transparent;
+        border-radius: 0;
+        padding: 0.85em 1em;
+        margin: 0 0 1rem 0;
+        font-size: 0.9rem;
+        background-color: #CCC;
+        color: #000;
+        transition: all .3s;
+    }
+    .button.simple-btn:hover {
+        background-color: #FFF;
+        color: #000;
+    }
+    .button.long {
+        width: 100%;
+    }
+    /*---------------------------------------------------------------
 SECTION LOGOS - ils nous font confiance
 ---------------------------------------------------------------*/
-
-.lshowcase-logos {
-    box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
-    background-color: #fff;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    max-width: 100%!important;
-    .bx-wrapper {
+    
+    .lshowcase-logos {
+        box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
+        background-color: #fff;
+        padding-top: 50px;
+        padding-bottom: 50px;
         max-width: 100%!important;
+        .bx-wrapper {
+            max-width: 100%!important;
+        }
     }
-}
-
-
-/*---------------------------------------------------------------
+    /*---------------------------------------------------------------
 PAGE LISTE D'ACTUALITES
 ---------------------------------------------------------------*/
-
-.category-actualites {
-    background-color: #fff;
-}
-
-.article-preview {
-    overflow: auto;
-    background-color: #fff;
-    padding: 20px;
-    margin-bottom: 30px;
-    .thumb,
-    .infos {
-        float: left;
+    
+    .category-actualites {
+        background-color: #fff;
     }
-    p {
-        background-color: green;
-        a.more-link {
-            float: right;
-            text-decoration: none;
-            padding: 10px 0px 0px 0px;
-            background-color: pink;
+    .article-preview {
+        overflow: auto;
+        background-color: #fff;
+        padding: 20px;
+        margin-bottom: 30px;
+        .thumb,
+        .infos {
+            float: left;
         }
-    }
-    h2 {
-        line-height: rem-calc(20);
-        border: none;
-        margin-bottom: 0;
-        a {
-            font-size: rem-calc(18);
-            font-family: "Lora", serif;
-            text-transform: lowercase;
+        p {
+            background-color: green;
+            a.more-link {
+                float: right;
+                text-decoration: none;
+                padding: 10px 0px 0px 0px;
+                background-color: pink;
+            }
         }
-    }
-    .infos {
-        background-color: red;
-        padding: 0px rem-calc(15);
-        float: left;
-    }
-    .thumb {
-        background: yellow;
-        padding-right: 15px;
-        float: left;
-        display: inline-block;
-        height: auto;
-        div {
-            height: 190px;
-            width: auto;
-            background-size: cover;
+        h2 {
+            line-height: rem-calc(20);
+            border: none;
+            margin-bottom: 0;
+            a {
+                font-size: rem-calc(18);
+                font-family: "Lora", serif;
+                text-transform: lowercase;
+            }
         }
-    }
-}
-
-@media screen and (max-width: 640px) {}
+        .infos {
+            background-color: red;
+            padding: 0px rem-calc(15);
+            float: left;
+        }
+        .thumb {
+            background: yellow;
+            padding-right: 15px;
+            float: left;
+            display: inline-block;
+            height: auto;
+            div {
+                height: 190px;
+                width: auto;
+                background-size: cover;
+                display: block;
+                div {
+                    height: 190px;
+                    width: auto;
+                }
+            }
+        }
+          

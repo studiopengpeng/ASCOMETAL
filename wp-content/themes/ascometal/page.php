@@ -13,18 +13,9 @@
  get_header(); ?>
 
 
-
     <div id="page" role="main">
-        <!--header de page : contient le bandeau image + le titre de la rubrique principale-->
-        <article class="small-12 medium-12 large-12 columns">
-                <header class="header-image">
-                    <?php get_template_part( 'template-parts/featured-image' ); ?>
-                    <h1>Titre de la rubrique principale</h1>
-                </header>
-        </article>
-        <!--END header de page-->
-        <?php do_action( 'foundationpress_before_content' ); ?>
-            <?php while ( have_posts() ) : the_post(); ?>
+		<?php get_template_part( 'template-parts/header-banner' ); ?>
+       
                     <!--menu secondaire : Menu gauche -> page.php-->
                     <?php
 $args_menu1 = array(
@@ -47,7 +38,12 @@ $args_menu1 = array(
 );
 wp_nav_menu( $args_menu1 );
 ?>
+
                         <!--END menu secondaire-->
+		
+		<!-- début boucle content posts -->
+		 <?php do_action( 'foundationpress_before_content' ); ?>
+         <?php while ( have_posts() ) : the_post(); ?>
         <article id="main-container" class="small-12 medium-9 large-9 columns" <?php post_class( 'main-content') ?> id="post-
                             <?php the_ID(); ?>">
                                 <header>
@@ -55,23 +51,25 @@ wp_nav_menu( $args_menu1 );
                                 </header>
                                 <?php do_action( 'foundationpress_page_before_entry_content' ); ?>
 
-                                    <div class="entry-content">
 
-                                        <?php the_content(); ?>
-                                    </div>
-                                    <footer>
-                                        <?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ), 'after' => '</p></nav>' ) ); ?>
-                                            <p>
-                                                <?php the_tags(); ?>
-                                            </p>
-                                    </footer>
-                                    <?php do_action( 'foundationpress_page_before_comments' ); ?>
-                                        <?php comments_template(); ?>
-                                            <?php do_action( 'foundationpress_page_after_comments' ); ?>
-        </article>
-                        <?php endwhile;?>
+                                <div class="entry-content">
 
-                            <?php do_action( 'foundationpress_after_content' ); ?>
+                                    <?php the_content(); ?>
+                                </div>
+                                <footer>
+                                    <?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ), 'after' => '</p></nav>' ) ); ?>
+                                        <p>
+                                            <?php the_tags(); ?>
+                                        </p>
+                                </footer>
+                                <?php do_action( 'foundationpress_page_before_comments' ); ?>
+                                    <?php comments_template(); ?>
+                                        <?php do_action( 'foundationpress_page_after_comments' ); ?>
+                    </article>
+                    </div>
+                    <?php endwhile;?>
+
+                        <?php do_action( 'foundationpress_after_content' ); ?>
 
 
     </div>

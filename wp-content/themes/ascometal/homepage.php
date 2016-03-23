@@ -105,7 +105,7 @@ get_header(); ?>
                                     </section>
                                     <section id="about">
                                         <!-- Ascometal -->
-                                        <article class="small-12 medium-12 large-5 columns">
+                                        <article class="ascometal small-12 medium-12 large-5 columns">
                                             <div class="ih-item square effect13 top_to_bottom">
                                                 <a href="#">
                                                     <h3 class="title-asco">Ascometal</h3>
