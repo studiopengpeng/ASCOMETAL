@@ -55,8 +55,7 @@ wp_nav_menu( $args_menu1 );
 ?>
                         <!--END menu secondaire-->
                       
-<!-- J'ai retiré la classe main-content qui était appliquée sur le div article et ça roule, elle doit comprendre des css qui entrent en conflit. Peut être que le main content à des propriétés spéciales... Le main-content ne doit peut être pas s'appliquer sur ce genre de listes mais juste sur le contenu d'un article. -->
-        <article class="small-12 medium-9 large-9 columns"> 
+        <article class="shadow small-12 medium-12 large-9 columns"> 
                 <?php if ( have_posts() ) : ?>
 
                     <?php /* Start the Loop */ ?>
@@ -86,11 +85,3 @@ wp_nav_menu( $args_menu1 );
                     </div>
 
     <?php get_footer();
-
-
-
-
-
-
-
-
