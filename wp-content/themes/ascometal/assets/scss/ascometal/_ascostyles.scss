@@ -4,12 +4,18 @@
 REGLAGES GLOBAUX / GLOBAL SETTINGS
 ---------------------------------------------------------------*/
 
+// * * * * * * * * * * Couleurs des marchés * * * * * * * * * * 
+$automobile: #99be51;
+$roulement: #f28e00;
+$mecanique: #ae3e28;
+$petrole: #03888e;
+$asco: #e52713;
+// * * * * * * * * * END Couleurs des marchés * * * * * * * * *
 // * * * * * * * * * * * * * page.php * * * * * * * * * * * * * 
 #page,
 #single-post {
     margin-top: 0;
     background: #fafafa;
-//    padding-bottom: 30px;
 }
 
 // * * * * * * * * * * * * * END page.php * * * * * * * * * * *
@@ -426,7 +432,6 @@ CONTENU DE SAISIE / MAIN-CONTAINER
         font-size: rem-calc(24);
         font-weight: 600;
         padding-bottom: 7px;
-        border-bottom: 2px solid #989898;
     }
     h4 {
         color: #e52713;
@@ -447,13 +452,15 @@ CONTENU DE SAISIE / MAIN-CONTAINER
             color: #8d0d00;
         }
     }
+    ul li {
+        list-style-image: url('../images/dot.svg');
+    }
     blockquote {
         font-family: "Lora", serif;
         font-weight: 400;
         font-style: italic;
         border-left: 1px solid #e52713;
     }
-
     .bouton-lien {
         background-color: #fff;
         -webkit-box-shadow: 0px 7px 29px 0px rgba(0, 0, 0, 0.15);
@@ -598,15 +605,9 @@ nav#site-navigation {
     padding-left: 5px;
 }
 
-// * * * * * * * * * * * END - Logo * * * * * * * * * * * *
-@media screen and (max-width: 1070px) {
-    .top-bar {
-        .top-bar-left {
-            width: 200px;
-        }
-        .menu a {
-            letter-spacing: 0;
-        }
+.top-bar {
+    .menu a {
+        letter-spacing: 0;
     }
 }
 
@@ -890,7 +891,7 @@ MENU LANGUES / RECHERCHE / CONNEXION / CONTACT DIRECT
 
 
 /*---------------------------------------------------------------
-MENU SECONDAIRE / TOUCHSCROLLER
+MENU SECONDAIRE GAUCHE / TOUCHSCROLLER
 ---------------------------------------------------------------*/
 
 #touchscroller {
@@ -907,6 +908,9 @@ MENU SECONDAIRE / TOUCHSCROLLER
         font-style: italic;
         font-weight: 400;
     }
+    ul li ul li.active a {
+        color: $asco;
+    }
     ul li ul li a:hover {
         transition: all 0.2s ease-out;
         -webkit-transition: all 0.2s ease-out;
@@ -916,6 +920,46 @@ MENU SECONDAIRE / TOUCHSCROLLER
     ul li ul li a:hover {
         color: $rouge-asco;
     }
+    li.automobile a {
+        color: $automobile;
+    }
+    li.roulement a {
+        color: $roulement;
+    }
+    li.automobile a {
+        color: $automobile;
+        padding-left: 50px;
+        background-image: url('../images/automobile-icone.svg');
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        margin-bottom: rem-calc(20px);
+        margin-top: rem-calc(10px);
+    }
+    li.roulement a {
+        color: $roulement;
+        padding-left: 50px;
+        background-image: url('../images/roulement-icone.svg');
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        margin-bottom: rem-calc(20px);
+    }
+    li.petrole a {
+        color: $petrole;
+        padding-left: 50px;
+        background-image: url('../images/petrol-icone.svg');
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        margin-bottom: rem-calc(20px);
+    }
+    li.mecanique a {
+        color: $mecanique;
+        padding-left: 50px;
+        background-image: url('../images/mecanique-icone.svg');
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        margin-bottom: rem-calc(20px);
+    }
+    
 }
 
 
@@ -950,7 +994,7 @@ MENU FOOTER
     margin-top: 0;
     text-align: center;
     padding: 15px 0px;
-    border-top: solid 3px #b5bf1e;
+    border-top: solid 2px #b5bf1e;
 }
 
 #footernav {
