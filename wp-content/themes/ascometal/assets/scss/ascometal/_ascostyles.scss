@@ -9,7 +9,7 @@ REGLAGES GLOBAUX / GLOBAL SETTINGS
 #single-post {
     margin-top: 0;
     background: #fafafa;
-    padding-bottom: 30px;
+//    padding-bottom: 30px;
 }
 
 // * * * * * * * * * * * * * END page.php * * * * * * * * * * *
@@ -18,11 +18,13 @@ REGLAGES GLOBAUX / GLOBAL SETTINGS
     height: 0px;
     margin: 0;
 }
+
 .shadow {
     background: #f5f5f5;
-    padding: 30px 15px 30px 50px;
+    padding: 30px 30px 0px 30px;
     box-shadow: inset 14px 0px 30px -10px rgba(143, 143, 143, 0.2);
 }
+
 
 /*---------------------------------------------------------------
 MARCHES HOME (présentation + effets au survol) 
@@ -350,7 +352,7 @@ header.header-image {
         min-height: 225px;
         overflow: hidden;
         margin: 0 -15px;
-        border-top: solid 3px #b5bf1e;
+        border-top: solid 2px #b5bf1e;
         background-color: #ccc;
     }
     h1 {
@@ -449,16 +451,9 @@ CONTENU DE SAISIE / MAIN-CONTAINER
         font-family: "Lora", serif;
         font-weight: 400;
         font-style: italic;
+        border-left: 1px solid #e52713;
     }
-    blockquote p::first-letter {
-        font-size: rem-calc(50);
-        font-weight: 700;
-        margin-right: 5px;
-        padding: 20px 20px 11px 0px;
-        line-height: 20px;
-        color: #5e5e5e;
-        float: left;
-    }
+
     .bouton-lien {
         background-color: #fff;
         -webkit-box-shadow: 0px 7px 29px 0px rgba(0, 0, 0, 0.15);
@@ -575,6 +570,7 @@ nav#site-navigation {
 .top-bar-left {
     position: relative;
     .logo img {
+        width: 70%;
         position: absolute;
         top: 0;
         left: 30px;
@@ -1026,6 +1022,7 @@ SECTION LOGOS - ils nous font confiance
     background-color: #fff;
     padding-top: 50px;
     padding-bottom: 50px;
+    margin-bottom: 30px!important;
     max-width: 100%!important;
     .bx-wrapper {
         max-width: 100%!important;
@@ -1051,7 +1048,7 @@ PAGE LISTE D'ACTUALITES
         float: left;
     }
     time {
-        color: e52713;
+        color: #e52713;
     }
     p {
         a.more-link {
@@ -1070,6 +1067,14 @@ PAGE LISTE D'ACTUALITES
             font-family: "Lora", serif;
             text-transform: lowercase;
         }
+    }
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 1rem;
     }
     .infos {
         padding: 0px rem-calc(15);
@@ -1092,4 +1097,8 @@ PAGE LISTE D'ACTUALITES
     .article-preview .thumb {
         padding: 0;
     }
+}
+
+#single-post #main-container .entry-content li {
+    list-style-image: url('../images/dot.svg');
 }
