@@ -25,7 +25,10 @@
                     <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
                     <div class="entry-content">
-                        <?php the_content( __( 'Voir +', 'foundationpress' ) ); ?>
+                        <?php 
+                        $more_link_text = __( 'Continue reading...', 'foundationpress') ;
+                        //$more_link_text = "Lire la suite" ;
+                        the_content( $more_link_text ); ?>
                     </div>
             </div>
             <footer>

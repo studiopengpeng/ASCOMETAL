@@ -67,13 +67,13 @@ class plaste_buttons extends WP_Widget {
         for ($x=1;$x<=$instance['totalbts'];$x++) {
             
             if ( ! empty( $instance['title'.$x] ) ) {
-                $title=apply_filters( 'widget_title', $instance['title'.$x] );
+                $title="<span class='title'>".apply_filters( 'widget_title', $instance['title'.$x] )."</span>";
             } else {
                 $title='';
             }
 			
 			if ( ! empty( $instance['subtitle'.$x] ) ) {
-                $subtitle=apply_filters( 'widget_title', $instance['subtitle'.$x] );
+                $subtitle="<span class='subtitle'>".apply_filters( 'widget_title', $instance['subtitle'.$x] )."</span>";
             } else {
                 $subtitle='';
             }
@@ -118,7 +118,7 @@ class plaste_buttons extends WP_Widget {
                 break;
             }
 
-            echo '<a '.$hrefBlock.' title="'.addslashes($title).'" class="button groupe long '.$addclass.'" '.$blank.'>'.$finaltitle.'</a>';
+            echo '<a '.$hrefBlock.' title="'.addslashes($title).'" class="button groupe long ih-item '.$addclass.'" '.$blank.'>'.$finaltitle.'</a>';
  
         }
         
