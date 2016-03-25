@@ -2,8 +2,6 @@
     /*---------------------------------------------------------------
 REGLAGES GLOBAUX / GLOBAL SETTINGS
 ---------------------------------------------------------------*/
-<<<<<<< HEAD
-
 // * * * * * * * * * * Couleurs des marchés * * * * * * * * * * 
 $automobile: #99be51;
 $automobileAlpha : rgba(153, 190, 81, 0.7);
@@ -15,6 +13,9 @@ $petrole: #03888e;
 $petroleAlpha : rgba(3, 136, 142, 0.7);
 $asco: #e52713;
 $ascoAlpha : rgba(229, 39, 19, 0.7);
+$gris-fonce-asco: #5e5e5e;
+$gris-asco: #989898;
+
 // * * * * * * * * * END Couleurs des marchés * * * * * * * * *
 // * * * * * * * * * * * * * page.php * * * * * * * * * * * * * 
 #page,
@@ -113,16 +114,16 @@ article.rolling {
 }
 
 .ih-item.square.effect13 .info {
-    background: #333333;
-    background: rgba(0, 0, 0, 0.6);
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    -webkit-transition: all 0.35s ease-in-out;
-    -moz-transition: all 0.35s ease-in-out;
-    transition: all 0.35s ease-in-out;
-}
-
+        background: #333333;
+        background: rgba(0, 0, 0, 0.6);
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        -webkit-transition: all 0.35s ease-in-out;
+        -moz-transition: all 0.35s ease-in-out;
+        transition: all 0.35s ease-in-out;
+    }
+    
 article.automobile .ih-item.square.effect13 .info {
     background: $automobileAlpha;
 }
@@ -139,156 +140,25 @@ article.corporate .ih-item.square.effect13 .info {
     background: $ascoAlpha;
 }
 
-
-
-.ih-item.square.effect13 .info h3 {
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: rem-calc(28);
-    line-height:rem-calc(35);
-    color: #fff;
-    text-align: center;
-    text-transform: uppercase;
-    width: 100%;
-    padding-top: rem-calc(15);
-}
-
-#about {
-    padding-bottom: 30px;
-    overflow: auto;
-=======
-    
-    // * * * * * * * * * * Couleurs des marchés * * * * * * * * * * 
-    $automobile: #99be51;
-    $roulement: #f28e00;
-    $mecanique: #ae3e28;
-    $petrole: #03888e;
-    $asco: #e52713;
-    $gris-fonce-asco: #5e5e5e;
-    $gris-asco: #989898;
-    // * * * * * * * * * END Couleurs des marchés * * * * * * * * *
-    // * * * * * * * * * * * * * page.php * * * * * * * * * * * * * 
-    #page,
-    #single-post {
-        margin-top: 0;
-        background: #fafafa;
-    }
-    
-    // * * * * * * * * * * * * * END page.php * * * * * * * * * * *
-    .indent {
-        text-indent: -8000px;
-        height: 0px;
-        margin: 0;
-    }
-    
-    .shadow {
-        background: #f5f5f5;
-        padding: 30px 30px 0px 30px;
-        box-shadow: inset 14px 0px 30px -10px rgba(143, 143, 143, 0.2);
-    }
-    /*---------------------------------------------------------------
-MARCHES HOME (présentation + effets au survol) 
----------------------------------------------------------------*/
-    
-    #markets {
-        overflow: auto;
-    }
-    
-    .ih-item {
-        -webkit-box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
-        -moz-box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
-        box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
-        position: relative;
-        -webkit-transition: all 0.35s ease-in-out;
-        -moz-transition: all 0.35s ease-in-out;
-        transition: all 0.35s ease-in-out;
-    }
-    
-    .ih-item,
-    .ih-item * {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-    
-    .ih-item a {
-        color: #333;
-    }
-    
-    .ih-item a:hover {
-        text-decoration: none;
-    }
-    
-    .ih-item.square {
-        position: relative;
-    }
-    
-    .ih-item.square .info {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        text-align: center;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-    }
-    
-    .ih-item.square.effect13 {
-        overflow: hidden;
-    }
-    
-    .ih-item.square.effect13.colored .info {
-        background: rgba(26, 74, 114, 0.6);
-    }
-    
-    .ih-item.square.effect13.colored .info h3 {
-        background: rgba(12, 34, 52, 0.6);
-    }
-    
-    .ih-item.square.effect13 .img {
-        -webkit-transition: all 0.35s ease-in-out;
-        -moz-transition: all 0.35s ease-in-out;
-        transition: all 0.35s ease-in-out;
-        -webkit-transform: scale(1);
-        -moz-transform: scale(1);
-        -ms-transform: scale(1);
-        -o-transform: scale(1);
-        transform: scale(1);
-    }
-    
->>>>>>> origin/master
-    .ih-item.square.effect13 .info {
-        background: #333333;
-        background: rgba(0, 0, 0, 0.6);
-        visibility: hidden;
-        opacity: 0;
-        pointer-events: none;
-        -webkit-transition: all 0.35s ease-in-out;
-        -moz-transition: all 0.35s ease-in-out;
-        transition: all 0.35s ease-in-out;
-    }
-    
-    .ih-item.square.effect13 .mec {
+ .ih-item.square.effect13 .mec {
         background: rgba(174, 62, 40, 0.75);
     }
     
-    .ih-item.square.effect13 .rol {
-        background: rgba(242, 142, 0, 0.75);
-        background-blend-mode: darken;
-    }
-    
-    .ih-item.square.effect13 .aut {
-        background: rgba(153, 190, 81, 0.75);
-    }
-    
-    .ih-item.square.effect13 .pet {
-        background: rgba(3, 136, 142, 0.75);
-    }
-    
-    .ih-item.square.effect13 .asco {
-        background: rgba(255, 255, 255, 0.3);
-    }
+.ih-item.square.effect13 .rol {
+    background: rgba(242, 142, 0, 0.75);
+}
+
+.ih-item.square.effect13 .aut {
+    background: rgba(153, 190, 81, 0.75);
+}
+
+.ih-item.square.effect13 .pet {
+    background: rgba(3, 136, 142, 0.75);
+}
+
+.ih-item.square.effect13 .asco {
+    background: rgba(255, 255, 255, 0.3);
+}
     
     .ih-item.square.effect13 .info h3 {
         text-transform: uppercase;
@@ -316,8 +186,7 @@ MARCHES HOME (présentation + effets au survol)
             }
         }
     }
-<<<<<<< HEAD
-}
+
 
 .ih-item.square.effect13 .info p {
     font-weight: 400;
@@ -445,113 +314,6 @@ article .ih-item.square.effect13 .info .seemore {
     padding: 30px 0px 0px 0px;
     article {
         margin-bottom: 30px;
-=======
-    
-    .ih-item.square.effect13 .info p {
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 24px;
-        position: relative;
-        color: #fff;
-        padding: 0px 20px;
-        text-align: center;
->>>>>>> origin/master
-    }
-    
-    .ih-item.square.effect13 a:hover .img {
-        -webkit-transform: scale(1.2);
-        -moz-transform: scale(1.2);
-        -ms-transform: scale(1.2);
-        -o-transform: scale(1.2);
-        transform: scale(1.2);
-    }
-    
-    .ih-item.square.effect13 a:hover .info {
-        visibility: visible;
-        opacity: 1;
-    }
-    
-    .ih-item.square.effect13.top_to_bottom .info {
-        -webkit-transform: translateY(-100%);
-        -moz-transform: translateY(-100%);
-        -ms-transform: translateY(-100%);
-        -o-transform: translateY(-100%);
-        transform: translateY(-100%);
-    }
-    
-    .ih-item.square.effect13.top_to_bottom a:hover .info {
-        -webkit-transform: translateY(0);
-        -moz-transform: translateY(0);
-        -ms-transform: translateY(0);
-        -o-transform: translateY(0);
-        transform: translateY(0);
-    }
-    
-    .ih-item.square.effect13.top_to_bottom a h3.title-auto,
-    .ih-item.square.effect13.top_to_bottom a h3.title-rolling,
-    .ih-item.square.effect13.top_to_bottom a h3.title-mechanical,
-    .ih-item.square.effect13.top_to_bottom a h3.title-petrol,
-    .ih-item.square.effect13.top_to_bottom a h3.title-asco {
-        text-transform: uppercase;
-        font-size: 30px;
-        width: 100%;
-        line-height: rem-calc(65);
-        position: absolute;
-        text-align: center;
-        font-weight: 700;
-        z-index: 100;
-        color: #fff;
-        -webkit-transition: all 0.2s linear;
-        -moz-transition: all 0.2s linear;
-        transition: all 0.2s linear;
-    }
-    
-    .ih-item.square.effect13.top_to_bottom a h3.title-asco {
-        color: #e52713;
-    }
-    
-    .title-auto {
-        background-color: rgba(153, 190, 81, 0.7);
-    }
-    
-    .title-rolling {
-        background-color: rgba(242, 142, 0, 0.7);
-    }
-    
-    .title-mechanical {
-        background-color: rgba(174, 62, 40, 0.7);
-    }
-    
-    .title-petrol {
-        background-color: rgba(3, 136, 142, 0.7);
-    }
-    
-    .title-asco {
-        background-color: rgba(255, 255, 255, 0.7);
-    }
-    
-    .ih-item.square.effect13.top_to_bottom a:hover h3.title-auto,
-    .ih-item.square.effect13.top_to_bottom a:hover h3.title-rolling,
-    .ih-item.square.effect13.top_to_bottom a:hover h3.title-mechanical,
-    .ih-item.square.effect13.top_to_bottom a:hover h3.title-petrol,
-    .ih-item.square.effect13.top_to_bottom a:hover h3.title-asco {
-        opacity: 0;
-    }
-    
-    .info img {
-        margin: 0 auto 20px auto;
-        padding-bottom: 0;
-    }
-    
-    article .ih-item.square.effect13 .info .seemore {
-        text-transform: uppercase;
-        font-size: rem-calc(24);
-    }
-    
-    #markets {
-        padding: 30px 0px 0px 0px;
-        article {
-            margin-bottom: 30px;
         }
     }
     
@@ -586,15 +348,7 @@ article .ih-item.square.effect13 .info .seemore {
                 margin-bottom: 10px;
             }
         }
-        //    article.auto .ih-item.square.effect13 .info {
-        //        p {
-        //            padding: 0px 10px;
-        //            margin-bottom: 10px;
-        //        }
-        //        img {
-        //            margin: 0px auto 0px auto;
-        //        }
-        //    }
+
     }
     
     @media screen and (min-width: 640px) and (max-width: 740px) {
@@ -656,15 +410,9 @@ IMAGE D'ENTETE / HEADER-IMAGE
             padding-left: 20px;
         }
     }
-<<<<<<< HEAD
-}
-
 
 
 /*---------------------------------------------------------------
-=======
-    /*---------------------------------------------------------------
->>>>>>> origin/master
 BREADCRUMBS
 ---------------------------------------------------------------*/
     
@@ -682,10 +430,11 @@ BREADCRUMBS
             margin-top: -5px;
         }
     }
-    /*---------------------------------------------------------------
+
+/*---------------------------------------------------------------
 CONTENU DE SAISIE / MAIN-CONTAINER
 ---------------------------------------------------------------*/
-<<<<<<< HEAD
+
 article > h1 {
     text-transform: uppercase;
     padding-left: 33px;
@@ -751,52 +500,6 @@ article.mecanique > h1 {
         font-style: italic;
         margin-bottom: 2em;
         a {
-=======
-    
-    #main-container,
-    .main-content {
-        background: #f5f5f5;
-        padding: 30px 15px 30px 50px;
-        -webkit-box-shadow: inset 14px 0px 30px -10px rgba(143, 143, 143, 0.2);
-        -moz-box-shadow: inset 14px 0px 30px -10px rgba(143, 143, 143, 0.2);
-        box-shadow: inset 14px 0px 30px -10px rgba(143, 143, 143, 0.2);
-        p a {
->>>>>>> origin/master
-            text-decoration: underline;
-            color: inherit;
-            font-weight: 700;
-            transition: all 0.2s ease-out;
-            -webkit-transition: all 0.2s ease-out;
-            -moz-transition: all 0.2s ease-out;
-            -o-transition: all 0.2s ease-out;
-        }
-        p a:hover {
-            color: black;
-        }
-        h2 {
-            color: #5e5e5e;
-            text-transform: uppercase;
-            font-size: rem-calc(36);
-            padding-bottom: 15px;
-            border-bottom: 2px solid $gris-asco;
-            font-weight: 600;
-            margin-bottom: .7em;
-        }
-        h3 {
-            text-transform: uppercase;
-            display: inline-block;
-            font-size: rem-calc(24);
-            font-weight: 600;
-            padding-bottom: 7px;
-        }
-        h4 {
-            color: #e52713;
-            font-size: rem-calc(18);
-            font-family: "Lora", serif;
-            font-weight: 700;
-            font-style: italic;
-            margin-bottom: 2em;
-            a {
                 text-decoration: underline;
                 color: #e52713;
                 transition: all 0.2s ease-out;
@@ -844,7 +547,7 @@ article.mecanique > h1 {
     nav.slidenav {
         width: 100%;
     }
-    /*---------------------------------------------------------------
+/*---------------------------------------------------------------
 MENU PRINCIPAL / TOP-BAR
 ---------------------------------------------------------------*/
     
@@ -1551,16 +1254,8 @@ PAGE LISTE D'ACTUALITES
             padding: 0;
         }
     }
-<<<<<<< HEAD
-}
 
 
 #single-post #main-container .entry-content li {
     list-style-image: url('../images/dot.svg');
 }
-=======
-    
-    #single-post #main-container .entry-content li {
-        list-style-image: url('../images/dot.svg');
-    }
->>>>>>> origin/master
