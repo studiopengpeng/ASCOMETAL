@@ -918,10 +918,13 @@ MENU SECONDAIRE GAUCHE / TOUCHSCROLLER
     ul li ul li:hover {
         padding-left: 15px;
     }
-    ul li ul li.active a {
+    li.asco .active > a:first-child {
         color: $asco;
     }
-    ul li ul li a:hover {
+    li.asco ul li a {
+        color: #989898;
+    }
+    ul li ul li ul li a:hover {
         transition: all 0.2s ease-out;
         -webkit-transition: all 0.2s ease-out;
         -moz-transition: all 0.2s ease-out;
@@ -930,6 +933,7 @@ MENU SECONDAIRE GAUCHE / TOUCHSCROLLER
     ul li ul li a:hover {
         color: $rouge-asco;
     }
+    li.asco a,
     li.automobile a,
     li.roulement a,
     li.petrole a,
