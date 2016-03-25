@@ -13,8 +13,10 @@ global $idBloc;
 ?>
 
     <div id="page" role="main">
-        <article class="main-content corporate">
-			<?php get_template_part( 'template-parts/header-banner-marches' ); ?>
+        <?php get_template_part( 'template-parts/header-banner-marches' ); ?>
+        
+        <article class="corporate">
+			<h1>Ascométal</h1>
 			
 			<div class="row">
 				<div class="small-12 columns" <?php post_class( 'main-content') ?> id="post-<?php the_ID(); ?>">

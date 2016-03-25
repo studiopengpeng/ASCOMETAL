@@ -6,10 +6,15 @@ REGLAGES GLOBAUX / GLOBAL SETTINGS
 
 // * * * * * * * * * * Couleurs des marchés * * * * * * * * * * 
 $automobile: #99be51;
+$automobileAlpha : rgba(153, 190, 81, 0.7);
 $roulement: #f28e00;
+$roulementAlpha : rgba(242, 142, 0, 0.7);
 $mecanique: #ae3e28;
+$mecaniqueAlpha : rgba(174, 62, 40, 0.7);
 $petrole: #03888e;
+$petroleAlpha : rgba(3, 136, 142, 0.7);
 $asco: #e52713;
+$ascoAlpha : rgba(229, 39, 19, 0.7);
 // * * * * * * * * * END Couleurs des marchés * * * * * * * * *
 // * * * * * * * * * * * * * page.php * * * * * * * * * * * * * 
 #page,
@@ -35,6 +40,10 @@ $asco: #e52713;
 /*---------------------------------------------------------------
 MARCHES HOME (présentation + effets au survol) 
 ---------------------------------------------------------------*/
+
+article.rolling {
+    padding-bottom:20px;
+}
 
 #markets {
     overflow: auto;
@@ -114,36 +123,34 @@ MARCHES HOME (présentation + effets au survol)
     transition: all 0.35s ease-in-out;
 }
 
-.ih-item.square.effect13 .mec {
-    background: rgba(174, 62, 40, 0.75);
+article.automobile .ih-item.square.effect13 .info {
+    background: $automobileAlpha;
+}
+article.roulement .ih-item.square.effect13 .info {
+    background: $roulementAlpha;
+}
+article.petrole .ih-item.square.effect13 .info {
+    background: $petroleAlpha;
+}
+article.mecanique .ih-item.square.effect13 .info {
+    background: $mecaniqueAlpha;
+}
+article.corporate .ih-item.square.effect13 .info {
+    background: $ascoAlpha;
 }
 
-.ih-item.square.effect13 .rol {
-    background: rgba(242, 142, 0, 0.75);
-    background-blend-mode: darken;
-}
 
-.ih-item.square.effect13 .aut {
-    background: rgba(153, 190, 81, 0.75);
-}
-
-.ih-item.square.effect13 .pet {
-    background: rgba(3, 136, 142, 0.75);
-}
-
-.ih-item.square.effect13 .asco {
-    background: rgba(255, 255, 255, 0.3);
-}
 
 .ih-item.square.effect13 .info h3 {
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 30px;
+    font-size: rem-calc(28);
+    line-height:rem-calc(35);
     color: #fff;
     text-align: center;
     text-transform: uppercase;
     width: 100%;
-    line-height: 4.0625rem;
+    padding-top: rem-calc(15);
 }
 
 #about {
@@ -163,12 +170,11 @@ MARCHES HOME (présentation + effets au survol)
 }
 
 .ih-item.square.effect13 .info p {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    position: relative;
+    font-weight: 400;
+    font-size: rem-calc(16);
+    line-height: rem-calc(24);
     color: #fff;
-    padding: 0px 20px;
+    padding: 15px 20px;
     text-align: center;
 }
 
@@ -207,14 +213,16 @@ MARCHES HOME (présentation + effets au survol)
 .ih-item.square.effect13.top_to_bottom a h3.title-petrol,
 .ih-item.square.effect13.top_to_bottom a h3.title-asco {
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: rem-calc(28);
     width: 100%;
-    line-height: rem-calc(65);
+    line-height: rem-calc(35);
     position: absolute;
     text-align: center;
     font-weight: 700;
     z-index: 100;
     color: #fff;
+    padding-top: rem-calc(15);
+    min-height: rem-calc(100);
     -webkit-transition: all 0.2s linear;
     -moz-transition: all 0.2s linear;
     transition: all 0.2s linear;
@@ -230,6 +238,22 @@ MARCHES HOME (présentation + effets au survol)
 
 .title-rolling {
     background-color: rgba(242, 142, 0, 0.7);
+}
+
+article.automobile .title-rolling {
+    background-color: $automobileAlpha;
+}
+article.roulement .title-rolling {
+    background-color: $roulementAlpha;
+}
+article.petrole .title-rolling {
+    background-color: $petroleAlpha;
+}
+article.mecanique .title-rolling {
+    background-color: $mecaniqueAlpha;
+}
+article.corporate .title-rolling {
+    background-color: $ascoAlpha;
 }
 
 .title-mechanical {
@@ -260,6 +284,11 @@ MARCHES HOME (présentation + effets au survol)
 article .ih-item.square.effect13 .info .seemore {
     text-transform: uppercase;
     font-size: rem-calc(24);
+    display:block;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
 }
 
 #markets {
@@ -374,6 +403,7 @@ header.header-image {
 }
 
 
+
 /*---------------------------------------------------------------
 BREADCRUMBS
 ---------------------------------------------------------------*/
@@ -397,6 +427,26 @@ BREADCRUMBS
 /*---------------------------------------------------------------
 CONTENU DE SAISIE / MAIN-CONTAINER
 ---------------------------------------------------------------*/
+article > h1 {
+    text-transform: uppercase;
+    padding-left: 33px;
+    font-size:rem-calc(36);
+    color:$asco;
+    padding-top:rem-calc(30);
+}
+article.automobile > h1 {
+    color:$automobile;
+}
+article.roulement > h1 {
+    color:$roulement;
+}
+article.petrole > h1 {
+    color:$petrole;
+}
+article.mecanique > h1 {
+    color:$mecanique;
+}
+
 
 #main-container,
 .main-content {
@@ -417,6 +467,7 @@ CONTENU DE SAISIE / MAIN-CONTAINER
     p a:hover {
         color: black;
     }
+    
     h2 {
         color: #5e5e5e;
         text-transform: uppercase;
@@ -1155,6 +1206,7 @@ PAGE LISTE D'ACTUALITES
         padding: 0;
     }
 }
+
 
 #single-post #main-container .entry-content li {
     list-style-image: url('../images/dot.svg');

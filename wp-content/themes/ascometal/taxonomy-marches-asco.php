@@ -37,7 +37,7 @@ else if ($tax_array[4]==21) ($classColor="mecanique");
     <div id="page" role="main">
 		<?php get_template_part( 'template-parts/header-banner-marches' ); ?>
 		
-        <article class="main-content <?php echo $classColor ?>">
+        <article class="<?php echo $classColor ?>">
             <?php if ( have_posts() ) : ?>
                 <h1><?php parent_page_title() ?></h1>
 			
