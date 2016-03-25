@@ -902,11 +902,21 @@ MENU SECONDAIRE GAUCHE / TOUCHSCROLLER
     ul li {
         list-style: none;
         font-weight: 700;
+        transition: all 0.2s ease-out;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+    }
+    li:hover {
+        padding-left: 10px;
     }
     ul li ul li {
         padding-left: 15px;
         font-style: italic;
         font-weight: 400;
+    }
+    ul li ul li:hover {
+        padding-left: 15px;
     }
     ul li ul li.active a {
         color: $asco;
@@ -920,46 +930,31 @@ MENU SECONDAIRE GAUCHE / TOUCHSCROLLER
     ul li ul li a:hover {
         color: $rouge-asco;
     }
-    li.automobile a {
-        color: $automobile;
-    }
-    li.roulement a {
-        color: $roulement;
-    }
-    li.automobile a {
-        color: $automobile;
+    li.automobile a,
+    li.roulement a,
+    li.petrole a,
+    li.mecanique a {
         padding-left: 50px;
-        background-image: url('../images/automobile-icone.svg');
-        background-position: 0 0;
         background-repeat: no-repeat;
         margin-bottom: rem-calc(20px);
         margin-top: rem-calc(10px);
     }
+    li.automobile a {
+        color: $automobile;
+        background-image: url('../images/automobile-icone.svg');
+    }
     li.roulement a {
         color: $roulement;
-        padding-left: 50px;
         background-image: url('../images/roulement-icone.svg');
-        background-position: 0 0;
-        background-repeat: no-repeat;
-        margin-bottom: rem-calc(20px);
     }
     li.petrole a {
         color: $petrole;
-        padding-left: 50px;
         background-image: url('../images/petrol-icone.svg');
-        background-position: 0 0;
-        background-repeat: no-repeat;
-        margin-bottom: rem-calc(20px);
     }
     li.mecanique a {
         color: $mecanique;
-        padding-left: 50px;
         background-image: url('../images/mecanique-icone.svg');
-        background-position: 0 0;
-        background-repeat: no-repeat;
-        margin-bottom: rem-calc(20px);
     }
-    
 }
 
 
@@ -968,10 +963,10 @@ MENU GAUCHE / MASQUAGE sous rubriques non actuelles
 ---------------------------------------------------------------*/
 
 #touchscroller {
-    .sub-menu  {
+    .sub-menu {
         display: none;
     }
-     .current-menu-ancestor.active .sub-menu {
+    .current-menu-ancestor.active .sub-menu {
         display: block;
     }
     .current-menu-ancestor.active li:not(.active) .sub-menu {
@@ -984,6 +979,7 @@ MENU GAUCHE / MASQUAGE sous rubriques non actuelles
         display: none;
     }
 }
+
 
 /*---------------------------------------------------------------
 MENU FOOTER
@@ -1047,23 +1043,21 @@ WIDGET BOUTONS PERSO
     background-color: #FFF;
     color: #5e5e5e;
     transition: all .3s;
-    line-height:rem-calc(18);
-    
+    line-height: rem-calc(18);
     .title {
-    display:inline-block;
-    font-weight: bold;
-    font-size: 18px;
-    text-transform: uppercase;
-    transition:color .3s;
-    padding-bottom:10px;
+        display: inline-block;
+        font-weight: bold;
+        font-size: 18px;
+        text-transform: uppercase;
+        transition: color .3s;
+        padding-bottom: 10px;
     }
-    .subtitle {
-    }
+    .subtitle {}
 }
 
 .button.simple-btn:hover {
     .title {
-    color: #FF0000;
+        color: #FF0000;
     }
 }
 
