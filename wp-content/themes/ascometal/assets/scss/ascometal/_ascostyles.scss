@@ -1,4 +1,8 @@
+<<<<<<< HEAD
     // Styles propres à ASCOMETAL
+=======
+// Styles propres à ASCOMETAL
+>>>>>>> parent of fc6e6d1... Merge remote-tracking branch 'origin/master'
 
 /*---------------------------------------------------------------
 REGLAGES GLOBAUX / GLOBAL SETTINGS
@@ -356,6 +360,18 @@ article .ih-item.square.effect13 .info .seemore {
             margin-bottom: 10px;
         }
     }
+<<<<<<< HEAD
+=======
+    //    article.auto .ih-item.square.effect13 .info {
+    //        p {
+    //            padding: 0px 10px;
+    //            margin-bottom: 10px;
+    //        }
+    //        img {
+    //            margin: 0px auto 0px auto;
+    //        }
+    //    }
+>>>>>>> parent of fc6e6d1... Merge remote-tracking branch 'origin/master'
 }
 
 @media screen and (min-width: 640px) and (max-width: 740px) {
@@ -367,6 +383,7 @@ article .ih-item.square.effect13 .info .seemore {
 @media screen and (max-width: 640px) {
     #markets {
         padding: 25px 0px 0px 0px;
+<<<<<<< HEAD
     }
     article.ascometal .ih-item.square.effect13 .info img {
         width: 10%;
@@ -381,6 +398,22 @@ article .ih-item.square.effect13 .info .seemore {
     #about .ih-item.square.effect13 .info p {
         width: 100%;
     }
+=======
+    }
+    article.ascometal .ih-item.square.effect13 .info img {
+        width: 10%;
+        margin: 10px auto 10px auto;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    article.ascometal .ih-item.square.effect13 .info p {
+        line-height: 20px;
+    }
+    #about .ih-item.square.effect13 .info p {
+        width: 100%;
+    }
+>>>>>>> parent of fc6e6d1... Merge remote-tracking branch 'origin/master'
 }
 
 @media screen and (max-width: 400px) {
@@ -444,7 +477,10 @@ BREADCRUMBS
 /*---------------------------------------------------------------
 CONTENU DE SAISIE / MAIN-CONTAINER
 ---------------------------------------------------------------*/
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of fc6e6d1... Merge remote-tracking branch 'origin/master'
 article > h1 {
     text-transform: uppercase;
     padding-left: 33px;
@@ -518,6 +554,7 @@ article.mecanique > h1 {
             -webkit-transition: all 0.2s ease-out;
             -moz-transition: all 0.2s ease-out;
             -o-transition: all 0.2s ease-out;
+<<<<<<< HEAD
         }
         a:hover {
             color: #8d0d00;
@@ -719,12 +756,180 @@ nav#site-navigation {
 }
 
 @media screen and (max-width: 640px) {
+=======
+        }
+        a:hover {
+            color: #8d0d00;
+        }
+    }
+    ul li {
+        list-style-image: url('../images/dot.svg');
+    }
+    blockquote {
+        font-family: "Lora", serif;
+        font-weight: 400;
+        font-style: italic;
+        border-left: 1px solid #e52713;
+    }
+    .bouton-lien {
+        background-color: #fff;
+        -webkit-box-shadow: 0px 7px 29px 0px rgba(0, 0, 0, 0.15);
+        -moz-box-shadow: 0px 7px 29px 0px rgba(0, 0, 0, 0.15);
+        box-shadow: 0px 7px 29px 0px rgba(0, 0, 0, 0.15);
+        transition: all 0.2s ease-out;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        a {
+            text-decoration: none;
+            font-weight: 400;
+        }
+        strong {
+            text-transform: uppercase;
+        }
+    }
+    .bouton-lien:hover {
+        -webkit-box-shadow: 0px 7px 29px 0px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0px 7px 29px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 7px 29px 0px rgba(0, 0, 0, 0.3);
+    }
+}
+
+nav.slidenav {
+    width: 100%;
+}
+
+
+/*---------------------------------------------------------------
+MENU PRINCIPAL / TOP-BAR
+---------------------------------------------------------------*/
+
+.top-bar,
+.top-bar ul,
+.top-bar li,
+.top-bar-left,
+.top-bar-right {
+    background-color: #fff;
+    height: 50px;
+    z-index: 200;
+}
+
+nav#site-navigation {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.top-bar .menu a:hover:not(.button) {
+    background-color: #fff;
+}
+
+#masthead {
+    padding-bottom: 6px;
+    padding-top: 7px;
+}
+
+.top-bar {
+    padding: 0;
+    li {
+        background-color: #fff;
+        height: auto;
+        padding: 0px 3px;
+    }
+    .menu a {
+        padding: 0;
+        text-align: center;
+        padding: 20px 10px 20px 10px!important;
+        letter-spacing: .5px;
+        display: block;
+        height: auto;
+        font-family: $body-font-family;
+        font-weight: 400;
+        text-transform: uppercase;
+        font-size: rem-calc(16);
+        color: #000;
+        transition: all 0.2s ease-out;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+    }
+    .menu a:hover {
+        box-shadow: inset 0px 5px 0px 0px #e52713;
+    }
+    li.active {
+        box-shadow: inset 0px 5px 0px 0px #e52713;
+    }
+    ul li ul li.active {
+        box-shadow: none;
+    }
+    ul li ul li {
+        background-color: #ededed;
+        padding: 0;
+    }
+    ul li ul li a:hover {
+        box-shadow: inset 5px 0px 0px 0px #e52713!important;
+    }
+    .dropdown.menu .submenu {
+        height: auto;
+        -webkit-box-shadow: 0px 7px 29px 0px rgba(0, 0, 0, 0.15);
+        -moz-box-shadow: 0px 7px 29px 0px rgba(0, 0, 0, 0.15);
+        box-shadow: 0px 7px 29px 0px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.top-bar-section .dropdown {
+    li {
+        height: auto;
+    }
+}
+
+// * * * * * * * * * * * * * Logo * * * * * * * * * * * * * 
+.top-bar-left {
+    position: relative;
+    .logo img {
+        width: 70%;
+        position: absolute;
+        top: 0;
+        left: 30px;
+    }
+    a:hover {
+        box-shadow: none!important;
+    }
+    width: 275px;
+}
+
+@media screen and (max-width: 1024px) {
+    #mobile-menu,
+    .title-bar {
+        display: block !important;
+        background-color: #D6D6D6;
+    }
+    .menu-icon.dark:hover::after {
+        background: #E42618;
+        box-shadow: 0 7px 0 #E42618, 0 14px 0 #E42618;
+    }
+}
+
+.title-bar-title img {
+    width: 60%;
+    padding-left: 5px;
+}
+
+.top-bar {
+    .menu a {
+        letter-spacing: 0;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+>>>>>>> parent of fc6e6d1... Merge remote-tracking branch 'origin/master'
     #main-container .top-bar,
     .top-bar ul,
     .top-bar li,
     .top-bar-left,
     .top-bar-right {
         height: auto;
+<<<<<<< HEAD
     }
     header.header-image h1 {
         line-height: 40px;
@@ -878,54 +1083,406 @@ MENU LANGUES / RECHERCHE / CONNEXION / CONTACT DIRECT
         #searchform [type='submit'] {
             width: auto;
         }
+=======
+        width: 100%;
     }
-    /*---------------------------------------------------------------
+    #menu-menu-principal {
+        display: none;
+    }
+    .top-bar-left {
+        display: none;
+    }
+    #masthead {
+        padding-bottom: 0;
+    }
+    .menu.vertical > li {
+        border-bottom: 1px solid #bebebe;
+    }
+    .menu.nested,
+    .vertical {
+        margin-left: 0!important;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    header.header-image h1 {
+        line-height: 50px;
+        top: 40%;
+        font-size: 50px;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    #main-container .top-bar,
+    .top-bar ul,
+    .top-bar li,
+    .top-bar-left,
+    .top-bar-right {
+        height: auto;
+    }
+    header.header-image h1 {
+        line-height: 40px;
+        top: 40%;
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    header.header-image h1 {
+        line-height: 35px;
+        top: 40%;
+        font-size: 30px;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .title-bar-title {
+        width: 80%;
+    }
+}
+
+
+/*---------------------------------------------------------------
+MENU LANGUES / RECHERCHE / CONNEXION / CONTACT DIRECT
+---------------------------------------------------------------*/
+
+#navtools nav {
+    //    height: 50px;
+    text-align: right;
+    overflow: auto;
+    ul {
+        margin-bottom: 5px;
+        li {
+            display: inline-block;
+            margin: 0px 10px;
+            ul li {
+                margin: 5px;
+            }
+            &:first-child {
+                margin-left: 0;
+            }
+            &:nth-child(4) {
+                margin-right: 0;
+            }
+        }
+    }
+    #searchsubmit,
+    #s {
+        font-family: $body-font-family;
+        font-weight: 700;
+        margin: 0;
+    }
+    input[type='text'] {
+        width: 300px;
+        height: 40px;
+    }
+}
+
+#searchform [type='submit'] {
+    background-color: #99BE51;
+    letter-spacing: 0.8px;
+    width: 150px;
+}
+
+.offsearch {
+    float: right;
+    height: 0;
+    overflow: hidden;
+    margin: 10px 0px;
+    opacity: 0;
+    transition: all 200ms ease;
+}
+
+.onsearch {
+    height: 40px;
+    opacity: 1;
+}
+
+.offcall {
+    opacity: 0;
+    position: relative;
+    transition: all 200ms ease;
+    height: 35px;
+}
+
+.oncall {
+    opacity: 1;
+}
+
+#navtools span {
+    font-size: 1.2em;
+    position: absolute;
+    top: 17px;
+    left: -150px;
+}
+
+
+/* header dropdown menu des langues*/
+
+#navtools nav {
+    overflow: visible;
+}
+
+#navtools #lang_sel li {
+    float: left;
+    width: 40px;
+}
+
+#navtools #lang_sel ul ul {
+    width: auto;
+}
+
+
+/* memo : ! effacer les modifications d'opacité (donc l'animation) si soucis sur mobiles ! */
+
+#lang_sel ul ul {
+    width: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s;
+}
+
+#lang_sel ul li:hover ul,
+#lang_sel ul a:hover ul {
+    visibility: visible;
+    opacity: 1;
+}
+
+#navtools #lang_sel ul li {
+    /*display:block;
+	float:none;*/
+    display: inline-block;
+    float: left;
+}
+
+#navtools #lang_sel ul:first-child {
+    margin-top: 15px !important;
+    li:first-child {
+        width: 60px !important;
+    }
+}
+
+#navtools #lang_sel ul ul {
+    width: 210px;
+    position: relative;
+    left: -44px;
+    top: 5px;
+}
+
+#navtools #lang_sel li a.icl-fr img,
+#navtools #lang_sel li.icl-fr a img {
+    content: url('../images/france-flag.svg');
+}
+
+#navtools #lang_sel li.icl-en a img,
+#navtools #lang_sel li a.icl-en img {
+    content: url('../images/greatbritain-flag.svg');
+}
+
+#navtools #lang_sel li.icl-de a img,
+#navtools #lang_sel li a.icl-de img {
+    content: url('../images/germany-flag.svg');
+}
+
+#navtools #lang_sel li.icl-it a img,
+#navtools #lang_sel li a.icl-it img {
+    content: url('../images/italy-flag.svg');
+}
+
+#navtools #lang_sel ul li img.iclflag {
+    width: 24px;
+    height: auto;
+    position: relative;
+    top: 0;
+    left: -10px;
+}
+
+#navtools #lang_sel ul li:first-child img.iclflag {
+    left: -11px;
+}
+
+#navtools #lang_sel ul ul a {
+    padding: 5px 0px;
+}
+
+
+/* fin menu des langues */
+
+#navtools #lang_sel li a.icl-fr img,
+#navtools #lang_sel li.icl-fr a img {
+    content: url('../images/france-flag.svg');
+}
+
+#navtools #lang_sel li.icl-en a img,
+#navtools #lang_sel li a.icl-en img {
+    content: url('../images/greatbritain-flag.svg');
+}
+
+#navtools #lang_sel li.icl-de a img,
+#navtools #lang_sel li a.icl-de img {
+    content: url('../images/germany-flag.svg');
+}
+
+#navtools #lang_sel li.icl-it a img,
+#navtools #lang_sel li a.icl-it img {
+    content: url('../images/italy-flag.svg');
+}
+
+#navtools #lang_sel ul li img.iclflag {
+    width: 24px;
+    height: auto;
+    position: relative;
+    top: 0;
+    left: -10px;
+}
+
+#navtools #lang_sel ul li:first-child img.iclflag {
+    left: -11px;
+}
+
+#navtools #lang_sel ul ul a {
+    padding: 5px 0px;
+}
+
+
+/* fin menu des langues */
+
+@media screen and (max-width: 470px) {
+    #searchform [type='submit'] {
+        width: auto;
+    }
+}
+
+
+/*---------------------------------------------------------------
 MENU SECONDAIRE GAUCHE / TOUCHSCROLLER
 ---------------------------------------------------------------*/
+
+#touchscroller {
+    text-transform: uppercase;
+    a {
+        color: #989898;
+    }
+    ul li {
+        list-style: none;
+        font-weight: 700;
+        transition: all 0.2s ease-out;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+    }
+    li:hover {
+        padding-left: 10px;
+    }
+    ul li ul li {
+        padding-left: 15px;
+        font-style: italic;
+        font-weight: 400;
+    }
+    ul li ul li:hover {
+        padding-left: 15px;
+    }
+    li.asco .active > a:first-child {
+        color: $asco;
+    }
+    li.asco ul li a {
+        color: #989898;
+    }
+    ul li ul li ul li a:hover {
+        transition: all 0.2s ease-out;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+    }
+    ul li ul li a:hover {
+        color: $rouge-asco;
+    }
+    li.asco a,
+    li.automobile a,
+    li.roulement a,
+    li.petrole a,
+    li.mecanique a {
+        padding-left: 50px;
+        background-repeat: no-repeat;
+        margin-bottom: rem-calc(20px);
+        margin-top: rem-calc(10px);
+    }
+    li.automobile a {
+        color: $automobile;
+        background-image: url('../images/automobile-icone.svg');
+    }
+    li.roulement a {
+        color: $roulement;
+        background-image: url('../images/roulement-icone.svg');
+>>>>>>> parent of fc6e6d1... Merge remote-tracking branch 'origin/master'
+    }
+    li.petrole a {
+        color: $petrole;
+        background-image: url('../images/petrol-icone.svg');
+    }
+    li.mecanique a {
+        color: $mecanique;
+        background-image: url('../images/mecanique-icone.svg');
+    }
+}
+
+
+/*---------------------------------------------------------------
+MENU GAUCHE / MASQUAGE sous rubriques non actuelles
+---------------------------------------------------------------*/
+<<<<<<< HEAD
+=======
+
+#touchscroller {
+    .sub-menu {
+        display: none;
+    }
+    .current-menu-ancestor.active .sub-menu {
+        display: block;
+    }
+    .current-menu-ancestor.active li:not(.active) .sub-menu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+>>>>>>> parent of fc6e6d1... Merge remote-tracking branch 'origin/master'
     #touchscroller {
-        text-transform: uppercase;
-        padding-top: 28px;
+        display: none;
+    }
+}
+
+
+/*---------------------------------------------------------------
+MENU FOOTER
+---------------------------------------------------------------*/
+
+#footer-container {
+    background-color: #989898;
+    margin-top: 0;
+    text-align: center;
+    padding: 15px 0px;
+    border-top: solid 2px #b5bf1e;
+}
+
+#footernav {
+    ul li {
+        display: inline-block;
+        list-style: none;
+        border-left: solid 2px #dedede;
+        padding: 0px 20px;
         a {
-            color: $gris-asco;
-        }
-        ul li {
-            list-style: none;
-            font-weight: 700;
+            color: #dedede;
+            text-transform: uppercase;
             transition: all 0.2s ease-out;
+            font-weight: 600;
             -webkit-transition: all 0.2s ease-out;
             -moz-transition: all 0.2s ease-out;
             -o-transition: all 0.2s ease-out;
         }
-        li:hover {
-            padding-left: 10px;
-        }
-        ul li ul li {
-            padding-left: 15px;
-            font-style: normal;
-            font-weight: 700;
-        }
-        ul li ul li ul li {
-            padding-left: 15px;
-            font-style: italic;
-            font-weight: 400;
-            line-height: 16px;
-            padding-bottom: 8px;
-        }
-        ul li ul li:hover {
-            padding-left: 15px;
-        }
-        li.asco .active > a:first-child {
-            color: $asco;
-        }
-        li.asco ul li a {
-            color: $gris-asco;
-        }
-        ul li ul li ul li a:hover {
-            transition: all 0.2s ease-out;
-            -webkit-transition: all 0.2s ease-out;
-            -moz-transition: all 0.2s ease-out;
-            -o-transition: all 0.2s ease-out;
-        }
+<<<<<<< HEAD
         ul li ul li a:hover {
             color: $rouge-asco;
         }
@@ -1066,10 +1623,26 @@ MENU FOOTER
                 }
             }
         }
+=======
+        a:hover {
+            color: #fff;
+        }
     }
-    /*---------------------------------------------------------------
+    ul li:first-child {
+        border: none;
+        padding-left: 0;
+    }
+    ul li:last-child {
+        padding-right: 0;
+>>>>>>> parent of fc6e6d1... Merge remote-tracking branch 'origin/master'
+    }
+}
+
+
+/*---------------------------------------------------------------
 WIDGET BOUTONS PERSO
 ---------------------------------------------------------------*/
+<<<<<<< HEAD
     // * * * * * * * * * * * Bouton simple * * * * * * * * * * * *
     .button.simple-btn {
         display: inline-block;
@@ -1105,24 +1678,79 @@ WIDGET BOUTONS PERSO
     }
     .button.long {
         width: 100%;
+=======
+
+// * * * * * * * * * * * Bouton simple * * * * * * * * * * * *
+.button.simple-btn {
+    display: inline-block;
+    text-align: left;
+    line-height: 1;
+    cursor: pointer;
+    -webkit-appearance: none;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    border-radius: 0;
+    padding: 20px 25px;
+    margin: 0 0 1rem 0;
+    font-size: 0.9rem;
+    background-color: #FFF;
+    color: #5e5e5e;
+    transition: all .3s;
+    line-height: rem-calc(18);
+    .title {
+        display: inline-block;
+        font-weight: bold;
+        font-size: 18px;
+        text-transform: uppercase;
+        transition: color .3s;
+        padding-bottom: 10px;
     }
-    /*---------------------------------------------------------------
+    .subtitle {}
+}
+
+.button.simple-btn:hover {
+    .title {
+        color: #FF0000;
+>>>>>>> parent of fc6e6d1... Merge remote-tracking branch 'origin/master'
+    }
+}
+
+.button.long {
+    width: 100%;
+}
+
+
+/*---------------------------------------------------------------
 SECTION LOGOS - ils nous font confiance
 ---------------------------------------------------------------*/
+<<<<<<< HEAD
     .lshowcase-logos {
         box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
         background-color: #fff;
         padding-top: 50px;
         padding-bottom: 50px;
         margin-bottom: 30px!important;
+=======
+
+.lshowcase-logos {
+    box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
+    background-color: #fff;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 30px!important;
+    max-width: 100%!important;
+    .bx-wrapper {
+>>>>>>> parent of fc6e6d1... Merge remote-tracking branch 'origin/master'
         max-width: 100%!important;
-        .bx-wrapper {
-            max-width: 100%!important;
-        }
     }
-    /*---------------------------------------------------------------
+}
+
+
+/*---------------------------------------------------------------
 PAGE LISTE D'ACTUALITES
 ---------------------------------------------------------------*/
+<<<<<<< HEAD
     .category-actualites {
         background-color: #fff;
     }
@@ -1167,19 +1795,44 @@ PAGE LISTE D'ACTUALITES
         .infos {
             padding: 0px rem-calc(15);
             float: left;
-        }
-        .thumb {
-            padding-right: 15px;
-            float: left;
-            display: inline-block;
-            height: auto;
-            div {
-                height: 190px;
-                width: auto;
-                background-size: cover;
-            }
+=======
+
+.category-actualites {
+    background-color: #fff;
+}
+
+.article-preview {
+    overflow: auto;
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    .thumb,
+    .infos {
+        float: left;
+    }
+    time {
+        color: #e52713;
+    }
+    p {
+        a.more-link {
+            float: right;
+            text-decoration: none;
+            padding: 30px 0px 0px 0px;
+            font-weight: 700;
+>>>>>>> parent of fc6e6d1... Merge remote-tracking branch 'origin/master'
         }
     }
+    h2 {
+        line-height: rem-calc(20);
+        border: none;
+        margin-bottom: rem-calc(20);
+        a {
+            font-size: rem-calc(18);
+            font-family: "Lora", serif;
+            text-transform: lowercase;
+        }
+    }
+<<<<<<< HEAD
     @media screen and (max-width: 640px) {
         .article-preview .thumb {
             padding: 0;
@@ -1188,3 +1841,40 @@ PAGE LISTE D'ACTUALITES
     #single-post #main-container .entry-content li {
         list-style-image: url('../images/dot.svg');
     }
+=======
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+    .infos {
+        padding: 0px rem-calc(15);
+        float: left;
+    }
+    .thumb {
+        padding-right: 15px;
+        float: left;
+        display: inline-block;
+        height: auto;
+        div {
+            height: 190px;
+            width: auto;
+            background-size: cover;
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .article-preview .thumb {
+        padding: 0;
+    }
+}
+
+
+#single-post #main-container .entry-content li {
+    list-style-image: url('../images/dot.svg');
+}
+>>>>>>> parent of fc6e6d1... Merge remote-tracking branch 'origin/master'
