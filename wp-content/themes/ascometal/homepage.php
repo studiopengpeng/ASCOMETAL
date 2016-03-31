@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /*
 Template Name: accueil-ascometal
 */
@@ -125,7 +125,9 @@ get_header(); ?>
                                         <!-- Actualités -->
                                         <article class=" news small-12 medium-12 large-7 columns">
                                             <div class="ih-item">
+
                                                <?php get_template_part( 'template-parts/carrousel-actualites' ); ?>
+
                                             </div>
                                         </article>
                                         <!-- END Actualités -->

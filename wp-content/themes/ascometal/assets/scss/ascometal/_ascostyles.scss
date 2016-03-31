@@ -2,7 +2,12 @@
     /*---------------------------------------------------------------
 REGLAGES GLOBAUX / GLOBAL SETTINGS
 ---------------------------------------------------------------*/
+<<<<<<< Updated upstream
 // * * * * * * * * * * Couleurs des marchés * * * * * * * * * * 
+=======
+    
+    // * * * * * * * * * * Couleurs des marchés * * * * * * * * * * 
+>>>>>>> Stashed changes
     $automobile: #99be51;
     $automobileAlpha: rgba(153, 190, 81, 0.7);
     $roulement: #f28e00;
@@ -16,6 +21,7 @@ REGLAGES GLOBAUX / GLOBAL SETTINGS
     $gris-fonce-asco: #5e5e5e;
     $gris-asco: #989898;
     // * * * * * * * * * END Couleurs des marchés * * * * * * * * *
+<<<<<<< Updated upstream
     #global-container {
         max-width: 80em !important;
         overflow: hidden;
@@ -23,6 +29,15 @@ REGLAGES GLOBAUX / GLOBAL SETTINGS
     }
     
     // * * * * * * * * * * * * * page.php * * * * * * * * * * * * * 
+=======
+    // * * * * * * * * * * * * * page.php * * * * * * * * * * * * * 
+    #global-container {
+        max-width: 80em !important;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+    
+>>>>>>> Stashed changes
     #page,
     #single-post {
         margin-top: 0;
@@ -44,79 +59,79 @@ REGLAGES GLOBAUX / GLOBAL SETTINGS
     /*---------------------------------------------------------------
 MARCHES HOME (présentation + effets au survol) 
 ---------------------------------------------------------------*/
-
-article.rolling {
-    padding-bottom:20px;
-}
-
-#markets {
-    overflow: auto;
-}
-
-.ih-item {
-    -webkit-box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
-    -moz-box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
-    box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
-    position: relative;
-    -webkit-transition: all 0.35s ease-in-out;
-    -moz-transition: all 0.35s ease-in-out;
-    transition: all 0.35s ease-in-out;
-}
-
-.ih-item,
-.ih-item * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.ih-item a {
-    color: #333;
-}
-
-.ih-item a:hover {
-    text-decoration: none;
-}
-
-.ih-item.square {
-    position: relative;
-}
-
-.ih-item.square .info {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-.ih-item.square.effect13 {
-    overflow: hidden;
-}
-
-.ih-item.square.effect13.colored .info {
-    background: rgba(26, 74, 114, 0.6);
-}
-
-.ih-item.square.effect13.colored .info h3 {
-    background: rgba(12, 34, 52, 0.6);
-}
-
-.ih-item.square.effect13 .img {
-    -webkit-transition: all 0.35s ease-in-out;
-    -moz-transition: all 0.35s ease-in-out;
-    transition: all 0.35s ease-in-out;
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1);
-}
-
-.ih-item.square.effect13 .info {
+    
+    article.rolling {
+        padding-bottom: 20px;
+    }
+    
+    #markets {
+        overflow: auto;
+    }
+    
+    .ih-item {
+        -webkit-box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
+        -moz-box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
+        box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
+        position: relative;
+        -webkit-transition: all 0.35s ease-in-out;
+        -moz-transition: all 0.35s ease-in-out;
+        transition: all 0.35s ease-in-out;
+    }
+    
+    .ih-item,
+    .ih-item * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    
+    .ih-item a {
+        color: #333;
+    }
+    
+    .ih-item a:hover {
+        text-decoration: none;
+    }
+    
+    .ih-item.square {
+        position: relative;
+    }
+    
+    .ih-item.square .info {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+    .ih-item.square.effect13 {
+        overflow: hidden;
+    }
+    
+    .ih-item.square.effect13.colored .info {
+        background: rgba(26, 74, 114, 0.6);
+    }
+    
+    .ih-item.square.effect13.colored .info h3 {
+        background: rgba(12, 34, 52, 0.6);
+    }
+    
+    .ih-item.square.effect13 .img {
+        -webkit-transition: all 0.35s ease-in-out;
+        -moz-transition: all 0.35s ease-in-out;
+        transition: all 0.35s ease-in-out;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+    
+    .ih-item.square.effect13 .info {
         background: #333333;
         background: rgba(0, 0, 0, 0.6);
         visibility: hidden;
@@ -127,41 +142,45 @@ article.rolling {
         transition: all 0.35s ease-in-out;
     }
     
-article.automobile .ih-item.square.effect13 .info {
-    background: $automobileAlpha;
-}
-article.roulement .ih-item.square.effect13 .info {
-    background: $roulementAlpha;
-}
-article.petrole .ih-item.square.effect13 .info {
-    background: $petroleAlpha;
-}
-article.mecanique .ih-item.square.effect13 .info {
-    background: $mecaniqueAlpha;
-}
-article.corporate .ih-item.square.effect13 .info {
-    background: $ascoAlpha;
-}
-
- .ih-item.square.effect13 .mec {
+    article.automobile .ih-item.square.effect13 .info {
+        background: $automobileAlpha;
+    }
+    
+    article.roulement .ih-item.square.effect13 .info {
+        background: $roulementAlpha;
+    }
+    
+    article.petrole .ih-item.square.effect13 .info {
+        background: $petroleAlpha;
+    }
+    
+    article.mecanique .ih-item.square.effect13 .info {
+        background: $mecaniqueAlpha;
+    }
+    
+    article.corporate .ih-item.square.effect13 .info {
+        background: $ascoAlpha;
+    }
+    
+    .ih-item.square.effect13 .mec {
         background: rgba(174, 62, 40, 0.75);
     }
     
-.ih-item.square.effect13 .rol {
-    background: rgba(242, 142, 0, 0.75);
-}
-
-.ih-item.square.effect13 .aut {
-    background: rgba(153, 190, 81, 0.75);
-}
-
-.ih-item.square.effect13 .pet {
-    background: rgba(3, 136, 142, 0.75);
-}
-
-.ih-item.square.effect13 .asco {
-    background: rgba(255, 255, 255, 0.3);
-}
+    .ih-item.square.effect13 .rol {
+        background: rgba(242, 142, 0, 0.75);
+    }
+    
+    .ih-item.square.effect13 .aut {
+        background: rgba(153, 190, 81, 0.75);
+    }
+    
+    .ih-item.square.effect13 .pet {
+        background: rgba(3, 136, 142, 0.75);
+    }
+    
+    .ih-item.square.effect13 .asco {
+        background: rgba(255, 255, 255, 0.3);
+    }
     
     .ih-item.square.effect13 .info h3 {
         text-transform: uppercase;
@@ -189,134 +208,137 @@ article.corporate .ih-item.square.effect13 .info {
             }
         }
     }
-
-
-.ih-item.square.effect13 .info p {
-    font-weight: 400;
-    font-size: rem-calc(16);
-    line-height: rem-calc(24);
-    color: #fff;
-    padding: 15px 20px;
-    text-align: center;
-}
-
-.ih-item.square.effect13 a:hover .img {
-    -webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    -o-transform: scale(1.2);
-    transform: scale(1.2);
-}
-
-.ih-item.square.effect13 a:hover .info {
-    visibility: visible;
-    opacity: 1;
-}
-
-.ih-item.square.effect13.top_to_bottom .info {
-    -webkit-transform: translateY(-100%);
-    -moz-transform: translateY(-100%);
-    -ms-transform: translateY(-100%);
-    -o-transform: translateY(-100%);
-    transform: translateY(-100%);
-}
-
-.ih-item.square.effect13.top_to_bottom a:hover .info {
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
-    transform: translateY(0);
-}
-
-.ih-item.square.effect13.top_to_bottom a h3.title-auto,
-.ih-item.square.effect13.top_to_bottom a h3.title-rolling,
-.ih-item.square.effect13.top_to_bottom a h3.title-mechanical,
-.ih-item.square.effect13.top_to_bottom a h3.title-petrol,
-.ih-item.square.effect13.top_to_bottom a h3.title-asco {
-    text-transform: uppercase;
-    font-size: rem-calc(28);
-    width: 100%;
-    line-height: rem-calc(35);
-    position: absolute;
-    text-align: center;
-    font-weight: 700;
-    z-index: 100;
-    color: #fff;
-    padding-top: rem-calc(15);
-    min-height: rem-calc(100);
-    -webkit-transition: all 0.2s linear;
-    -moz-transition: all 0.2s linear;
-    transition: all 0.2s linear;
-}
-
-.ih-item.square.effect13.top_to_bottom a h3.title-asco {
-    color: #e52713;
-}
-
-.title-auto {
-    background-color: rgba(153, 190, 81, 0.7);
-}
-
-.title-rolling {
-    background-color: rgba(242, 142, 0, 0.7);
-}
-
-article.automobile .title-rolling {
-    background-color: $automobileAlpha;
-}
-article.roulement .title-rolling {
-    background-color: $roulementAlpha;
-}
-article.petrole .title-rolling {
-    background-color: $petroleAlpha;
-}
-article.mecanique .title-rolling {
-    background-color: $mecaniqueAlpha;
-}
-article.corporate .title-rolling {
-    background-color: $ascoAlpha;
-}
-
-.title-mechanical {
-    background-color: rgba(174, 62, 40, 0.7);
-}
-
-.title-petrol {
-    background-color: rgba(3, 136, 142, 0.7);
-}
-
-.title-asco {
-    background-color: rgba(255, 255, 255, 0.7);
-}
-
-.ih-item.square.effect13.top_to_bottom a:hover h3.title-auto,
-.ih-item.square.effect13.top_to_bottom a:hover h3.title-rolling,
-.ih-item.square.effect13.top_to_bottom a:hover h3.title-mechanical,
-.ih-item.square.effect13.top_to_bottom a:hover h3.title-petrol,
-.ih-item.square.effect13.top_to_bottom a:hover h3.title-asco {
-    opacity: 0;
-}
-
-.info img {
-    margin: 0 auto 20px auto;
-    padding-bottom: 0;
-}
-
-article .ih-item.square.effect13 .info .seemore {
-    text-transform: uppercase;
-    font-size: rem-calc(24);
-    display:block;
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    width: 100%;
-}
-
-#markets {
-    padding: 30px 0px 0px 0px;
-    article {
-        margin-bottom: 30px;
+    
+    .ih-item.square.effect13 .info p {
+        font-weight: 400;
+        font-size: rem-calc(16);
+        line-height: rem-calc(24);
+        color: #fff;
+        padding: 15px 20px;
+        text-align: center;
+    }
+    
+    .ih-item.square.effect13 a:hover .img {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+    
+    .ih-item.square.effect13 a:hover .info {
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    .ih-item.square.effect13.top_to_bottom .info {
+        -webkit-transform: translateY(-100%);
+        -moz-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+        -o-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+    
+    .ih-item.square.effect13.top_to_bottom a:hover .info {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+    }
+    
+    .ih-item.square.effect13.top_to_bottom a h3.title-auto,
+    .ih-item.square.effect13.top_to_bottom a h3.title-rolling,
+    .ih-item.square.effect13.top_to_bottom a h3.title-mechanical,
+    .ih-item.square.effect13.top_to_bottom a h3.title-petrol,
+    .ih-item.square.effect13.top_to_bottom a h3.title-asco {
+        text-transform: uppercase;
+        font-size: rem-calc(28);
+        width: 100%;
+        line-height: rem-calc(35);
+        position: absolute;
+        text-align: center;
+        font-weight: 700;
+        z-index: 100;
+        color: #fff;
+        padding-top: rem-calc(15);
+        min-height: rem-calc(100);
+        -webkit-transition: all 0.2s linear;
+        -moz-transition: all 0.2s linear;
+        transition: all 0.2s linear;
+    }
+    
+    .ih-item.square.effect13.top_to_bottom a h3.title-asco {
+        color: #e52713;
+    }
+    
+    .title-auto {
+        background-color: rgba(153, 190, 81, 0.7);
+    }
+    
+    .title-rolling {
+        background-color: rgba(242, 142, 0, 0.7);
+    }
+    
+    article.automobile .title-rolling {
+        background-color: $automobileAlpha;
+    }
+    
+    article.roulement .title-rolling {
+        background-color: $roulementAlpha;
+    }
+    
+    article.petrole .title-rolling {
+        background-color: $petroleAlpha;
+    }
+    
+    article.mecanique .title-rolling {
+        background-color: $mecaniqueAlpha;
+    }
+    
+    article.corporate .title-rolling {
+        background-color: $ascoAlpha;
+    }
+    
+    .title-mechanical {
+        background-color: rgba(174, 62, 40, 0.7);
+    }
+    
+    .title-petrol {
+        background-color: rgba(3, 136, 142, 0.7);
+    }
+    
+    .title-asco {
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .ih-item.square.effect13.top_to_bottom a:hover h3.title-auto,
+    .ih-item.square.effect13.top_to_bottom a:hover h3.title-rolling,
+    .ih-item.square.effect13.top_to_bottom a:hover h3.title-mechanical,
+    .ih-item.square.effect13.top_to_bottom a:hover h3.title-petrol,
+    .ih-item.square.effect13.top_to_bottom a:hover h3.title-asco {
+        opacity: 0;
+    }
+    
+    .info img {
+        margin: 0 auto 20px auto;
+        padding-bottom: 0;
+    }
+    
+    article .ih-item.square.effect13 .info .seemore {
+        text-transform: uppercase;
+        font-size: rem-calc(24);
+        display: block;
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+    }
+    
+    #markets {
+        padding: 30px 0px 0px 0px;
+        article {
+            margin-bottom: 30px;
         }
     }
     
@@ -351,7 +373,6 @@ article .ih-item.square.effect13 .info .seemore {
                 margin-bottom: 10px;
             }
         }
-
     }
     
     @media screen and (min-width: 640px) and (max-width: 740px) {
@@ -481,9 +502,7 @@ IMAGE D'ENTETE / HEADER-IMAGE
             padding-left: 20px;
         }
     }
-
-
-/*---------------------------------------------------------------
+    /*---------------------------------------------------------------
 BREADCRUMBS
 ---------------------------------------------------------------*/
     
@@ -501,76 +520,77 @@ BREADCRUMBS
             margin-top: -5px;
         }
     }
-
-/*---------------------------------------------------------------
+    /*---------------------------------------------------------------
 CONTENU DE SAISIE / MAIN-CONTAINER
 ---------------------------------------------------------------*/
-
-article > h1 {
-    text-transform: uppercase;
-    padding-left: 33px;
-    font-size:rem-calc(36);
-    color:$asco;
-    padding-top:rem-calc(30);
-}
-article.automobile > h1 {
-    color:$automobile;
-}
-article.roulement > h1 {
-    color:$roulement;
-}
-article.petrole > h1 {
-    color:$petrole;
-}
-article.mecanique > h1 {
-    color:$mecanique;
-}
-
-
-#main-container,
-.main-content {
-    background: #f5f5f5;
-    padding: 30px 15px 30px 50px;
-    -webkit-box-shadow: inset 14px 0px 30px -10px rgba(143, 143, 143, 0.2);
-    -moz-box-shadow: inset 14px 0px 30px -10px rgba(143, 143, 143, 0.2);
-    box-shadow: inset 14px 0px 30px -10px rgba(143, 143, 143, 0.2);
-    p a {
-        text-decoration: underline;
-        color: inherit;
-        font-weight: 700;
-        transition: all 0.2s ease-out;
-        -webkit-transition: all 0.2s ease-out;
-        -moz-transition: all 0.2s ease-out;
-        -o-transition: all 0.2s ease-out;
-    }
-    p a:hover {
-        color: black;
+    
+    article > h1 {
+        text-transform: uppercase;
+        padding-left: 33px;
+        font-size: rem-calc(36);
+        color: $asco;
+        padding-top: rem-calc(30);
     }
     
-    h2 {
-        color: #5e5e5e;
-        text-transform: uppercase;
-        font-size: rem-calc(36);
-        padding-bottom: 15px;
-        border-bottom: 2px solid #989898;
-        font-weight: 600;
-        margin-bottom: .7em;
+    article.automobile > h1 {
+        color: $automobile;
     }
-    h3 {
-        text-transform: uppercase;
-        display: inline-block;
-        font-size: rem-calc(24);
-        font-weight: 600;
-        padding-bottom: 7px;
+    
+    article.roulement > h1 {
+        color: $roulement;
     }
-    h4 {
-        color: #e52713;
-        font-size: rem-calc(18);
-        font-family: "Lora", serif;
-        font-weight: 700;
-        font-style: italic;
-        margin-bottom: 2em;
-        a {
+    
+    article.petrole > h1 {
+        color: $petrole;
+    }
+    
+    article.mecanique > h1 {
+        color: $mecanique;
+    }
+    
+    #main-container,
+    .main-content {
+        background: #f5f5f5;
+        padding: 30px 15px 30px 50px;
+        -webkit-box-shadow: inset 14px 0px 30px -10px rgba(143, 143, 143, 0.2);
+        -moz-box-shadow: inset 14px 0px 30px -10px rgba(143, 143, 143, 0.2);
+        box-shadow: inset 14px 0px 30px -10px rgba(143, 143, 143, 0.2);
+        p a {
+            text-decoration: underline;
+            color: inherit;
+            font-weight: 700;
+            transition: all 0.2s ease-out;
+            -webkit-transition: all 0.2s ease-out;
+            -moz-transition: all 0.2s ease-out;
+            -o-transition: all 0.2s ease-out;
+        }
+        p a:hover {
+            color: black;
+        }
+        h2 {
+            color: #5e5e5e;
+            text-transform: uppercase;
+            font-size: rem-calc(36);
+            padding-bottom: 15px;
+            border-bottom: 2px solid #989898;
+            font-weight: 600;
+            margin-bottom: .7em;
+        }
+        h3 {
+            text-transform: uppercase;
+            display: inline-block;
+            font-size: rem-calc(24);
+            font-weight: 600;
+            padding-bottom: 7px;
+        }
+        h4 {
+            color: #e52713;
+            font-size: rem-calc(18);
+            font-family: "Lora", serif;
+            font-weight: 700;
+            font-style: italic;
+            margin-bottom: 2em;
+            a {
                 text-decoration: underline;
                 color: #e52713;
                 transition: all 0.2s ease-out;
@@ -618,7 +638,7 @@ article.mecanique > h1 {
     nav.slidenav {
         width: 100%;
     }
-/*---------------------------------------------------------------
+    /*---------------------------------------------------------------
 MENU PRINCIPAL / TOP-BAR
 ---------------------------------------------------------------*/
     
@@ -1180,25 +1200,25 @@ MENU FOOTER
     @media screen and (max-width: 875px) {
         #footer-container {
             padding: 30px;
-        #footer {
-            text-align: center;
-            padding: 0 ;
-            #footernav {
-                ul li {
-                    width: 100%;
-                    border: none;
-                    padding-bottom: 20px;
-                    &:last-child {
-                        padding-bottom: 0;
-                        padding-left: 0;
-                    }
-                    &:first-child {
-                        padding-left: 20px;
+            #footer {
+                text-align: center;
+                padding: 0;
+                #footernav {
+                    ul li {
+                        width: 100%;
+                        border: none;
+                        padding-bottom: 20px;
+                        &:last-child {
+                            padding-bottom: 0;
+                            padding-left: 0;
+                        }
+                        &:first-child {
+                            padding-left: 20px;
+                        }
                     }
                 }
             }
         }
-            }
     }
     /*---------------------------------------------------------------
 WIDGET BOUTONS PERSO
@@ -1325,8 +1345,7 @@ PAGE LISTE D'ACTUALITES
             padding: 0;
         }
     }
-
-
-#single-post #main-container .entry-content li {
-    list-style-image: url('../images/dot.svg');
-}
+    
+    #single-post #main-container .entry-content li {
+        list-style-image: url('../images/dot.svg');
+    }
