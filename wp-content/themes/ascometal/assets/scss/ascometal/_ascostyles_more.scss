@@ -4,17 +4,17 @@
 
 $color-base:			#869791;
 $color-white:			#FFF;
-$color-gray:			#5e5e5e;
+$color-gray:			#999;
 //nav
 
 $nav-color: 			$color-gray;
-$nav-color-hover:		$color-white;
+$nav-color-hover:		#000;
 $nav-font-size: 		20px;
 $nav-rounded: 			3px;
 $nav-margin: 			5px;
 $nav-padding: 			4px 7px;
 $nav-background: 		$color-white;
-$nav-background-hover:	$color-base;
+$nav-background-hover:	$color-white;
 $nav-disabled-opacity: 	0.5;
 
 //dots
@@ -96,6 +96,7 @@ $dot-background-active:	$color-base;
         position: absolute;
         top: 25%;
         right: -36px;
+        transition:all .3s;
     }
     
     .owl-nav .owl-prev {
@@ -103,6 +104,7 @@ $dot-background-active:	$color-base;
         position: absolute;
         top: 25%;
         left: -36px;
+        transition:all .3s;
     }
     
     .thumb{
@@ -144,4 +146,35 @@ $dot-background-active:	$color-base;
     text-transform: uppercase;
     text-align:center; 
     font-weight:700;
+}
+
+
+/* -------------------------------------------- */
+/* ACCORDEONS                                   */
+/* -------------------------------------------- */
+
+.lsow-accordion.style1 .lsow-panel {
+    background: transparent !important;
+    border-radius: 0px !important;
+    border-left: $asco solid 3px !important;
+}
+
+.lsow-accordion.style1 .lsow-panel.lsow-active .lsow-panel-title, .lsow-accordion.style1 .lsow-panel:hover .lsow-panel-title, .lsow-accordion.style1 .lsow-panel .lsow-panel-content {
+    background: transparent !important;
+}
+
+/* -------------------------------------------- */
+/* ARTICLES / GENERAUX                          */
+/* -------------------------------------------- */
+
+.articlepadding {
+    padding-top : 50px;
+}
+
+.itempadding {
+    padding-bottom:25px;
+}
+
+.rightpadding {
+    padding-right:75px;
 }
