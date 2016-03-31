@@ -73,22 +73,5 @@ $( "li.callbtn" ).click(function() {
 });
 </script>
 <!--END Toggle sur le champs d'appel-->
-
-<script type='text/javascript'>
-jQuery(document).ready(function(){
-  jQuery(".owl-carousel").owlCarousel(
-  {
-   loop:true,
-    margin:10,
-    nav:true,
-    responsive:{
-        0:{
-            items:1
-        }
-    },
-   navText: ["&lt;", "&gt;"]
-  });
-});
-</script>
 </body>
 </html>
