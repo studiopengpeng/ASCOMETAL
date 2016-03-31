@@ -1,6 +1,5 @@
-<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/actu.png" alt="">
-
-<h3>Actualités</h3>
+<div class="ih-item actus-home">
+<h4>Actualités</h3>
 <div class="owl-carousel">
 <?php
     
@@ -22,15 +21,16 @@
         
     ?>
     <div class="item">
-    <div class='date'><?php echo get_the_date(); ?></div>
+    <div class='thumb'><?php echo get_the_post_thumbnail($recent["ID"], 'vignette_actu' ); ?></div> 
+    <div class='date'><?php echo get_the_time(get_option('date_format'), $recent["ID"]); ?></div>
     <div class='title'><?php echo __($recent["post_title"]); ?></div>
-    <div class='texte'><?php echo tronk(__($recent["post_content"]), 100, "..."); ?></div>
+    <div class='texte'><?php echo tronk(__($recent["post_content"]), 250, "..."); ?></div>
+    <div class='readmore'><a href="<?php echo get_the_permalink($recent["ID"]); ?>"><?php _e("Read +", "foundationpress") ?></a></div>
     </div>
     
     <?php
 	}
 ?>
     
-    
-    
+</div>
 </div>
