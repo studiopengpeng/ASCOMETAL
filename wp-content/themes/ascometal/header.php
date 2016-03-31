@@ -49,7 +49,7 @@
                             <?php endif; ?>
 
                                 <?php do_action( 'foundationpress_layout_start' ); ?>
-<div id="global-container">
+
                                     <header id="masthead" class="site-header" role="banner">
                                         <section id="navtools" class="row">
                                             <nav class="large-12 columns">

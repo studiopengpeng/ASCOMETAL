@@ -37,7 +37,7 @@ get_header(); ?>
 		<!--END menu secondaire-->
 		
 		<!-- container single post -->
-		<div id="single-post" class="produits" role="main">
+		<div id="single-post" role="main">
 			<?php do_action( 'foundationpress_before_content' ); ?>
 
 			<!-- boucle wp, même pour un seul article -->
@@ -45,32 +45,16 @@ get_header(); ?>
 			
 				<article id="main-container" class="small-12 medium-9 large-9 columns" <?php post_class( 'main-content') ?> id="post-<?php the_ID(); ?>">
 					<header>
-						<h2 class="entry-title text-center market-color"><?php the_title(); ?></h2>
+						<h2 class="entry-title"><?php the_title(); ?></h2>
 					</header>
 
-					<?php do_action( 'foundationpress_page_before_entry_content' ); ?> 
-					<div class="entry-content row">
-                        <article class="small-12 ">
-                            <?php the_content(); ?>
-                        </article>
-                    </div>
-                    <div class="description row">
-                        <div class="small-12 medium-6 large-6 columns">
-            
-                            <div class="ih-item product-view"><?php the_post_thumbnail(); ?>
-
-                            <ul class="product-menu">
-                               <li class="product-icon features"></li>
-                               <li class="product-icon advantage"></li>
-                                <li class="product-icon benefits"></li>
-                            </ul>
-
-                            </div>
-                        </div>
+					<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
                     
-                    <div class="small-12 medium-6 large-6 columns">
-                        <div data-alert class="alert-box">
+					<div class="entry-content">
                         
+                        <div data-alert class="alert-box">
+                          <p><b><i>! Cette page est en cours d'intégration</i></b></p>
+                        </div>
                         <b>Description courte :</b><br />
                         <?php echo types_render_field("description-courte", array("output"=>"raw")); ?>
                         <br /><b>Caractéristiques :</b><br />
@@ -79,9 +63,8 @@ get_header(); ?>
                         <?php echo types_render_field("avantages", array("output"=>"raw")); ?>
                         <br /><b>Bénéfices :</b><br />
                         <?php echo types_render_field("benefices", array("output"=>"raw")); ?>
-                        </div>
-                        
-					</div>
+						<?php the_content(); ?>
+                        <?php the_post_thumbnail(); ?>
 					</div>
 
 					<footer>
