@@ -60,3 +60,21 @@ function parent_page_title() {
 	$parent = empty( $post->post_parent ) ? '' : get_the_title($post->post_parent);
     echo $parent;
 }
+
+// tronk actus
+function tronk($texte, $nbcars, $separ) {
+$max_caracteres=$nbcars;
+//épure html
+$phrase  = $texte;
+$orig = array("<p>", "</p>", "<b>", "</b>", "<strong>", "</strong>");
+$nouvo   = array("", "", "", "");
+$texte = str_replace($orig, $nouvo, $phrase);
+// tronque
+if (strlen($texte)>$max_caracteres){    
+$texte = substr($texte, 0, $max_caracteres);
+$position_espace = strrpos($texte, " ");
+$texte = substr($texte, 0, $position_espace);
+$texte = $texte.$separ;
+}
+return $texte;
+}
