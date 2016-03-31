@@ -10,7 +10,7 @@ get_header(); ?>
 
 
     <div id="page" role="main">
-        <?php get_template_part( 'template-parts/header-banner' ); ?>
+        <?php get_template_part( 'template-parts/header-banner-usine' ); ?>
 
 		<!--menu secondaire : Menu gauche -> page.php-->
 		<?php
@@ -42,26 +42,33 @@ get_header(); ?>
 
 			<!-- boucle wp, même pour un seul article -->
 			<?php while ( have_posts() ) : the_post(); ?>
-            <div class="row"> <!--start row-->
+            <div class="row leftcol"> <!--start row-->
               <article class="small-12 medium-12 large-5 columns articlepadding rightpadding" <?php post_class( 'main-content') ?> id="post-<?php the_ID(); ?>">
 
-                <div class="itempadding">
+                <div class="paddingbottom rightpadding leftpadding">
                     <?php echo types_render_field("texte-introduction-usine", array("output"=>"raw")); ?>
                 </div>
-                <div class="itempadding">
-                    <h5><?php echo types_render_field("titre-references-usine", array("output"=>"raw")); ?></h5>
+                  
+                 <div class="paddingbottom">
+                      <h6><b><?php echo __("Sélectionnez un site :","foundationpress"); ?></b></h6>
+                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/simulation-menu-usines.png" />
+                </div> 
+                  
+                  
+                <div class="paddingbottom">
+                    <h5 class="corporate-color"><?php echo types_render_field("titre-references-usine", array("output"=>"raw")); ?></h5>
                     <img src="<?php echo types_render_field("image-references-usine", array("output"=>"raw")); ?>" />
                 </div>
-                <div class="itempadding">
+                <div class="paddingbottom">
                      <img src="<?php echo types_render_field("image-illustration-usine", array("output"=>"raw")); ?>" />
                 </div>
  
             </article>
 
 			
-            <article class="small-12 medium-12 large-4 columns articlepadding" <?php post_class( 'main-content') ?> id="post-<?php the_ID(); ?>">
+            <article class="small-12 medium-12 large-4 columns articlepadding rightcol" <?php post_class( 'main-content') ?> id="post-<?php the_ID(); ?>">
 					<header>
-						<h2 class="entry-title text-center market-color"><?php the_title(); ?></h2>
+						<h1 class="entry-title corporate-color"><?php the_title(); ?></h1>
 					</header>
 
 					<?php do_action( 'foundationpress_page_before_entry_content' ); ?> 
@@ -70,7 +77,7 @@ get_header(); ?>
                             <?php the_content(); ?>
                         </article>
                         
-                        <?php echo types_render_field("lien-plan-usine", array("output"=>"raw")); ?>
+                        <a href="<?php echo types_render_field("lien-plan-usine", array("output"=>"raw")); ?>" target="blank" class="maps_button ih-item"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icone-plan-acces-usine.png"> <?php _e("Plan d'accès", "foundationpress"); ?></a>
                     </div>
                     
             </article>
