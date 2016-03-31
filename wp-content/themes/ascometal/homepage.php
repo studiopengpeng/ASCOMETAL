@@ -125,7 +125,7 @@ get_header(); ?>
                                         <!-- Actualités -->
                                         <article class=" news small-12 medium-12 large-7 columns">
                                             <div class="ih-item">
-                                               <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/actu.png" alt="Ascometal">
+                                               <?php get_template_part( 'template-parts/carrousel-actualites' ); ?>
                                             </div>
                                         </article>
                                         <!-- END Actualités -->

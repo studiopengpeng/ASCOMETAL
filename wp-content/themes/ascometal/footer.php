@@ -73,5 +73,24 @@ $( "li.callbtn" ).click(function() {
 });
 </script>
 <!--END Toggle sur le champs d'appel-->
+<!--Carousel homepage only -->
+<?php if (is_home() || is_front_page()) { ?>
+<script type='text/javascript'>
+jQuery(document).ready(function(){
+  jQuery(".owl-carousel").owlCarousel(
+  {
+   loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        }
+    },
+   navText: ["&lt;", "&gt;"]
+  });
+});
+</script>
+<?php } ?>
 </body>
 </html>
