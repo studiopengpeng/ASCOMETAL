@@ -61,7 +61,6 @@ function parent_page_title() {
     echo $parent;
 }
 
-<<<<<<< Updated upstream
 // tronk actus
 function tronk($texte, $nbcars, $separ) {
 $max_caracteres=$nbcars;
@@ -79,7 +78,6 @@ $texte = $texte.$separ;
 }
 return $texte;
 }
-=======
 
 
 /**
@@ -100,4 +98,3 @@ function arphabet_widgets_init() {
 }
 add_action( 'widgets_init', 'arphabet_widgets_init' );
 
->>>>>>> Stashed changes
