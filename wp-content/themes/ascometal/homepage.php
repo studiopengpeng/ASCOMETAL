@@ -125,7 +125,14 @@ get_header(); ?>
                                         <!-- Actualités -->
                                         <article class=" news small-12 medium-12 large-7 columns">
                                             <div class="ih-item">
+<<<<<<< Updated upstream
                                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/actu.png" alt="Ascometal">
+=======
+                                              
+	
+		<?php dynamic_sidebar( 'home_actu_widget' ); ?>
+
+>>>>>>> Stashed changes
                                             </div>
                                         </article>
                                         <!-- END Actualités -->

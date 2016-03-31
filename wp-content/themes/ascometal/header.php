@@ -14,7 +14,7 @@
 
     <head>
         <meta charset="<?php bloginfo( 'charset' ); ?>" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, user-scalable=no">
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Lora:400,700italic,400italic,700' rel='stylesheet' type='text/css'>
         <link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/apple-icon-57x57.png">
@@ -43,66 +43,67 @@
         <?php do_action( 'foundationpress_after_body' ); ?>
 
             <?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) : ?>
+
                 <div class="off-canvas-wrapper">
                     <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
                         <?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
                             <?php endif; ?>
 
                                 <?php do_action( 'foundationpress_layout_start' ); ?>
-
-                                    <header id="masthead" class="site-header" role="banner">
-                                        <section id="navtools" class="row">
-                                            <nav class="large-12 columns">
-                                                <ul>
-                                                    <li class="offcall">
-                                                        <span>+39 3 88 11 22 33</span>
-                                                    </li>
-                                                    <li class="callbtn"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/phone.svg" alt="téléphone"></li>
-                                                    <li class="searchbtn">
-                                                        <a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/magnifier.svg" alt="rechercher">
+                                    <div id="global-container">
+                                        <header id="masthead" class="site-header" role="banner">
+                                            <section id="navtools" class="row">
+                                                <nav class="large-12 columns">
+                                                    <ul>
+                                                        <li class="offcall">
+                                                            <span>+39 3 88 11 22 33</span>
+                                                        </li>
+                                                        <li class="callbtn"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/phone.svg" alt="téléphone"></li>
+                                                        <li class="searchbtn">
+                                                            <a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/magnifier.svg" alt="rechercher">
                                               </a></li>
-                                                    <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/lock.svg" alt="accès membres"></a></li>
-                                                    <li>
-														<?php // sélecteur de langues
+                                                        <li><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/lock.svg" alt="accès membres"></a></li>
+                                                        <li>
+                                                            <?php // sélecteur de langues
 														do_action('wpml_add_language_selector');
 														?>
-													</li>
-                                                </ul>
-                                                <div class="offsearch">
-                                                    <?php get_search_form (); ?>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="offsearch">
+                                                        <?php get_search_form (); ?>
+                                                    </div>
+                                                </nav>
+                                            </section>
+                                            <div class="title-bar" data-responsive-toggle="site-navigation" data-hide-for="large">
+                                                <button class="menu-icon dark" type="button" data-toggle="mobile-menu"></button>
+                                                <div class="title-bar-title">
+                                                    <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                                                        <h2 class="indent">
+                                                                <?php bloginfo( 'name' ); ?>
+                                                            </h2><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo.svg" alt="Logo d'Ascometal"></a>
+                                                </div>
+                                            </div>
+
+                                            <nav id="site-navigation" class="main-navigation top-bar" role="navigation">
+                                                <div class="top-bar-left">
+                                                    <ul class="menu">
+                                                        <li class="home">
+                                                            <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                                                                <h2 class="indent">
+                                                                <?php bloginfo( 'name' ); ?>
+                                                            </h2><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo.svg" alt="Logo d'Ascometal"></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="top-bar-right">
+                                                    <?php foundationpress_top_bar_r(); ?>
+
+                                                        <?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) == 'topbar' ) : ?>
+                                                            <?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
+                                                                <?php endif; ?>
                                                 </div>
                                             </nav>
-                                        </section>
-                                        <div class="title-bar" data-responsive-toggle="site-navigation" data-hide-for="large">
-                                            <button class="menu-icon dark" type="button" data-toggle="mobile-menu"></button>
-                                            <div class="title-bar-title">
-                                                <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                                                    <h2 class="indent">
-                                                                <?php bloginfo( 'name' ); ?>
-                                                            </h2><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo.svg" alt="Logo d'Ascometal"></a>
-                                            </div>
-                                        </div>    
+                                        </header>
 
-                                        <nav id="site-navigation" class="main-navigation top-bar" role="navigation">
-                                            <div class="top-bar-left">
-                                                <ul class="menu">
-                                                    <li class="home">
-                                                        <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                                                            <h2 class="indent">
-                                                                <?php bloginfo( 'name' ); ?>
-                                                            </h2><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo.svg" alt="Logo d'Ascometal"></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="top-bar-right">
-                                                <?php foundationpress_top_bar_r(); ?>
-
-                                                    <?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) == 'topbar' ) : ?>
-                                                        <?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
-                                                            <?php endif; ?>
-                                            </div>
-                                        </nav>
-                                    </header>
-
-                                    <section class="container">
-                                        <?php do_action( 'foundationpress_after_header' );
+                                        <section class="container">
+                                            <?php do_action( 'foundationpress_after_header' );

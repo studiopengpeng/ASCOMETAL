@@ -61,6 +61,7 @@ function parent_page_title() {
     echo $parent;
 }
 
+<<<<<<< Updated upstream
 // tronk actus
 function tronk($texte, $nbcars, $separ) {
 $max_caracteres=$nbcars;
@@ -78,3 +79,25 @@ $texte = $texte.$separ;
 }
 return $texte;
 }
+=======
+
+
+/**
+ *Widget area pour l'actu sur homepage
+ *
+ */
+function arphabet_widgets_init() {
+
+	register_sidebar( array(
+		'name'          => 'Home widget actu',
+		'id'            => 'home_actu_widget',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="rounded">',
+		'after_title'   => '</h3>',
+	) );
+
+}
+add_action( 'widgets_init', 'arphabet_widgets_init' );
+
+>>>>>>> Stashed changes
