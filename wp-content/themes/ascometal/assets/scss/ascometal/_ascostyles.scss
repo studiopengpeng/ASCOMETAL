@@ -2,18 +2,17 @@
     /*---------------------------------------------------------------
 REGLAGES GLOBAUX / GLOBAL SETTINGS
 ---------------------------------------------------------------*/
-
-// * * * * * * * * * * helper-class * * * * * * * * * * 
-
-.pad-0 {
-    padding: 0;
-}
-.marg-0 {
-    margin: 0;
-}
-
+    
+    // * * * * * * * * * * helper-class * * * * * * * * * * 
+    .pad-0 {
+        padding: 0;
+    }
+    
+    .marg-0 {
+        margin: 0;
+    }
+    
     // * * * * * * * * * * Couleurs des marchés * * * * * * * * * * 
-
     $automobile: #99be51;
     $automobileAlpha: rgba(153, 190, 81, 0.7);
     $roulement: #f28e00;
@@ -27,14 +26,12 @@ REGLAGES GLOBAUX / GLOBAL SETTINGS
     $gris-fonce-asco: #5e5e5e;
     $gris-asco: #989898;
     // * * * * * * * * * END Couleurs des marchés * * * * * * * * *
-
     #global-container {
         max-width: 80em !important;
         overflow: hidden;
         margin: auto;
     }
     
-
     // * * * * * * * * * * * * * page.php * * * * * * * * * * * * * 
     #global-container {
         max-width: 80em !important;
@@ -412,8 +409,7 @@ MARCHES HOME (présentation + effets au survol)
             display: none;
         }
     }
-
-/*---------------------------------------------------------------
+    /*---------------------------------------------------------------
 MARCHES / NOUVEAUX PRODUITS
 ---------------------------------------------------------------*/
     
@@ -440,6 +436,9 @@ MARCHES / NOUVEAUX PRODUITS
             .features,
             .advantage,
             .benefits {
+                background-repeat: no-repeat;
+                top:0;
+                left: 0;
                 transition: all 0.2s ease-out;
                 -webkit-transition: all 0.2s ease-out;
                 -moz-transition: all 0.2s ease-out;
@@ -471,12 +470,42 @@ MARCHES / NOUVEAUX PRODUITS
     
     .alert-box {
         background-color: pink;
+        padding: 70px;
     }
     
     .description {
         background-color: yellow;
     }
+    
+    .alert-info {
+        background-color: aqua;
+    }
 
+@media screen and (max-width: 750px) {
+    
+.produits .product-view ul.product-menu {
+    padding: 0;
+    padding-top: 10px;
+    width: 100%;
+    margin: auto;
+    position: relative;
+    top: -50px;
+    left: 0;
+    display: block;
+    
+    li.product-icon {
+        &:first-child {
+        margin-left: 20px;
+    }
+        display: inline-block;
+        height: 75px;
+        width: 75px;
+        margin: 0 10px; 
+        padding: 10px;
+    }
+}
+    
+}
     /*---------------------------------------------------------------
 IMAGE D'ENTETE / HEADER-IMAGE
 ---------------------------------------------------------------*/

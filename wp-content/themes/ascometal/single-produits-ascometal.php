@@ -68,17 +68,20 @@ get_header(); ?>
                             </div>
                         </div>
 
-                    <div class="small-12 medium-6 large-6 columns">
+                    <div class="pad-0 small-12 medium-6 large-6 columns">
                         
                         <div data-alert class="alert-box">
                         <b>Description courte :</b><br />
                         <?php echo types_render_field("description-courte", array("output"=>"raw")); ?>
+                        
+                    <div class="alert-info">
                         <br /><b>Caractéristiques :</b><br />
                         <?php echo types_render_field("carecteristiques", array("output"=>"raw")); ?>
                         <br /><b>Avantages :</b><br />
                         <?php echo types_render_field("avantages", array("output"=>"raw")); ?>
                         <br /><b>Bénéfices :</b><br />
                         <?php echo types_render_field("benefices", array("output"=>"raw")); ?>
+                    </div>
 
 					</div>
 					</div>
