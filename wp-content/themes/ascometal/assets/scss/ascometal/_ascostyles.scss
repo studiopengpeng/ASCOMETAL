@@ -2,12 +2,18 @@
     /*---------------------------------------------------------------
 REGLAGES GLOBAUX / GLOBAL SETTINGS
 ---------------------------------------------------------------*/
-<<<<<<< Updated upstream
-// * * * * * * * * * * Couleurs des marchés * * * * * * * * * * 
-=======
-    
+
+// * * * * * * * * * * helper-class * * * * * * * * * * 
+
+.pad-0 {
+    padding: 0;
+}
+.marg-0 {
+    margin: 0;
+}
+
     // * * * * * * * * * * Couleurs des marchés * * * * * * * * * * 
->>>>>>> Stashed changes
+
     $automobile: #99be51;
     $automobileAlpha: rgba(153, 190, 81, 0.7);
     $roulement: #f28e00;
@@ -21,15 +27,14 @@ REGLAGES GLOBAUX / GLOBAL SETTINGS
     $gris-fonce-asco: #5e5e5e;
     $gris-asco: #989898;
     // * * * * * * * * * END Couleurs des marchés * * * * * * * * *
-<<<<<<< Updated upstream
+
     #global-container {
         max-width: 80em !important;
         overflow: hidden;
         margin: auto;
     }
     
-    // * * * * * * * * * * * * * page.php * * * * * * * * * * * * * 
-=======
+
     // * * * * * * * * * * * * * page.php * * * * * * * * * * * * * 
     #global-container {
         max-width: 80em !important;
@@ -37,7 +42,6 @@ REGLAGES GLOBAUX / GLOBAL SETTINGS
         margin: 0 auto;
     }
     
->>>>>>> Stashed changes
     #page,
     #single-post {
         margin-top: 0;

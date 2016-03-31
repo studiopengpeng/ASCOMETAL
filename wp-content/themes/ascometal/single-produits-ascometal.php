@@ -43,7 +43,7 @@ get_header(); ?>
 			<!-- boucle wp, même pour un seul article -->
 			<?php while ( have_posts() ) : the_post(); ?>
 			
-				<article id="main-container" class="small-12 medium-9 large-9 columns" <?php post_class( 'main-content') ?> id="post-<?php the_ID(); ?>">
+				<article id="main-container" class="small-12 medium-12 large-9 columns" <?php post_class( 'main-content') ?> id="post-<?php the_ID(); ?>">
 					<header>
 						<h2 class="entry-title text-center market-color"><?php the_title(); ?></h2>
 					</header>
@@ -55,7 +55,7 @@ get_header(); ?>
                         </article>
                     </div>
                     <div class="description row">
-                        <div class="small-12 medium-6 large-6 columns">
+                        <div class="pad-0 small-12 medium-6 large-6 columns">
             
                             <div class="ih-item product-view"><?php the_post_thumbnail(); ?>
 
