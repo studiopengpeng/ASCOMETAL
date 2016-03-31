@@ -59,21 +59,51 @@ wp_nav_menu( $args_menu1 );
 <script type='text/javascript' id="__bs_script__">//<![CDATA[
     document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.11.1.js'><\/script>".replace("HOST", location.hostname));
 //]]></script>
-<!--live reload END-->
+
 <!--Toggle sur le champs de recherche-->
 <script>
 $( "li.searchbtn" ).click(function() {
   $( ".offsearch" ).toggleClass( "onsearch" );
 });
 </script>
-<!--END Toggle sur le champs de recherche-->
+
 <!--Toggle sur le champs d'appel-->
 <script>
 $( "li.callbtn" ).click(function() {
   $( ".offcall" ).toggleClass( "oncall" );
 });
 </script>
-<!--END Toggle sur le champs d'appel-->
+
+<!--Add & remove class sur les icônes nouveaux produits de la page single-produits-ascometal.php-->
+<script>
+$(document).ready(function(){
+    $(".features").click(function(){
+        $(".featured-alert").removeClass("hide");
+        $(".features-alert").addClass("show");
+        $(".advantage-alert").removeClass("show");
+        $(".advantage-alert").addClass("hide");
+        $(".benefits-alert").removeClass("show");
+        $(".benefits-alert").addClass("hide");
+    });
+    $(".advantage").click(function(){
+        $(".advantage-alert").removeClass("hide");
+        $(".advantage-alert").addClass("show");
+        $(".featured-alert").removeClass("show");
+        $(".featured-alert").addClass("hide");
+        $(".benefits-alert").removeClass("show");
+        $(".benefits-alert").addClass("hide");
+    });
+    $(".benefits").click(function(){
+        $(".benefits-alert").removeClass("hide");
+        $(".benefits-alert").addClass("show");
+        $(".featured-alert").removeClass("show");
+        $(".featured-alert").addClass("hide");
+        $(".advantage-alert").removeClass("show");
+        $(".advantage-alert").addClass("hide");
+    });
+});
+</script>
+
 <!--Carousel homepage only -->
 <?php if (is_home() || is_front_page()) { ?>
 <script type='text/javascript'>

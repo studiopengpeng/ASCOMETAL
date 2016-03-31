@@ -412,9 +412,11 @@ MARCHES HOME (présentation + effets au survol)
     /*---------------------------------------------------------------
 MARCHES / NOUVEAUX PRODUITS
 ---------------------------------------------------------------*/
-.produits #main-container {
-    padding: 15px;
-}
+    
+    .produits #main-container {
+        padding: 30px 50px;
+    }
+    
     .produits .market-color {
         color: $automobile !important;
     }
@@ -441,53 +443,56 @@ MARCHES / NOUVEAUX PRODUITS
                 display: block;
                 width: 100%;
             }
-            
         }
     }
     
-.features,
-            .advantage,
-            .benefits {
-                width: 75px;
-                height: 75px;
-                background-repeat: no-repeat;
-                top: 0;
-                left: 0;
-                border-radius: 150px;
-                 -webkit-box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
-            -moz-box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
-            box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
-                transition: all 0.2s ease-out;
-                -webkit-transition: all 0.2s ease-out;
-                -moz-transition: all 0.2s ease-out;
-                -o-transition: all 0.2s ease-out;
-            }
-            .features {
-                background-image: url('../images/features.svg');
-                margin-bottom: 15px;
-                &:hover {
-                    background-image: url('../images/features-over.svg');
-                }
-            }
-            .advantage {
-                background-image: url('../images/advantage.svg');
-                margin: 15px auto;
-                
-                &:hover {
-                    background-image: url('../images/advantage-over.svg');
-                }
-            }
-            .benefits {
-                background-image: url('../images/benefits.svg');
-                margin-top: 15px;
-                &:hover {
-                    background-image: url('../images/benefits-over.svg');
-                }
-            }
-div.features {
-    width: 75px;
-    margin: 0px auto;
-}
+    .features,
+    .advantage,
+    .benefits {
+        width: 75px;
+        height: 75px;
+        background-repeat: no-repeat;
+        top: 0;
+        left: 0;
+        border-radius: 150px;
+        -webkit-box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
+        -moz-box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
+        box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
+        transition: all 0.2s ease-out;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+    }
+    
+    .features {
+        background-image: url('../images/features.svg');
+        margin-bottom: 15px;
+        &:hover {
+            background-image: url('../images/features-over.svg');
+        }
+    }
+    
+    .advantage {
+        background-image: url('../images/advantage.svg');
+        margin: 15px auto;
+        &:hover {
+            background-image: url('../images/advantage-over.svg');
+        }
+    }
+    
+    .benefits {
+        background-image: url('../images/benefits.svg');
+        margin-top: 15px;
+        &:hover {
+            background-image: url('../images/benefits-over.svg');
+        }
+    }
+    
+    div.features {
+        width: 75px;
+        margin: 0px auto;
+    }
+    
     .alert-box {
         background-color: pink;
         padding: 30px;
@@ -495,13 +500,25 @@ div.features {
     }
     
     .description {
-//        background-color: yellow;
+        //        background-color: yellow;
     }
     
     .alert-info {
         background-color: aqua;
     }
-    
+
+.features-alert {
+    background-color: orange;
+}
+.advantage-alert {
+    background-color: lawngreen;
+}
+.benefits-alert {
+    background-color: blueviolet;
+}
+.show {
+    display: block !important;
+}
     @media screen and (max-width: 750px) {
         .produits .product-view ul.product-menu {
             padding: 0;
@@ -524,11 +541,12 @@ div.features {
             }
         }
     }
-@media screen and (max-width: 640px) {
-     .alert-box {
-        margin-left: 0;
+    
+    @media screen and (max-width: 640px) {
+        .alert-box {
+            margin-left: 0;
+        }
     }
-}
     /*---------------------------------------------------------------
 IMAGE D'ENTETE / HEADER-IMAGE
 ---------------------------------------------------------------*/
@@ -1191,12 +1209,13 @@ MENU SECONDAIRE GAUCHE / TOUCHSCROLLER
         li.asco li {
             padding-left: 0;
         }
-         li.automobile ul,
+        li.automobile ul,
         li.roulement ul,
         li.petrole ul,
         li.mecanique ul,
         li.asco ul {
-            margin-bottom: 20px;;
+            margin-bottom: 20px;
+            ;
         }
     }
     /*---------------------------------------------------------------

@@ -43,7 +43,7 @@ get_header(); ?>
 			<!-- boucle wp, même pour un seul article -->
 			<?php while ( have_posts() ) : the_post(); ?>
 			
-				<article id="main-container" class="small-12 medium-12 large-9 columns" <?php post_class( 'main-content') ?> id="post-<?php the_ID(); ?>">
+				<article id="main-container" class="small-12 medium-12* large-9 columns" <?php post_class( 'main-content') ?> id="post-<?php the_ID(); ?>">
 					<header>
 						<h2 class="entry-title text-center market-color"><?php the_title(); ?></h2>
 					</header>
@@ -60,7 +60,7 @@ get_header(); ?>
                             <div class="product-view"><?php the_post_thumbnail(); ?>
 
                             <ul class="product-menu">
-                               <li class="product-icon features"></li>
+                            <li class="product-icon features"></li>
                                <li class="product-icon advantage"></li>
                                 <li class="product-icon benefits"></li>
                             </ul>
@@ -74,15 +74,21 @@ get_header(); ?>
                         <?php echo types_render_field("description-courte", array("output"=>"raw")); ?>
                         
                     <div class="alert-info ">
-                       <div class="features"></div>
-                        <br /><b>Caractéristiques :</b><br />
-                        <?php echo types_render_field("carecteristiques", array("output"=>"raw")); ?>
-                        <div class="advantage"></div>
-                        <br /><b>Avantages :</b><br />
-                        <?php echo types_render_field("avantages", array("output"=>"raw")); ?>
-                        <div class="benefits"></div>
-                        <br /><b>Bénéfices :</b><br />
-                        <?php echo types_render_field("benefices", array("output"=>"raw")); ?>
+                        <section class="features-alert">
+                           <div class="features"></div>
+                            <br /><b>Caractéristiques :</b><br />
+                            <?php echo types_render_field("carecteristiques", array("output"=>"raw")); ?>
+                        </section>
+                        <section class="advantage-alert hide">
+                            <div class="advantage"></div>
+                            <br /><b>Avantages :</b><br />
+                            <?php echo types_render_field("avantages", array("output"=>"raw")); ?>
+                        </section>
+                        <section class="benefits-alert hide">
+                            <div class="benefits"></div>
+                            <br /><b>Bénéfices :</b><br />
+                            <?php echo types_render_field("benefices", array("output"=>"raw")); ?>
+                        </section>
                     </div>
 
 					</div>
