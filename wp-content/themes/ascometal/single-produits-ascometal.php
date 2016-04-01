@@ -70,30 +70,43 @@ get_header(); ?>
 
                     <div class="pad-0 small-12 medium-6 large-6 columns">
                         
-                        <div data-alert class="alert-box">
-                        <?php echo types_render_field("description-courte", array("output"=>"raw")); ?>
+                        <div data-alert class=" text- center alert-box ih-item">
+                            <?php echo types_render_field("description-courte", array("output"=>"raw")); ?>
                         
                     <div class="alert-info ">
                         <section class="features-alert">
-                           <div class="features"></div>
-                            <br /><b>Caractéristiques :</b><br />
+                           <div class="features-info"></div>
+                            <h3>Caractéristiques</h3>
                             <?php echo types_render_field("carecteristiques", array("output"=>"raw")); ?>
                         </section>
                         <section class="advantage-alert hide">
-                            <div class="advantage"></div>
-                            <br /><b>Avantages :</b><br />
+                            <div class="advantage-info"></div>
+                            <h3>Avantages</h3>
                             <?php echo types_render_field("avantages", array("output"=>"raw")); ?>
                         </section>
                         <section class="benefits-alert hide">
-                            <div class="benefits"></div>
-                            <br /><b>Bénéfices :</b><br />
+                            <div class="benefits-info"></div>
+                            <h3>Bénéfices</h3>
                             <?php echo types_render_field("benefices", array("output"=>"raw")); ?>
                         </section>
                     </div>
-
+                     
+                    
 					</div>
+					<a href="#">
+					        <div class="ih-item documentation ">
+                                    <div class="left picto">                           </div>
+                                    <div class="left infos">
+                                        <p class="title">DOCUMENTATION</p>
+                                        <p>Consultez et téléchargez votre fiche produit</p>
+                                    </div>
+                            </div>
+                        </a>
 					</div>
                         
+					</div>
+					<div class="row">
+                       
 					</div>
 
 					<footer>

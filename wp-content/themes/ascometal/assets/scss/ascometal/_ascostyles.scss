@@ -451,6 +451,7 @@ MARCHES / NOUVEAUX PRODUITS
     .benefits {
         width: 75px;
         height: 75px;
+        margin: auto auto;
         background-repeat: no-repeat;
         top: 0;
         left: 0;
@@ -464,11 +465,35 @@ MARCHES / NOUVEAUX PRODUITS
         -o-transition: all 0.2s ease-out;
     }
     
+    .benefits-info,
+    .advantage-info,
+    .features-info {
+        width: 75px;
+        height: 75px;
+        margin: 30px auto;
+        background-repeat: no-repeat;
+        top: 0;
+        left: 0;
+        border-radius: 150px;
+        -webkit-box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
+        -moz-box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
+        box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
+    }
+    
+    .short-description {
+        text-align: center;
+    }
+    
+    .description {
+        margin-top: 20px;
+    }
+    
     .features {
         background-image: url('../images/features.svg');
         margin-bottom: 15px;
         &:hover {
             background-image: url('../images/features-over.svg');
+            cursor: pointer;
         }
     }
     
@@ -477,6 +502,7 @@ MARCHES / NOUVEAUX PRODUITS
         margin: 15px auto;
         &:hover {
             background-image: url('../images/advantage-over.svg');
+            cursor: pointer;
         }
     }
     
@@ -485,41 +511,91 @@ MARCHES / NOUVEAUX PRODUITS
         margin-top: 15px;
         &:hover {
             background-image: url('../images/benefits-over.svg');
+            cursor: pointer;
         }
+    }
+    
+    .features-info {
+        background-image: url('../images/features-over.svg');
+    }
+    
+    .advantage-info {
+        background-image: url('../images/advantage-over.svg');
+    }
+    
+    .benefits-info {
+        background-image: url('../images/benefits-over.svg');
     }
     
     div.features {
         width: 75px;
-        margin: 0px auto;
+        margin: 15px auto 0px auto;
     }
     
     .alert-box {
-        background-color: pink;
+        background-color: #fff;
         padding: 30px;
         margin-left: 60px;
+        font-family: "Lora", serif;
+        text-align: center;
+        h3 {
+            font-family: "Lora", serif;
+        }
     }
     
-    .description {
-        //        background-color: yellow;
+    .features-alert h3 {
+        display: block !important;
     }
     
-    .alert-info {
-        background-color: aqua;
+    .documentation {
+        background-color: #fff;
+        margin-top: 30px;
+        margin-left: 60px;
+        float: right;
+        padding-top: 10px;
+        .picto {
+            background-image: url('../images/documentation.svg');
+            width: 65px;
+            height: 75px;
+            margin-left: 15px;
+            display: inline-block;
+            background-repeat: no-repeat;
+            top: 0;
+            left: 0;
+        }
+        .infos {
+            color: #5e5e5e;
+            width: 70%;
+            display: inline-block;
+            padding-left: 20px;
+            p.title {
+                color: #5e5e5e;
+                margin-bottom: 0;
+                font-weight: 700;
+                -webkit-transition: all 0.2s ease-out;
+                -moz-transition: all 0.2s ease-out;
+                -o-transition: all 0.2s ease-out;
+            }
+        }
     }
-
-.features-alert {
-    background-color: orange;
-}
-.advantage-alert {
-    background-color: lawngreen;
-}
-.benefits-alert {
-    background-color: blueviolet;
-}
-.show {
-    display: block !important;
-}
+    
+    .documentation:hover p.title {
+        color: $asco;
+    }
+    
     @media screen and (max-width: 750px) {
+        .documentation {
+            margin-left: 15px;
+        }
+    
+        .produits #main-container {
+            padding: 30px 15px;
+        }
+        .alert-box {
+            background-color: #fff;
+            padding: 30px;
+            margin-left: 15px;
+        }
         .produits .product-view ul.product-menu {
             padding: 0;
             padding-top: 10px;
@@ -531,13 +607,13 @@ MARCHES / NOUVEAUX PRODUITS
             display: block;
             li.product-icon {
                 &:first-child {
-                    margin-left: 20px;
+                    margin-left: 10px;
                 }
                 display: inline-block;
                 height: 75px;
                 width: 75px;
-                margin: 0 10px;
-                padding: 10px;
+                margin: 0 3px;
+                padding: 0;
             }
         }
     }
@@ -546,10 +622,10 @@ MARCHES / NOUVEAUX PRODUITS
         .alert-box {
             margin-left: 0;
         }
+        .documentation {
+            width: 100%;
+        }
     }
-    /*---------------------------------------------------------------
-IMAGE D'ENTETE / HEADER-IMAGE
----------------------------------------------------------------*/
     /*---------------------------------------------------------------
 IMAGE D'ENTETE / HEADER-IMAGE
 ---------------------------------------------------------------*/

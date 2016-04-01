@@ -77,27 +77,27 @@ $( "li.callbtn" ).click(function() {
 <!--Add & remove class sur les icônes nouveaux produits de la page single-produits-ascometal.php-->
 <script>
 $(document).ready(function(){
-    $(".features").click(function(){
-        $(".featured-alert").removeClass("hide");
+    $(".features").mouseover(function(){
+        $(".features-alert").removeClass("hide");
         $(".features-alert").addClass("show");
         $(".advantage-alert").removeClass("show");
         $(".advantage-alert").addClass("hide");
         $(".benefits-alert").removeClass("show");
         $(".benefits-alert").addClass("hide");
     });
-    $(".advantage").click(function(){
+    $(".advantage").mouseover(function(){
         $(".advantage-alert").removeClass("hide");
         $(".advantage-alert").addClass("show");
-        $(".featured-alert").removeClass("show");
-        $(".featured-alert").addClass("hide");
+        $(".features-alert").removeClass("show");
+        $(".features-alert").addClass("hide");
         $(".benefits-alert").removeClass("show");
         $(".benefits-alert").addClass("hide");
     });
-    $(".benefits").click(function(){
+    $(".benefits").mouseover(function(){
         $(".benefits-alert").removeClass("hide");
         $(".benefits-alert").addClass("show");
-        $(".featured-alert").removeClass("show");
-        $(".featured-alert").addClass("hide");
+        $(".features-alert").removeClass("show");
+        $(".features-alert").addClass("hide");
         $(".advantage-alert").removeClass("show");
         $(".advantage-alert").addClass("hide");
     });
