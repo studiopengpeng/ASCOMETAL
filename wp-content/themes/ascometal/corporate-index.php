@@ -24,7 +24,13 @@ global $idBloc;
 
 					<?php /* récupère une liste de toutes les pages */ ?>
 					<?php 
-					$pages = get_pages();
+                    $args = array(
+                        'sort_order' => 'asc',
+                        'sort_column' => 'menu_order',
+                        'post_type' => 'page',
+                        'post_status' => 'publish'
+                     ); 
+					$pages = get_pages($args);
 					foreach ($pages as $page_data) {
 						$pageID = 0;
 						$pageID = $page_data->ID;
