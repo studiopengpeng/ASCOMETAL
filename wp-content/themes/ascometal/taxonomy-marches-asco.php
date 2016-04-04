@@ -59,7 +59,15 @@ else if ($tax_array[4]==21) ($classColor="mecanique");
 				<?php 	/* pages contact et international */
 						/* récupère une liste de toutes les pages */ ?>
 					<?php 
-					$pages = get_pages();
+                
+                $args = array(
+                    'sort_order' => 'asc',
+                    'sort_column' => 'menu_order',
+                    'post_type' => 'page',
+                    'post_status' => 'publish'
+                ); 
+                
+					$pages = get_pages($args);
 					foreach ($pages as $page_data) {
 						$pageID = 0;
 						$pageID = $page_data->ID;
@@ -69,9 +77,9 @@ else if ($tax_array[4]==21) ($classColor="mecanique");
 						
 						if ($idBloc==25 || $idBloc==27) { // IDs pages contact et international
 							/* si la case "afficher dans les blocs" est cochée, on affiche la page */
-							if (types_render_field("afficher-bloc", array("output"=>"raw", "post_id"=>$pageID)) == 1) :
+							//if (types_render_field("afficher-bloc", array("output"=>"raw", "post_id"=>$pageID)) == 1) :
 								get_template_part( 'template-parts/content', 'blocs' ); 
-							endif;
+							//endif;
 						}
 					}
 					?>

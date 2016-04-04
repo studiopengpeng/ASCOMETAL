@@ -124,5 +124,19 @@ jQuery(document).ready(function(){
 });
 </script>
 <?php } ?>
+
+<!-- cache la boite de coordonnées sur les cartes -->
+<script>
+$(document).ready(function(){
+    
+     $("#close-imapmessage").click(function(){
+         
+        $("#imap1message").addClass("hide");
+         
+    });
+});
+
+</script>
+
 </body>
 </html>
