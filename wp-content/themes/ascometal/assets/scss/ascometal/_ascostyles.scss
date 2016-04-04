@@ -1507,3 +1507,12 @@ PAGE LISTE D'ACTUALITES
     #single-post #main-container .entry-content li {
         list-style-image: url('../images/dot.svg');
     }
+
+
+li .active > a{
+            color: $asco !important;
+        }
+.top-bar li .active > a {
+    background-color: #f8f8f8;
+    box-shadow: inset 5px 0px 0px 0px #e52713;
+}

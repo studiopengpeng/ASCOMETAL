@@ -10,7 +10,7 @@ get_header(); ?>
 
 
     <div id="page" role="main">
-        <?php get_template_part( 'template-parts/header-banner' ); ?>
+        <?php get_template_part( 'template-parts/header-banner-produits' ); ?>
 
 		<!--menu secondaire : Menu gauche -> page.php-->
 		<?php
