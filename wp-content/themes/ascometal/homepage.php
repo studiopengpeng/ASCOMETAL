@@ -29,7 +29,7 @@ get_header(); ?>
                                         <!-- Ascometal -->
                                         <article class="ascometal small-12 medium-12 large-5 columns">
                                             <div class="ih-item square effect13 top_to_bottom">
-                                                <a href="#">
+                                                <a href="<?php echo site_url(); ?>/ascometal-au-service-de-vos-performances/">
                                                     <h3 class="title-asco">Ascometal</h3>
                                                     <div class="img">
                                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ascometal-bobine.jpg" alt="bobines d'acier laminé par Ascometal">
@@ -46,11 +46,7 @@ get_header(); ?>
                                         <!-- END Ascometal -->
                                         <!-- Actualités -->
                                         <article class=" news small-12 medium-12 large-7 columns">
-                                            
-
                                                <?php get_template_part( 'template-parts/carrousel-actualites' ); ?>
-
-                                        
                                         </article>
                                         <!-- END Actualités -->
 

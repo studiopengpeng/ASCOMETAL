@@ -186,12 +186,13 @@ MARCHES HOME (présentation + effets au survol)
     .ih-item.square.effect13 .info h3 {
         text-transform: uppercase;
         font-weight: 700;
-        font-size: 30px;
+        font-size: 1.75rem;
         color: #fff;
         text-align: center;
         text-transform: uppercase;
         width: 100%;
-        line-height: 4.0625rem;
+        line-height: rem-calc(35);
+        margin-top: rem-calc(15)
     }
     
     #about {
@@ -322,11 +323,11 @@ MARCHES HOME (présentation + effets au survol)
     }
     
     .info img {
-        margin: 0 auto 20px auto;
+        margin: 0 auto 0px auto;
         padding-bottom: 0;
     }
     
-    article .ih-item.square.effect13 .info .seemore {
+    #about article .ih-item.square.effect13 .info p.seemore {
         text-transform: uppercase;
         font-size: rem-calc(24);
         display: block;
@@ -587,7 +588,6 @@ MARCHES / NOUVEAUX PRODUITS
         .documentation {
             margin-left: 15px;
         }
-    
         .produits #main-container {
             padding: 30px 15px;
         }
@@ -857,7 +857,6 @@ MENU PRINCIPAL / TOP-BAR
         ul li ul li a:hover {
             box-shadow: inset 5px 0px 0px 0px #e52713!important;
         }
-        
         .dropdown.menu .submenu {
             height: auto;
             -webkit-box-shadow: 0px 7px 29px 0px rgba(0, 0, 0, 0.15);
@@ -871,10 +870,21 @@ MENU PRINCIPAL / TOP-BAR
             height: auto;
         }
     }
-.dropdown.menu:not(.vertical) .is-dropdown-submenu.first-sub:last-child {
-    left: 0;
-    right: auto;
-}
+    
+    //items du menu ferrés à droite
+    .dropdown.menu:not(.vertical) .is-dropdown-submenu.first-sub {
+        left: auto;
+        right: 0;
+    }
+    
+    li .active > a {
+        color: $asco !important;
+    }
+    
+    .top-bar li .active > a {
+        background-color: #f8f8f8;
+        box-shadow: inset 5px 0px 0px 0px #e52713;
+    }
     
     // * * * * * * * * * * * * * Logo * * * * * * * * * * * * * 
     .top-bar-left {
@@ -1512,12 +1522,3 @@ PAGE LISTE D'ACTUALITES
     #single-post #main-container .entry-content li {
         list-style-image: url('../images/dot.svg');
     }
-
-
-li .active > a{
-            color: $asco !important;
-        }
-.top-bar li .active > a {
-    background-color: #f8f8f8;
-    box-shadow: inset 5px 0px 0px 0px #e52713;
-}
