@@ -1,7 +1,4 @@
 <?php
-/**
- * Not Completed Yet!
- */
 
 namespace WPDM;
 
@@ -12,55 +9,75 @@ class Package {
 
     function __construct($ID = null){
         global $post;
-        if(!$ID && $post->post_type == 'wpdmpro') $ID = $post->ID;
+        if(!$ID && is_object($post) && $post->post_type == 'wpdmpro') $ID = $post->ID;
         $this->ID = $ID;
         return $this;
     }
 
-    function Prepare($ID = null)
+    function Prepare($ID = null, $template = null, $force = false)
     {
+        global $post;
 
-        //if (isset($this->PackageData['formatted'])) return $this;
+        if(!$ID) $ID = $this->ID;
+        if(!$ID && isset($post->ID)) $ID = $post->ID;
+        if(!$ID) {
+            $this->PackageData = array('error' => __('ID missing!', 'wpdmpro'));
+            return $this;
+        }
 
-        if($ID == null) $ID = $this->ID;
+        if(isset($this->PackageData['formatted'])) return $this;
 
-        $vars = get_post($ID, ARRAY_A);
+        if(!is_object($post) || $post->ID != $ID ) {
+            $post_vars = get_post($ID, ARRAY_A);
+        }
+        else
+            $post_vars = (array)$post;
 
-        $vars['title'] = stripcslashes($vars['post_title']);
-        $vars['description'] = stripcslashes($vars['post_content']);
-        $vars['description'] = wpautop(stripslashes($vars['description']));
-        $vars['description'] = do_shortcode(stripslashes($vars['description']));
-        $vars['excerpt'] = stripcslashes(strip_tags($vars['post_excerpt']));
+
+        $ID = $post_vars['ID'];
+
+        $post_vars['title'] = stripcslashes($post_vars['post_title']);
+        $post_vars['description'] = stripcslashes($post_vars['post_content']);
+        $post_vars['description'] = wpautop(stripslashes($post_vars['description']));
+        $post_vars['description'] = do_shortcode(stripslashes($post_vars['description']));
+        $post_vars['excerpt'] = stripcslashes(strip_tags($post_vars['post_excerpt']));
 
         //Featured Image
-        $src = wp_get_attachment_image_src(get_post_thumbnail_id($vars['ID']), 'full', false, '');
-        $vars['preview'] = $src['0'];
+        $src = wp_get_attachment_image_src(get_post_thumbnail_id($ID), 'full', false, '');
 
-        $vars['create_date'] = date_i18n(get_option('date_format'), strtotime(get_the_date(get_option('date_format'),$ID)));
+        $post_vars['preview'] = $src['0'];
 
-        $vars['update_date'] = get_post_modified_time(get_option('date_format'), false, $ID, true);
+        $post_vars['create_date'] = get_the_date('',$ID);
+
+        $post_vars['update_date'] = date_i18n(get_option('date_format'), strtotime($post_vars['post_modified']));
 
 
-        $vars['categories'] = get_the_term_list( $vars['ID'], 'wpdmcategory', '', ', ', '' );
+        $post_vars['categories'] = get_the_term_list( $ID, 'wpdmcategory', '', ', ', '' );
 
-        $data = self::metaData($vars['ID']);
+        $data = self::metaData($post_vars['ID']);
 
-        $vars = array_merge($vars, $data);
+        $post_vars = array_merge($data, $post_vars);
+        if(!isset($post_vars['files']) || !is_array($post_vars['files']))
+            $post_vars['files'] = get_post_meta($post_vars['ID'], '__wpdm_files', true);
+        $post_vars['file_count'] = count($post_vars['files']);
+        if(strpos("_".$template,'[file_list]') || strpos("_".$template,'[play_list]') || strpos("_".$template,'[audio_player]')) {
+            $post_vars['file_list'] = \WPDM\libs\FileList::Table($post_vars);
+            $post_vars['play_list'] = $post_vars['file_list'];
+            $post_vars['audio_player'] = $post_vars['file_list'];
+        }
+        if(strpos("_".$template,'[play_button]'))
+            $post_vars['play_button'] = self::audioPlayer($post_vars);
+        if(strpos("_".$template,'[file_list_extended]'))
+            $post_vars['file_list_extended'] = \WPDM\libs\FileList::Box($post_vars);
+        $post_vars['link_label'] = isset($post_vars['link_label']) ? $post_vars['link_label'] : __('Download', 'wpdmpro');
+        $post_vars['page_link'] = "<a href='" . get_permalink($post_vars['ID']) . "'>{$post_vars['title']}</a>";
+        $post_vars['page_url'] = get_permalink($post_vars['ID']);
 
-        $vars['files'] = get_post_meta($vars['ID'], '__wpdm_files', true);
-        $vars['file_count'] = count($vars['files']);
-        $vars['file_list'] = '';
-        $vars['play_list'] = $vars['file_list'];
-        $vars['play_button'] = '';
-        $vars['file_list_extended'] = '';
-        $vars['link_label'] = isset($vars['link_label']) ? $vars['link_label'] : __('Download', 'wpdmpro');
-        $vars['page_link'] = "<a href='" . get_permalink($vars['ID']) . "'>{$vars['title']}</a>";
-        $vars['page_url'] = get_permalink($vars['ID']);
 
-        if(!isset($vars['btnclass']))
-            $vars['btnclass'] = '[btnclass]';
+        if(!isset($post_vars['btnclass']))
+            $post_vars['btnclass'] = '[btnclass]';
 
-        $tags = get_the_tags($vars['ID']);
+        $tags = get_the_tags($post_vars['ID']);
         $taghtml = "";
         if(is_array($tags)){
             foreach ($tags as $tag)
@@ -69,116 +86,148 @@ class Package {
                     . get_tag_link($tag->term_id)
                     . "\"><i class='fa fa-tag'></i> &nbsp; ".$tag->name."</a> &nbsp;";
             }}
-        $vars['tags'] = $taghtml;
+        $post_vars['tags'] = $taghtml;
 
-        if (count($vars['files']) > 1) $vars['file_ext'] = 'zip';
-        if (is_array($vars['files']) && count($vars['files']) == 1) { $tmpdata = explode(".", $vars['files'][0]); $vars['file_ext'] = end($tmpdata); }
-        $vars['file_size'] = self::Size($vars['ID']);
+        if (count($post_vars['files']) > 1) $post_vars['file_ext'] = 'zip';
+        if (is_array($post_vars['files']) && count($post_vars['files']) == 1) {
+            $tmpdata = $post_vars['files'];
+            $tmpdata = array_shift($tmpdata);
+            $tmpdata = explode(".", $tmpdata);
+            $post_vars['file_ext'] = end($tmpdata);
+        }
+        $post_vars['file_size'] = self::Size($post_vars['ID']);
 
 
-        $vars['audio_player'] = $vars['file_list'];
-        $vars['audio_player_single'] = self::audioPlayer($vars, true);
+        if(strpos("_".$template,'[audio_player_single]'))
+            $post_vars['audio_player_single'] = self::audioPlayer($post_vars, true);
+
+        $tmplfile = $post_vars['files'];
+        $tmpfile = is_array($tmplfile) && count($tmplfile) >0 ? array_shift($tmplfile):'';
+        if(strpos($tmpfile, 'youtu')) {
+            if(preg_match('/youtu\.be\/([^\/]+)/', $tmpfile, $match))
+                $vid = $match[1];
+            else if(preg_match('/watch\?v=([^\/]+)/', $tmpfile, $match))
+                $vid = $match[1];
+            $post_vars['youtube_thumb_0'] = '<img src="http://img.youtube.com/vi/' . $vid . '/0.jpg" alt="Thumb 0" />';
+            $post_vars['youtube_thumb_1'] = '<img src="http://img.youtube.com/vi/' . $vid . '/1.jpg" alt="Thumb 1" />';
+            $post_vars['youtube_thumb_2'] = '<img src="http://img.youtube.com/vi/' . $vid . '/2.jpg" alt="Thumb 2" />';
+            $post_vars['youtube_thumb_3'] = '<img src="http://img.youtube.com/vi/' . $vid . '/3.jpg" alt="Thumb 3" />';
+            $post_vars['youtube_player'] = '<iframe width="1280" height="720" src="https://www.youtube.com/embed/'.$vid.'" frameborder="0" allowfullscreen></iframe>';
+        }
 
 
-        if (!isset($vars['icon']) || $vars['icon'] == '') {
-            if(is_array($vars['files'])){
-                $ifn = @end($vars['files']);
+        if (!isset($post_vars['icon']) || $post_vars['icon'] == '') {
+            if(is_array($post_vars['files'])){
+                $ifn = @end($post_vars['files']);
                 $ifn = @explode('.', $ifn);
                 $ifn = @end($ifn);
             }
             else
                 $ifn = '_blank';
 
-            $vars['icon'] = '<img class="wpdm_icon" src="' . plugins_url('download-manager/assets/file-type-icons/') . (@count($vars['files']) <= 1 ? $ifn : 'zip') . '.png" onError=\'this.src="' . plugins_url('download-manager/assets/file-type-icons/_blank.png') . '";\' />';
+            $post_vars['icon'] = '<img class="wpdm_icon" alt="'.__('Icon','wpdmpro').'" src="' . plugins_url('download-manager/assets/file-type-icons/') . (@count($post_vars['files']) <= 1 ? $ifn : 'zip') . '.png" onError=\'this.src="' . plugins_url('download-manager/assets/file-type-icons/_blank.png') . '";\' />';
         }
-        else if (!strpos($vars['icon'], '://'))
-            $vars['icon'] = '<img class="wpdm_icon"   src="' . plugins_url(str_replace('download-manager/file-type-icons/','download-manager/assets/file-type-icons/',$vars['icon'])) . '" />';
-        else if (!strpos($vars['icon'], ">"))
-            $vars['icon'] = '<img class="wpdm_icon"   src="' . str_replace('download-manager/file-type-icons/','download-manager/assets/file-type-icons/',$vars['icon']) . '" />';
+        else if (!strpos($post_vars['icon'], '://'))
+            $post_vars['icon'] = '<img class="wpdm_icon" alt="'.__('Icon','wpdmpro').'"   src="' . plugins_url(str_replace('download-manager/file-type-icons/','download-manager/assets/file-type-icons/',$post_vars['icon'])) . '" />';
+        else if (!strpos($post_vars['icon'], ">"))
+            $post_vars['icon'] = '<img class="wpdm_icon" alt="'.__('Icon','wpdmpro').'"   src="' . str_replace('download-manager/file-type-icons/','download-manager/assets/file-type-icons/',$post_vars['icon']) . '" />';
 
-        if (isset($vars['preview']) && $vars['preview'] != '') {
-            $vars['thumb'] = "<img title='' src='" . wpdm_dynamic_thumb($vars['preview'], array(400, 300)) . "'/>";
+        if (isset($post_vars['preview']) && $post_vars['preview'] != '') {
+            $post_vars['thumb'] = "<img title='' alt='".__('Thumbnail','wpdmpro')."' src='" . wpdm_dynamic_thumb($post_vars['preview'], array(400, 300)) . "'/>";
         } else
-            $vars['thumb'] = $vars['thumb_page'] = $vars['thumb_gallery'] = $vars['thumb_widget'] = "";
+            $post_vars['thumb'] = $post_vars['thumb_page'] = $post_vars['thumb_gallery'] = $post_vars['thumb_widget'] = "";
 
         $k = 1;
-        $vars['additional_previews'] = isset($vars['more_previews']) ? $vars['more_previews'] : array();
-        $img = "<img id='more_previews_{$k}' title='' class='more_previews' src='" . wpdm_dynamic_thumb($vars['preview'], array(575, 170)) . "'/>\n";
-        $tmb = "<a href='#more_previews_{$k}' class='spt'><img title='' src='" . wpdm_dynamic_thumb($vars['preview'], array(100, 45)) . "'/></a>\n";
+        $post_vars['additional_previews'] = isset($post_vars['more_previews']) ? $post_vars['more_previews'] : array();
+        $img = "<img id='more_previews_{$k}' title='' class='more_previews' src='" . wpdm_dynamic_thumb($post_vars['preview'], array(575, 170)) . "'/>\n";
+        $tmb = "<a href='#more_previews_{$k}' class='spt'><img title='' alt='".__('Thumbnail','wpdmpro')."' src='" . wpdm_dynamic_thumb($post_vars['preview'], array(100, 45)) . "'/></a>\n";
 
 
         global $blog_id;
         if (defined('MULTISITE')) {
-            $vars['thumb'] = str_replace(home_url('/files'), ABSPATH . 'wp-content/blogs.dir/' . $blog_id . '/files', $vars['thumb']);
+            $post_vars['thumb'] = str_replace(home_url('/files'), ABSPATH . 'wp-content/blogs.dir/' . $blog_id . '/files', $post_vars['thumb']);
         }
 
-        $vars['link_label'] = apply_filters('wpdm_button_image', $vars['link_label'], $vars);
+        $post_vars['link_label'] = apply_filters('wpdm_button_image', $post_vars['link_label'], $post_vars);
 
-        $vars['link_label'] = $vars['link_label']?$vars['link_label']:__('Download','wpdmpro');
+        $post_vars['link_label'] = $post_vars['link_label']?$post_vars['link_label']:__('Download','wpdmpro');
 
-        $vars['download_url'] = self::getDownloadURL($vars['ID'], '');
-        $vars['download_link_popup'] = $vars['download_link_extended'] = $vars['download_link'] = "<a class='wpdm-download-link wpdm-download-locked {$vars['btnclass']}' rel='nofollow' href='#' onclick=\"location.href='{$vars['download_url']}';return false;\">{$vars['link_label']}</a>";
+        $post_vars['download_url'] = self::getDownloadURL($post_vars['ID'], '');
+        $post_vars['download_link_popup'] =
+        $post_vars['download_link_extended'] =
+        $post_vars['download_link'] = "<a class='wpdm-download-link wpdm-download-locked {$post_vars['btnclass']}' rel='nofollow' href='#' onclick=\"location.href='{$post_vars['download_url']}';return false;\">{$post_vars['link_label']}</a>";
 
 
-        if (self::userDownloadLimitExceeded($vars['ID'])) {
-            $vars['download_url'] = '#';
-            $vars['link_label'] = __('Download Limit Exceeded','wpdmpro');
-            $vars['download_link_popup'] = $vars['download_link_extended'] = $vars['download_link'] = "<div class='alert alert-warning'><b>" . __('Download:', 'wpdmpro') . "</b><br/>{$vars['link_label']}</div>";
+        if (self::userDownloadLimitExceeded($post_vars['ID'])) {
+            $post_vars['download_url'] = '#';
+            $post_vars['link_label'] = __('Download Limit Exceeded','wpdmpro');
+            $post_vars['download_link_popup'] =
+            $post_vars['download_link_extended'] =
+            $post_vars['download_link'] = "<div class='alert alert-warning'><b>" . __('Download:', 'wpdmpro') . "</b><br/>{$post_vars['link_label']}</div>";
         }
 
-        else if (isset($vars['expire_date']) && $vars['expire_date'] != "" && strtotime($vars['expire_date']) < time()) {
-            $vars['download_url'] = '#';
-            $vars['link_label'] = __('Download was expired on', 'wpdmpro') . " " . date_i18n(get_option('date_format')." h:i A", strtotime($vars['expire_date']));
-            $vars['download_link'] = $vars['download_link_extended'] = $vars['download_link_popup'] = "<div class='alert alert-warning'><b>" . __('Download:', 'wpdmpro') . "</b><br/>{$vars['link_label']}</div>";
+        else if (isset($post_vars['expire_date']) && $post_vars['expire_date'] != "" && strtotime($post_vars['expire_date']) < time()) {
+            $post_vars['download_url'] = '#';
+            $post_vars['link_label'] = __('Download was expired on', 'wpdmpro') . " " . date_i18n(get_option('date_format')." h:i A", strtotime($post_vars['expire_date']));
+            $post_vars['download_link'] =
+            $post_vars['download_link_extended'] =
+            $post_vars['download_link_popup'] = "<div class='alert alert-warning'><b>" . __('Download:', 'wpdmpro') . "</b><br/>{$post_vars['link_label']}</div>";
         }
 
-        else if (isset($vars['publish_date']) && $vars['publish_date'] !='' && strtotime($vars['publish_date']) > time()) {
-            $vars['download_url'] = '#';
-            $vars['link_label'] = __('Download will be available from ', 'wpdmpro') . " " . date_i18n(get_option('date_format')." h:i A", strtotime($vars['publish_date']));
-            $vars['download_link'] = $vars['download_link_extended'] = "<div class='alert alert-warning'><b>" . __('Download:', 'wpdmpro') . "</b><br/>{$vars['link_label']}</div>";
+        else if (isset($post_vars['publish_date']) && $post_vars['publish_date'] !='' && strtotime($post_vars['publish_date']) > time()) {
+            $post_vars['download_url'] = '#';
+            $post_vars['link_label'] = __('Download will be available from ', 'wpdmpro') . " " . date_i18n(get_option('date_format')." h:i A", strtotime($post_vars['publish_date']));
+            $post_vars['download_link'] =
+            $post_vars['download_link_extended'] =
+            $post_vars['download_link_popup'] = "<div class='alert alert-warning'><b>" . __('Download:', 'wpdmpro') . "</b><br/>{$post_vars['link_label']}</div>";
         }
 
-        else if(is_user_logged_in() && !self::userCanAccess($vars['ID'])){
-            $vars['download_url'] = '#';
-            $vars['link_label'] = stripslashes(get_option('wpdm_permission_msg'));
-            $vars['download_link'] = $vars['download_link_extended'] = $vars['download_link_popup'] =  "<div class='alert alert-danger'><b>" . __('Download:', 'wpdmpro') . "</b><br/>{$vars['link_label']}</div>";
+        else if(is_user_logged_in() && !self::userCanAccess($post_vars['ID'])){
+            $post_vars['download_url'] = '#';
+            $post_vars['link_label'] = stripslashes(get_option('wpdm_permission_msg'));
+            $post_vars['download_link'] =
+            $post_vars['download_link_extended'] =
+            $post_vars['download_link_popup'] = "<div class='alert alert-danger'><b>" . __('Download:', 'wpdmpro') . "</b><br/>{$post_vars['link_label']}</div>";
         }
 
-        else if(!is_user_logged_in() && count(self::AllowedRoles($vars['ID'])) > 0 && !self::userCanAccess($vars['ID'])){
-            $loginform = wpdm_login_form(array('redirect'=>get_permalink($vars['ID'])));
-            if (get_option('_wpdm_hide_all', 0) == 1) return 'loginform';
-            $vars['download_url'] = home_url('/wp-login.php?redirect_to=' . urlencode($_SERVER['REQUEST_URI']));
-            $vars['download_link'] = $vars['download_link_extended'] = stripcslashes(str_replace(array("[loginform]","[this_url]"), array($loginform,get_permalink($vars['ID'])), get_option('wpdm_login_msg')));
-            $vars['download_link'] =  $vars['download_link_extended'] = $vars['download_link_popup'] =  get_option('__wpdm_login_form', 0) == 1 ? $loginform : $vars['download_link'];
+        else if(!is_user_logged_in() && count(self::AllowedRoles($post_vars['ID'])) > 0 && !self::userCanAccess($post_vars['ID'])){
+            $loginform = wpdm_login_form(array('redirect'=>get_permalink($post_vars['ID'])));
+            $post_vars['download_url'] = home_url('/wp-login.php?redirect_to=' . urlencode($_SERVER['REQUEST_URI']));
+            $post_vars['download_link'] =
+            $post_vars['download_link_extended'] =
+            $post_vars['download_link_popup'] = stripcslashes(str_replace(array("[loginform]","[this_url]"), array($loginform,get_permalink($post_vars['ID'])), get_option('wpdm_login_msg')));
+            $post_vars['download_link'] =
+            $post_vars['download_link_extended'] =
+            $post_vars['download_link_popup'] = get_option('__wpdm_login_form', 0) == 1 ? $loginform : $post_vars['download_link'];
         }
 
-        else if(self::isLocked($vars)){
-            $vars['download_url'] = '#';
-            $vars['download_link'] = self::activeLocks($vars);
-            $vars['download_link_extended'] = self::activeLocks($vars, array('embed' => 1));
-            $vars['download_link_popup'] = self::activeLocks($vars, array('popstyle' => 'popup'));
+        else if(self::isLocked($post_vars)){
+            $post_vars['download_url'] = '#';
+            $post_vars['download_link'] = self::activeLocks($post_vars);
+            $post_vars['download_link_extended'] = self::activeLocks($post_vars, array('embed' => 1));
+            $post_vars['download_link_popup'] = self::activeLocks($post_vars, array('popstyle' => 'popup'));
         }
 
 
 
 
-//        if (!isset($vars['download_link_called'])) {
-//            $tmpvar = self::downloadLink($vars['ID'], 0, array('btnclass' => '[btnclass]')); //DownloadLink($vars, 0, array('btnclass' => '[btnclass]'));
-//            $tmpvar1 = self::downloadLink($vars['ID'], 1); //DownloadLink($vars, 1);
-//            $vars['download_link'] = $tmpvar;
-//            $vars['download_link_extended'] = $tmpvar1;
-//            $vars['download_link_called'] = 1;
+//        if (!isset($post_vars['download_link_called'])) {
+//            $tmpvar = self::downloadLink($post_vars['ID'], 0, array('btnclass' => '[btnclass]')); //DownloadLink($post_vars, 0, array('btnclass' => '[btnclass]'));
+//            $tmpvar1 = self::downloadLink($post_vars['ID'], 1); //DownloadLink($post_vars, 1);
+//            $post_vars['download_link'] = $tmpvar;
+//            $post_vars['download_link_extended'] = $tmpvar1;
+//            $post_vars['download_link_called'] = 1;
 //        }
 
 
-        if (!isset($vars['formatted'])) $vars['formatted'] = 0;
-        ++$vars['formatted'];
+        if (!isset($post_vars['formatted'])) $post_vars['formatted'] = 0;
+        ++$post_vars['formatted'];
 
-        $vars = apply_filters('wpdm_after_prepare_package_data', $vars);
+        $post_vars = apply_filters('wpdm_after_prepare_package_data', $post_vars);
 
-        $this->PackageData =  $vars;
+        $this->PackageData =  $post_vars;
 
-        foreach($vars as $key => $val){
+        foreach($post_vars as $key => $val){
             $this->$key = $val;
         }
         return $this;
@@ -247,17 +296,23 @@ class Package {
             $id = $package;
             $package = array();
             $package['ID'] = $id;
-
-            $package['password_lock'] = get_post_meta($id, '__wpdm_password_lock', true) || (get_post_meta($id, '__wpdm_password', true) != '');
-
+            $package['email_lock'] = get_post_meta($id, '__wpdm_email_lock', true);
+            $package['password_lock'] = get_post_meta($id, '__wpdm_password_lock', true);
+            $package['gplusone_lock'] = get_post_meta($id, '__wpdm_gplusone_lock', true);
+            $package['twitterfollow_lock'] = get_post_meta($id, '__wpdm_twitterfollow_lock', true);
+            $package['facebooklike_lock'] = get_post_meta($id, '__wpdm_facebooklike_lock', true);
+            $package['linkedin_lock'] = get_post_meta($id, '__wpdm_linkedin_lock', true);
             $package['captcha_lock'] = get_post_meta($id, '__wpdm_captcha_lock', true);
-
         } else
             $id = $package['ID'];
         $lock = '';
-
-        if (isset($package['password']) && $package['password'] != '') $lock = 'locked';
-
+        $package =  apply_filters('wpdm_custom_data',$package, $id);
+        if (isset($package['email_lock']) && (int)$package['email_lock'] == 1) $lock = 'locked';
+        if (isset($package['password_lock']) && (int)$package['password_lock'] == 1) $lock = 'locked';
+        if (isset($package['gplusone_lock']) && (int)$package['gplusone_lock'] == 1) $lock = 'locked';
+        if (isset($package['twitterfollow_lock']) && (int)$package['twitterfollow_lock'] == 1) $lock = 'locked';
+        if (isset($package['facebooklike_lock']) && (int)$package['facebooklike_lock'] == 1) $lock = 'locked';
+        if (isset($package['linkedin_lock']) && (int)$package['linkedin_lock'] == 1) $lock = 'locked';
         if (isset($package['captcha_lock']) && (int)$package['captcha_lock'] == 1) $lock = 'locked';
 
         if ($lock !== 'locked')
@@ -340,9 +395,17 @@ class Package {
      */
     public static function getFiles($ID){
         $files = get_post_meta($ID, '__wpdm_files', true);
+        if(!$files || !is_array($files)) $files = array();
+        foreach($files as &$file){
+            $file = trim($file);
+        }
         $package_dir = self::Get($ID, 'package_dir');
         if($package_dir != '') {
-            $files += \WPDM\FileSystem::scanDir($package_dir);
+            $package_dir = realpath($package_dir);
+            $dfiles = \WPDM\FileSystem::scanDir($package_dir);
+            foreach($dfiles as $index => $file){
+                $files['dir_'.$index] = $file;
+            }
         }
         return $files;
     }
@@ -493,14 +556,14 @@ class Package {
         if (isset($package['expire_date']) && $package['expire_date'] != "" && strtotime($package['expire_date']) < time()) {
             $package['download_url'] = '#';
             $package['link_label'] = __('Download was expired on', 'wpdmpro') . " " . date_i18n(get_option('date_format')." h:i A", strtotime($package['expire_date']));
-            $package['download_link'] = "<a href='#'>{$package['link_label']}</a>";
+            $package['download_link'] = $vars['download_link_extended'] = $vars['download_link_popup'] = "<a href='#'>{$package['link_label']}</a>";
             return "<div class='alert alert-warning'><b>" . __('Download:', 'wpdmpro') . "</b><br/>{$package['link_label']}</div>";
         }
 
         if (isset($package['publish_date']) && $package['publish_date'] !='' && strtotime($package['publish_date']) > time()) {
             $package['download_url'] = '#';
             $package['link_label'] = __('Download will be available from ', 'wpdmpro') . " " . date_i18n(get_option('date_format')." h:i A", strtotime($package['publish_date']));
-            $package['download_link'] = "<a href='#'>{$package['link_label']}</a>";
+            $package['download_link'] = $vars['download_link_extended'] = $vars['download_link_popup'] = "<a href='#'>{$package['link_label']}</a>";
             return "<div class='alert alert-warning'><b>" . __('Download:', 'wpdmpro') . "</b><br/>{$package['link_label']}</div>";
         }
 
@@ -509,9 +572,9 @@ class Package {
         $package['access'] = wpdm_allowed_roles($package['ID']);
 
         if ($package['download_url'] != '#')
-            $package['download_link'] = "<a class='wpdm-download-link wpdm-download-locked {$btnclass}' rel='nofollow' href='#' onclick=\"location.href='{$package['download_url']}';return false;\"><i class='$wpdm_download_icon'></i>{$link_label}</a>";
+            $package['download_link'] = $vars['download_link_extended'] = $vars['download_link_popup'] = "<a class='wpdm-download-link wpdm-download-locked {$btnclass}' rel='nofollow' href='#' onclick=\"location.href='{$package['download_url']}';return false;\"><i class='$wpdm_download_icon'></i>{$link_label}</a>";
         else
-            $package['download_link'] = "<div class='alert alert-warning'><b>" . __('Download:', 'wpdmpro') . "</b><br/>{$link_label}</div>";
+            $package['download_link'] = $vars['download_link_extended'] = $vars['download_link_popup'] = "<div class='alert alert-warning'><b>" . __('Download:', 'wpdmpro') . "</b><br/>{$link_label}</div>";
         $caps = array_keys($current_user->caps);
         $role = array_shift($caps);
 
@@ -521,7 +584,7 @@ class Package {
 
         if (is_user_logged_in() && count($matched) <= 0 && !@in_array('guest', @maybe_unserialize($package['access']))) {
             $package['download_url'] = "#";
-            $package['download_link'] = $package['download_link_extended'] = stripslashes(get_option('wpdm_permission_msg'));
+            $package['download_link'] = $vars['download_link_extended'] = $vars['download_link_popup'] = stripslashes(get_option('wpdm_permission_msg'));
             $package = apply_filters('download_link', $package);
             if (get_option('_wpdm_hide_all', 0) == 1) { $package['download_link'] = $package['download_link_extended'] = 'blocked'; }
             return $package['download_link'];
@@ -530,7 +593,7 @@ class Package {
 
             $loginform = wpdm_login_form(array('redirect'=>get_permalink($package['ID'])));
             if (get_option('_wpdm_hide_all', 0) == 1) return 'loginform';
-            $package['download_url'] = home_url('/wp-login.php?redirect_to=' . urlencode($_SERVER['REQUEST_URI']));
+            $package['download_url'] = $vars['download_link_extended'] = $vars['download_link_popup'] = home_url('/wp-login.php?redirect_to=' . urlencode($_SERVER['REQUEST_URI']));
             $package['download_link'] = stripcslashes(str_replace(array("[loginform]","[this_url]"), array($loginform,get_permalink($package['ID'])), get_option('wpdm_login_msg')));
             return get_option('__wpdm_login_form', 0) == 1 ? $loginform : $package['download_link'];
 
@@ -542,14 +605,49 @@ class Package {
         if (!isset($package['quota']) || (isset($package['quota']) && $package['quota'] > 0 && $package['quota'] > $package['download_count']) || $package['quota'] == 0) {
             $lock = 0;
 
-            //isset($package['password_lock']) && (int)$package['password_lock'] == 1 &&
-            if ($package['password'] != '') {
+            if (isset($package['password_lock']) && (int)$package['password_lock'] == 1 && $package['password'] != '') {
                 $lock = 'locked';
                 $data = \WPDM\PackageLocks::AskPassword($package);
             }
 
 
             $sociallock = "";
+
+            if (isset($package['email_lock']) && (int)$package['email_lock'] == 1) {
+                $data .= \WPDM\PackageLocks::AskEmail($package);
+                $lock = 'locked';
+            }
+
+            if (isset($package['linkedin_lock']) && (int)$package['linkedin_lock'] == 1) {
+                $lock = 'locked';
+                $sociallock .= \WPDM\PackageLocks::LinkedInShare($package);
+
+            }
+
+            if (isset($package['twitterfollow_lock']) && (int)$package['twitterfollow_lock'] == 1) {
+                $lock = 'locked';
+                $sociallock .= \WPDM\PackageLocks::TwitterFollow($package);
+
+            }
+
+            if (isset($package['gplusone_lock']) && (int)$package['gplusone_lock'] == 1) {
+                $lock = 'locked';
+                $sociallock .= '<div id="wpdmslb-googleplus-'.$package['ID'].'" class="wpdm-social-lock-box wpdmslb-googleplus">' . \WPDM\PackageLocks::GooglePlusOne($package, true) . '</div>';
+
+            }
+
+            if (isset($package['tweet_lock']) && (int)$package['tweet_lock'] == 1) {
+                $lock = 'locked';
+                $sociallock .= '<div id="wpdmslb-tweet-'.$package['ID'].'" class="wpdm-social-lock-box wpdmslb-tweet">' . \WPDM\PackageLocks::Tweet($package, true) . '</div>';
+
+            }
+
+            if (isset($package['facebooklike_lock']) && (int)$package['facebooklike_lock'] == 1) {
+                $lock = 'locked';
+                $sociallock .=  \WPDM\PackageLocks::FacebookLike($package , true);
+
+            }
+
 
             if (isset($package['captcha_lock']) && (int)$package['captcha_lock'] == 1) {
                 $lock = 'locked';
@@ -579,12 +677,16 @@ class Package {
                 if ($embed == 1)
                     $adata = "</strong><table class='table all-locks-table' style='border:0px'><tr><td style='padding:5px 0px;border:0px;'>" . $data . "</td></tr></table>";
                 else {
-                    $dataattrs = $popstyle == 'pop-over'? 'data-title="<button type=button id=\'close\' class=\'btn btn-link btn-xs pull-right po-close\' style=\'margin-top:-4px;margin-right:-10px\'><i class=\'fa fa-times text-danger\'></i></button> '.__('Download','wpdmpro').' ' . $package['title'] . '"' : 'data-toggle="modal" data-target="#pkg_' . $package['ID'] . "_" . $unqid . '"';
-                    $adata = '<a href="#pkg_' . $package['ID'] . "_" . $unqid . '" '.$dataattrs.' class="wpdm-download-link wpdm-download-locked ' . $popstyle . ' ' . $btnclass . '"><i class=\'' . $wpdm_download_lock_icon . '\'></i>' . $package['link_label'] . '</a>';
-                    if ($popstyle == 'pop-over')
-                        $adata .= '<div class="modal fade"><div class="row all-locks"  id="pkg_' . $package['ID'] . "_" . $unqid . '">' . $data . '</div></div>';
-                    else
-                        $adata .= '<div class="modal fade" role="modal" id="pkg_' . $package['ID'] . "_" . $unqid . '"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><strong style="margin:0px;font-size:12pt">' . __('Download') . '</strong></div><div class="modal-body">' . $data . '</div><div class="modal-footer text-right"><button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button></div></div></div></div>';
+                    $dataattrs = $popstyle == 'pop-over'? 'data-title="'.__('Download','wpdmpro').' ' . $package['title'] . '"' : 'data-toggle="modal" data-target="#pkg_' . $package['ID'] . "_" . $unqid . '"';
+                    $adata = '<a href="#pkg_' . $package['ID'] . "_" . $unqid . '" '.$dataattrs.' data-trigger="manual" class="wpdm-download-link wpdm-download-locked ' . $popstyle . ' ' . $btnclass . '"><i class=\'' . $wpdm_download_lock_icon . '\'></i>' . $package['link_label'] . '</a>';
+
+                        if ($popstyle == 'pop-over') {
+                            if(!get_option('__wpdm_ajax_popup', false))
+                            $adata .= '<div class="modal fade"><div class="row all-locks"  id="pkg_' . $package['ID'] . "_" . $unqid . '">' . $data . '</div></div>';
+                        }
+                        else
+                            $adata .= '<div class="modal fade" role="modal" id="pkg_' . $package['ID'] . "_" . $unqid . '"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><strong style="margin:0px;font-size:12pt">' . __('Download') . '</strong></div><div class="modal-body">' . $data . '</div><div class="modal-footer text-right"><button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button></div></div></div></div>';
+
                 }
 
                 $data = $adata;
@@ -606,7 +708,7 @@ class Package {
 
     }
 
-    private function activeLocks($package, $params = array('embed'=>0, 'popstyle' => 'pop-over')){
+    private static function activeLocks($package, $params = array('embed'=>0, 'popstyle' => 'pop-over')){
 
         $embed = isset($params['embed'])?$params['embed']:0;
         $popstyle = isset($params['popstyle'])?$params['popstyle']:'pop-over';
@@ -614,36 +716,53 @@ class Package {
         $package = apply_filters('wpdm_before_apply_locks', $package);
         $lock = $data = "";
         $unqid = uniqid();
-//isset($package['password_lock']) && (int)$package['password_lock'] == 1 &&
-        if ($package['password'] != '') {
+
+        if (isset($package['password_lock']) && (int)$package['password_lock'] == 1 && $package['password'] != '') {
             $lock = 'locked';
             $data = \WPDM\PackageLocks::AskPassword($package);
         }
 
 
-        if (isset($package['captcha_lock']) && (int)$package['captcha_lock'] == 1) {
+        $sociallock = "";
+
+        if (isset($package['email_lock']) && (int)$package['email_lock'] == 1) {
+            $data .= \WPDM\PackageLocks::AskEmail($package);
             $lock = 'locked';
-            $captcha =  \WPDM\PackageLocks::reCaptchaLock($package , true);
-            $data .= "<div class='panel panel-default'><div class='panel-heading'>".__("Verify CAPTCHA to Downlaod","wpdmpro")."</div><div class='panel-body wpdm-social-locks text-center'>{$captcha}</div></div>";
         }
 
-        if ($lock === 'locked') {
-            $popstyle = isset($popstyle) && in_array($popstyle, array('popup', 'pop-over')) ? $popstyle : 'pop-over';
-            if ($embed == 1)
-                $adata = "</strong><table class='table all-locks-table' style='border:0px'><tr><td style='padding:5px 0px;border:0px;'>" . $data . "</td></tr></table>";
-            else {
-                $dataattrs = $popstyle == 'pop-over'? 'data-title="<button type=button id=\'close\' class=\'btn btn-link btn-xs pull-right po-close\' style=\'margin-top:-4px;margin-right:-10px\'><i class=\'fa fa-times text-danger\'></i></button> '.__('Download','wpdmpro').' ' . $package['title'] . '"' : 'data-toggle="modal" data-target="#pkg_' . $package['ID'] . "_" . $unqid . '"';
-                $adata = '<a href="#pkg_' . $package['ID'] . "_" . $unqid . '" '.$dataattrs.' class="wpdm-download-link wpdm-download-locked ' . $popstyle . ' ' . $package['btnclass'] . '">' . $package['link_label'] . '</a>';
-                if ($popstyle == 'pop-over')
-                    $adata .= '<div class="modal fade"><div class="row all-locks"  id="pkg_' . $package['ID'] . "_" . $unqid . '">' . $data . '</div></div>';
-                else
-                    $adata .= '<div class="modal fade" role="modal" id="pkg_' . $package['ID'] . "_" . $unqid . '"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><strong style="margin:0px;font-size:12pt">' . __('Download') . '</strong></div><div class="modal-body">' . $data . '</div><div class="modal-footer text-right"><button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button></div></div></div></div>';
-            }
+        if (isset($package['linkedin_lock']) && (int)$package['linkedin_lock'] == 1) {
+            $lock = 'locked';
+            $sociallock .= \WPDM\PackageLocks::LinkedInShare($package);
 
-            $data = $adata;
         }
 
-        $extralocks = $sociallock = '';
+        if (isset($package['twitterfollow_lock']) && (int)$package['twitterfollow_lock'] == 1) {
+            $lock = 'locked';
+            $sociallock .= \WPDM\PackageLocks::TwitterFollow($package);
+
+        }
+
+        if (isset($package['gplusone_lock']) && (int)$package['gplusone_lock'] == 1) {
+            $lock = 'locked';
+            $sociallock .= '<div id="wpdmslb-googleplus-'.$package['ID'].'" class="wpdm-social-lock-box wpdmslb-googleplus">' . \WPDM\PackageLocks::GooglePlusOne($package, true) . '</div>';
+
+        }
+
+        if (isset($package['tweet_lock']) && (int)$package['tweet_lock'] == 1) {
+            $lock = 'locked';
+            $sociallock .= '<div id="wpdmslb-tweet-'.$package['ID'].'" class="wpdm-social-lock-box wpdmslb-tweet">' . \WPDM\PackageLocks::Tweet($package, true) . '</div>';
+
+        }
+
+        if (isset($package['facebooklike_lock']) && (int)$package['facebooklike_lock'] == 1) {
+            $lock = 'locked';
+            $sociallock .=  \WPDM\PackageLocks::FacebookLike($package , true);
+
+        }
+
+
+
+        $extralocks = '';
         $extralocks = apply_filters("wpdm_download_lock", $extralocks, $package);
 
         if (is_array($extralocks) && $extralocks['lock'] === 'locked') {
@@ -661,6 +780,31 @@ class Package {
         }
 
 
+        if (isset($package['captcha_lock']) && (int)$package['captcha_lock'] == 1) {
+            $lock = 'locked';
+            $captcha =  \WPDM\PackageLocks::reCaptchaLock($package , true);
+            $data .= "<div class='panel panel-default'><div class='panel-heading'>".__("Verify CAPTCHA to Download","wpdmpro")."</div><div class='panel-body wpdm-social-locks text-center'>{$captcha}</div></div>";
+        }
+
+        if ($lock === 'locked') {
+            $popstyle = isset($popstyle) && in_array($popstyle, array('popup', 'pop-over')) ? $popstyle : 'pop-over';
+            if ($embed == 1)
+                $adata = "</strong><table class='table all-locks-table' style='border:0px'><tr><td style='padding:5px 0px;border:0px;'>" . $data . "</td></tr></table>";
+            else {
+                $dataattrs = $popstyle == 'pop-over'? 'data-title="'.__('Download','wpdmpro').' ' . $package['title'] . '"' : 'data-toggle="modal" data-target="#pkg_' . $package['ID'] . "_" . $unqid . '"';
+                $adata = '<a href="#pkg_' . $package['ID'] . "_" . $unqid . '" '.$dataattrs.' data-trigger="manual" class="wpdm-download-link wpdm-download-locked ' . $popstyle . ' ' . $package['btnclass'] . '">' . $package['link_label'] . '</a>';
+
+                    if ($popstyle == 'pop-over') {
+                        if(!get_option('__wpdm_ajax_popup', false))
+                        $adata .= '<div class="modal fade"><div class="row all-locks"  id="pkg_' . $package['ID'] . "_" . $unqid . '">' . $data . '</div></div>';
+                    }
+                    else
+                        $adata .= '<div class="modal fade" role="modal" id="pkg_' . $package['ID'] . "_" . $unqid . '"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><strong style="margin:0px;font-size:12pt">' . __('Download') . '</strong></div><div class="modal-body">' . $data . '</div><div class="modal-footer text-right"><button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button></div></div></div></div>';
+
+            }
+
+            $data = $adata;
+        }
         return $data;
     }
 
@@ -696,7 +840,7 @@ class Package {
         if (isset($package['expire_date']) && $package['expire_date'] != "" && strtotime($package['expire_date']) < time()) {
             $package['download_url'] = '#';
             $package['link_label'] = __('Download was expired on', 'wpdmpro') . " " . date_i18n(get_option('date_format')." h:i A", strtotime($package['expire_date']));
-            $package['download_link'] = "<a href='#'>{$package['link_label']}</a>";
+            $package['download_link'] = $vars['download_link_extended'] = $vars['download_link_popup'] = "<a href='#'>{$package['link_label']}</a>";
             $package = apply_filters('wpdm_after_prepare_package_data', $package);
             return "<div class='alert alert-warning'><b>" . __('Download:', 'wpdmpro') . "</b><br/>{$package['link_label']}</div>";
         }
@@ -704,7 +848,7 @@ class Package {
         if (isset($package['publish_date']) && $package['publish_date'] !='' && strtotime($package['publish_date']) > time()) {
             $package['download_url'] = '#';
             $package['link_label'] = __('Download will be available from ', 'wpdmpro') . " " . date_i18n(get_option('date_format')." h:i A", strtotime($package['publish_date']));
-            $package['download_link'] = "<a href='#'>{$package['link_label']}</a>";
+            $package['download_link'] = $vars['download_link_extended'] = $vars['download_link_popup'] = "<a href='#'>{$package['link_label']}</a>";
             $package = apply_filters('wpdm_after_prepare_package_data', $package);
             return "<div class='alert alert-warning'><b>" . __('Download:', 'wpdmpro') . "</b><br/>{$package['link_label']}</div>";
         }
@@ -714,7 +858,7 @@ class Package {
         $package['access'] = wpdm_allowed_roles($package['ID']);
 
         if ($package['download_url'] != '#')
-            $package['download_link'] = "<a class='wpdm-download-link wpdm-download-locked {$btnclass}' rel='nofollow' href='#' onclick=\"location.href='{$package['download_url']}';return false;\"><i class='$wpdm_download_icon'></i>{$link_label}</a>";
+            $package['download_link'] = $vars['download_link_extended'] = $vars['download_link_popup'] = "<a class='wpdm-download-link wpdm-download-locked {$btnclass}' rel='nofollow' href='#' onclick=\"location.href='{$package['download_url']}';return false;\"><i class='$wpdm_download_icon'></i>{$link_label}</a>";
         else
             $package['download_link'] = "<div class='alert alert-warning'><b>" . __('Download:', 'wpdmpro') . "</b><br/>{$link_label}</div>";
         $caps = array_keys($current_user->caps);
@@ -726,9 +870,9 @@ class Package {
 
         if (is_user_logged_in() && count($matched) <= 0 && !@in_array('guest', @maybe_unserialize($package['access']))) {
             $package['download_url'] = "#";
-            $package['download_link'] = $package['download_link_extended'] = stripslashes(get_option('wpdm_permission_msg'));
+            $package['download_link'] = $vars['download_link_extended'] = $vars['download_link_popup'] =  stripslashes(get_option('wpdm_permission_msg'));
             $package = apply_filters('wpdm_after_prepare_package_data', $package);
-            if (get_option('_wpdm_hide_all', 0) == 1) { $package['download_link'] = $package['download_link_extended'] = 'blocked'; }
+            if (get_option('_wpdm_hide_all', 0) == 1) { $package['download_link'] = $vars['download_link_extended'] = $vars['download_link_popup'] =  'blocked'; }
             return $package['download_link'];
         }
         if (!@in_array('guest', @maybe_unserialize($package['access'])) && !is_user_logged_in()) {
@@ -736,7 +880,7 @@ class Package {
             $loginform = wpdm_login_form(array('redirect'=>get_permalink($package['ID'])));
             if (get_option('_wpdm_hide_all', 0) == 1) return 'loginform';
             $package['download_url'] = home_url('/wp-login.php?redirect_to=' . urlencode($_SERVER['REQUEST_URI']));
-            $package['download_link'] = stripcslashes(str_replace(array("[loginform]","[this_url]"), array($loginform,get_permalink($package['ID'])), get_option('wpdm_login_msg')));
+            $package['download_link'] = $vars['download_link_extended'] = $vars['download_link_popup'] = stripcslashes(str_replace(array("[loginform]","[this_url]"), array($loginform,get_permalink($package['ID'])), get_option('wpdm_login_msg')));
             return get_option('__wpdm_login_form', 0) == 1 ? $loginform : $package['download_link'];
 
         }
@@ -747,8 +891,8 @@ class Package {
         $unqid = uniqid();
         if (!isset($package['quota']) || (isset($package['quota']) && $package['quota'] > 0 && $package['quota'] > $package['download_count']) || $package['quota'] == 0) {
             $lock = 0;
-
-            if ($package['password'] != '') {
+            /*
+            if (isset($package['password_lock']) && (int)$package['password_lock'] == 1 && $package['password'] != '') {
                 $lock = 'locked';
                 $data = \WPDM\PackageLocks::AskPassword($package);
             }
@@ -756,6 +900,46 @@ class Package {
 
             $sociallock = "";
 
+            if (isset($package['email_lock']) && (int)$package['email_lock'] == 1) {
+                $data .= \WPDM\PackageLocks::AskEmail($package);
+                $lock = 'locked';
+            }
+
+            if (isset($package['linkedin_lock']) && (int)$package['linkedin_lock'] == 1) {
+                $lock = 'locked';
+                $sociallock .= \WPDM\PackageLocks::LinkedInShare($package);
+
+            }
+
+            if (isset($package['twitterfollow_lock']) && (int)$package['twitterfollow_lock'] == 1) {
+                $lock = 'locked';
+                $sociallock .= \WPDM\PackageLocks::TwitterFollow($package);
+
+            }
+
+            if (isset($package['gplusone_lock']) && (int)$package['gplusone_lock'] == 1) {
+                $lock = 'locked';
+                $sociallock .= '<div id="wpdmslb-googleplus-'.$package['ID'].'" class="wpdm-social-lock-box wpdmslb-googleplus">' . \WPDM\PackageLocks::GooglePlusOne($package, true) . '</div>';
+
+            }
+
+            if (isset($package['tweet_lock']) && (int)$package['tweet_lock'] == 1) {
+                $lock = 'locked';
+                $sociallock .= '<div id="wpdmslb-tweet-'.$package['ID'].'" class="wpdm-social-lock-box wpdmslb-tweet">' . \WPDM\PackageLocks::Tweet($package, true) . '</div>';
+
+            }
+
+            if (isset($package['facebooklike_lock']) && (int)$package['facebooklike_lock'] == 1) {
+                $lock = 'locked';
+                $sociallock .=  \WPDM\PackageLocks::FacebookLike($package , true);
+
+            }
+
+            if (isset($package['captcha_lock']) && (int)$package['captcha_lock'] == 1) {
+                $lock = 'locked';
+                $sociallock .=  \WPDM\PackageLocks::reCaptchaLock($package , true);
+
+            }
 
             $extralocks = '';
             $extralocks = apply_filters("wpdm_download_lock", $extralocks, $package);
@@ -769,32 +953,18 @@ class Package {
 
                 $lock = 'locked';
             }
-
-            if($sociallock!=""){
-                $data .= "<div class='panel panel-default'><div class='panel-heading'>".__("Like or Share to Download","wpdmpro")."</div><div class='panel-body wpdm-social-locks text-center'>{$sociallock}</div></div>";
+            */
+            $extras['embed'] = $embed;
+            $data = self::activeLocks($package, $extras);
+            if($data!=""){
+                 return $data;
             }
 
-            if ($lock === 'locked') {
-                $popstyle = isset($popstyle) && in_array($popstyle, array('popup', 'pop-over')) ? $popstyle : 'pop-over';
-                if ($embed == 1)
-                    $adata = "</strong><table class='table all-locks-table' style='border:0px'><tr><td style='padding:5px 0px;border:0px;'>" . $data . "</td></tr></table>";
-                else {
-                    $dataattrs = $popstyle == 'pop-over'? 'data-title="<button type=button id=\'close\' class=\'btn btn-link btn-xs pull-right po-close\' style=\'margin-top:-4px;margin-right:-10px\'><i class=\'fa fa-times text-danger\'></i></button> '.__('Download','wpdmpro').' ' . $package['title'] . '"' : 'data-toggle="modal" data-target="#pkg_' . $package['ID'] . "_" . $unqid . '"';
-                    $adata = '<a href="#pkg_' . $package['ID'] . "_" . $unqid . '" '.$dataattrs.' class="wpdm-download-link wpdm-download-locked ' . $popstyle . ' ' . $btnclass . '"><i class=\'' . $wpdm_download_lock_icon . '\'></i>' . $package['link_label'] . '</a>';
-                    if ($popstyle == 'pop-over')
-                        $adata .= '<div class="modal fade"><div class="row all-locks"  id="pkg_' . $package['ID'] . "_" . $unqid . '">' . $data . '</div></div>';
-                    else
-                        $adata .= '<div class="modal fade" role="modal" id="pkg_' . $package['ID'] . "_" . $unqid . '"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><strong style="margin:0px;font-size:12pt">' . __('Download') . '</strong></div><div class="modal-body">' . $data . '</div><div class="modal-footer text-right"><button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button></div></div></div></div>';
-                }
 
-                $data = $adata;
-            }
-            if ($lock !== 'locked') {
-
-                $data = $package['download_link'];
+            $data = $package['download_link'];
 
 
-            }
+
         }
         else {
             $data = __("Download limit exceeded!",'wpdmpro');
@@ -841,17 +1011,24 @@ class Package {
         if(!is_array($vars) && is_int($vars) && $vars > 0) $vars = array('ID' => $vars);
         if (!isset($vars['ID']) || intval($vars['ID']) <1 ) return '';
 
+
+        if(!is_user_logged_in() && count(self::AllowedRoles($vars['ID'])) > 0 && !self::userCanAccess($vars['ID'])){
+            $loginform = wpdm_login_form(array('redirect'=>get_permalink($vars['ID'])));
+            $hide_all_message = get_option('__wpdm_login_form', 0) == 1 ? $loginform : stripcslashes(str_replace(array("[loginform]","[this_url]"), array($loginform,get_permalink($vars['ID'])), get_option('wpdm_login_msg')));
+            if (get_option('_wpdm_hide_all', 0) == 1) return $type == 'page'?$hide_all_message:'';
+        }
+
+        if(is_user_logged_in() && !self::userCanAccess($vars['ID']) && get_option('_wpdm_hide_all', 0) == 1 ) return $type != 'page' ? "" : get_option('wpdm_permission_msg',__('You are not allowed to download this item!','wpdmpro'));
+
+
         $default['link'] =  'link-template-default.php';
         $default['page'] =  'page-template-default.php';
 
-        if (!isset($vars['formatted'])) {
-            $pack = new \WPDM\Package($vars['ID']);
-            $pack->Prepare();
-            $vars = $pack->PackageData;
-        }
+
 
         if ($template == '') {
-            if(!isset($vars['page_template'])) $vars['page_template'] = 'page-template-default.php';
+            if(!isset($vars['page_template'])) $vars['page_template'] = 'page-template-1col.php';
+            if(!isset($vars['template'])) $vars['template'] = 'link-template-calltoaction3.php';
             $template = $type == 'page' ? $vars['page_template'] : $vars['template'];
         }
 
@@ -866,12 +1043,19 @@ class Package {
                 $ltpldir = get_stylesheet_directory().'/download-manager/'.$type.'-templates/';
                 if(!file_exists($ltpldir) || !file_exists($ltpldir.$template))
                     $ltpldir = WPDM_BASE_DIR.'/tpls/'.$type.'-templates/';
-
                 if (file_exists(TEMPLATEPATH . '/' . $template)) $template = file_get_contents(TEMPLATEPATH . '/' . $template);
                 else if (file_exists($ltpldir . $template)) $template = file_get_contents($ltpldir . $template);
                 else if (file_exists($ltpldir . $template . '.php')) $template = file_get_contents($ltpldir . $template . '.php');
                 else if (file_exists($ltpldir. $type . "-template-" . $template . '.php')) $template = file_get_contents($ltpldir. $type . "-template-" . $template . '.php');
             }
+
+        if (!isset($vars['formatted'])) {
+            $pack = new \WPDM\Package($vars['ID']);
+            $pack->Prepare($vars['ID'], $template);
+            $vars = $pack->PackageData;
+        }
+
+        if(isset($vars['__loginform_only']) && $vars['__loginform_only'] != '') return $vars['__loginform_only'];
 
         preg_match_all("/\[cf ([^\]]+)\]/", $template, $cfmatches);
         preg_match_all("/\[thumb_([0-9]+)x([0-9]+)\]/", $template, $matches);
@@ -882,7 +1066,7 @@ class Package {
 
         $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($vars['ID']), 'full');
         $vars['preview'] = $thumb['0'];
-
+        $vars['featured_image'] = ($vars['preview'] != '')?"<img src='{$vars['preview']}' alt='{$vars['title']}' />":"";
         $pdf = isset($vars['files'][0])?$vars['files'][0]:'';
         $ext = explode(".", $pdf);
         $ext = end($ext);
@@ -904,9 +1088,10 @@ class Package {
         // Parse [file_type] tag in link/page template
         if(strpos($template, 'file_type')) {
             $vars['file_types'] = self::fileTypes($vars['ID'], false);
+            if(is_array($vars['file_types']))
+            $vars['file_types'] = implode(", ", $vars['file_types']);
             $vars['file_type_icons'] = self::fileTypes($vars['ID']);
         }
-
 
         foreach ($matches[0] as $nd => $scode) {
             $keys[] = $scode;
@@ -944,7 +1129,7 @@ class Package {
         $vars = apply_filters("wdm_before_fetch_template", $vars);
 
         foreach ($vars as $key => $value) {
-            if(!is_array($value)) {
+            if(!is_array($value) && !is_object($value)) {
                 $keys[] = "[$key]";
                 $values[] = $value;
             }
@@ -959,6 +1144,50 @@ class Package {
         if ($vars['download_link'] == 'loginform' && $type == 'page') return $hide_all_message;
 
         return @str_replace($keys, $values, @stripcslashes($template));
+    }
+
+    public static function parseTemplate($template, $post, $type = 'link'){
+
+        $templates = maybe_unserialize(get_option("_fm_".$type."_templates", true));
+        if(isset($templates[$template]) && isset($templates[$template]['content'])) $template = $templates[$template]['content'];
+        else
+            if(!strpos(strip_tags($template), "]")){
+
+                $ltpldir = get_stylesheet_directory().'/download-manager/'.$type.'-templates/';
+                if(!file_exists($ltpldir) || !file_exists($ltpldir.$template))
+                    $ltpldir = WPDM_BASE_DIR.'/tpls/'.$type.'-templates/';
+                if (file_exists(TEMPLATEPATH . '/' . $template)) $template = file_get_contents(TEMPLATEPATH . '/' . $template);
+                else if (file_exists($ltpldir . $template)) $template = file_get_contents($ltpldir . $template);
+                else if (file_exists($ltpldir . $template . '.php')) $template = file_get_contents($ltpldir . $template . '.php');
+                else if (file_exists($ltpldir. $type . "-template-" . $template . '.php')) $template = file_get_contents($ltpldir. $type . "-template-" . $template . '.php');
+            }
+
+        preg_match_all("/\[([^\]]+)\]/", $template, $matched);
+        $post = (array)$post;
+        $post['title'] = $post['post_title'];
+        foreach($matched[1] as $id => $key){
+            switch($key) {
+                case 'page_link':
+                    $post[$key] = "<a href='".get_permalink($post['ID'])."'>{$post['post_title']}</a>";
+                    break;
+                case 'page_url':
+                    $post[$key] = get_permalink($post['ID']);
+                    break;
+                case 'file_size':
+                    $post[$key] = get_post_meta($post['ID'], '__wpdm_package_size', true);
+                    break;
+                default:
+                    $post[$key] = get_post_meta($post['ID'], '__wpdm_'.$key, true);
+                    break;
+            }
+        }
+        $post = apply_filters("wdm_before_fetch_template", $post);
+        $vars = array_keys($post);
+        $vals = array_values($post);
+        foreach($vars as &$var){
+            $var = "[$var]";
+        }
+        return str_replace($vars, $vals, $template);
     }
 
     /**
@@ -981,7 +1210,7 @@ class Package {
         $ext = array_unique($ext);
         $exico = '';
         foreach($ext as $exi){
-            if(file_exists(dirname(__FILE__).'/assets/file-type-icons/'.$exi.'.png'))
+            if(file_exists(WPDM_BASE_DIR.'assets/file-type-icons/'.$exi.'.png'))
                 $exico .= "<img alt='{$exi}' title='{$exi}' class='ttip' style='width:16px;height:16px;' src='".plugins_url('download-manager/assets/file-type-icons/'.$exi.'.png')."' /> ";
         }
         if($img) return $exico;
@@ -1007,7 +1236,8 @@ class Package {
             if(in_array(end($sfile),array('pdf','doc','docx','xls','xlsx','ppt','pptx'))) { $ind = \WPDM_Crypt::Encrypt($ifile); break; }
         }
         if($ind==-1) return "";
-        $url = wpdm_download_url($package, 'ind='.$ind);
+        $ext = count($files)>1?'ind='.$ind:'';
+        $url = wpdm_download_url($package, $ext);
         if(strpos($ifile, "://")) $url = $ifile;
         return \WPDM\FileSystem::docPreview($url);
     }
@@ -1055,7 +1285,7 @@ class Package {
             'access'            => 0,
             'individual_file_download'               =>  -1,
             'cache_zip'               =>  -1,
-            'template'                => 'link-template-calltoaction3.php',
+            'template'                => 'link-template-panel.php',
             'page_template'         => 'page-template-1col-flat.php',
             'password_lock'                  => '0',
             'facebook_lock'                  => '0',

@@ -21,7 +21,7 @@ class UserDashboard
         $this->dashboard_menu_actions = apply_filters("wpdm_dashboard_menu_actions", $this->dashboard_menu_actions);
     }
 
-    function Dashboard(){
+    function Dashboard($params = array()){
         global $wp_query;
 
         if(!is_user_logged_in()) {
