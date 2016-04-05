@@ -160,6 +160,18 @@ $dot-background-active:	$color-base;
     margin-left: 15px;
 }
 
+
+/* -------------------------------------------- */
+/* CARTES INTERACTIVES INTERNATiONAL            */
+/* -------------------------------------------- */
+
+.iwm_map_canvas {
+    position: absolute !important;
+    top: 0 !important;
+}
+
+
+
 a.maps_button {
     display:block;
     width:250px;
@@ -291,4 +303,63 @@ a.maps_button {
 
 .tablepress tfoot th, .tablepress thead th {
     background-color: $automobile !important;
+}
+
+/* -------------------------------------------- */
+/* FORMULAIRES                                  */
+/* -------------------------------------------- */
+.form-field-input-standard {
+    padding-right:rem-calc(25);
+}
+
+textarea.adresse {
+    height:197px !important;
+}
+
+.form-field-input-standard textarea {
+    height:100px;
+}
+
+.form-field-input-standard input:focus, .form-field-input-standard textarea:focus { 
+    background-color: #E5E7C9;
+}
+
+.form-title-section {
+    font-size: 28px;
+    line-height: 41px;
+    border-bottom: solid 2px $asco;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    color: #e52713;
+}
+
+input[type=submit].button {
+    background-color: $asco;
+    width: 100%;
+    font-size: 24px;
+//    padding: 11px;
+}
+
+input[type=submit].button:focus {
+    background-color: #E5E7C9;
+}
+
+div.wpcf7-mail-sent-ok {
+    border: 2px solid #398f14;
+    background: #398f14;
+    font-size: 25px;
+    color: white;
+    box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
+    position: relative;
+    transition: all 0.35s ease-in-out;
+}
+
+div.wpcf7-validation-errors {
+    border: 2px solid #f7e700;
+    background: #f7e700;
+    font-size: 25px;
+    color: white;
+    box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
+    position: relative;
+    transition: all 0.35s ease-in-out;
 }
