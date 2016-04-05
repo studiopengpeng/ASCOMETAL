@@ -857,6 +857,7 @@ MENU PRINCIPAL / TOP-BAR
         ul li ul li a:hover {
             box-shadow: inset 5px 0px 0px 0px #e52713!important;
         }
+        
         .dropdown.menu .submenu {
             height: auto;
             -webkit-box-shadow: 0px 7px 29px 0px rgba(0, 0, 0, 0.15);
@@ -870,6 +871,10 @@ MENU PRINCIPAL / TOP-BAR
             height: auto;
         }
     }
+.dropdown.menu:not(.vertical) .is-dropdown-submenu.first-sub:last-child {
+    left: 0;
+    right: auto;
+}
     
     // * * * * * * * * * * * * * Logo * * * * * * * * * * * * * 
     .top-bar-left {
@@ -883,7 +888,7 @@ MENU PRINCIPAL / TOP-BAR
         a:hover {
             box-shadow: none!important;
         }
-        width: 275px;
+        width: 260px;
     }
     
     @media screen and (max-width: 1024px) {
