@@ -11,7 +11,7 @@ $speed = apply_filters('wpdm_download_speed', $speed);
 
 get_currentuserinfo();
 
-if($package['post_status'] != 'publish') wp_die(__('Package is not available!', 'wpdmpro'));
+if(in_array($package['post_status'], array('draft','inherit','trash','pending'))) wp_die(__('Package is not available!', 'wpdmpro'));
 
 if (wpdm_is_download_limit_exceed($package['ID'])) wp_die(__('Download Limit Exceeded', 'wpdmpro'));
 $files = \WPDM\Package::getFiles($package['ID']);
@@ -92,9 +92,16 @@ if ($fileCount > 1 && !$idvdl) {
 
     $indfile = '';
 
-    if(count($files) == 0) wp_die(__('No file found!','wpdmpro'));
-    $indfile = array_shift($files);
-    $indfile = trim($indfile);
+    if (isset($_GET['ind'])) {
+        $rfile = WPDM_Crypt::Decrypt($_GET['ind']);
+        if(basename($rfile) != $rfile && !strpos($rfile,"://"))
+            $arfile = realpath($rfile);
+        else $arfile = $rfile;
+        if (in_array($rfile, $files) || in_array($arfile, $files)) $indfile = trim($rfile);
+    } else if ($fileCount == 1) {
+        $indfile = array_shift($files);
+    }
+
     //URL Download
     if ($indfile != '' && strpos($indfile, '://')) {
 
@@ -102,7 +109,6 @@ if ($fileCount > 1 && !$idvdl) {
             header('location: ' . $indfile);
 
         } else {
-            $indfile = trim($indfile);
             $r_filename = wpdm_basename($indfile);
             $r_filename = explode("?", $r_filename);
             $r_filename = $r_filename[0];
@@ -113,11 +119,11 @@ if ($fileCount > 1 && !$idvdl) {
         die();
     }
 
-    if (file_exists(UPLOAD_DIR . $indfile))
+    if ($indfile != '' && file_exists(UPLOAD_DIR . $indfile))
         $filepath = UPLOAD_DIR . $indfile;
-    else if (file_exists($indfile))
+    else if ($indfile != '' && file_exists($indfile))
         $filepath = $indfile;
-    else if (file_exists(WP_CONTENT_DIR . end($tmp = explode("wp-content", $indfile)))) //path fix on site move
+    else if ($indfile != '' && file_exists(WP_CONTENT_DIR . end($tmp = explode("wp-content", $indfile)))) //path fix on site move
         $filepath = WP_CONTENT_DIR . end($tmp = explode("wp-content", $indfile));
     else {
         wpdm_download_data('file-not-found.txt', 'File not found or deleted from server');
