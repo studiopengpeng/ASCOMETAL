@@ -45,7 +45,7 @@ get_header(); ?>
             <div class="row leftcol"> <!--start row-->
               <article class="small-12 medium-12 large-5 columns articlepadding rightpadding" <?php post_class( 'main-content') ?> id="post-<?php the_ID(); ?>">
 
-                <div class="paddingbottom rightpadding leftpadding">
+                <div class="paddingbottom rightpadding leftpadding toppadding5">
                     <?php echo types_render_field("texte-introduction-usine", array("output"=>"raw")); ?>
                 </div>
                   

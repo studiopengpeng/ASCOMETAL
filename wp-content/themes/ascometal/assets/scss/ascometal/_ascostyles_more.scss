@@ -166,8 +166,8 @@ $dot-background-active:	$color-base;
 /* -------------------------------------------- */
 
 .iwm_map_canvas {
-    position: absolute !important;
-    top: 0 !important;
+  //  position: absolute !important;
+  //  top: 0 !important;
 }
 
 
@@ -259,6 +259,10 @@ a.maps_button {
 
 .rightpadding {
     padding-right:40px;
+}
+
+.toppadding5 {
+    padding-top:5px;
 }
 
 .leftpadding {
