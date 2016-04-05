@@ -196,7 +196,7 @@ a.maps_button {
 
 #imap1message {
     position: fixed;
-    left: 32%;
+    left: 40%;
     top: 50%;
     z-index:50000;
     height: auto;
@@ -220,6 +220,18 @@ a.maps_button {
     }
 }
 
+ @media screen and (max-width: 640px) {
+    #imap1message {
+        left: 22%;
+        width: 300px;
+     }
+}
+     
+ @media screen and (max-width: 1024px) {
+    #imap1message {
+        left: 25%;
+     }
+}
 
 /* -------------------------------------------- */
 /* ACCORDEONS                                   */
