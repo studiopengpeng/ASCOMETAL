@@ -92,13 +92,9 @@ if ($fileCount > 1 && !$idvdl) {
 
     $indfile = '';
 
-    if (isset($_GET['ind'])) {
-        $rfile = WPDM_Crypt::Decrypt($_GET['ind']);
-        if (in_array($rfile, $files)) $indfile = trim($rfile);
-    } else if ($fileCount == 1) {
-        $indfile = array_shift($files);
-    }
-
+    if(count($files) == 0) wp_die(__('No file found!','wpdmpro'));
+    $indfile = array_shift($files);
+    $indfile = trim($indfile);
     //URL Download
     if ($indfile != '' && strpos($indfile, '://')) {
 

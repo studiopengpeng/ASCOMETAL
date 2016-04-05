@@ -295,7 +295,7 @@ function wpdm_getlink()
 
     if ( isset($file['ID']) && $file['ID'] != '') {
         $pu = isset($file['password_usage']) && is_array($file['password_usage'])?$file['password_usage']:array();
-        $pul = $file['password_usage_limit'];
+        $pul = isset($file['password_usage_limit'])?(int)$file['password_usage_limit']:99999999999;
 
         if (is_array($pu) && isset($pu[$password]) && $pu[$password] >= $pul && $pul > 0)
             $data['error'] = __('Password usages limit exceeded','wpdmpro');
@@ -506,7 +506,7 @@ function wpdm_embed_category($params = array('id' => '', 'operator' => 'IN' , 'i
 {
     extract($params);
     $fnparams = $params;
-    if(!isset($id)) return;
+    if(!isset($id) || $id =="") return;
     if(!isset($items_per_page)) $items_per_page = 10;
     if(!isset($template)) $template = 'link-template-calltoaction3.php';
     if(!isset($cols)) $cols = 1;
@@ -1222,5 +1222,4 @@ if(!function_exists('precho')) {
     }
 }
 /*** developer fns **/
-
 

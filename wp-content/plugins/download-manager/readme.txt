@@ -137,6 +137,12 @@ Check download stats and get push notification when someone downloads, install:
 
 == Changelog ==
 
+= 2.8.93 =
+* Fixed issue with unexpected char before filename ( "File Missing Error!" )
+* Fixed issue file deletion.
+* Fixed a notice with password lock option
+* Adjusted add to cart link in all downloads page
+
 = 2.8.92 =
 * Fixed issue file browser (was showing "Not Allowed!" message)
 

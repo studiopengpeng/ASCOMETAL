@@ -135,6 +135,7 @@ if(isset($params['jstable']) && $params['jstable']==1): ?>
                 $data['download_link'] = DownloadLink($data, 0, array('popstyle' => 'popup'));
                 $data = apply_filters("wpdm_after_prepare_package_data", $data);
                 $download_link = $data['download_link'];
+                if(isset($data['base_price']) && $data['base_price'] > 0 && function_exists('wpdmpp_currency_sign')) $download_link = "<a href='".$data['addtocart_url']."' class='btn btn-sm btn-info'>Buy ( ".$data['currency'].$data['effective_price']." )</a>";
                 if($download_link != 'blocked'){
                     ?>
 

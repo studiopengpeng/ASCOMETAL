@@ -71,7 +71,7 @@ class Packages
             $filename = $_FILES['package_file']['name'];
         move_uploaded_file($_FILES['package_file']['tmp_name'],UPLOAD_DIR.$filename);
         //@unlink($status['file']);
-        echo $filename;
+        echo "|||".$filename."|||";
         exit;
     }
 

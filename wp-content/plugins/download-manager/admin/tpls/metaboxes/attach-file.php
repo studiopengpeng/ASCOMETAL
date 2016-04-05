@@ -3,7 +3,7 @@
     <?php
     $filesize = "<em style='color: darkred'>( ".__("attached file is missing/deleted","wpdmpro")." )</em>";
     $afile = is_array($afiles)&&isset($afiles[0])?$afiles[0]:'';
-
+    $afile = trim($afile);
     if($afile !=''){
 
         if(strpos($afile, "://")){
@@ -135,8 +135,8 @@
                     var ID = d.getTime();
                     response = response.response;
                     var data = response.split("|||");
-                    jQuery('#wpdmfile').val(data[0]);
-                    jQuery('#cfl').html('<div><strong>'+data[0]+'</strong> <a href="#" id="dcf" title="Delete Current File" style="position: absolute;right:0;top:0;height:32px;"><img src="<?php echo plugins_url('/download-manager/assets/images/error.png'); ?>" /></a>').slideDown();
+                    jQuery('#wpdmfile').val(data[1]);
+                    jQuery('#cfl').html('<div><strong>'+data[1]+'</strong> <a href="#" id="dcf" title="Delete Current File" style="position: absolute;right:0;top:0;height:32px;"><img src="<?php echo plugins_url('/download-manager/assets/images/error.png'); ?>" /></a>').slideDown();
 
 
 
@@ -181,22 +181,18 @@ jQuery(function(){
         jQuery("#wpdm-files tbody").sortable();
 
         jQuery('#'+ID).fadeIn();
-        jQuery('#del_'+ID).click(function(){
-            if(jQuery(this).attr('rel')=='del'){
-                jQuery('#'+ID).removeClass('cfile').addClass('dfile');
-                jQuery('#in_'+ID).attr('name','del[]');
-                jQuery(this).attr('rel','undo').attr('src','<?php echo plugins_url(); ?>/download-manager/assets/images/add.png').attr('title','Undo Delete');
-            } else if(jQuery(this).attr('rel')=='undo'){
-                jQuery('#'+ID).removeClass('dfile').addClass('cfile');
-                jQuery('#in_'+ID).attr('name','file[files][]');
-                jQuery(this).attr('rel','del').attr('src','<?php echo plugins_url(); ?>/download-manager/assets/images/minus.png').attr('title','Delete File');
-            }
-
-
-        });
-
 
     });
+
+
+
+    jQuery('body').on('click', '#dcf', function(){
+        if(!confirm('<?php _e('Are you sure?', 'wpdmpro'); ?>')) return false;
+        jQuery('#cfl').html('<?php _e('<div class="w3eden"><div class="text-danger"><i class="fa fa-check-circle"></i> Removed!</div></div>', 'wpdmpro'); ?>');
+    });
+
+
+
 
 });
  

@@ -51,7 +51,7 @@
 
                 if(is_array($purchased_items)){
                 foreach($purchased_items as $item){
-                    if($item->download_url){
+                    if(isset($item->download_url) && is_array($item->download_url)){
                     foreach($item->download_url as $file => $dlu){
                         $plugin_name = str_replace(".zip", "", basename($file));
                         $plugin_data = wpdm_plugin_data($plugin_name);
@@ -99,7 +99,7 @@
                         <tr class="<?php if(isset($latest[$plugin_name])) { echo version_compare($latest[$plugin_name], $plugin_data['Version'], '>')?'bg-warning':(!$plugin_data?'':'bg-success'); } ?>">
                             <td><a href="<?php echo $addon->link; ?>" target="_blank"><?php echo $addon->title; ?></a></td>
                             <td><?php echo $plugin_data['Version']; ?></td>
-                            <td><?php echo $latest[$plugin_name]?$latest[$plugin_name]:'NA'; ?></td>
+                            <td><?php echo isset($latest[$plugin_name])?$latest[$plugin_name]:'NA'; ?></td>
                             <td style="width: 100px">
 
                                 <?php if(!$plugin_data){ ?>
