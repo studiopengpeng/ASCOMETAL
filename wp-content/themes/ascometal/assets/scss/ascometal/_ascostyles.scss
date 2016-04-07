@@ -200,13 +200,13 @@ MARCHES HOME (présentation + effets au survol)
         overflow: auto;
         .ih-item.square.effect13 .info {
             p {
-                color: #5e5e5e;
+                color: $gris-fonce-asco;
                 width: 70%;
                 margin-left: auto;
                 margin-right: auto;
             }
             h3 {
-                color: #e52713;
+                color: $asco;
             }
         }
     }
@@ -271,7 +271,7 @@ MARCHES HOME (présentation + effets au survol)
     }
     
     .ih-item.square.effect13.top_to_bottom a h3.title-asco {
-        color: #e52713;
+        color: $asco;
     }
     
     .title-auto {
@@ -565,12 +565,12 @@ MARCHES / NOUVEAUX PRODUITS
             left: 0;
         }
         .infos {
-            color: #5e5e5e;
+            color: $gris-fonce-asco;
             width: 70%;
             display: inline-block;
             padding-left: 20px;
             p.title {
-                color: #5e5e5e;
+                color: $gris-fonce-asco;
                 margin-bottom: 0;
                 font-weight: 700;
                 -webkit-transition: all 0.2s ease-out;
@@ -718,11 +718,11 @@ CONTENU DE SAISIE / MAIN-CONTAINER
             color: black;
         }
         h2 {
-            color: #5e5e5e;
+            color: $gris-fonce-asco;
             text-transform: uppercase;
             font-size: rem-calc(36);
             padding-bottom: 15px;
-            border-bottom: 2px solid #989898;
+            border-bottom: 2px solid $gris-asco;
             font-weight: 600;
             margin-bottom: .7em;
         }
@@ -734,7 +734,7 @@ CONTENU DE SAISIE / MAIN-CONTAINER
             padding-bottom: 7px;
         }
         h4 {
-            color: #e52713;
+            color: $asco;
             font-size: rem-calc(18);
             font-family: "Lora", serif;
             font-weight: 700;
@@ -742,7 +742,7 @@ CONTENU DE SAISIE / MAIN-CONTAINER
             margin-bottom: 2em;
             a {
                 text-decoration: underline;
-                color: #e52713;
+                color: $asco;
                 transition: all 0.2s ease-out;
                 -webkit-transition: all 0.2s ease-out;
                 -moz-transition: all 0.2s ease-out;
@@ -757,9 +757,12 @@ CONTENU DE SAISIE / MAIN-CONTAINER
         }
         blockquote {
             font-family: "Lora", serif;
-            font-weight: 400;
+            font-weight: 700;
             font-style: italic;
-            border-left: 1px solid #e52713;
+            border-left: 5px solid $automobile;
+            strong {
+                color: $automobile;
+            }
         }
         .bouton-lien {
             background-color: #fff;
@@ -842,10 +845,10 @@ MENU PRINCIPAL / TOP-BAR
             -o-transition: all 0.2s ease-out;
         }
         .menu a:hover {
-            box-shadow: inset 0px 5px 0px 0px #e52713;
+            box-shadow: inset 0px 5px 0px 0px $asco;
         }
         li.active {
-            box-shadow: inset 0px 5px 0px 0px #e52713;
+            box-shadow: inset 0px 5px 0px 0px $asco;
         }
         ul li ul li.active {
             box-shadow: none;
@@ -855,7 +858,7 @@ MENU PRINCIPAL / TOP-BAR
             padding: 0;
         }
         ul li ul li a:hover {
-            box-shadow: inset 5px 0px 0px 0px #e52713!important;
+            box-shadow: inset 5px 0px 0px 0px $asco!important;
         }
         .dropdown.menu .submenu {
             height: auto;
@@ -883,7 +886,7 @@ MENU PRINCIPAL / TOP-BAR
     
     .top-bar li .active > a {
         background-color: #f8f8f8;
-        box-shadow: inset 5px 0px 0px 0px #e52713;
+        box-shadow: inset 5px 0px 0px 0px $asco;
     }
     
     // * * * * * * * * * * * * * Logo * * * * * * * * * * * * * 
@@ -1026,7 +1029,7 @@ MENU LANGUES / RECHERCHE / CONNEXION / CONTACT DIRECT
     }
     
     #searchform [type='submit'] {
-        background-color: #99BE51;
+        background-color: $automobile;
         letter-spacing: 0.8px;
         width: 150px;
     }
@@ -1412,7 +1415,7 @@ WIDGET BOUTONS PERSO
         margin: 0 0 1rem 0;
         font-size: 0.9rem;
         background-color: #FFF;
-        color: #5e5e5e;
+        color: $gris-fonce-asco;
         transition: all .3s;
         line-height: rem-calc(18);
         .title {
@@ -1468,7 +1471,7 @@ PAGE LISTE D'ACTUALITES
             float: left;
         }
         time {
-            color: #e52713;
+            color: $asco;
         }
         p {
             a.more-link {

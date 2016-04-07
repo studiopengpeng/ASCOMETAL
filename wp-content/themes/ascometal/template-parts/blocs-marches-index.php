@@ -73,12 +73,12 @@
                                         <article class="petrol small-12 medium-6 large-3 columns">
                                             <div class="ih-item square effect13 top_to_bottom">
                                                 <a href="/marches-asco/petrolegaz/">
-                                                    <h3 class="title-petrol">Pétrole</h3>
+                                                    <h3 class="title-petrol">Pétrole / gaz</h3>
                                                     <div class="img">
                                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/petrol.jpg" alt="plateforme pétrolière d'Ascometal">
                                                     </div>
                                                     <div class="info pet">
-                                                        <h3>Pétrole</h3>
+                                                        <h3>Pétrole / gaz</h3>
                                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/petrol.svg" alt="plateforme pétrolière d'Ascometal">
                                                         <p>Un acteur de renommée mondiale pour le forage et l’exploitation...</p>
                                                         <p class="seemore">voir+</p>
