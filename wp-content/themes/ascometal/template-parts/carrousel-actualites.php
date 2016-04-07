@@ -7,7 +7,7 @@
     'numberposts' => 5,
     'offset' => 0,
     'category' => 0,
-    'orderby' => 'post_date',
+    'orderby' => 'date',
     'order' => 'DESC',
     'post_type' => 'post',
     'post_status' => 'publish',

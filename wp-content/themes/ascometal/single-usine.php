@@ -48,12 +48,12 @@ get_header(); ?>
                 <div class="paddingbottom rightpadding leftpadding toppadding5">
                     <?php echo types_render_field("texte-introduction-usine", array("output"=>"raw")); ?>
                 </div>
-                  
+                  <!--
                  <div class="paddingbottom">
                       <h6><b><?php echo __("Sélectionnez un site :","foundationpress"); ?></b></h6>
                      <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/simulation-menu-usines.png" />
                 </div> 
-                  
+                  -->
                   
                 <div class="paddingbottom">
                     <h5 class="corporate-color"><?php echo types_render_field("titre-references-usine", array("output"=>"raw")); ?></h5>
