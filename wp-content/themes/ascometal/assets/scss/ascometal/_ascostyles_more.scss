@@ -382,35 +382,21 @@ div.wpcf7-validation-errors {
 }
 
 /* -------------------------------------------- */
-/* BOUTONS TLECHARGENTS                         */
+/* BOUTONS TLECHARGEMENTS                       */
 /* -------------------------------------------- */
 
-// template standard pour boutons a droite des articles
-/*
-.wpdm-link-tpl.link-btn  {
-    .media {
-    background-color: #FFF;
-    padding: 20px 25px; 
-    box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
-    position: relative;
-    transition: all 0.35s ease-in-out;
-    }
-    .media > .pull-left {
-    display:none;
-    }
-    .media-body strong {
-        text-transform:uppercase;
-    }
-    .label-default {
-    background-color: #FFF;
-    color:#333;
-        float:right;
-        margin-top:5px;
-    }
+.btn-dwnld strong {
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: color .3s;
+    padding-bottom: 10px;
 }
-*/
-// template pour pages de tékéchargement
-
-// template pour page produits
-
-// autres ?
+.btn-dwnld .media img {
+    vertical-align: middle;
+    float: right;
+    margin-left: 15px;
+}
+.btn-dwnld:hover strong {
+    color:$asco;
+}

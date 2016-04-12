@@ -28,10 +28,10 @@ foreach($queried_object as $cur)
     $tax_array[]=$cur;
 }
 // automobile
-if ($tax_array[4]==18) ($classColor="automobile");
-else if ($tax_array[4]==19) ($classColor="roulement");
-else if ($tax_array[4]==20) ($classColor="petrole");
-else if ($tax_array[4]==21) ($classColor="mecanique");
+if ($tax_array[4]==18 || $tax_array[4]==22 || $tax_array[4]==23 || $tax_array[4]==24) ($classColor="automobile");
+else if ($tax_array[4]==19 || $tax_array[4]==37 || $tax_array[4]==35 || $tax_array[4]==36) ($classColor="roulement");
+else if ($tax_array[4]==20 || $tax_array[4]==33 || $tax_array[4]==34 || $tax_array[4]==32) ($classColor="petrole");
+else if ($tax_array[4]==21 || $tax_array[4]==29 || $tax_array[4]==30 || $tax_array[4]==31) ($classColor="mecanique");
 ?>
 
     <div id="page" role="main">
@@ -75,7 +75,7 @@ else if ($tax_array[4]==21) ($classColor="mecanique");
 						$contexte_blocs="avecID";
 						$exception_couleur=true; // blocs gris
 						
-						if ($idBloc==25 || $idBloc==27) { // IDs pages contact et international
+						if ($idBloc==25 || $idBloc==27  || $idBloc==55  || $idBloc==62) { // IDs pages contact et international
 							/* si la case "afficher dans les blocs" est cochée, on affiche la page */
 							//if (types_render_field("afficher-bloc", array("output"=>"raw", "post_id"=>$pageID)) == 1) :
 								get_template_part( 'template-parts/content', 'blocs' ); 
