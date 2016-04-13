@@ -37,13 +37,15 @@ get_header(); ?>
 		<!--END menu secondaire-->
 		
 		<!-- container single post -->
-		<div id="single-post" class="usines" role="main">
+		<div id="single-post" class="usines small-12 medium-12 large-9 columns norightpadding" role="main">
 			<?php do_action( 'foundationpress_before_content' ); ?>
 
 			<!-- boucle wp, même pour un seul article -->
 			<?php while ( have_posts() ) : the_post(); ?>
-            <div class="row leftcol"> <!--start row-->
-              <article class="small-12 medium-12 large-5 columns articlepadding rightpadding" <?php post_class( 'main-content') ?> id="post-<?php the_ID(); ?>">
+            
+                <div class="row" id="main-container">
+           
+                  <article class="small-12 medium-12 large-8 columns articlepadding rightpadding" id="post-<?php the_ID(); ?>">
 
                 <div class="paddingbottom rightpadding leftpadding toppadding5">
                     <?php echo types_render_field("texte-introduction-usine", array("output"=>"raw")); ?>
@@ -54,6 +56,12 @@ get_header(); ?>
                      <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/simulation-menu-usines.png" />
                 </div> 
                   -->
+                  
+                  <div id="menu-usines-container" class="paddingbottom">
+                      <div class="paddingbottom"><h6><b><?php echo __("Sélectionnez un site :","foundationpress"); ?></b></h6></div>
+                       <?php get_template_part( 'template-parts/menu-usines' ); ?>
+                  </div>
+                  
                   
                 <div class="paddingbottom">
                     <h5 class="corporate-color"><?php echo types_render_field("titre-references-usine", array("output"=>"raw")); ?></h5>
@@ -82,7 +90,7 @@ get_header(); ?>
                     
             </article>
                 
-            </div> <!--end row-->
+         </div>
 
 				
 			

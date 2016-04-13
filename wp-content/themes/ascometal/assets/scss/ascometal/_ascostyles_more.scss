@@ -274,6 +274,10 @@ a.maps_button {
     padding-right:40px;
 }
 
+.norightpadding {
+ padding-right:0;   
+}
+
 .toppadding5 {
     padding-top:5px;
 }
@@ -285,7 +289,6 @@ a.maps_button {
 .corporate-color {
     color:$asco;
 }
-
 
 .rightcol .textwidget {
     padding-right:45px;
@@ -382,8 +385,10 @@ div.wpcf7-validation-errors {
 }
 
 /* -------------------------------------------- */
-/* BOUTONS TLECHARGEMENTS                       */
+/* BOUTONS TELECHARGEMENTS                       */
 /* -------------------------------------------- */
+
+/* boutons intégrés */
 
 .btn-dwnld strong {
     font-weight: bold;
@@ -399,4 +404,231 @@ div.wpcf7-validation-errors {
 }
 .btn-dwnld:hover strong {
     color:$asco;
+}
+
+.w3eden .ih-item.documentation {
+    float:none;
+    padding-bottom: 20px;
+    
+    .infos {
+        color: #5e5e5e;
+        width: 70%;
+        display: inline-block;
+        padding-right: 20px;
+        padding-left: 0;
+        padding-top: 22px;
+        float: right;
+    }
+}
+
+/* pages de téléchargements */
+.w3eden .media {
+    
+    .media-thumb {
+        width:150px;
+        height:150px;
+        overflow:hidden;
+        background-color:#5c5c5c;
+        border:2px solid #b5bf1e;
+        margin:0 auto;
+    }
+    h3.title a {
+        color:$gris-fonce-asco;
+        transition: color .3s;
+    }
+    h3.title a:hover {
+        color:$asco;
+        text-decoration: none;
+    }
+    p.description {
+        min-height:50px;
+        max-height:50px;
+    }
+    
+}
+
+.w3eden .media-dwnld-button a {
+    text-decoration: none;
+    text-align:center;
+    text-transform:uppercase;
+    color:$gris-fonce-asco;
+    background-color:#FFF;
+    display:block;
+    width:auto;
+    padding:10px;
+    box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
+    position: relative;
+    transition: all 0.35s ease-in-out;
+    transition: color .3s;
+}
+
+ .w3eden .media-dwnld-button a:hover {
+        color:$asco; 
+}
+
+/* -------------------------------------------- */
+/* MENU USINES                                  */
+/* -------------------------------------------- */
+
+#menu-usines-container {
+    position: relative;
+    height:auto;
+    width:100%;
+}
+#menu-usines {
+    height:360px;
+    width:400px;
+    position:relative;
+    margin:0 auto;
+}
+.mu-filets {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:50;
+}
+.mu-filets {
+    position: absolute;
+    z-index:52;
+    top:0;
+    left:0;
+    font-size:rem-calc(16);
+    text-transform: uppercase;
+    font-weight:400;
+}
+.mu-filets:hover {
+    color:$asco;
+    cursor:pointer;
+}
+.mu-filets.active, .mu-filets.forcedactive {
+    color:$asco;
+}
+
+.forcedactive path, .active path{
+    fill:$asco;
+}
+.forcedactive polyline, .active polyline{
+    stroke:$asco;
+}
+ #filet1 {
+    z-index:55;
+    top:0px;
+    left:0;
+     width:150px;
+    height: 40px;
+}
+#filet1-svg{
+    position: absolute;
+    width: 280px;
+    height: 90px;
+    z-index:40;
+    top:22px;
+    left:0;
+    text-align: left;
+}
+ #filet2 {
+    z-index:56;
+    top:28px;
+    left:0;
+width:150px;
+    height: 40px;
+}
+#filet2-svg{
+    position: absolute;
+    width: 341px;
+    height: 93px;
+    z-index:40;
+    top:50px;
+    left:0;
+    text-align: left;
+}
+ #filet3 {
+    z-index:57;
+    top:56px;
+    left:0;
+width:150px;
+    height: 40px;
+}
+#filet3-svg{
+    position: absolute;
+    width: 344px;
+    height: 92px;
+    z-index:40;
+    top:78px;
+    left:0;
+    text-align: left;
+}
+ #filet4 {
+    z-index:58;
+    top:84px;
+    left:0;
+    width:150px;
+    height: 40px;
+}
+#filet4-svg{
+    position: absolute;
+    width: 344px;
+    height: 92px;
+    z-index:40;
+    top:106px;
+    left:0;
+    text-align: left;
+}
+ #filet5 {
+    z-index:59;
+    top:112px;
+    left:0;
+    width:150px;
+    height: 40px;
+}
+#filet5-svg{
+    position: absolute;
+    width: 344px;
+    height: 92px;
+    z-index:40;
+    top:134px;
+    left:0;
+    text-align: left;
+}
+
+.filets-map {
+    height:25px;
+    width:25px;
+    position:absolute;
+    bottom:0;
+    right:0;
+    z-index:500;
+    cursor:pointer;
+}
+
+#filet1-map{
+    top: 86px;
+    left: 255px;
+}
+#filet2-map{
+    top: 111px;
+    left: 315px;
+}
+#filet3-map{
+    top: 135px;
+    left: 321px;
+}
+#filet4-map{
+    top: 198px;
+    left: 290px;
+}
+#filet5-map{
+    top: 234px;
+    left: 299px;
+}
+
+#mu-bg-carte {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 25;
+    background: url("../images/menu-usines/bg-usine-menu.png") 112px 35px no-repeat;
+    background-size: 72%;
+    width: 435px;
+    height: 390px;
 }

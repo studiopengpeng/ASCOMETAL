@@ -115,3 +115,7 @@ function alx_thumbnail_upscale( $default, $orig_w, $orig_h, $new_w, $new_h, $cro
     return array( 0, 0, (int) $s_x, (int) $s_y, (int) $new_w, (int) $new_h, (int) $crop_w, (int) $crop_h );
 }
 add_filter( 'image_resize_dimensions', 'alx_thumbnail_upscale', 10, 6 );
+
+/*  bouton shortlink ds admin : /?p=2559
+/* ------------------------------------ */
+add_filter( 'get_shortlink', function( $shortlink ) {return $shortlink;} );

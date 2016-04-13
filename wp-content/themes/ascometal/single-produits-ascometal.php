@@ -43,7 +43,7 @@ get_header(); ?>
 			<!-- boucle wp, même pour un seul article -->
 			<?php while ( have_posts() ) : the_post(); ?>
 			
-				<article id="main-container" class="small-12 medium-12* large-9 columns" <?php post_class( 'main-content') ?> id="post-<?php the_ID(); ?>">
+				<article id="main-container" class="small-12 medium-12 large-9 columns" <?php post_class( 'main-content') ?> id="post-<?php the_ID(); ?>">
 					<header>
 						<h2 class="entry-title text-center market-color"><?php the_title(); ?></h2>
 					</header>
@@ -96,6 +96,7 @@ get_header(); ?>
                      
                     
 					</div>
+                        <!--
 					<a href="#">
 					        <div class="ih-item documentation ">
                                     <div class="left picto">                           </div>
@@ -105,6 +106,8 @@ get_header(); ?>
                                     </div>
                             </div>
                         </a>
+                        -->
+                    <?php echo types_render_field("brochure-telecharger", array("output"=>"raw")); ?>
 					</div>
                         
 					</div>
