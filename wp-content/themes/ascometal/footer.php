@@ -12,7 +12,7 @@
 
 		</section>
 		<div id="footer-container">
-			<footer id="footer">
+			<footer id="footer" class="row">
 				<?php do_action( 'foundationpress_before_footer' ); ?>
 				<?php dynamic_sidebar( 'footer-widgets' ); ?>
 				<?php do_action( 'foundationpress_after_footer' ); ?>
@@ -23,7 +23,7 @@ $args_menu1 = array(
 'theme_location'  => '',
 'menu'            => '39',
 'container'       => 'nav',
-'container_class' => 'small-12 medium-12 large-12 columns',
+'container_class' => 'small-12 medium-10 large-10 columns',
 'container_id'    => 'footernav',
 'menu_class'      => 'menu-footer',
 'menu_id'         => '',
@@ -40,6 +40,13 @@ $args_menu1 = array(
 wp_nav_menu( $args_menu1 );
 ?>
                 <!--END menu secondaire-->
+                <nav class="social small-12 medium-2 large-2 columns">
+                    <ul>
+                        <li><a href="https://www.facebook.com/pages/Ascometal/117989414924769?fref=ts" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/twitter.svg" alt="twitter"></a></li>
+                       <li><a href="https://www.facebook.com/pages/Ascometal/117989414924769?fref=ts" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/facebook.svg" alt="facebook"></a></li>
+                        <li><a href="https://www.linkedin.com/company/ascometal" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/linkedin.svg" alt="linkedin"></a></li>
+                    </ul>
+                </nav>
 			</footer>
 		</div>
 

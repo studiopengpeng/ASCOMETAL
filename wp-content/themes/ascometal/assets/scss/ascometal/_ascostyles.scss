@@ -1343,6 +1343,20 @@ MENU FOOTER
         text-align: center;
         padding: 15px 0px;
         border-top: solid 2px #b5bf1e;
+        .social li {
+            display: inline-block;
+            margin-top: -10px;
+            margin-right: 10px;
+            a {
+                opacity: .6;
+                 -webkit-transition: all 0.2s ease-out;
+                -moz-transition: all 0.2s ease-out;
+                -o-transition: all 0.2s ease-out;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
     }
     
     #footernav {
@@ -1354,8 +1368,8 @@ MENU FOOTER
             a {
                 color: #dedede;
                 text-transform: uppercase;
-                transition: all 0.2s ease-out;
                 font-weight: 600;
+                transition: all 0.2s ease-out;
                 -webkit-transition: all 0.2s ease-out;
                 -moz-transition: all 0.2s ease-out;
                 -o-transition: all 0.2s ease-out;
@@ -1394,6 +1408,17 @@ MENU FOOTER
                     }
                 }
             }
+        }
+    }
+    
+    @media screen and (max-width: 1070px) {
+        #footer-container .social  {
+           text-align: center;
+            width: 100%;
+            margin-top: 2em;
+        }
+        #footernav {
+            width: 100%;
         }
     }
     /*---------------------------------------------------------------
