@@ -2,7 +2,7 @@
 /*
 Plugin Name: SiteOrigin Widgets Bundle
 Description: A collection of all widgets, neatly bundled into a single plugin. It's also a framework to code your own widgets on top of.
-Version: 1.5.9
+Version: 1.5.11
 Text Domain: so-widgets-bundle
 Domain Path: /languages
 Author: SiteOrigin
@@ -12,7 +12,7 @@ License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 */
 
-define('SOW_BUNDLE_VERSION', '1.5.9');
+define('SOW_BUNDLE_VERSION', '1.5.11');
 define('SOW_BUNDLE_JS_SUFFIX', '.min');
 define('SOW_BUNDLE_BASE_FILE', __FILE__);
 
@@ -596,8 +596,9 @@ class SiteOrigin_Widgets_Bundle {
 	 * Add action links.
 	 */
 	function plugin_action_links($links){
-		$links[] = '<a href="' . admin_url('plugins.php?page=so-widgets-plugins') . '">'.__('Manage Widgets', 'so-widgets-bundle').'</a>';
-		$links[] = '<a href="https://siteorigin.com/thread/" target="_blank">'.__('Support', 'so-widgets-bundle').'</a>';
+		unset( $links['edit'] );
+		$links['manage'] = '<a href="' . admin_url('plugins.php?page=so-widgets-plugins') . '">'.__('Manage Widgets', 'so-widgets-bundle').'</a>';
+		$links['support'] = '<a href="https://siteorigin.com/thread/" target="_blank">'.__('Support', 'so-widgets-bundle').'</a>';
 		return $links;
 	}
 

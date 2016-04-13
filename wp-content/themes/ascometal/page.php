@@ -48,14 +48,18 @@ wp_nav_menu( $args_menu1 );
          <?php while ( have_posts() ) : the_post(); ?>
         <article id="main-container" class="small-12 medium-9 large-9 columns" <?php post_class( 'main-content') ?> id="post-
                             <?php the_ID(); ?>">
-                                <header>
-                                    <h2 class="entry-title"><?php the_title(); ?></h2>
+                                <header class="social-header row">
+                                   <div class="title-area small-12 medium-8 large-8= columns">
+                                        <h2 class="entry-title"><?php the_title(); ?></h2>
+                                        </div>
+                                     <div class="social-icons small-12 medium-4 large-4 columns">
+                                         <?php echo do_shortcode("[ssba]"); ?>
+                                     </div>
+                                    
                                 </header>
                                 <?php do_action( 'foundationpress_page_before_entry_content' ); ?>
 
-
                                 <div class="entry-content">
-
                                     <?php the_content(); ?>
                                 </div>
                                 <footer>

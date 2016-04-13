@@ -954,12 +954,13 @@ MENU PRINCIPAL / TOP-BAR
         }
     }
     
-    @media screen and (max-width: 750px) {
+    @media screen and (max-width: 1050px) {
         header.header-image h1 {
             line-height: 50px;
             top: 40%;
             font-size: 50px;
             padding: 0 20px;
+            margin-right: 53px;
         }
     }
     
@@ -1349,7 +1350,7 @@ MENU FOOTER
             margin-right: 10px;
             a {
                 opacity: .6;
-                 -webkit-transition: all 0.2s ease-out;
+                -webkit-transition: all 0.2s ease-out;
                 -moz-transition: all 0.2s ease-out;
                 -o-transition: all 0.2s ease-out;
                 &:hover {
@@ -1412,8 +1413,8 @@ MENU FOOTER
     }
     
     @media screen and (max-width: 1070px) {
-        #footer-container .social  {
-           text-align: center;
+        #footer-container .social {
+            text-align: center;
             width: 100%;
             margin-top: 2em;
         }
@@ -1549,4 +1550,90 @@ PAGE LISTE D'ACTUALITES
     
     #single-post #main-container .entry-content li {
         list-style-image: url('../images/dot.svg');
+    }
+    /*---------------------------------------------------------------
+BOUTONS DE PARTAGE SOCIAL - presents sur les pages et les articles
+---------------------------------------------------------------*/
+    
+    .ssba img {
+        border-radius: 100em;
+        opacity: .6;
+        transition: all 0.2s ease-out;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    
+    header {
+        .title-area {
+            padding: 0;
+        }
+        .social-icons {
+            padding: 0;
+            margin-bottom: 20px;
+        }
+    }
+    
+    @media screen and (max-width: 780px) {
+        .social-header {
+            .title-area {
+                width: 100%;
+            }
+            .social-icons {
+                width: 100%;
+                float: left!important;
+            }
+            .social-icons div > div {
+                text-align: left!important;
+            }
+        }
+    }
+    /*---------------------------------------------------------------
+HEADER BANNER MARCHES - Permet d'afficher le bon picto dans le header Banner selon le marché dans lequel on se trouve.
+---------------------------------------------------------------*/
+    
+    header.header-image {
+        position: relative;
+        div.automobile {
+            background-image: url('../images/automobile-icone.svg');
+        }
+        div.roulement {
+            background-image: url('../images/roulement-icone.svg');
+        }
+        div.petrol {
+            background-image: url('../images/petrol-icone.svg');
+        }
+        div.corporate {
+            background-image: url('../images/ascomonogram.svg');
+        }
+        div.mecanique {
+            background-image: url('../images/mecanique-icone.svg');
+        }
+        div.every-market {
+            a {
+                display: block;
+            }
+            height: 223px;
+            width: 12%;
+            background-color: rgba(255,
+            255,
+            255,
+            0.5);
+            position: absolute;
+            right: -15px;
+            top: 2px;
+            background-repeat: no-repeat;
+            background-size: 70%;
+            background-position: center;
+            transition: all 0.2s ease-out;
+            -webkit-transition: all 0.2s ease-out;
+            -moz-transition: all 0.2s ease-out;
+            -o-transition: all 0.2s ease-out;
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.65);
+            }
+        }
     }

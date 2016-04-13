@@ -3,6 +3,9 @@
     <article class="small-12 medium-12 large-12 columns">
             <header class="header-image">
                 <?php get_template_part( 'template-parts/featured-image-marches' ); ?>
+                
+<!--                Autres nbomsde classes selon les marchés : .automobile .roulement . petrol .corporate .mecanique (cf ascostyle.scss lignes 1593 -> 1625)-->
+                <a href="#"><div class="every-market corporate"></div></a>
                 <h1>Au service de vos performances</h1>
             </header>
     </article>

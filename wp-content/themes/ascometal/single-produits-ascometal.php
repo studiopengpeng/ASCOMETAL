@@ -51,6 +51,9 @@ get_header(); ?>
 					<?php do_action( 'foundationpress_page_before_entry_content' ); ?> 
 					<div class="entry-content row">
                         <article class="small-12 ">
+                            <div class="social-icons small-12 columns">
+                                <?php echo do_shortcode("[ssba]"); ?>
+                            </div>
                             <?php the_content(); ?>
                         </article>
                     </div>
