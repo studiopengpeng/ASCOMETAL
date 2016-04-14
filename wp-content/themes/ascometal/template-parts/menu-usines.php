@@ -1,16 +1,16 @@
 <!-- menu / outil industriel -->
 <div id="menu-usines">
-    <div id="filet1" class="mu-filets">Les Dunes</div>
+    <div id="filet1" class="mu-filets">Les Dunes <span style="font-size:70%">(Dunkerque)</span></div>
     <div id="filet2" class="mu-filets">Hagondanges</div>
     <div id="filet3" class="mu-filets">Custines</div>
-    <div id="filet4" class="mu-filets">Le Marais</div>
+    <div id="filet4" class="mu-filets">Le Marais <span style="font-size:70%">(St Etienne)</span></div>
     <div id="filet5" class="mu-filets">Fos-sur-Mer</div>
     
-    <div id="filet1-svg"><img id="filet1-img" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-usines/filet-1.svg" /></div>
-    <div id="filet2-svg"><img id="filet2-img" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-usines/filet-2.svg" /></div>
-    <div id="filet3-svg"><img id="filet3-img" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-usines/filet-3.svg" /></div>
-    <div id="filet4-svg"><img id="filet4-img" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-usines/filet-4.svg" /></div>
-    <div id="filet5-svg"><img id="filet5-img" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-usines/filet-5.svg" /></div>
+    <div id="filet1-svg"><img class="svgmod" id="filet1-img" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-usines/filet-1.svg" /></div>
+    <div id="filet2-svg"><img class="svgmod" id="filet2-img" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-usines/filet-2.svg" /></div>
+    <div id="filet3-svg"><img class="svgmod" id="filet3-img" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-usines/filet-3.svg" /></div>
+    <div id="filet4-svg"><img class="svgmod" id="filet4-img" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-usines/filet-4.svg" /></div>
+    <div id="filet5-svg"><img class="svgmod" id="filet5-img" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-usines/filet-5.svg" /></div>
     
     <div id="filet1-map" class="filets-map"></div>
     <div id="filet2-map" class="filets-map"></div>
@@ -26,20 +26,25 @@
     $(document).ready(function(){
         
         // svg comme code source inclus ds la page -> svg manipulable par css
-        $('img[src$=".svg"]').each(function() {
-            var $img = jQuery(this);
-            var imgURL = $img.attr('src');
-            var attributes = $img.prop("attributes");
-
-            $.get(imgURL, function(data) {
-                var $svg = jQuery(data).find('svg');
-                $svg = $svg.removeAttr('xmlns:a');
-                $.each(attributes, function() {
-                    $svg.attr(this.name, this.value);
-                });
-                $img.replaceWith($svg);
-            }, 'xml');
-        });
+       // $('.svgmod').each(function() {
+            $('img[src$=".svg"]').each(function() {
+                var $img = jQuery(this);
+                var imgURL = $img.attr('src');
+                var attributes = $img.prop("attributes");
+                if ($(this).hasClass( "svgmod" )) {
+                    
+                    $.get(imgURL, function(data) {
+                        var $svg = jQuery(data).find('svg');
+                        $svg = $svg.removeAttr('xmlns:a');
+                        $.each(attributes, function() {
+                            $svg.attr(this.name, this.value);
+                        });
+                        $img.replaceWith($svg);
+                    }, 'xml');
+                    
+                }
+            });
+       // }
         // fonctions survol/out
         function filethover(idfilet){
             $('#filet'+idfilet).addClass("active");

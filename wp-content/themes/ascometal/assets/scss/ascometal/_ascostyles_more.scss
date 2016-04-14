@@ -514,7 +514,7 @@ div.wpcf7-validation-errors {
     z-index:55;
     top:0px;
     left:0;
-     width:150px;
+     width:200px;
     height: 40px;
 }
 #filet1-svg{
@@ -631,4 +631,53 @@ width:150px;
     background-size: 72%;
     width: 435px;
     height: 390px;
+}
+
+/* -------------------------------------------- */
+/* COULEURS CONTEXTUELLES                       */
+/* -------------------------------------------- */
+
+.automobile h2, .automobile h3, .automobile h4 {
+    color:$automobile;
+}
+.automobile .tablepress tfoot th, .automobile .tablepress thead th {
+    background-color:$automobile !important;
+}
+.roulement h2, .roulement h3, .roulement h4
+{
+    color:$roulement;
+}
+.roulement .tablepress tfoot th, .roulement .tablepress thead th {
+    background-color:$roulement !important;
+}
+.mecanique h2, .mecanique h3, .mecanique h4
+{
+    color:$mecanique;
+}
+.mecanique .tablepress tfoot th, .mecanique .tablepress thead th {
+    background-color:#D4AFA8 !important;
+}
+.petrole h2, .petrole h3, .petrole h4
+{
+    color:$petrole;
+}
+.petrole .tablepress tfoot th, .petrole .tablepress thead th {
+    background-color:#9EDADC !important;
+}
+/* -------------------------------------------- */
+/* MODIFS SUR ASCO SCSS A REINTERGRER           */
+/* -------------------------------------------- */
+a.more-link {
+    float: right;
+    text-decoration: none;
+    padding: 30px 0px 0px 0px;
+    font-weight: 700;
+}
+.article-preview h2 a {
+//    font-size: 1.125rem;
+//    font-family: "Lora", serif;
+    text-transform:none !important;
+}
+header.header-image h1 {
+    width: 88% !important;
 }

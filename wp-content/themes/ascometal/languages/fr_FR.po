@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FoundationPress\n"
-"POT-Creation-Date: 2014-07-10 10:45-0500\n"
-"PO-Revision-Date: 2016-03-24 16:49+0100\n"
+"POT-Creation-Date: 2016-04-14 18:36+0200\n"
+"PO-Revision-Date: 2016-04-14 18:38+0200\n"
 "Last-Translator: \n"
 "Language-Team: Le Saint <info@lesaint.ca>\n"
 "Language: fr_FR\n"
@@ -16,11 +16,11 @@ msgstr ""
 "esc_attr_e;esc_attr_x;_ex;_n;_nx;_n_noop;_nx_noop\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../404.php:8
+#: ../404.php:16
 msgid "File Not Found"
 msgstr "Fichier non trouvé"
 
-#: ../404.php:12
+#: ../404.php:20
 msgid ""
 "The page you are looking for might have been removed, had its name changed, "
 "or is temporarily unavailable."
@@ -28,146 +28,209 @@ msgstr ""
 "La page que vous recherchez n'existe probablement plus, à changée de nom ou "
 "est temporairement non disponible."
 
-#: ../404.php:14
+#: ../404.php:22
 msgid "Please try the following:"
 msgstr "SVP essayez ceci:"
 
-#: ../404.php:16
+#: ../404.php:24
 msgid "Check your spelling"
 msgstr "Vérifier votre orthographe"
 
-#: ../404.php:17
+#: ../404.php:25
 #, php-format
 msgid "Return to the <a href=\"%s\">home page</a>"
 msgstr "Retour à la <a href=\"%s\">page d'accueil</a>"
 
-#: ../404.php:18
+#: ../404.php:26
 msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
 msgstr "Cliquez sur le bouton <a href=\"javascript:history.back()\">Retour</a>"
 
-#: ../archive.php:21 ../index.php:25 ../search.php:25
+#: ../_marches.php:63 ../homepage.php:61 ../page-home-foundationpress.php:22
+#: ../page-interactivemap.php:33 ../page-templates/front.php:38
+#: ../page-templates/page-full-width.php:22
+#: ../page-templates/page-sidebar-left.php:22 ../page.php:66
+#: ../single-produits-ascometal.php:119 ../single-produits-ascometal.php:121
+#: ../single.php:63 ../single.php:65 ../woocommerce.php:26
+msgid "Pages:"
+msgstr "Pages"
+
+#: ../archive.php:37 ../index.php:74 ../search.php:34
+#: ../taxonomy-categories.php:74
 msgid "&larr; Older posts"
 msgstr "&larr; Articles précédents"
 
-#: ../archive.php:22 ../index.php:26 ../search.php:26
+#: ../archive.php:38 ../index.php:77 ../search.php:35
+#: ../taxonomy-categories.php:77
 msgid "Newer posts &rarr;"
 msgstr "Articles récents &rarr;"
 
-#: ../comments.php:8
-#, php-format
-msgid "<cite class=\"fn\">%s</cite>"
-msgstr "<cite class=\"fn\">%s</cite>"
+#: ../comments.php:26
+msgid "Reply"
+msgstr "Répondre"
 
-#: ../comments.php:9
-#, php-format
-msgid "%1$s"
-msgstr "%1$s"
-
-#: ../comments.php:10
-msgid "(Edit)"
-msgstr "(Editer)"
-
-#: ../comments.php:16
+#: ../comments.php:35
 msgid "Your comment is awaiting moderation."
 msgstr "Votre commentaire est en attente de modération"
 
-#: ../comments.php:31
+#: ../comments.php:54
 msgid "Please do not load this page directly. Thanks!"
 msgstr "Ne pas charger cette page directement, merci!"
 
-#: ../comments.php:36
+#: ../comments.php:59
 msgid "This post is password protected. Enter the password to view comments."
 msgstr ""
 "Cet article est privé. Entrez le mot de passe pour voir les commentaires."
 
-#: ../comments.php:46
-msgid "No Responses to"
-msgstr "Pas de réponse à"
-
-#: ../comments.php:46
-msgid "One Response to"
-msgstr "Une Réponse à"
-
-#: ../comments.php:46
-msgid "% Responses to"
-msgstr "% Réponses à"
-
-#: ../comments.php:53
-msgid "&larr; Older comments"
-msgstr "&larr; Commentaires précédents"
-
-#: ../comments.php:54
-msgid "Newer comments &rarr;"
-msgstr "Commentaires suivants &rarr;"
-
-#: ../comments.php:61
+#: ../comments.php:72
 msgid "Leave a Reply"
 msgstr "Laisser une réponse"
 
-#: ../comments.php:61
+#: ../comments.php:72
 #, php-format
 msgid "Leave a Reply to %s"
 msgstr "Laisser une réponse à %s"
 
-#: ../comments.php:64
+#: ../comments.php:75
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 "Vous devez être <a href=\"%s\">connecté</a> pour poster un commentaire."
 
-#: ../comments.php:68
+#: ../comments.php:79
 #, php-format
 msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
 msgstr "Connecté comme <a href=\"%s/wp-admin/profile.php\">%s</a>."
 
-#: ../comments.php:68
+#: ../comments.php:79
 msgid "Log out of this account"
 msgstr "Déconnecter ce compte"
 
-#: ../comments.php:68
+#: ../comments.php:79
 msgid "Log out &raquo;"
 msgstr "Se déconnecter &raquo;"
 
-#: ../comments.php:71
+#: ../comments.php:84
 msgid "Name"
 msgstr "Nom"
 
-#: ../comments.php:71 ../comments.php:75
+#: ../comments.php:84 ../comments.php:92
 msgid " (required)"
 msgstr "(requis)"
 
-#: ../comments.php:75
+#: ../comments.php:92
 msgid "Email (will not be published)"
 msgstr "Courriel (ne sera pas affiché)"
 
-#: ../comments.php:79
+#: ../comments.php:100
 msgid "Website"
 msgstr "Site web"
 
-#: ../comments.php:84
+#: ../comments.php:109
 msgid "Comment"
 msgstr "Commenter"
 
-#: ../comments.php:87
+#: ../comments.php:116
 msgid "You can use these tags:"
 msgstr "Tags utilisables:"
 
-#: ../comments.php:88
+#: ../comments.php:122
 msgid "Submit Comment"
 msgstr "Envoyer commentaire"
 
-#: ../content-none.php:11
+#: ../homepage.php:14 ../template-parts/header-banner-actu.php:6
+#: ../template-parts/header-banner-marches.php:9
+msgid "...A partner<br />to your success"
+msgstr "Au service<br />de vos performances"
+
+#: ../homepage.php:40
+msgid "A key european producer of lng engineering steel products"
+msgstr "Un acteur européen incontournable dans les aciers longs spéciaux..."
+
+#: ../homepage.php:41 ../template-parts/blocs-marches-index.php:24
+#: ../template-parts/blocs-marches-index.php:44
+#: ../template-parts/blocs-marches-index.php:65
+#: ../template-parts/blocs-marches-index.php:84
+#: ../template-parts/carrousel-actualites.php:28
+#: ../template-parts/content.php:31
+msgid "Continue reading..."
+msgstr "Voir +"
+
+#: ../homepage.php:55
+msgid "Among our references"
+msgstr "Ils nous font confiance..."
+
+#: ../page-interactivemap.php:28
+msgid "Select a country"
+msgstr "Sélectionnez un pays"
+
+#: ../search.php:16
+msgid "Search Results for"
+msgstr "Résultats pour"
+
+#: ../searchform.php:14 ../searchform.php:18
+msgid "Search"
+msgstr "Rechercher"
+
+#: ../single-usine.php:55
+msgid "Select a site :"
+msgstr "Sélectionnez un site :"
+
+#: ../single-usine.php:82
+msgid "Access map"
+msgstr "Plan d'accès"
+
+#: ../template-parts/blocs-marches-index.php:16
+#: ../template-parts/blocs-marches-index.php:21
+msgid "Automotive"
+msgstr "Automobile"
+
+#: ../template-parts/blocs-marches-index.php:23
+msgid "A perfect understanding of the technical and economic challenges..."
+msgstr "Une parfaite compréhension des enjeux techniques et économiques..."
+
+#: ../template-parts/blocs-marches-index.php:35
+#: ../template-parts/blocs-marches-index.php:40
+msgid "Bearings"
+msgstr "Roulements"
+
+#: ../template-parts/blocs-marches-index.php:42
+msgid "A long-term partnership with the world's bearing manufacturers..."
+msgstr "Un partenariat durable avec les roulements mondiaux..."
+
+#: ../template-parts/blocs-marches-index.php:56
+#: ../template-parts/blocs-marches-index.php:61
+msgid "Mecanical"
+msgstr "Mécanique"
+
+#: ../template-parts/blocs-marches-index.php:63
+msgid "High level technical assistance for innovative solutions..."
+msgstr "Un accompagnement technique pour des solutions originales... "
+
+#: ../template-parts/blocs-marches-index.php:76
+#: ../template-parts/blocs-marches-index.php:81
+msgid "Oil / Gas"
+msgstr "Pétrole / gaz"
+
+#: ../template-parts/blocs-marches-index.php:83
+msgid "A world-renowned player in drilling and extraction..."
+msgstr "Un acteur de renommée mondiale pour le forage et l’exploitation..."
+
+#: ../template-parts/carrousel-actualites.php:2
+msgid "News"
+msgstr "Actualités"
+
+#: ../template-parts/content-none.php:14
 msgid "Nothing Found"
 msgstr "Rien trouvé"
 
-#: ../content-none.php:17
+#: ../template-parts/content-none.php:20
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 "Prêt à publier votre premier article? <a href=\"%1$s\">Commencez ici</a>."
 
-#: ../content-none.php:21
+#: ../template-parts/content-none.php:24
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
@@ -175,7 +238,7 @@ msgstr ""
 "Désolé, mais rien ne correspond à votre recherche. Essayez à nouveau avec "
 "des mots clef différents."
 
-#: ../content-none.php:26
+#: ../template-parts/content-none.php:29
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
@@ -183,69 +246,70 @@ msgstr ""
 "Nous pouvons trouver ce que vous cherchez. Peut être qu'une recherche "
 "pourrait aider."
 
-#: ../content.php:16
-msgid "Continue reading..."
-msgstr "Voir +"
+#: ../template-parts/header-banner-produits.php:6
+msgid "New products"
+msgstr "Nouveaux produits"
 
-#: ../hero.php:40 ../kitchen-sink.php:731 ../page-full.php:19
-#: ../page-home.php:20 ../page.php:19 ../single.php:28
-msgid "Pages:"
-msgstr "Pages"
+#: ../template-parts/header-banner-usine.php:6
+msgid "Industrial resources"
+msgstr "Outil industriel"
 
-#: ../library/entry-meta.php:4
-#, php-format
-msgid "Posted on %s at %s."
-msgstr "Posté le %s à %s."
+#~ msgid "<cite class=\"fn\">%s</cite>"
+#~ msgstr "<cite class=\"fn\">%s</cite>"
 
-#: ../library/entry-meta.php:5
-msgid "Written by"
-msgstr "Écrit par"
+#~ msgid "%1$s"
+#~ msgstr "%1$s"
 
-#: ../library/foundation.php:16
-msgid "&laquo;"
-msgstr "&laquo;"
+#~ msgid "(Edit)"
+#~ msgstr "(Editer)"
 
-#: ../library/foundation.php:17
-msgid "&raquo;"
-msgstr "&raquo;"
+#~ msgid "No Responses to"
+#~ msgstr "Pas de réponse à"
 
-#: ../library/foundation.php:40
-#, php-format
-msgid ""
-"Please assign a menu to the primary menu location under %1$s or %2$s the "
-"design."
-msgstr "Assignez un menu à l'emplacement primaire de menu dans %1$s ou %2$s."
+#~ msgid "One Response to"
+#~ msgstr "Une Réponse à"
 
-#: ../library/foundation.php:41
-#, php-format
-msgid "<a href=\"%s\">Menus</a>"
-msgstr "<a href=\"%s\">Menus</a>"
+#~ msgid "% Responses to"
+#~ msgstr "% Réponses à"
 
-#: ../library/foundation.php:44
-#, php-format
-msgid "<a href=\"%s\">Customize</a>"
-msgstr "<a href=\"%s\">Personnaliser</a>"
+#~ msgid "&larr; Older comments"
+#~ msgstr "&larr; Commentaires précédents"
 
-#: ../library/widget-areas.php:6
-msgid "Sidebar widgets"
-msgstr "Widgets côté"
+#~ msgid "Newer comments &rarr;"
+#~ msgstr "Commentaires suivants &rarr;"
 
-#: ../library/widget-areas.php:7
-msgid "Drag widgets to this sidebar container."
-msgstr "Déposer les widgets dans ce conteneur."
+#~ msgid "Posted on %s at %s."
+#~ msgstr "Posté le %s à %s."
 
-#: ../library/widget-areas.php:16
-msgid "Footer widgets"
-msgstr "Widgets du pied de page"
+#~ msgid "Written by"
+#~ msgstr "Écrit par"
 
-#: ../library/widget-areas.php:17
-msgid "Drag widgets to this footer container"
-msgstr "Déposer les widgets dans ce conteneur."
+#~ msgid "&laquo;"
+#~ msgstr "&laquo;"
 
-#: ../search.php:7
-msgid "Search Results for"
-msgstr "Résultats pour"
+#~ msgid "&raquo;"
+#~ msgstr "&raquo;"
 
-#: ../searchform.php:6 ../searchform.php:10
-msgid "Search"
-msgstr "Rechercher"
+#~ msgid ""
+#~ "Please assign a menu to the primary menu location under %1$s or %2$s the "
+#~ "design."
+#~ msgstr ""
+#~ "Assignez un menu à l'emplacement primaire de menu dans %1$s ou %2$s."
+
+#~ msgid "<a href=\"%s\">Menus</a>"
+#~ msgstr "<a href=\"%s\">Menus</a>"
+
+#~ msgid "<a href=\"%s\">Customize</a>"
+#~ msgstr "<a href=\"%s\">Personnaliser</a>"
+
+#~ msgid "Sidebar widgets"
+#~ msgstr "Widgets côté"
+
+#~ msgid "Drag widgets to this sidebar container."
+#~ msgstr "Déposer les widgets dans ce conteneur."
+
+#~ msgid "Footer widgets"
+#~ msgstr "Widgets du pied de page"
+
+#~ msgid "Drag widgets to this footer container"
+#~ msgstr "Déposer les widgets dans ce conteneur."

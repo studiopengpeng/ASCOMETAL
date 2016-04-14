@@ -25,7 +25,7 @@ get_header();
 
 
                                 <div class="entry-content">
-                                    <div id="imap1message" class="ih-item hide"><div id="inner-message"><?php echo __("Sélectionnez un pays", "foundationpress"); ?></div><a id="close-imapmessage">X</a></div>
+                                    <div id="imap1message" class="ih-item hide"><div id="inner-message"><?php echo __("Select a country", "foundationpress"); ?></div><a id="close-imapmessage">X</a></div>
 
                                     <?php the_content(); ?>
                                 </div>

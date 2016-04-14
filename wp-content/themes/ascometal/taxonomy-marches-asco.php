@@ -27,7 +27,7 @@ foreach($queried_object as $cur)
 {
     $tax_array[]=$cur;
 }
-// automobile
+// catégorie
 if ($tax_array[4]==18 || $tax_array[4]==22 || $tax_array[4]==23 || $tax_array[4]==24) ($classColor="automobile");
 else if ($tax_array[4]==19 || $tax_array[4]==37 || $tax_array[4]==35 || $tax_array[4]==36) ($classColor="roulement");
 else if ($tax_array[4]==20 || $tax_array[4]==33 || $tax_array[4]==34 || $tax_array[4]==32) ($classColor="petrole");

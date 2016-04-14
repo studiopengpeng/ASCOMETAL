@@ -50,15 +50,9 @@ get_header(); ?>
                 <div class="paddingbottom rightpadding leftpadding toppadding5">
                     <?php echo types_render_field("texte-introduction-usine", array("output"=>"raw")); ?>
                 </div>
-                  <!--
-                 <div class="paddingbottom">
-                      <h6><b><?php echo __("Sélectionnez un site :","foundationpress"); ?></b></h6>
-                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/simulation-menu-usines.png" />
-                </div> 
-                  -->
                   
                   <div id="menu-usines-container" class="paddingbottom">
-                      <div class="paddingbottom"><h6><b><?php echo __("Sélectionnez un site :","foundationpress"); ?></b></h6></div>
+                      <div class="paddingbottom"><h6><b><?php echo __("Select a site :","foundationpress"); ?></b></h6></div>
                        <?php get_template_part( 'template-parts/menu-usines' ); ?>
                   </div>
                   
@@ -77,6 +71,9 @@ get_header(); ?>
             <article class="small-12 medium-12 large-4 columns articlepadding rightcol" <?php post_class( 'main-content') ?> id="post-<?php the_ID(); ?>">
 					<header>
 						<h1 class="entry-title corporate-color"><?php the_title(); ?></h1>
+                        <div class="small-7" style="margin-bottom:5px">
+                           <?php echo do_shortcode("[ssba]"); ?>
+                        </div>
 					</header>
 
 					<?php do_action( 'foundationpress_page_before_entry_content' ); ?> 
@@ -85,9 +82,9 @@ get_header(); ?>
                             <?php the_content(); ?>
                         </article>
                         
-                        <a href="<?php echo types_render_field("lien-plan-usine", array("output"=>"raw")); ?>" target="blank" class="maps_button ih-item"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icone-plan-acces-usine.png"> <?php _e("Plan d'accès", "foundationpress"); ?></a>
+                        <a href="<?php echo types_render_field("lien-plan-usine", array("output"=>"raw")); ?>" target="blank" class="maps_button ih-item"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icone-plan-acces-usine.png"> <?php _e("Access map", "foundationpress"); ?></a>
                     </div>
-                    
+                
             </article>
                 
          </div>

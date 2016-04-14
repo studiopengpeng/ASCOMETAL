@@ -11,7 +11,7 @@ get_header(); ?>
         <article class="small-12 medium-12 large-12 columns">
             <header class="header-image">
                 <?php get_template_part( 'template-parts/featured-image' ); ?>
-                    <h1>Au service </br>de vos performances</h1>
+                    <h1><?php echo __( '...A partner<br />to your success', 'foundationpress') ?></h1>
             </header>
         </article>
         <!--END header de page-->
@@ -37,8 +37,8 @@ get_header(); ?>
                                                     <div class="info asco">
                                                         <h3>Ascometal</h3>
                                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/asco.svg" alt="monogramme d'Ascometal">
-                                                        <p>Un acteur européen incontournable dans les aciers longs spéciaux...</p>
-                                                        <p class="seemore">voir+</p>
+                                                        <p><?php echo __( 'A key european producer of lng engineering steel products', 'foundationpress') ?></p>
+                                                        <p class="seemore"><?php echo __("Continue reading...", "foundationpress") ?></p>
                                                     </div>
                                                 </a>
                                             </div>
@@ -52,7 +52,7 @@ get_header(); ?>
 
                                     </section>
                                     <!-- Logos-customers -->
-                                    <h4 class="large-12 columns">Ils nous font confiance...</h4>
+                                    <h4 class="large-12 columns"><?php echo __( 'Among our references', 'foundationpress') ?></h4>
                                     <section class="customers small-12 medium-12 large-12 columns">
                                         <?php echo do_shortcode("[show-logos orderby='none' category='0' activeurl='inactive' style='hgrayscale' interface='hcarousel' tooltip='false' description='false' limit='0' filter='false' ]"); ?>
                                     </section>

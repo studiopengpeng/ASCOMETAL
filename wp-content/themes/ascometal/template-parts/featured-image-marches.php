@@ -9,6 +9,6 @@ global $post;
 
 	<header id="featured-hero" role="banner" style="<?php echo $image ?>">
 		<div class="breadcrumbs" typeof="BreadcrumbList">
-			<a href="/"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/breadcrumb-home-icon.png" class="bc_home_icon" width="24" height="21"> Accueil</a> > <a href="<?php echo esc_url( get_permalink(19) ); ?>">Marchés</a> > <?php parent_page_title() ?>
+			<a href="/"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/breadcrumb-home-icon.png" class="bc_home_icon" width="24" height="21"> Accueil</a> > <a href="<?php echo esc_url( get_permalink(19) ); ?>"><?php echo __('Markets', 'foundationpress'); ?></a> > <?php parent_page_title() ?>
 		</div>
 	</header>

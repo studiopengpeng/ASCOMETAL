@@ -12,6 +12,9 @@
 	if ( has_post_thumbnail( $post->ID ) ) :
 		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'vignette_actu' );
 		$image = $image[0];
+    else :
+        $image = get_stylesheet_directory_uri()."/assets/images/news-defaut.png";
+    endif;
 ?>
     <div class="ih-item article-preview" id="post-<?php the_ID(); ?>" <?php post_class( 'blogpost-entry'); ?>>
         <!--                <p>boucle vers fichier parmettant l'affichage des derniers articles dans archive.php = <strong>template-parts/content.php</strong></p>-->
@@ -19,7 +22,6 @@
             <div style="background-image: url('<?php echo $image ?>')">
             </div>
         </div>
-        <?php endif; ?>
             <div class="infos small-12 medium-9 large-9">
                 <?php foundationpress_entry_meta(); ?>
                     <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -27,8 +29,7 @@
                     <div class="entry-content">
                         <?php 
                         $more_link_text = __( 'Continue reading...', 'foundationpress') ;
-                        //$more_link_text = "Lire la suite" ;
-                        the_content( $more_link_text ); ?>
+                        echo get_the_content( $more_link_text ); ?>
                     </div>
             </div>
             <footer>
