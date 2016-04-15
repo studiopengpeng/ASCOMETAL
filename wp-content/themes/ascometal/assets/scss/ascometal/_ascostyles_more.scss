@@ -435,16 +435,20 @@ div.wpcf7-validation-errors {
     h3.title a {
         color:$gris-fonce-asco;
         transition: color .3s;
+        
+        display: block;
+        min-height: 50px;
+        max-height: 50px;
     }
     h3.title a:hover {
         color:$asco;
         text-decoration: none;
     }
-    p.description {
+    .description {
+        display:block;
         min-height:50px;
         max-height:50px;
     }
-    
 }
 
 .w3eden .media-dwnld-button a {

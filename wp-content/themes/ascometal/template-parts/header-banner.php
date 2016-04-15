@@ -3,7 +3,11 @@
     <article class="small-12 medium-12 large-12 columns">
             <header class="header-image">
                 <?php get_template_part( 'template-parts/featured-image' ); ?>
-                <a href="<?php global $linkUrlMarche; echo $linkUrlMarche; ?>"><div class="every-market <?php global $classColor; echo $classColor; ?>"></div></a>
+                <?php 
+                global $classColor; global $linkUrlMarche; 
+                if (isset($classColor) and strlen($classColor)>3) {?>
+                <a href="<?php echo $linkUrlMarche; ?>"><div class="every-market <?php echo $classColor; ?>"></div></a>
+                <?php } ?>
                 <h1><?php parent_page_title() ?></h1>
             </header>
     </article>

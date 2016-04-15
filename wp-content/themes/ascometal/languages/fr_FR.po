@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FoundationPress\n"
-"POT-Creation-Date: 2016-04-14 18:36+0200\n"
-"PO-Revision-Date: 2016-04-14 18:38+0200\n"
+"POT-Creation-Date: 2016-04-15 17:28+0200\n"
+"PO-Revision-Date: 2016-04-15 17:29+0200\n"
 "Last-Translator: \n"
 "Language-Team: Le Saint <info@lesaint.ca>\n"
 "Language: fr_FR\n"
@@ -170,6 +170,18 @@ msgstr "Résultats pour"
 #: ../searchform.php:14 ../searchform.php:18
 msgid "Search"
 msgstr "Rechercher"
+
+#: ../single-produits-ascometal.php:82
+msgid "Properties"
+msgstr "Caractéristiques"
+
+#: ../single-produits-ascometal.php:87
+msgid "Advantages"
+msgstr "Avantages"
+
+#: ../single-produits-ascometal.php:92
+msgid "Benefits"
+msgstr "Bénéfices"
 
 #: ../single-usine.php:55
 msgid "Select a site :"

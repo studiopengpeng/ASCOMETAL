@@ -56,7 +56,7 @@
                                                 <nav class="large-12 columns">
                                                     <ul>
                                                         <li class="offcall">
-                                                            <span>+39 3 88 11 22 33</span>
+                                                            <span>+33 1 42 38 74 26</span>
                                                         </li>
                                                         <li class="callbtn"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/phone.svg" alt="téléphone"></li>
                                                         <li class="searchbtn">

@@ -79,17 +79,17 @@ get_header(); ?>
                     <div class="alert-info ">
                         <section class="features-alert">
                            <div class="features-info"></div>
-                            <h3>Caractéristiques</h3>
+                            <h3><?php echo __("Properties","foundationpress"); ?></h3>
                             <?php echo types_render_field("carecteristiques", array("output"=>"raw")); ?>
                         </section>
                         <section class="advantage-alert hide">
                             <div class="advantage-info"></div>
-                            <h3>Avantages</h3>
+                            <h3><?php echo __("Advantages","foundationpress"); ?></h3>
                             <?php echo types_render_field("avantages", array("output"=>"raw")); ?>
                         </section>
                         <section class="benefits-alert hide">
                             <div class="benefits-info"></div>
-                            <h3>Bénéfices</h3>
+                            <h3><?php echo __("Benefits","foundationpress"); ?></h3>
                             <?php echo types_render_field("benefices", array("output"=>"raw")); ?>
                         </section>
                     </div>

@@ -27,6 +27,7 @@ $prelink."/marches-ascometal/";}
 $prelink."/marches-ascometal/";}
 }
 
+//echo "OOO : ".$classColor." / ".$linkUrlMarche;
 
 get_header(); ?>
 

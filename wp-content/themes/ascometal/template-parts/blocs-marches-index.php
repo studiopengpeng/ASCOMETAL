@@ -5,6 +5,18 @@
  * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
+if (ICL_LANGUAGE_CODE=="en") {
+$linkAuto="/en/marches-asco/automotive/";
+$linkRoul="/en/marches-asco/bearing/";
+$linkMec="/en/marches-asco/mechanical/";
+$linkPet="/en/marches-asco/oil-gaz/";
+    
+} else {
+$linkAuto="/marches-asco/automobile/";
+$linkRoul="/marches-asco/roulement/";
+$linkMec="/marches-asco/mecanique/";
+$linkPet="/marches-asco/petrolegaz/";
+}
 
 ?>
 
@@ -12,7 +24,7 @@
                                         <!-- Automobile -->
                                         <article class="auto small-12 medium-6 large-3 columns">
                                             <div class="ih-item square effect13 top_to_bottom">
-                                                <a href="/marches-asco/automobile/">
+                                                <a href="<?php echo $linkAuto; ?>">
                                                     <h3 class="title-auto"><?php echo __( 'Automotive', 'foundationpress') ?></h3>
                                                     <div class="img">
                                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/auto.jpg" alt="automobile Ascometal">
@@ -31,7 +43,7 @@
                                         <article class="rolling small-12 medium-6 large-3 columns">
 
                                             <div class="ih-item square effect13 top_to_bottom">
-                                                <a href="/marches-asco/roulement/">
+                                                <a href="<?php echo $linkRoul; ?>">
                                                     <h3 class="title-rolling"><?php echo __( 'Bearings', 'foundationpress') ?></h3>
                                                     <div class="img">
                                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/rolling.jpg" alt="roulement en acier Ascometal">
@@ -52,7 +64,7 @@
                                         <article class="mechanical small-12 medium-6 large-3 columns">
 
                                             <div class="ih-item square effect13 top_to_bottom">
-                                                <a href="/marches-asco/mecanique/">
+                                                <a href="<?php echo $linkMec; ?>">
                                                     <h3 class="title-mechanical"><?php echo __( 'Mecanical', 'foundationpress') ?></h3>
                                                     <div class="img">
                                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mechanical.jpg" alt="engrenage mécanique d'Ascometal">
@@ -72,7 +84,7 @@
                                         <!-- Pétrole -->
                                         <article class="petrol small-12 medium-6 large-3 columns">
                                             <div class="ih-item square effect13 top_to_bottom">
-                                                <a href="/marches-asco/petrolegaz/">
+                                                <a href="<?php echo $linkPet; ?>">
                                                     <h3 class="title-petrol"><?php echo __( 'Oil / Gas', 'foundationpress') ?></h3>
                                                     <div class="img">
                                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/petrol.jpg" alt="plateforme pétrolière d'Ascometal">

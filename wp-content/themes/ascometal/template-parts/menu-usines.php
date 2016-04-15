@@ -1,7 +1,7 @@
 <!-- menu / outil industriel -->
 <div id="menu-usines">
     <div id="filet1" class="mu-filets">Les Dunes <span style="font-size:70%">(Dunkerque)</span></div>
-    <div id="filet2" class="mu-filets">Hagondanges</div>
+    <div id="filet2" class="mu-filets">Hagondange</div>
     <div id="filet3" class="mu-filets">Custines</div>
     <div id="filet4" class="mu-filets">Le Marais <span style="font-size:70%">(St Etienne)</span></div>
     <div id="filet5" class="mu-filets">Fos-sur-Mer</div>
