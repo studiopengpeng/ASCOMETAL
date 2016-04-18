@@ -46,7 +46,7 @@ if ($exception_couleur==true) {$classColorException="contact";}
 					<img src="<?php	echo $imgSrc; ?>" alt="">
 				</div>
 				<div class="info rol">
-					<h3><?php echo $titre; ?></h3>
+					<h3 class="title-rolled"><?php echo $titre; ?></h3>
 					<p><?php echo $description;	?></p>
 					<p class="seemore">voir+</p>
 				</div>

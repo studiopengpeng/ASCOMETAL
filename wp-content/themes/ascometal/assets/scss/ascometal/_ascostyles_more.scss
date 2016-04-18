@@ -292,7 +292,7 @@ a.maps_button {
 
 .rightcol .textwidget {
     padding-right:45px;
-    padding-left:30px;
+   // padding-left:30px;
 }
 
 .main-content-large {
@@ -375,14 +375,15 @@ div.wpcf7-mail-sent-ok {
 }
 
 div.wpcf7-validation-errors {
-    border: 2px solid #f7e700;
-    background: #f7e700;
+    border: 2px solid $asco;
+    background: $asco;
     font-size: 25px;
     color: white;
     box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
     position: relative;
     transition: all 0.35s ease-in-out;
 }
+
 
 /* -------------------------------------------- */
 /* BOUTONS TELECHARGEMENTS                       */
@@ -396,7 +397,13 @@ div.wpcf7-validation-errors {
     text-transform: uppercase;
     transition: color .3s;
     padding-bottom: 10px;
+    display:block;
 }
+
+.simple-btn p {
+    line-height:rem-calc(18);
+}
+
 .btn-dwnld .media img {
     vertical-align: middle;
     float: right;
@@ -641,29 +648,29 @@ width:150px;
 /* COULEURS CONTEXTUELLES                       */
 /* -------------------------------------------- */
 
-.automobile h2, .automobile h3, .automobile h4 {
-    color:$automobile;
+.automobile h2, .automobile h3:not(.title-rolling):not(.title-rolled), .automobile h4 {
+    color:$automobile !important;
 }
 .automobile .tablepress tfoot th, .automobile .tablepress thead th {
     background-color:$automobile !important;
 }
-.roulement h2, .roulement h3, .roulement h4
+.roulement h2, .roulement h3:not(.title-rolling):not(.title-rolled), .roulement h4
 {
-    color:$roulement;
+    color:$roulement !important;
 }
 .roulement .tablepress tfoot th, .roulement .tablepress thead th {
     background-color:$roulement !important;
 }
-.mecanique h2, .mecanique h3, .mecanique h4
+.mecanique h2, .mecanique h3:not(.title-rolling):not(.title-rolled), .mecanique h4
 {
-    color:$mecanique;
+    color:$mecanique !important;
 }
 .mecanique .tablepress tfoot th, .mecanique .tablepress thead th {
     background-color:#D4AFA8 !important;
 }
-.petrole h2, .petrole h3, .petrole h4
+.petrole h2, .petrole h3:not(.title-rolling):not(.title-rolled), .petrole h4
 {
-    color:$petrole;
+    color:$petrole !important;
 }
 .petrole .tablepress tfoot th, .petrole .tablepress thead th {
     background-color:#9EDADC !important;
@@ -684,4 +691,17 @@ a.more-link {
 }
 header.header-image h1 {
     width: 88% !important;
+}
+
+.media .picto {
+    background-image: url("../images/documentation.svg");
+    width: 65px;
+    height: 75px;
+    margin-left: -18px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    float: left;
+    margin-top: -20px;
+    margin-right:10px;
+    
 }

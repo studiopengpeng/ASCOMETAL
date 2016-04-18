@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FoundationPress\n"
-"POT-Creation-Date: 2016-04-15 17:28+0200\n"
-"PO-Revision-Date: 2016-04-15 17:29+0200\n"
+"POT-Creation-Date: 2016-04-18 14:50+0200\n"
+"PO-Revision-Date: 2016-04-18 14:50+0200\n"
 "Last-Translator: \n"
 "Language-Team: Le Saint <info@lesaint.ca>\n"
 "Language: fr_FR\n"
@@ -48,9 +48,9 @@ msgstr "Cliquez sur le bouton <a href=\"javascript:history.back()\">Retour</a>"
 #: ../_marches.php:63 ../homepage.php:61 ../page-home-foundationpress.php:22
 #: ../page-interactivemap.php:33 ../page-templates/front.php:38
 #: ../page-templates/page-full-width.php:22
-#: ../page-templates/page-sidebar-left.php:22 ../page.php:66
-#: ../single-produits-ascometal.php:119 ../single-produits-ascometal.php:121
-#: ../single.php:63 ../single.php:65 ../woocommerce.php:26
+#: ../page-templates/page-sidebar-left.php:22 ../page.php:88
+#: ../single-produits-ascometal.php:138 ../single-produits-ascometal.php:140
+#: ../single.php:86 ../single.php:88 ../woocommerce.php:26
 msgid "Pages:"
 msgstr "Pages"
 
@@ -138,7 +138,7 @@ msgid "Submit Comment"
 msgstr "Envoyer commentaire"
 
 #: ../homepage.php:14 ../template-parts/header-banner-actu.php:6
-#: ../template-parts/header-banner-marches.php:9
+#: ../template-parts/header-banner-marches.php:12
 msgid "...A partner<br />to your success"
 msgstr "Au service<br />de vos performances"
 
@@ -146,10 +146,10 @@ msgstr "Au service<br />de vos performances"
 msgid "A key european producer of lng engineering steel products"
 msgstr "Un acteur européen incontournable dans les aciers longs spéciaux..."
 
-#: ../homepage.php:41 ../template-parts/blocs-marches-index.php:24
-#: ../template-parts/blocs-marches-index.php:44
-#: ../template-parts/blocs-marches-index.php:65
-#: ../template-parts/blocs-marches-index.php:84
+#: ../homepage.php:41 ../template-parts/blocs-marches-index.php:36
+#: ../template-parts/blocs-marches-index.php:56
+#: ../template-parts/blocs-marches-index.php:77
+#: ../template-parts/blocs-marches-index.php:96
 #: ../template-parts/carrousel-actualites.php:28
 #: ../template-parts/content.php:31
 msgid "Continue reading..."
@@ -171,15 +171,15 @@ msgstr "Résultats pour"
 msgid "Search"
 msgstr "Rechercher"
 
-#: ../single-produits-ascometal.php:82
+#: ../single-produits-ascometal.php:101
 msgid "Properties"
 msgstr "Caractéristiques"
 
-#: ../single-produits-ascometal.php:87
+#: ../single-produits-ascometal.php:106
 msgid "Advantages"
 msgstr "Avantages"
 
-#: ../single-produits-ascometal.php:92
+#: ../single-produits-ascometal.php:111
 msgid "Benefits"
 msgstr "Bénéfices"
 
@@ -187,43 +187,43 @@ msgstr "Bénéfices"
 msgid "Select a site :"
 msgstr "Sélectionnez un site :"
 
-#: ../single-usine.php:82
+#: ../single-usine.php:85
 msgid "Access map"
 msgstr "Plan d'accès"
 
-#: ../template-parts/blocs-marches-index.php:16
-#: ../template-parts/blocs-marches-index.php:21
+#: ../template-parts/blocs-marches-index.php:28
+#: ../template-parts/blocs-marches-index.php:33
 msgid "Automotive"
 msgstr "Automobile"
 
-#: ../template-parts/blocs-marches-index.php:23
+#: ../template-parts/blocs-marches-index.php:35
 msgid "A perfect understanding of the technical and economic challenges..."
 msgstr "Une parfaite compréhension des enjeux techniques et économiques..."
 
-#: ../template-parts/blocs-marches-index.php:35
-#: ../template-parts/blocs-marches-index.php:40
+#: ../template-parts/blocs-marches-index.php:47
+#: ../template-parts/blocs-marches-index.php:52
 msgid "Bearings"
 msgstr "Roulements"
 
-#: ../template-parts/blocs-marches-index.php:42
+#: ../template-parts/blocs-marches-index.php:54
 msgid "A long-term partnership with the world's bearing manufacturers..."
 msgstr "Un partenariat durable avec les roulements mondiaux..."
 
-#: ../template-parts/blocs-marches-index.php:56
-#: ../template-parts/blocs-marches-index.php:61
+#: ../template-parts/blocs-marches-index.php:68
+#: ../template-parts/blocs-marches-index.php:73
 msgid "Mecanical"
 msgstr "Mécanique"
 
-#: ../template-parts/blocs-marches-index.php:63
+#: ../template-parts/blocs-marches-index.php:75
 msgid "High level technical assistance for innovative solutions..."
 msgstr "Un accompagnement technique pour des solutions originales... "
 
-#: ../template-parts/blocs-marches-index.php:76
-#: ../template-parts/blocs-marches-index.php:81
+#: ../template-parts/blocs-marches-index.php:88
+#: ../template-parts/blocs-marches-index.php:93
 msgid "Oil / Gas"
 msgstr "Pétrole / gaz"
 
-#: ../template-parts/blocs-marches-index.php:83
+#: ../template-parts/blocs-marches-index.php:95
 msgid "A world-renowned player in drilling and extraction..."
 msgstr "Un acteur de renommée mondiale pour le forage et l’exploitation..."
 
@@ -257,6 +257,10 @@ msgid ""
 msgstr ""
 "Nous pouvons trouver ce que vous cherchez. Peut être qu'une recherche "
 "pourrait aider."
+
+#: ../template-parts/featured-image-marches.php:12
+msgid "Markets"
+msgstr "Marchés"
 
 #: ../template-parts/header-banner-produits.php:6
 msgid "New products"
