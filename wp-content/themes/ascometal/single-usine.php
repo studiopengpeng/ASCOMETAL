@@ -88,9 +88,6 @@ get_header(); ?>
             </article>
                 
          </div>
-
-				
-			
 			<?php endwhile; ?>
 			
 			<?php do_action( 'foundationpress_after_content' ); ?>
