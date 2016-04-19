@@ -144,5 +144,21 @@ $(document).ready(function(){
 
 </script>
 
+<!-- Active l'apparition de la fleche "retours en haut" au scroll -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.lift').append('<a href="#top" class="top_link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/up.svg" alt="remonter"</a>');
+
+        $(window).scroll(function () {
+            posScroll = $(document).scrollTop();
+            if (posScroll >= 200)
+                $('.top_link').fadeIn(600);
+            else
+                $('.top_link').fadeOut(600);
+        });
+
+    });
+</script>
+
 </body>
 </html>

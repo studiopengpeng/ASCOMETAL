@@ -115,17 +115,6 @@ get_header(); ?>
                      
                     
 					</div>
-                        <!--
-					<a href="#">
-					        <div class="ih-item documentation ">
-                                    <div class="left picto">                           </div>
-                                    <div class="left infos">
-                                        <p class="title">DOCUMENTATION</p>
-                                        <p>Consultez et téléchargez votre fiche produit</p>
-                                    </div>
-                            </div>
-                        </a>
-                        -->
                     <?php echo types_render_field("brochure-telecharger", array("output"=>"raw")); ?>
 					</div>
                         
@@ -142,10 +131,11 @@ get_header(); ?>
 						 </p>
 						 
 					</footer>
-					
+					<div class="lift"></div>
 				<?php do_action( 'foundationpress_page_before_comments' ); ?>
 				<?php comments_template(); ?>
 				<?php do_action( 'foundationpress_page_after_comments' ); ?>
+				
 				</article>
 			
 			<?php endwhile; ?>
