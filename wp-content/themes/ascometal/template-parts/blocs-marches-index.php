@@ -65,12 +65,12 @@ $linkPet="/marches-asco/petrolegaz/";
 
                                             <div class="ih-item square effect13 top_to_bottom">
                                                 <a href="<?php echo $linkMec; ?>">
-                                                    <h3 class="title-mechanical"><?php echo __( 'Mecanical', 'foundationpress') ?></h3>
+                                                    <h3 class="title-mechanical"><?php echo __( 'Mechanical engineering', 'foundationpress') ?></h3>
                                                     <div class="img">
                                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mechanical.jpg" alt="engrenage mécanique d'Ascometal">
                                                     </div>
                                                     <div class="info mec">
-                                                        <h3><?php echo __( 'Mecanical', 'foundationpress') ?></h3>
+                                                        <h3><?php echo __( 'Mechanical engineering', 'foundationpress') ?></h3>
                                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mechanical.svg" alt="engrenage mécanique d'Ascometal">
                                                         <p><?php echo __( 'High level technical assistance for innovative solutions...', 'foundationpress') ?>
                                                         </p>

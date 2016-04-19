@@ -705,3 +705,142 @@ header.header-image h1 {
     margin-right:10px;
     
 }
+
+// à supprimer quand autres langues actives que juste l'anglais
+
+#navtools #lang_sel ul ul {
+    left: -4px !important;
+}
+
+.actus-home {
+max-height:290px;   
+}
+
+@media screen and (max-width : 1024px) {
+       .actus-home {
+        max-height:600px;   
+}
+}
+
+
+/*---------------------------------------------------------------
+PLAN DE SITE (MENU GAUCHE PLACE DANS LE MAIN CONTAINER)
+---------------------------------------------------------------*/
+
+
+#main-container {
+    
+    .menu {
+        
+        a {
+          color: #5e5e5e; 
+        }
+    
+        > li {
+            display: block;
+            float: left;
+            width: 50%;
+            margin-bottom: 100px;
+            min-height: 700px;
+            
+            > a {
+                display:inline-block;
+                font-size:rem-calc(26);
+                width:auto;
+                
+                padding-left: 50px;
+                background-repeat: no-repeat;
+                margin-bottom: 1.25rem;
+                margin-top: 0.625rem;
+                    line-height: 1;
+                    text-decoration: none;
+                font-weight: 700;
+                    list-style: none;
+                text-transform: uppercase;
+            }
+            
+            > ul > li {
+                display:block;
+            }
+            
+            > ul > li > a {
+                text-transform: uppercase;
+                font-weight: 700;
+                color: #5e5e5e;
+                padding-top: 20px;
+                display: block;
+                padding-bottom: 10px;
+                list-style: none;
+                text-decoration: none;
+                transition:color .3s;
+                }:hover{
+                   color: $asco; 
+                }
+            }
+        
+            > li.asco {
+                width:100%;
+                min-height:150px;
+                > ul > li {
+                    display:block;
+                    width:250px;
+                    float:left;
+                }
+            }
+
+            > li.asco > a {
+                padding-top:6px;
+                color: #5e5e5e;
+                background-image: url("../images/ascomonogram.svg");
+            }
+            > li.asco   {
+                //display: block;
+                //border-top:2px solid $asco;
+            }
+            > li.automobile > a {
+                padding-top:6px;
+                color: #99be51;
+                background-image: url("../images/automobile-icone.svg");
+            }
+            > li.automobile   {
+                display: block;
+                border-top:2px solid #99be51;
+            }
+            > li.roulement > a {
+                padding-top:6px;
+                color: #f28e00;
+                background-image: url("../images/roulement-icone.svg");
+            }
+            > li.roulement   {
+                display: block;
+                border-top:2px solid #f28e00;
+            }
+            > li.mecanique > a {
+                padding-top:6px;
+                color: #ae3e28;
+                background-image: url("../images/mecanique-icone.svg");
+            }
+            > li.mecanique  {
+                display: block;
+                border-top:2px solid #ae3e28;
+            }
+            > li.petrole > a {
+                padding-top:6px;
+                color: #03888e;
+                background-image: url("../images/petrol-icone.svg");
+            }
+            > li.petrole  {
+                display: block;
+                border-top:2px solid #03888e;
+            }
+        }
+    
+}
+
+@media screen and (max-width : 1024px) {
+        #main-container .menu > li {
+            width: 100%;
+            min-height: 150px;
+        }
+}
+

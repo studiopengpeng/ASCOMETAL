@@ -18,7 +18,7 @@
 	foreach( $recent_posts as $recent ){
 //        print_r ($recent);
 //		echo '<li><a href="' . get_permalink($recent["ID"]) . '">' .   ( __($recent["post_title"])).'</a> </li> ';
-        
+       $recent["post_content"] =  strip_tags ($recent["post_content"]);
     ?>
     <div class="item">
     <div class='thumb'><?php echo get_the_post_thumbnail($recent["ID"], 'vignette_actu' ); ?></div> 

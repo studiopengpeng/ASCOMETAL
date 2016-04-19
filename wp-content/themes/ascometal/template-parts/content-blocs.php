@@ -48,7 +48,7 @@ if ($exception_couleur==true) {$classColorException="contact";}
 				<div class="info rol">
 					<h3 class="title-rolled"><?php echo $titre; ?></h3>
 					<p><?php echo $description;	?></p>
-					<p class="seemore">voir+</p>
+					<p class="seemore"><?php echo __("Continue reading...", "foundationpress") ?></p>
 				</div>
 			</a>
 		</div>
