@@ -57,6 +57,43 @@ REGLAGES GLOBAUX / GLOBAL SETTINGS
         padding: 30px 30px 0px 30px;
         box-shadow: inset 14px 0px 30px -10px rgba(143, 143, 143, 0.2);
     }
+    
+    // * * * * * * * * * * * * * Fleches fixes pour remonter ou descendre dans la page * * * * * * * * * * *    
+    .lift {
+        height: 37px;
+        position: fixed;
+        right: 40px;
+        bottom: 40px;
+        .top_link {
+            opacity: .7;
+            -webkit-transition: all 0.25s linear;
+            -moz-transition: all 0.25s linear;
+            transition: all 0.25s linear;
+            &:hover {
+                opacity: 1;
+            }
+            z-index: 2000;
+        }
+        a {
+            display: block;
+        }
+        img {
+            border: solid 3px #fff;
+            -webkit-transition: all 0.25s linear;
+            -moz-transition: all 0.25s linear;
+            transition: all 0.25s linear;
+            padding: 0;
+            border-radius: 25px;
+            display: block;
+            margin-bottom: 20px;
+            &:hover {
+                -moz-box-shadow: 0px 0px 7px 3px rgba(143, 143, 143, 0.4);
+                -webkit-box-shadow: 0px 0px 7px 3px rgba(143, 143, 143, 0.4);
+                -o-box-shadow: 0px 0px 7px 3pxrgba(143, 143, 143, 0.4);
+                box-shadow: 0px 0px 7px 3px rgba(143, 143, 143, 0.4);
+            }
+        }
+    }
     /*---------------------------------------------------------------
 MARCHES HOME (présentation + effets au survol) 
 ---------------------------------------------------------------*/
@@ -192,7 +229,8 @@ MARCHES HOME (présentation + effets au survol)
         text-transform: uppercase;
         width: 100%;
         line-height: rem-calc(35);
-        margin-top: rem-calc(15)
+        margin-top: rem-calc(15);
+        padding: 0px 10px;
     }
     
     #about {
@@ -280,6 +318,7 @@ MARCHES HOME (présentation + effets au survol)
     
     .title-rolling {
         background-color: rgba(242, 142, 0, 0.7);
+        padding: 0px 10px;
     }
     
     article.automobile .title-rolling {
