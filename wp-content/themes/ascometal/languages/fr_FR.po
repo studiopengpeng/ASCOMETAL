@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FoundationPress\n"
-"POT-Creation-Date: 2016-04-19 16:13+0200\n"
-"PO-Revision-Date: 2016-04-19 16:13+0200\n"
+"POT-Creation-Date: 2016-04-19 22:38+0200\n"
+"PO-Revision-Date: 2016-04-19 22:39+0200\n"
 "Last-Translator: \n"
 "Language-Team: Le Saint <info@lesaint.ca>\n"
 "Language: fr_FR\n"
@@ -48,9 +48,9 @@ msgstr "Cliquez sur le bouton <a href=\"javascript:history.back()\">Retour</a>"
 #: ../_marches.php:63 ../homepage.php:61 ../page-home-foundationpress.php:22
 #: ../page-interactivemap.php:33 ../page-templates/front.php:38
 #: ../page-templates/page-full-width.php:22
-#: ../page-templates/page-sidebar-left.php:22 ../page.php:66
-#: ../single-produits-ascometal.php:119 ../single-produits-ascometal.php:121
-#: ../single.php:63 ../single.php:65 ../woocommerce.php:26
+#: ../page-templates/page-sidebar-left.php:22 ../page.php:89
+#: ../single-produits-ascometal.php:127 ../single-produits-ascometal.php:129
+#: ../single.php:86 ../single.php:88 ../woocommerce.php:26
 msgid "Pages:"
 msgstr "Pages"
 
@@ -138,7 +138,8 @@ msgid "Submit Comment"
 msgstr "Envoyer commentaire"
 
 #: ../homepage.php:14 ../template-parts/header-banner-actu.php:6
-#: ../template-parts/header-banner-marches.php:9
+#: ../template-parts/header-banner-marches.php:12
+#: ../template-parts/header-banner-produits.php:12
 msgid "...A partner<br />to your success"
 msgstr "Au service<br />de vos performances"
 
@@ -151,8 +152,8 @@ msgstr "Un acteur européen incontournable dans les aciers longs spéciaux..."
 #: ../template-parts/blocs-marches-index.php:77
 #: ../template-parts/blocs-marches-index.php:96
 #: ../template-parts/carrousel-actualites.php:28
-#: ../template-parts/content.php:31
-msgid "Continue reading..."
+#: ../template-parts/content-blocs.php:51 ../template-parts/content.php:31
+msgid "More..."
 msgstr "Voir +"
 
 #: ../homepage.php:55
@@ -171,15 +172,15 @@ msgstr "Résultats pour"
 msgid "Search"
 msgstr "Rechercher"
 
-#: ../single-produits-ascometal.php:82
+#: ../single-produits-ascometal.php:101
 msgid "Properties"
 msgstr "Caractéristiques"
 
-#: ../single-produits-ascometal.php:87
+#: ../single-produits-ascometal.php:106
 msgid "Advantages"
 msgstr "Avantages"
 
-#: ../single-produits-ascometal.php:92
+#: ../single-produits-ascometal.php:111
 msgid "Benefits"
 msgstr "Bénéfices"
 
@@ -187,7 +188,7 @@ msgstr "Bénéfices"
 msgid "Select a site :"
 msgstr "Sélectionnez un site :"
 
-#: ../single-usine.php:82
+#: ../single-usine.php:85
 msgid "Access map"
 msgstr "Plan d'accès"
 
@@ -210,9 +211,6 @@ msgid "A long-term partnership with the world's bearing manufacturers..."
 msgstr "Un partenariat durable avec les roulements mondiaux..."
 
 #: ../template-parts/blocs-marches-index.php:68
-msgid "Mecanical"
-msgstr "Mécanique"
-
 #: ../template-parts/blocs-marches-index.php:73
 msgid "Mechanical engineering"
 msgstr "Mécanique"
@@ -261,16 +259,22 @@ msgstr ""
 "Nous pouvons trouver ce que vous cherchez. Peut être qu'une recherche "
 "pourrait aider."
 
-#: ../template-parts/header-banner-produits.php:6
-msgid "New products"
-msgstr "Nouveaux produits"
+#: ../template-parts/featured-image-marches.php:12
+msgid "Markets"
+msgstr "Marchés"
 
 #: ../template-parts/header-banner-usine.php:6
 msgid "Industrial resources"
 msgstr "Outil industriel"
 
-#~ msgid "Markets"
-#~ msgstr "Marchés"
+#~ msgid "Continue reading..."
+#~ msgstr "Voir +"
+
+#~ msgid "Mecanical"
+#~ msgstr "Mécanique"
+
+#~ msgid "New products"
+#~ msgstr "Nouveaux produits"
 
 #~ msgid "<cite class=\"fn\">%s</cite>"
 #~ msgstr "<cite class=\"fn\">%s</cite>"

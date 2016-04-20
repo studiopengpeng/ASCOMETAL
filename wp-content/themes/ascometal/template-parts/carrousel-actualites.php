@@ -25,7 +25,7 @@
     <div class='date'><?php echo get_the_time(get_option('date_format'), $recent["ID"]); ?></div>
     <div class='title'><?php echo __($recent["post_title"]); ?></div>
     <div class='texte'><?php echo tronk(__($recent["post_content"]), 250, "..."); ?></div>
-    <div class='readmore'><a href="<?php echo get_the_permalink($recent["ID"]); ?>"><?php echo __("Continue reading...", "foundationpress") ?></a></div>
+    <div class='readmore'><a href="<?php echo get_the_permalink($recent["ID"]); ?>"><?php echo __("More...", "foundationpress") ?></a></div>
     </div>
     
     <?php

@@ -33,7 +33,7 @@ $linkPet="/marches-asco/petrolegaz/";
                                                         <h3><?php echo __( 'Automotive', 'foundationpress') ?></h3>
                                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/auto.svg" alt="automobile Ascometal">
                                                         <p><?php echo __( 'A perfect understanding of the technical and economic challenges...', 'foundationpress') ?></p>
-                                                        <p class="seemore"><?php echo __("Continue reading...", "foundationpress") ?></p>
+                                                        <p class="seemore"><?php echo __("More...", "foundationpress") ?></p>
                                                     </div>
                                                 </a>
                                             </div>
@@ -53,7 +53,7 @@ $linkPet="/marches-asco/petrolegaz/";
                                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/rolling.svg" alt="roulement en acier Ascometal">
                                                         <p><?php echo __( "A long-term partnership with the world's bearing manufacturers...", 'foundationpress') ?>
                                                         </p>
-                                                        <p class="seemore"><?php echo __("Continue reading...", "foundationpress") ?></p>
+                                                        <p class="seemore"><?php echo __("More...", "foundationpress") ?></p>
                                                     </div>
                                                 </a>
                                             </div>
@@ -74,7 +74,7 @@ $linkPet="/marches-asco/petrolegaz/";
                                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mechanical.svg" alt="engrenage mécanique d'Ascometal">
                                                         <p><?php echo __( 'High level technical assistance for innovative solutions...', 'foundationpress') ?>
                                                         </p>
-                                                        <p class="seemore"><?php echo __("Continue reading...", "foundationpress") ?></p>
+                                                        <p class="seemore"><?php echo __("More...", "foundationpress") ?></p>
                                                     </div>
                                                 </a>
                                             </div>
@@ -93,7 +93,7 @@ $linkPet="/marches-asco/petrolegaz/";
                                                         <h3><?php echo __( 'Oil / Gas', 'foundationpress') ?></h3>
                                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/petrol.svg" alt="plateforme pétrolière d'Ascometal">
                                                         <p><?php echo __( 'A world-renowned player in drilling and extraction...', 'foundationpress') ?></p>
-                                                        <p class="seemore"><?php echo __("Continue reading...", "foundationpress") ?></p>
+                                                        <p class="seemore"><?php echo __("More...", "foundationpress") ?></p>
                                                     </div>
                                                 </a>
                                             </div>

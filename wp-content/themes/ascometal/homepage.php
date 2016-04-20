@@ -38,7 +38,7 @@ get_header(); ?>
                                                         <h3>Ascometal</h3>
                                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/asco.svg" alt="monogramme d'Ascometal">
                                                         <p><?php echo __( 'A key european producer of lng engineering steel products', 'foundationpress') ?></p>
-                                                        <p class="seemore"><?php echo __("Continue reading...", "foundationpress") ?></p>
+                                                        <p class="seemore"><?php echo __("More...", "foundationpress") ?></p>
                                                     </div>
                                                 </a>
                                             </div>

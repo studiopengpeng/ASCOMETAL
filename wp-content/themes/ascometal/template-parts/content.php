@@ -28,7 +28,7 @@
 
                     <div class="entry-content">
                         <?php 
-                        $more_link_text = __( 'Continue reading...', 'foundationpress') ;
+                        $more_link_text = __( 'More...', 'foundationpress') ;
                         echo get_the_content( $more_link_text ); ?>
                     </div>
             </div>

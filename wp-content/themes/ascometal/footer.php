@@ -12,7 +12,7 @@
 
 		</section>
 		<!--ascenseur-->
-        <div class="lift"></div>
+        <div class="lift"><a href="#top" class="top_link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/up.svg" alt="remonter"</a>'</div>
 		<div id="footer-container">
 			<footer id="footer" class="row">
 				<?php do_action( 'foundationpress_before_footer' ); ?>
@@ -65,7 +65,7 @@ wp_nav_menu( $args_menu1 );
 </div>
 <!--live reload-->
 <script type='text/javascript' id="__bs_script__">//<![CDATA[
-    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.11.1.js'><\/script>".replace("HOST", location.hostname));
+   // document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.11.1.js'><\/script>".replace("HOST", location.hostname));
 //]]></script>
 
 <!--Toggle sur le champs de recherche-->
@@ -149,14 +149,21 @@ $(document).ready(function(){
 <!-- Active l'apparition de la fleche "retours en haut" au scroll -->
 <script type="text/javascript">
     $(document).ready(function () {
-        $('.lift').append('<a href="#top" class="top_link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/up.svg" alt="remonter"</a>');
+       // $('.lift').append('<a href="#top" class="top_link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/up.svg" alt="remonter"</a>');
+        
+        $('.top_link').click(function() {
+            $('html, body').animate({
+            scrollTop: 0
+        }, 800);
+        });
 
         $(window).scroll(function () {
-            posScroll = $(document).scrollTop();
+           posScroll = $(document).scrollTop();
+
             if (posScroll >= 200)
-                $('.top_link').fadeIn(600);
+                $('.top_link').fadeIn(300);
             else
-                $('.top_link').fadeOut(600);
+                $('.top_link').fadeOut(300);
         });
 
     });
