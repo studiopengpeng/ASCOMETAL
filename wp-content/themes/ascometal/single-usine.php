@@ -6,6 +6,10 @@
  * @since FoundationPress 1.0.0
  */
 
+$classColor="corporate";
+$linkUrlMarche=get_bloginfo('url')."/?p=2099";
+global $classColor;
+global $linkUrlMarche;
 get_header(); ?>
 
 

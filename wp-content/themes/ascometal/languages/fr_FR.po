@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FoundationPress\n"
-"POT-Creation-Date: 2016-04-19 22:38+0200\n"
-"PO-Revision-Date: 2016-04-19 22:39+0200\n"
+"POT-Creation-Date: 2016-05-03 01:31+0200\n"
+"PO-Revision-Date: 2016-05-03 01:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: Le Saint <info@lesaint.ca>\n"
 "Language: fr_FR\n"
@@ -259,10 +259,22 @@ msgstr ""
 "Nous pouvons trouver ce que vous cherchez. Peut être qu'une recherche "
 "pourrait aider."
 
+#: ../template-parts/featured-image-actu.php:6
+#: ../template-parts/featured-image-marches.php:12
+#: ../template-parts/featured-image-produits.php:3
+#: ../template-parts/featured-image-usine.php:16
+msgid "Home"
+msgstr "Accueil"
+
 #: ../template-parts/featured-image-marches.php:12
 msgid "Markets"
 msgstr "Marchés"
 
+#: ../template-parts/featured-image-usine.php:16
+msgid "A partner to your success"
+msgstr "Au service de vos performances"
+
+#: ../template-parts/featured-image-usine.php:16
 #: ../template-parts/header-banner-usine.php:6
 msgid "Industrial resources"
 msgstr "Outil industriel"
