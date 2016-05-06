@@ -1,5 +1,11 @@
+<?php
+// code langue pour redirection des liens statiques
+$actulang=ICL_LANGUAGE_CODE;
+$prelink="";
+if ($actulang!="fr") {$prelink="/".$actulang;}
+?>
 <div class="ih-item actus-home">
-<h4><a href="/actualites"><?php echo __( 'News', 'foundationpress') ?></a></h3>
+<h4><a href="<?php echo $prelink; ?>/actualites"><?php echo __( 'News', 'foundationpress') ?></a></h3>
 <div class="owl-carousel">
 <?php
     
