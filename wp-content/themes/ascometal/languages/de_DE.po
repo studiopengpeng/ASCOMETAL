@@ -2,299 +2,385 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FoundationPress v5.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2014-08-24 17:21:40+0000\n"
+"POT-Creation-Date: 2016-05-03 01:39+0200\n"
+"PO-Revision-Date: 2016-05-03 01:39+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/0.1\n"
-"X-Poedit-Language: \n"
-"X-Poedit-Country: \n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
-"X-Poedit-Basepath: \n"
-"X-Poedit-Bookmarks: \n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Textdomain-Support: yes"
 
-#: comments.php:71
-#@ FoundationPress
-msgid "Name"
-msgstr "Name"
-
-#: comments.php:88
-#@ FoundationPress
-msgid "Submit Comment"
-msgstr "Kommentar senden"
-
-#: comments.php:68
-#@ FoundationPress
-msgid "Log out of this account"
-msgstr "Diesen Benutzer abmelden"
-
-#: comments.php:68
-#@ FoundationPress
-msgid "Log out &raquo;"
-msgstr "Abmelden &raquo;"
-
-#: comments.php:36
-#@ FoundationPress
-msgid "This post is password protected. Enter the password to view comments."
-msgstr "Dieser Beitrag ist passwortgeschützt. Um die Kommentare zu sehen, musst du das Passwort eingeben."
-
-#: comments.php:79
-#@ FoundationPress
-msgid "Website"
-msgstr "Website"
-
-#: comments.php:64
-#, php-format
-#@ FoundationPress
-msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
-msgstr "Du musst <a href=\"%s\">angemeldet</a> sein, um einen Kommentar abzugeben."
-
-#: hero.php:40
-#: kitchen-sink.php:739
-#: page-full.php:19
-#: page-sidebar-left.php:21
-#: page.php:18
-#: single.php:27
-#: woocommerce.php:18
-#@ FoundationPress
-msgid "Pages:"
-msgstr "Seiten:"
-
-#: comments.php:16
-#@ FoundationPress
-msgid "Your comment is awaiting moderation."
-msgstr "Dein Kommentar wartet auf Freischaltung."
-
-#: comments.php:10
-#@ FoundationPress
-msgid "(Edit)"
-msgstr "(Bearbeiten)"
-
-#: comments.php:61
-#@ FoundationPress
-msgid "Leave a Reply"
-msgstr "Hinterlasse eine Antwort"
-
-#: comments.php:61
-#, php-format
-#@ FoundationPress
-msgid "Leave a Reply to %s"
-msgstr "Hinterlasse einen Kommentar zu %s"
-
-#: searchform.php:6
-#: searchform.php:10
-#@ FoundationPress
-msgid "Search"
-msgstr "Suchen"
-
-#: 404.php:8
-#@ FoundationPress
+# @ FoundationPress
+#: 404.php:16
 msgid "File Not Found"
 msgstr "Seite nicht gefunden"
 
-#: 404.php:12
-#@ FoundationPress
-msgid "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable."
-msgstr "Die Seite, die Sie suchen wurde möglicherweise entfernt oder umbenannt, oder ist vorübergehend nicht verfügbar."
+# @ FoundationPress
+#: 404.php:20
+msgid ""
+"The page you are looking for might have been removed, had its name changed, "
+"or is temporarily unavailable."
+msgstr ""
+"Die Seite, die Sie suchen wurde möglicherweise entfernt oder umbenannt, oder "
+"ist vorübergehend nicht verfügbar."
 
-#: 404.php:14
-#@ FoundationPress
+# @ FoundationPress
+#: 404.php:22
 msgid "Please try the following:"
 msgstr "Bitte versuchen Sie folgendes:"
 
-#: 404.php:16
-#@ FoundationPress
+# @ FoundationPress
+#: 404.php:24
 msgid "Check your spelling"
 msgstr "Überprüfen Sie Ihre Eingabe"
 
-#: 404.php:17
+# @ FoundationPress
+#: 404.php:25
 #, php-format
-#@ FoundationPress
 msgid "Return to the <a href=\"%s\">home page</a>"
 msgstr "Zurück zur <a href=\"%s\">Startseite</a>"
 
-#: 404.php:18
-#@ FoundationPress
+# @ FoundationPress
+#: 404.php:26
 msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
-msgstr "Klicken Sie die <a href=\"javascript:history.back()\">Zurück</a> Schaltfläche"
+msgstr ""
+"Klicken Sie die <a href=\"javascript:history.back()\">Zurück</a> Schaltfläche"
 
-#: archive.php:21
-#: index.php:24
-#: search.php:25
-#@ FoundationPress
+# @ FoundationPress
+#: _marches.php:63 homepage.php:61 page-home-foundationpress.php:22
+#: page-interactivemap.php:33 page-templates/front.php:38
+#: page-templates/page-full-width.php:22
+#: page-templates/page-sidebar-left.php:22 page.php:89
+#: single-produits-ascometal.php:127 single-produits-ascometal.php:129
+#: single.php:86 single.php:88 woocommerce.php:26
+msgid "Pages:"
+msgstr "Seiten:"
+
+# @ FoundationPress
+#: archive.php:37 index.php:74 search.php:34 taxonomy-categories.php:74
 msgid "&larr; Older posts"
 msgstr "&larr; ältere Beiträge"
 
-#: archive.php:22
-#: index.php:25
-#: search.php:26
-#@ FoundationPress
+# @ FoundationPress
+#: archive.php:38 index.php:77 search.php:35 taxonomy-categories.php:77
 msgid "Newer posts &rarr;"
 msgstr "neuere Beiträge &rarr;"
 
-#: comments.php:8
-#, php-format
-#@ FoundationPress
-msgid "<cite class=\"fn\">%s</cite>"
+#: comments.php:26
+msgid "Reply"
 msgstr ""
 
-#: comments.php:9
-#, php-format
-#@ FoundationPress
-msgid "%1$s"
-msgstr ""
+# @ FoundationPress
+#: comments.php:35
+msgid "Your comment is awaiting moderation."
+msgstr "Dein Kommentar wartet auf Freischaltung."
 
-#: comments.php:31
-#@ FoundationPress
+# @ FoundationPress
+#: comments.php:54
 msgid "Please do not load this page directly. Thanks!"
 msgstr "Bitte diese Seite nicht direkt laden. Danke!"
 
-#: comments.php:46
-#@ FoundationPress
-msgid "No Responses to"
-msgstr "Keine Antworten zu"
+# @ FoundationPress
+#: comments.php:59
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+"Dieser Beitrag ist passwortgeschützt. Um die Kommentare zu sehen, musst du "
+"das Passwort eingeben."
 
-#: comments.php:46
-#@ FoundationPress
-msgid "One Response to"
-msgstr "Eine Antwort zu"
+# @ FoundationPress
+#: comments.php:72
+msgid "Leave a Reply"
+msgstr "Hinterlasse eine Antwort"
 
-#: comments.php:46
-#@ FoundationPress
-msgid "% Responses to"
-msgstr "% Antworten zu"
-
-#: comments.php:53
-#@ FoundationPress
-msgid "&larr; Older comments"
-msgstr "&larr; ältere Kommentare"
-
-#: comments.php:54
-#@ FoundationPress
-msgid "Newer comments &rarr;"
-msgstr "neuere Kommentare &rarr;"
-
-#: comments.php:68
+# @ FoundationPress
+#: comments.php:72
 #, php-format
-#@ FoundationPress
+msgid "Leave a Reply to %s"
+msgstr "Hinterlasse einen Kommentar zu %s"
+
+# @ FoundationPress
+#: comments.php:75
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr ""
+"Du musst <a href=\"%s\">angemeldet</a> sein, um einen Kommentar abzugeben."
+
+# @ FoundationPress
+#: comments.php:79
+#, php-format
 msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
 msgstr "Angemeldet als <a href=\"%s/wp-admin/profile.php\">%s</a>."
 
-#: comments.php:71
-#: comments.php:75
-#@ FoundationPress
+# @ FoundationPress
+#: comments.php:79
+msgid "Log out of this account"
+msgstr "Diesen Benutzer abmelden"
+
+# @ FoundationPress
+#: comments.php:79
+msgid "Log out &raquo;"
+msgstr "Abmelden &raquo;"
+
+# @ FoundationPress
+#: comments.php:84
+msgid "Name"
+msgstr "Name"
+
+# @ FoundationPress
+#: comments.php:84 comments.php:92
 msgid " (required)"
 msgstr "(erforderlich)"
 
-#: comments.php:75
-#@ FoundationPress
+# @ FoundationPress
+#: comments.php:92
 msgid "Email (will not be published)"
 msgstr "Email (wird nicht veröffentlicht)"
 
-#: comments.php:84
-#@ FoundationPress
+# @ FoundationPress
+#: comments.php:100
+msgid "Website"
+msgstr "Website"
+
+# @ FoundationPress
+#: comments.php:109
 msgid "Comment"
 msgstr "Kommentar"
 
-#: comments.php:87
-#@ FoundationPress
+# @ FoundationPress
+#: comments.php:116
 msgid "You can use these tags:"
 msgstr "Sie können diese Tags verwenden:"
 
-#: content-none.php:11
-#@ FoundationPress
-msgid "Nothing Found"
-msgstr "nichts gefunden"
+#: homepage.php:14 template-parts/header-banner-actu.php:6
+#: template-parts/header-banner-marches.php:12
+#: template-parts/header-banner-produits.php:12
+msgid "...A partner<br />to your success"
+msgstr ""
 
-#: content-none.php:17
-#, php-format
-#@ FoundationPress
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr "Bereit, den ersten Beitrag zu veröffentlichen? <a href=\"%1$s\">Beginnen Sie hier</a>"
+#: homepage.php:40
+msgid "A key european producer of lng engineering steel products"
+msgstr ""
 
-#: content-none.php:21
-#@ FoundationPress
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
-msgstr "Es tut uns leid, aber es konnten keine Übereinstimmungen gefunden werden. Bitte versuchen Sie es erneut mit einigen anderen Suchbegriffen."
+#: homepage.php:41 template-parts/blocs-marches-index.php:36
+#: template-parts/blocs-marches-index.php:56
+#: template-parts/blocs-marches-index.php:77
+#: template-parts/blocs-marches-index.php:96
+#: template-parts/carrousel-actualites.php:28
+#: template-parts/content-blocs.php:51 template-parts/content.php:31
+msgid "More..."
+msgstr ""
 
-#: content-none.php:26
-#@ FoundationPress
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
-msgstr "Es scheint, wir finden nicht, was Sie suchen. Vielleicht hilft suchen."
+#: homepage.php:55
+msgid "Among our references"
+msgstr ""
 
-#: content.php:16
-#@ FoundationPress
-msgid "Continue reading..."
-msgstr "Lesen Sie weiter..."
+#: page-interactivemap.php:28
+msgid "Select a country"
+msgstr ""
 
-#: library/entry-meta.php:4
-#, php-format
-#@ FoundationPress
-msgid "Posted on %s at %s."
-msgstr "Veröffentlicht am %s um %s."
-
-#: library/entry-meta.php:5
-#@ FoundationPress
-msgid "Written by"
-msgstr "Geschrieben von"
-
-#: library/foundation.php:16
-#@ FoundationPress
-msgid "&laquo;"
-msgstr "&laquo;"
-
-#: library/foundation.php:17
-#@ FoundationPress
-msgid "&raquo;"
-msgstr "&raquo;"
-
-#: library/foundation.php:40
-#, php-format
-#@ FoundationPress
-msgid "Please assign a menu to the primary menu location under %1$s or %2$s the design."
-msgstr "Bitte weisen Sie ein Menü zur primären Menüposition %1$s oder %2$s zu."
-
-#: library/foundation.php:41
-#, php-format
-#@ FoundationPress
-msgid "<a href=\"%s\">Menus</a>"
-msgstr "<a href=\"%s\">Menüs</a>"
-
-#: library/foundation.php:44
-#, php-format
-#@ FoundationPress
-msgid "<a href=\"%s\">Customize</a>"
-msgstr "<a href=\"%s\">Anpassen</a>"
-
-#: library/widget-areas.php:6
-#@ FoundationPress
-msgid "Sidebar widgets"
-msgstr "Seitenleiste-Widgetbereich"
-
-#: library/widget-areas.php:7
-#@ FoundationPress
-msgid "Drag widgets to this sidebar container."
-msgstr "Ziehen Sie Widgets zu diesem Seitenleistenbereich."
-
-#: library/widget-areas.php:16
-#@ FoundationPress
-msgid "Footer widgets"
-msgstr "Footer Widgetbereich"
-
-#: library/widget-areas.php:17
-#@ FoundationPress
-msgid "Drag widgets to this footer container"
-msgstr "Ziehen Sie Widgets zu diesem Footerbereich"
-
-#: search.php:7
-#@ FoundationPress
+# @ FoundationPress
+#: search.php:16
 msgid "Search Results for"
 msgstr "Suchergebnisse für"
 
+#: single-produits-ascometal.php:101
+msgid "Properties"
+msgstr ""
+
+#: single-produits-ascometal.php:106
+msgid "Advantages"
+msgstr ""
+
+#: single-produits-ascometal.php:111
+msgid "Benefits"
+msgstr ""
+
+#: single-usine.php:55
+msgid "Select a site :"
+msgstr ""
+
+#: single-usine.php:85
+msgid "Access map"
+msgstr ""
+
+#: template-parts/blocs-marches-index.php:28
+#: template-parts/blocs-marches-index.php:33
+msgid "Automotive"
+msgstr ""
+
+#: template-parts/blocs-marches-index.php:35
+msgid "A perfect understanding of the technical and economic challenges..."
+msgstr ""
+
+#: template-parts/blocs-marches-index.php:47
+#: template-parts/blocs-marches-index.php:52
+msgid "Bearings"
+msgstr ""
+
+#: template-parts/blocs-marches-index.php:54
+msgid "A long-term partnership with the world's bearing manufacturers..."
+msgstr ""
+
+#: template-parts/blocs-marches-index.php:68
+#: template-parts/blocs-marches-index.php:73
+msgid "Mechanical engineering"
+msgstr ""
+
+#: template-parts/blocs-marches-index.php:75
+msgid "High level technical assistance for innovative solutions..."
+msgstr ""
+
+#: template-parts/blocs-marches-index.php:88
+#: template-parts/blocs-marches-index.php:93
+msgid "Oil / Gas"
+msgstr ""
+
+#: template-parts/blocs-marches-index.php:95
+msgid "A world-renowned player in drilling and extraction..."
+msgstr ""
+
+#: template-parts/carrousel-actualites.php:2
+msgid "News"
+msgstr ""
+
+# @ FoundationPress
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr "nichts gefunden"
+
+# @ FoundationPress
+#: template-parts/content-none.php:20
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Bereit, den ersten Beitrag zu veröffentlichen? <a href=\"%1$s\">Beginnen Sie "
+"hier</a>"
+
+# @ FoundationPress
+#: template-parts/content-none.php:24
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Es tut uns leid, aber es konnten keine Übereinstimmungen gefunden werden. "
+"Bitte versuchen Sie es erneut mit einigen anderen Suchbegriffen."
+
+# @ FoundationPress
+#: template-parts/content-none.php:29
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr "Es scheint, wir finden nicht, was Sie suchen. Vielleicht hilft suchen."
+
+#: template-parts/featured-image-actu.php:6
+#: template-parts/featured-image-marches.php:12
+#: template-parts/featured-image-produits.php:3
+#: template-parts/featured-image-usine.php:16
+msgid "Home"
+msgstr ""
+
+#: template-parts/featured-image-marches.php:12
+msgid "Markets"
+msgstr ""
+
+#: template-parts/featured-image-usine.php:16
+msgid "A partner to your success"
+msgstr ""
+
+#: template-parts/featured-image-usine.php:16
+#: template-parts/header-banner-usine.php:6
+msgid "Industrial resources"
+msgstr ""
+
+# @ FoundationPress
+#~ msgid "Submit Comment"
+#~ msgstr "Kommentar senden"
+
+# @ FoundationPress
+#~ msgid "(Edit)"
+#~ msgstr "(Bearbeiten)"
+
+# @ FoundationPress
+#~ msgid "Search"
+#~ msgstr "Suchen"
+
+# @ FoundationPress
+#~ msgid "No Responses to"
+#~ msgstr "Keine Antworten zu"
+
+# @ FoundationPress
+#~ msgid "One Response to"
+#~ msgstr "Eine Antwort zu"
+
+# @ FoundationPress
+#~ msgid "% Responses to"
+#~ msgstr "% Antworten zu"
+
+# @ FoundationPress
+#~ msgid "&larr; Older comments"
+#~ msgstr "&larr; ältere Kommentare"
+
+# @ FoundationPress
+#~ msgid "Newer comments &rarr;"
+#~ msgstr "neuere Kommentare &rarr;"
+
+# @ FoundationPress
+#~ msgid "Continue reading..."
+#~ msgstr "Lesen Sie weiter..."
+
+# @ FoundationPress
+#~ msgid "Posted on %s at %s."
+#~ msgstr "Veröffentlicht am %s um %s."
+
+# @ FoundationPress
+#~ msgid "Written by"
+#~ msgstr "Geschrieben von"
+
+# @ FoundationPress
+#~ msgid "&laquo;"
+#~ msgstr "&laquo;"
+
+# @ FoundationPress
+#~ msgid "&raquo;"
+#~ msgstr "&raquo;"
+
+# @ FoundationPress
+#~ msgid ""
+#~ "Please assign a menu to the primary menu location under %1$s or %2$s the "
+#~ "design."
+#~ msgstr ""
+#~ "Bitte weisen Sie ein Menü zur primären Menüposition %1$s oder %2$s zu."
+
+# @ FoundationPress
+#~ msgid "<a href=\"%s\">Menus</a>"
+#~ msgstr "<a href=\"%s\">Menüs</a>"
+
+# @ FoundationPress
+#~ msgid "<a href=\"%s\">Customize</a>"
+#~ msgstr "<a href=\"%s\">Anpassen</a>"
+
+# @ FoundationPress
+#~ msgid "Sidebar widgets"
+#~ msgstr "Seitenleiste-Widgetbereich"
+
+# @ FoundationPress
+#~ msgid "Drag widgets to this sidebar container."
+#~ msgstr "Ziehen Sie Widgets zu diesem Seitenleistenbereich."
+
+# @ FoundationPress
+#~ msgid "Footer widgets"
+#~ msgstr "Footer Widgetbereich"
+
+# @ FoundationPress
+#~ msgid "Drag widgets to this footer container"
+#~ msgstr "Ziehen Sie Widgets zu diesem Footerbereich"

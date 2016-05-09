@@ -428,7 +428,9 @@ div.wpcf7-validation-errors {
     }
 }
 
-/* pages de téléchargements */
+/* -------------------------------------------- */
+/* PAGES DE TELECHARGEMENTS                     */
+/* -------------------------------------------- */
 .w3eden .media {
     
     .media-thumb {
@@ -444,8 +446,9 @@ div.wpcf7-validation-errors {
         transition: color .3s;
         
         display: block;
-        min-height: 50px;
-        max-height: 50px;
+        min-height: 80px;
+        max-height: 80px;
+        overflow:hidden;
     }
     h3.title a:hover {
         color:$asco;
@@ -455,6 +458,7 @@ div.wpcf7-validation-errors {
         display:block;
         min-height:50px;
         max-height:50px;
+        overflow: hidden;
     }
 }
 
