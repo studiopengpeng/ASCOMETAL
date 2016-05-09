@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FoundationPress\n"
-"POT-Creation-Date: 2016-04-29 11:49+0200\n"
-"PO-Revision-Date: 2016-04-29 11:50+0200\n"
+"POT-Creation-Date: 2016-05-03 01:31+0200\n"
+"PO-Revision-Date: 2016-05-03 01:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: Le Saint <info@lesaint.ca>\n"
 "Language: fr_FR\n"
@@ -45,7 +45,7 @@ msgstr "Retour à la <a href=\"%s\">page d'accueil</a>"
 msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
 msgstr "Cliquez sur le bouton <a href=\"javascript:history.back()\">Retour</a>"
 
-#: ../_marches.php:63 ../homepage.php:62 ../page-home-foundationpress.php:22
+#: ../_marches.php:63 ../homepage.php:61 ../page-home-foundationpress.php:22
 #: ../page-interactivemap.php:33 ../page-templates/front.php:38
 #: ../page-templates/page-full-width.php:22
 #: ../page-templates/page-sidebar-left.php:22 ../page.php:89
@@ -143,11 +143,11 @@ msgstr "Envoyer commentaire"
 msgid "...A partner<br />to your success"
 msgstr "Au service<br />de vos performances"
 
-#: ../homepage.php:41
-msgid "A key european producer of long engineering steel products"
+#: ../homepage.php:40
+msgid "A key european producer of lng engineering steel products"
 msgstr "Un acteur européen incontournable dans les aciers longs spéciaux..."
 
-#: ../homepage.php:42 ../template-parts/blocs-marches-index.php:36
+#: ../homepage.php:41 ../template-parts/blocs-marches-index.php:36
 #: ../template-parts/blocs-marches-index.php:56
 #: ../template-parts/blocs-marches-index.php:77
 #: ../template-parts/blocs-marches-index.php:96
@@ -156,7 +156,7 @@ msgstr "Un acteur européen incontournable dans les aciers longs spéciaux..."
 msgid "More..."
 msgstr "Voir +"
 
-#: ../homepage.php:56
+#: ../homepage.php:55
 msgid "Among our references"
 msgstr "Ils nous font confiance..."
 
@@ -184,11 +184,11 @@ msgstr "Avantages"
 msgid "Benefits"
 msgstr "Bénéfices"
 
-#: ../single-usine.php:74
+#: ../single-usine.php:55
 msgid "Select a site :"
 msgstr "Sélectionnez un site :"
 
-#: ../single-usine.php:104
+#: ../single-usine.php:85
 msgid "Access map"
 msgstr "Plan d'accès"
 
@@ -259,16 +259,25 @@ msgstr ""
 "Nous pouvons trouver ce que vous cherchez. Peut être qu'une recherche "
 "pourrait aider."
 
+#: ../template-parts/featured-image-actu.php:6
+#: ../template-parts/featured-image-marches.php:12
+#: ../template-parts/featured-image-produits.php:3
+#: ../template-parts/featured-image-usine.php:16
+msgid "Home"
+msgstr "Accueil"
+
 #: ../template-parts/featured-image-marches.php:12
 msgid "Markets"
 msgstr "Marchés"
 
-#: ../template-parts/header-banner-usine.php:11
+#: ../template-parts/featured-image-usine.php:16
+msgid "A partner to your success"
+msgstr "Au service de vos performances"
+
+#: ../template-parts/featured-image-usine.php:16
+#: ../template-parts/header-banner-usine.php:6
 msgid "Industrial resources"
 msgstr "Outil industriel"
-
-#~ msgid "A key european producer of lng engineering steel products"
-#~ msgstr "Un acteur européen incontournable dans les aciers longs spéciaux..."
 
 #~ msgid "Continue reading..."
 #~ msgstr "Voir +"
