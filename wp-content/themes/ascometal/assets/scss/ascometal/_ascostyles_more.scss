@@ -706,6 +706,16 @@ header.header-image h1 {
     
 }
 
+.callbtn:hover{
+    cursor:pointer;
+}
+
+.ih-item.square.effect13 .info p.seemore {
+    position: absolute;
+    bottom: -15px;
+    width: 100%;
+}
+
 // à supprimer quand autres langues actives que juste l'anglais
 
 #navtools #lang_sel ul ul {
@@ -716,10 +726,14 @@ header.header-image h1 {
 max-height:290px;   
 }
 
-@media screen and (max-width : 1024px) {
-       .actus-home {
-        max-height:600px;   
+.alert-info li {
+    text-align: left;
 }
+
+@media screen and (max-width : 1024px) {
+   .actus-home {
+       max-height:600px;   
+    }
 }
 
 

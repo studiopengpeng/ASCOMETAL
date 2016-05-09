@@ -16,7 +16,7 @@ global $idBloc;
         <?php get_template_part( 'template-parts/header-banner-marches' ); ?>
         
         <article class="corporate">
-			<h1>Ascométal</h1>
+			<h1>Ascometal</h1>
 			
 			<div class="row">
 				<div class="small-12 columns" <?php post_class( 'main-content') ?> id="post-<?php the_ID(); ?>">

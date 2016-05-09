@@ -29,6 +29,11 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	// If you'd like to cherry-pick the foundation components you need in your project, head over to gulpfile.js and see lines 35-54.
 	// It's a good idea to do this, performance-wise. No need to load everything if you're just going to use the grid anyway, you know :)
 	wp_enqueue_script( 'foundation', get_template_directory_uri() . '/assets/javascript/foundation.js', array('jquery'), '2.3.0', true );
+        
+    // ascometal geolocalisation pour téléphone nav header
+    wp_enqueue_script( 'geolocalisation', get_template_directory_uri() . '/assets/javascript/custom/geolocalisation.js', array('jquery'), '1.0', true );
+    wp_enqueue_script( 'googlemapapi', '//maps.google.com/maps/api/js?sensor=true', array('jquery'), '', true );
+    
     
     // owl carousel actus homepage js
     if (is_home() || is_front_page()) {

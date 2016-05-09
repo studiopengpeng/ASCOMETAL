@@ -29,7 +29,8 @@ get_header(); ?>
                                         <!-- Ascometal -->
                                         <article class="ascometal small-12 medium-12 large-5 columns">
                                             <div class="ih-item square effect13 top_to_bottom">
-                                                <a href="<?php echo site_url(); ?>/ascometal-au-service-de-vos-performances/">
+                                                <?php if ($actulang!="fr") {$prelink="/".$actulang;} ?>
+                                                <a href="<?php echo site_url().$prelink; ?>/?p=2099">
                                                     <h3 class="title-asco">Ascometal</h3>
                                                     <div class="img">
                                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ascometal-bobine.jpg" alt="bobines d'acier laminé par Ascometal">
@@ -37,7 +38,7 @@ get_header(); ?>
                                                     <div class="info asco">
                                                         <h3>Ascometal</h3>
                                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/asco.svg" alt="monogramme d'Ascometal">
-                                                        <p><?php echo __( 'A key european producer of lng engineering steel products', 'foundationpress') ?></p>
+                                                        <p><?php echo __( 'A key european producer of long engineering steel products', 'foundationpress') ?></p>
                                                         <p class="seemore"><?php echo __("More...", "foundationpress") ?></p>
                                                     </div>
                                                 </a>

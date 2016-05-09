@@ -56,9 +56,9 @@
                                                 <nav class="large-12 columns">
                                                     <ul>
                                                         <li class="offcall">
-                                                            <span>+33 1 42 38 74 26</span>
+                                                            <span id="offcallnumber">Localisation...</span>
                                                         </li>
-                                                        <li class="callbtn"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/phone.svg" alt="téléphone"></li>
+                                                        <li class="callbtn"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/phone.svg" alt="telephone"></li>
                                                         <li class="searchbtn">
                                                             <a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/magnifier.svg" alt="rechercher">
                                               </a></li>

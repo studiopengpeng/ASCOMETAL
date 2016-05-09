@@ -56,41 +56,41 @@
 			//alert(results[4].formatted_address);
 			switch(results[5].formatted_address){
 				//monde 
-				case 'United-State': $('#asco-layout-phone-input').text('+1 914 332 7550');break;
-				case 'Canada': $('#asco-layout-phone-input').text('+1 914 332 7550');break;
-				case 'Australia': $('#asco-layout-phone-input').text('+33 1 42 38 74 25');break;
-				case 'India': $('#asco-layout-phone-input').text('+33 1 42 38 74 25');break;
-				case 'Chine': $('#asco-layout-phone-input').text('+33 1 42 38 74 25');break;
+				case 'United-State': $('#offcallnumber').text('+1 914 332 7550');break;
+				case 'Canada': $('#offcallnumber').text('+1 914 332 7550');break;
+				case 'Australia': $('#offcallnumber').text('+33 1 42 38 74 25');break;
+				case 'India': $('#offcallnumber').text('+33 1 42 38 74 25');break;
+				case 'Chine': $('#offcallnumber').text('+33 1 42 38 74 25');break;
 				// europe
-				case 'Deuchland': $('#asco-layout-phone-input').text('+ 49 211 924 797 0');break;
-				case 'Italia': $('#asco-layout-phone-input').text('+ 39 030 305 848');break;
-				case 'spagna': $('#asco-layout-phone-input').text(' + 34 93 363 1973');break;
-				case 'England': $('#asco-layout-phone-input').text('+ 44 161 886 0368');break;	
+				case 'Deuchland': $('#offcallnumber').text('+ 49 211 924 797 0');break;
+				case 'Italia': $('#offcallnumber').text('+ 39 030 305 848');break;
+				case 'spagna': $('#offcallnumber').text(' + 34 93 363 1973');break;
+				case 'England': $('#offcallnumber').text('+ 44 161 886 0368');break;	
 				// france
 				alert(results[4].formatted_address);
 				case 'France':switch(results[4].formatted_address){
 									// france-Est
-									case 'Lorraine, France': $('#asco-layout-phone-input').text('+33 3 87 70 50 89');break; 
-									case 'Alsace, France': $('#asco-layout-phone-input').text('+33 3 87 70 50 89');break;
-									case 'Champagne-Ardrenne, France': $('#asco-layout-phone-input').text('+33 3 87 70 50 89');break;
-									case 'Bourguogne, France': $('#asco-layout-phone-input').text('+33 3 87 70 50 89');break;
-									case 'Franche-Conté, France': $('#asco-layout-phone-input').text('+33 3 87 70 50 89');break;
-									case 'Rhone, France': $('#asco-layout-phone-input').text('+33 3 87 70 50 89');break;
+									case 'Lorraine, France': $('#offcallnumber').text('+33 3 87 70 50 89');break; 
+									case 'Alsace, France': $('#offcallnumber').text('+33 3 87 70 50 89');break;
+									case 'Champagne-Ardrenne, France': $('#offcallnumber').text('+33 3 87 70 50 89');break;
+									case 'Bourguogne, France': $('#offcallnumber').text('+33 3 87 70 50 89');break;
+									case 'Franche-Conté, France': $('#offcallnumber').text('+33 3 87 70 50 89');break;
+									case 'Rhone, France': $('#offcallnumber').text('+33 3 87 70 50 89');break;
 									// france-Nord
-									case 'Nord-Pas-de-Calais, France': $('#asco-layout-phone-input').text('+33 3 28 29 60 20');break;
-									case 'Piccardie, France': $('#asco-layout-phone-input').text('+33 3 28 29 60 20');break;
+									case 'Nord-Pas-de-Calais, France': $('#offcallnumber').text('+33 3 28 29 60 20');break;
+									case 'Piccardie, France': $('#offcallnumber').text('+33 3 28 29 60 20');break;
 									// france-Centre
-									case 'Auvergne, France': $('#asco-layout-phone-input').text('+33 4 77 45 51 58');break;
-									case 'Rhone-Alpes, France': $('#asco-layout-phone-input').text('+33 4 77 45 51 58');break;
+									case 'Auvergne, France': $('#offcallnumber').text('+33 4 77 45 51 58');break;
+									case 'Rhone-Alpes, France': $('#offcallnumber').text('+33 4 77 45 51 58');break;
 									// france-Sud
-									case 'Corse, France': $('#asco-layout-phone-input').text('+33 04 42 47 92 31');break;
-								 	case 'Provence-Alpes-Côte-d\'Azure, France': $('#asco-layout-phone-input').text('+33 04 42 47 92 31');break;
-									case 'Languedoc-Roussillon': $('#asco-layout-phone-input').text('+33 04 42 47 92 31');break;
-									case 'Midi-Pyrènées, France': $('#asco-layout-phone-input').text('+33 04 42 47 92 31');break;
-									case 'Aquitaine, France': $('#asco-layout-phone-input').text('+33 04 42 47 92 31');break;
-									default:$('#asco-layout-phone-input').text('+33 1 42 38 74 54');
+									case 'Corse, France': $('#offcallnumber').text('+33 04 42 47 92 31');break;
+								 	case 'Provence-Alpes-Côte-d\'Azure, France': $('#offcallnumber').text('+33 04 42 47 92 31');break;
+									case 'Languedoc-Roussillon': $('#offcallnumber').text('+33 04 42 47 92 31');break;
+									case 'Midi-Pyrènées, France': $('#offcallnumber').text('+33 04 42 47 92 31');break;
+									case 'Aquitaine, France': $('#offcallnumber').text('+33 04 42 47 92 31');break;
+									default:$('#offcallnumber').text('+33 1 42 38 74 54');
 								};break;
-				default:$('#asco-layout-phone-input').text('+ 33 1 42 38 74 26 ');
+				default:$('#offcallnumber').text('+ 33 1 42 38 74 26 ');
 				 }
 				 
 						

@@ -65,26 +65,29 @@ wp_nav_menu( $args_menu1 );
 </div>
 <!--live reload-->
 <script type='text/javascript' id="__bs_script__">//<![CDATA[
-   // document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.11.1.js'><\/script>".replace("HOST", location.hostname));
+   document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.11.1.js'><\/script>".replace("HOST", location.hostname));
 //]]></script>
 
-<!--Toggle sur le champs de recherche-->
-<script>
-$( "li.searchbtn" ).click(function() {
-  $( ".offsearch" ).toggleClass( "onsearch" );
-});
-</script>
 
-<!--Toggle sur le champs d'appel-->
-<script>
-$( "li.callbtn" ).click(function() {
-  $( ".offcall" ).toggleClass( "oncall" );
-});
-</script>
-
-<!--Add & remove class sur les icônes nouveaux produits de la page single-produits-ascometal.php-->
 <script>
 $(document).ready(function(){
+    
+    // Toggle sur le champs de recherche
+    $( "li.searchbtn" ).click(function() {
+      $( ".offsearch" ).toggleClass( "onsearch" );
+    });
+    
+    // geolocalisation telephone
+    var geolocated=false;
+    $( "li.callbtn" ).click(function() {
+        $( ".offcall" ).toggleClass( "oncall" );
+        if (geolocated==false) {
+            getLocation();
+            geolocated=true;
+        }
+    });
+    
+    // Add & remove class sur les icônes nouveaux produits de la page single-produits-ascometal.php
     $(".features").mouseover(function(){
         $(".features-alert").removeClass("hide");
         $(".features-alert").addClass("show");
@@ -109,49 +112,33 @@ $(document).ready(function(){
         $(".advantage-alert").removeClass("show");
         $(".advantage-alert").addClass("hide");
     });
-});
-</script>
-
-<!--Carousel homepage only -->
-<?php if (is_home() || is_front_page()) { ?>
-<script type='text/javascript'>
-jQuery(document).ready(function(){
-  jQuery(".owl-carousel").owlCarousel(
-  {
-   loop:true,
-    margin:10,
-    nav:true,
-    dots:false,
-    responsive:{
-        0:{
-            items:1
-        }
-    },
-   navText: ["&lt;", "&gt;"]
-  });
-});
-</script>
-<?php } ?>
-
-<!-- cache la boite de coordonnées sur les cartes -->
-<script>
-$(document).ready(function(){
     
-     $("#close-imapmessage").click(function(){
-         
+    <?php if (is_home() || is_front_page()) { ?>
+    // News carousel homepage only
+    jQuery(".owl-carousel").owlCarousel(
+      {
+       loop:true,
+        margin:10,
+        nav:true,
+        dots:false,
+        responsive:{
+            0:{
+                items:1
+            }
+        },
+       navText: ["&lt;", "&gt;"]
+      });
+    
+<?php } ?>
+    
+    
+    // cache initialement la boite de coordonnées sur les cartes
+    $("#close-imapmessage").click(function(){
         $("#imap1message").addClass("hide");
-         
     });
-});
-
-</script>
-
-<!-- Active l'apparition de la fleche "retours en haut" au scroll -->
-<script type="text/javascript">
-    $(document).ready(function () {
-       // $('.lift').append('<a href="#top" class="top_link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/up.svg" alt="remonter"</a>');
-        
-        $('.top_link').click(function() {
+    
+    // Active l'apparition de la fleche "retours en haut" au scroll
+    $('.top_link').click(function() {
             $('html, body').animate({
             scrollTop: 0
         }, 800);
@@ -164,10 +151,11 @@ $(document).ready(function(){
                 $('.top_link').fadeIn(300);
             else
                 $('.top_link').fadeOut(300);
-        });
-
     });
+    
+});
 </script>
+
 
 </body>
 </html>

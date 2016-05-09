@@ -5,7 +5,26 @@
  * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
-
+// couleurs du marché en cours
+$terms =  wp_get_post_terms( get_the_id(), "marches-produits" );
+$classColor="corporate";
+$linkUrlMarche=get_bloginfo('url')."/?p=2099";
+$prelink="";
+$actulang=ICL_LANGUAGE_CODE;
+if ($actulang!="fr") {$prelink="/".$actulang;}
+global $classColor;
+global $linkUrlMarche;
+foreach ($terms as $term) {
+    //echo "<br/>ID : ".$term->term_id;
+    if ($term->term_id==42 || $term->term_id==54 || $term->term_id==55 || $term->term_id==56) {$classColor="automobile"; $linkUrlMarche=	
+$prelink."/marches-ascometal/";}
+    else if ($term->term_id==43 || $term->term_id==65 || $term->term_id==69 || $term->term_id==71) {$classColor="roulement";$linkUrlMarche=	
+$prelink."/marches-ascometal/";}
+    else if ($term->term_id==45 || $term->term_id==64 || $term->term_id==68 || $term->term_id==70) {$classColor="petrole";$linkUrlMarche=	
+$prelink."/marches-ascometal/";}
+    else if ($term->term_id==44 || $term->term_id==63 || $term->term_id==66 || $term->term_id==67) {$classColor="mecanique";$linkUrlMarche=	
+$prelink."/marches-ascometal/";}
+}
 get_header(); ?>
 
 
