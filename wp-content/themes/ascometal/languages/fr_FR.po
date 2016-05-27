@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FoundationPress\n"
-"POT-Creation-Date: 2016-05-03 01:31+0200\n"
-"PO-Revision-Date: 2016-05-03 01:32+0200\n"
+"POT-Creation-Date: 2016-05-27 17:02+0200\n"
+"PO-Revision-Date: 2016-05-27 17:07+0200\n"
 "Last-Translator: \n"
 "Language-Team: Le Saint <info@lesaint.ca>\n"
 "Language: fr_FR\n"
@@ -45,12 +45,12 @@ msgstr "Retour à la <a href=\"%s\">page d'accueil</a>"
 msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
 msgstr "Cliquez sur le bouton <a href=\"javascript:history.back()\">Retour</a>"
 
-#: ../_marches.php:63 ../homepage.php:61 ../page-home-foundationpress.php:22
+#: ../_marches.php:63 ../homepage.php:66 ../page-home-foundationpress.php:22
 #: ../page-interactivemap.php:33 ../page-templates/front.php:38
 #: ../page-templates/page-full-width.php:22
 #: ../page-templates/page-sidebar-left.php:22 ../page.php:89
 #: ../single-produits-ascometal.php:127 ../single-produits-ascometal.php:129
-#: ../single.php:86 ../single.php:88 ../woocommerce.php:26
+#: ../single.php:99 ../single.php:101 ../woocommerce.php:26
 msgid "Pages:"
 msgstr "Pages"
 
@@ -137,26 +137,26 @@ msgstr "Tags utilisables:"
 msgid "Submit Comment"
 msgstr "Envoyer commentaire"
 
-#: ../homepage.php:14 ../template-parts/header-banner-actu.php:6
+#: ../homepage.php:19 ../template-parts/header-banner-actu.php:6
 #: ../template-parts/header-banner-marches.php:12
 #: ../template-parts/header-banner-produits.php:12
 msgid "...A partner<br />to your success"
 msgstr "Au service<br />de vos performances"
 
-#: ../homepage.php:40
-msgid "A key european producer of lng engineering steel products"
-msgstr "Un acteur européen incontournable dans les aciers longs spéciaux..."
+#: ../homepage.php:45
+msgid "A key european producer of long engineering steel products"
+msgstr "Un acteur européen incontournable dans les aciers longs spéciaux"
 
-#: ../homepage.php:41 ../template-parts/blocs-marches-index.php:36
+#: ../homepage.php:46 ../template-parts/blocs-marches-index.php:36
 #: ../template-parts/blocs-marches-index.php:56
 #: ../template-parts/blocs-marches-index.php:77
 #: ../template-parts/blocs-marches-index.php:96
-#: ../template-parts/carrousel-actualites.php:28
+#: ../template-parts/carrousel-actualites.php:34
 #: ../template-parts/content-blocs.php:51 ../template-parts/content.php:31
 msgid "More..."
 msgstr "Voir +"
 
-#: ../homepage.php:55
+#: ../homepage.php:60
 msgid "Among our references"
 msgstr "Ils nous font confiance..."
 
@@ -184,18 +184,46 @@ msgstr "Avantages"
 msgid "Benefits"
 msgstr "Bénéfices"
 
-#: ../single-usine.php:55
+#: ../single-usine.php:74
 msgid "Select a site :"
 msgstr "Sélectionnez un site :"
 
-#: ../single-usine.php:85
+#: ../single-usine.php:104
 msgid "Access map"
 msgstr "Plan d'accès"
 
-#: ../template-parts/blocs-marches-index.php:28
+#: ../single.php:34
+msgid "bearing"
+msgstr "roulement"
+
+#: ../single.php:35
+msgid "automotive"
+msgstr "automobile"
+
+#: ../single.php:36
+msgid "petrole"
+msgstr "petrole"
+
+#: ../single.php:37
+msgid "mechanical"
+msgstr "mecanique"
+
+#: ../single.php:38
+msgid "Bearing"
+msgstr "Roulement"
+
+#: ../single.php:39 ../template-parts/blocs-marches-index.php:28
 #: ../template-parts/blocs-marches-index.php:33
 msgid "Automotive"
 msgstr "Automobile"
+
+#: ../single.php:40
+msgid "Petrole"
+msgstr "Pétrole"
+
+#: ../single.php:41
+msgid "Mechanical"
+msgstr "Mécanique"
 
 #: ../template-parts/blocs-marches-index.php:35
 msgid "A perfect understanding of the technical and economic challenges..."
@@ -228,7 +256,7 @@ msgstr "Pétrole / gaz"
 msgid "A world-renowned player in drilling and extraction..."
 msgstr "Un acteur de renommée mondiale pour le forage et l’exploitation..."
 
-#: ../template-parts/carrousel-actualites.php:2
+#: ../template-parts/carrousel-actualites.php:8
 msgid "News"
 msgstr "Actualités"
 
@@ -260,13 +288,15 @@ msgstr ""
 "pourrait aider."
 
 #: ../template-parts/featured-image-actu.php:6
-#: ../template-parts/featured-image-marches.php:12
+#: ../template-parts/featured-image-marches.php:13
 #: ../template-parts/featured-image-produits.php:3
 #: ../template-parts/featured-image-usine.php:16
+#: ../template-parts/featured-image.php:20
 msgid "Home"
 msgstr "Accueil"
 
-#: ../template-parts/featured-image-marches.php:12
+#: ../template-parts/featured-image-marches.php:13
+#: ../template-parts/featured-image.php:20
 msgid "Markets"
 msgstr "Marchés"
 
@@ -275,9 +305,12 @@ msgid "A partner to your success"
 msgstr "Au service de vos performances"
 
 #: ../template-parts/featured-image-usine.php:16
-#: ../template-parts/header-banner-usine.php:6
+#: ../template-parts/header-banner-usine.php:11
 msgid "Industrial resources"
 msgstr "Outil industriel"
+
+#~ msgid "A key european producer of lng engineering steel products"
+#~ msgstr "Un acteur européen incontournable dans les aciers longs spéciaux..."
 
 #~ msgid "Continue reading..."
 #~ msgstr "Voir +"

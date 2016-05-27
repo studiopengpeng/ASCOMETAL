@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FoundationPress\n"
-"POT-Creation-Date: 2016-05-03 01:37+0200\n"
-"PO-Revision-Date: 2016-05-03 01:39+0200\n"
+"POT-Creation-Date: 2016-05-27 17:07+0200\n"
+"PO-Revision-Date: 2016-05-27 17:07+0200\n"
 "Last-Translator: Francesco Michelini <kekko.rider@libero.it>\n"
 "Language-Team: Le Saint <info@lesaint.ca>\n"
 "Language: fr_FR\n"
@@ -46,12 +46,12 @@ msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
 msgstr ""
 "Cliccare sul pulsante <a href=\"javascript:history.back()\">Indietro</a>"
 
-#: ../_marches.php:63 ../homepage.php:61 ../page-home-foundationpress.php:22
+#: ../_marches.php:63 ../homepage.php:66 ../page-home-foundationpress.php:22
 #: ../page-interactivemap.php:33 ../page-templates/front.php:38
 #: ../page-templates/page-full-width.php:22
 #: ../page-templates/page-sidebar-left.php:22 ../page.php:89
 #: ../single-produits-ascometal.php:127 ../single-produits-ascometal.php:129
-#: ../single.php:86 ../single.php:88 ../woocommerce.php:26
+#: ../single.php:99 ../single.php:101 ../woocommerce.php:26
 msgid "Pages:"
 msgstr "Pagine:"
 
@@ -138,26 +138,26 @@ msgstr "Puoi usare questi tag:"
 msgid "Submit Comment"
 msgstr "Inserisci Commento"
 
-#: ../homepage.php:14 ../template-parts/header-banner-actu.php:6
+#: ../homepage.php:19 ../template-parts/header-banner-actu.php:6
 #: ../template-parts/header-banner-marches.php:12
 #: ../template-parts/header-banner-produits.php:12
 msgid "...A partner<br />to your success"
 msgstr ""
 
-#: ../homepage.php:40
-msgid "A key european producer of lng engineering steel products"
+#: ../homepage.php:45
+msgid "A key european producer of long engineering steel products"
 msgstr ""
 
-#: ../homepage.php:41 ../template-parts/blocs-marches-index.php:36
+#: ../homepage.php:46 ../template-parts/blocs-marches-index.php:36
 #: ../template-parts/blocs-marches-index.php:56
 #: ../template-parts/blocs-marches-index.php:77
 #: ../template-parts/blocs-marches-index.php:96
-#: ../template-parts/carrousel-actualites.php:28
+#: ../template-parts/carrousel-actualites.php:34
 #: ../template-parts/content-blocs.php:51 ../template-parts/content.php:31
 msgid "More..."
 msgstr ""
 
-#: ../homepage.php:55
+#: ../homepage.php:60
 msgid "Among our references"
 msgstr ""
 
@@ -185,17 +185,45 @@ msgstr ""
 msgid "Benefits"
 msgstr ""
 
-#: ../single-usine.php:55
+#: ../single-usine.php:74
 msgid "Select a site :"
 msgstr ""
 
-#: ../single-usine.php:85
+#: ../single-usine.php:104
 msgid "Access map"
 msgstr ""
 
-#: ../template-parts/blocs-marches-index.php:28
+#: ../single.php:34
+msgid "bearing"
+msgstr ""
+
+#: ../single.php:35
+msgid "automotive"
+msgstr ""
+
+#: ../single.php:36
+msgid "petrole"
+msgstr ""
+
+#: ../single.php:37
+msgid "mechanical"
+msgstr ""
+
+#: ../single.php:38
+msgid "Bearing"
+msgstr ""
+
+#: ../single.php:39 ../template-parts/blocs-marches-index.php:28
 #: ../template-parts/blocs-marches-index.php:33
 msgid "Automotive"
+msgstr ""
+
+#: ../single.php:40
+msgid "Petrole"
+msgstr ""
+
+#: ../single.php:41
+msgid "Mechanical"
 msgstr ""
 
 #: ../template-parts/blocs-marches-index.php:35
@@ -229,7 +257,7 @@ msgstr ""
 msgid "A world-renowned player in drilling and extraction..."
 msgstr ""
 
-#: ../template-parts/carrousel-actualites.php:2
+#: ../template-parts/carrousel-actualites.php:8
 msgid "News"
 msgstr ""
 
@@ -261,13 +289,15 @@ msgstr ""
 "esserti d'aiuto."
 
 #: ../template-parts/featured-image-actu.php:6
-#: ../template-parts/featured-image-marches.php:12
+#: ../template-parts/featured-image-marches.php:13
 #: ../template-parts/featured-image-produits.php:3
 #: ../template-parts/featured-image-usine.php:16
+#: ../template-parts/featured-image.php:20
 msgid "Home"
 msgstr ""
 
-#: ../template-parts/featured-image-marches.php:12
+#: ../template-parts/featured-image-marches.php:13
+#: ../template-parts/featured-image.php:20
 msgid "Markets"
 msgstr ""
 
@@ -276,7 +306,7 @@ msgid "A partner to your success"
 msgstr ""
 
 #: ../template-parts/featured-image-usine.php:16
-#: ../template-parts/header-banner-usine.php:6
+#: ../template-parts/header-banner-usine.php:11
 msgid "Industrial resources"
 msgstr ""
 

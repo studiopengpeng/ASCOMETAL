@@ -61,6 +61,12 @@ function parent_page_title() {
     echo $parent;
 }
 
+function parent_page_url() {
+	global $post;
+	$parent = empty( $post->post_parent ) ? '' : get_the_permalink($post->post_parent);
+    echo $parent;
+}
+
 // tronk actus
 function tronk($texte, $nbcars, $separ) {
 $max_caracteres=$nbcars;

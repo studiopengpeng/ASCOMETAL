@@ -10,22 +10,45 @@
 $terms =  wp_get_post_terms( get_the_id(), "marches-asco" );
 $classColor="corporate";
 $linkUrlMarche=get_bloginfo('url')."/?p=2099";
+$linkUrlMarcheSingle="";
 $prelink="";
+$nomMarche="";
+$nomMarcheUrl="";
+$contexte="standard";
 $actulang=ICL_LANGUAGE_CODE;
 if ($actulang!="fr") {$prelink="/".$actulang;}
 global $classColor;
 global $linkUrlMarche;
+global $linkUrlMarcheSingle;
+global $nomMarche;
+global $contexteType;
+global $nomMarcheUrl;
 foreach ($terms as $term) {
     //echo "<br/>ID : ".$term->term_id;
     if ($term->term_id==18 || $term->term_id==22 || $term->term_id==23 || $term->term_id==24) {$classColor="automobile"; $linkUrlMarche=	
-$prelink."/marches-ascometal/";}
+$prelink."/marches-ascometal/";$nomMarche="Automotive";$contexteType="marche";$nomMarcheUrl="automotive";$linkUrlMarcheSingle=	
+$prelink."/marches-asco/";}
     else if ($term->term_id==19 || $term->term_id==37 || $term->term_id==35 || $term->term_id==36) {$classColor="roulement";$linkUrlMarche=	
-$prelink."/marches-ascometal/";}
+$prelink."/marches-ascometal/";$nomMarche="Bearing";$contexteType="marche";$nomMarcheUrl="bearing";$linkUrlMarcheSingle=	
+$prelink."/marches-asco/";}
     else if ($term->term_id==20 || $term->term_id==33 || $term->term_id==34 || $term->term_id==32) {$classColor="petrole";$linkUrlMarche=	
-$prelink."/marches-ascometal/";}
+$prelink."/marches-ascometal/";$nomMarche="Petrole";$contexteType="marche";$nomMarcheUrl="petrole";$linkUrlMarcheSingle=	
+$prelink."/marches-asco/";}
     else if ($term->term_id==21 || $term->term_id==29 || $term->term_id==30 || $term->term_id==31) {$classColor="mecanique";$linkUrlMarche=	
-$prelink."/marches-ascometal/";}
+$prelink."/marches-ascometal/";$nomMarche="Mechanical";$contexteType="marche";$nomMarcheUrl="mechanical";$linkUrlMarcheSingle=	
+$prelink."/marches-asco/";}
 }
+
+/*
+echo __("bearing", "foundationpress")
+echo __("automotive", "foundationpress")
+echo __("petrole", "foundationpress")
+echo __("mechanical", "foundationpress")
+echo __("Bearing", "foundationpress")
+echo __("Automotive", "foundationpress")
+echo __("Petrole", "foundationpress")
+echo __("Mechanical", "foundationpress")
+*/
 
 //echo "OOO : ".$classColor." / ".$linkUrlMarche;
 
