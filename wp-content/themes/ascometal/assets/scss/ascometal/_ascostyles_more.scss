@@ -862,3 +862,98 @@ PLAN DE SITE (MENU GAUCHE PLACE DANS LE MAIN CONTAINER)
         }
 }
 
+
+/*---------------------------------------------------------------
+CALCULATRICE : CLASSES FORMULAIRES
+---------------------------------------------------------------*/
+tr.calc-separator {
+    border-bottom: 1px dotted $asco;
+}
+
+#form.form-conv {
+    
+    table.convertisseur {
+        border: 0px solid #f5f5f5 !important;
+
+        tbody tr:nth-child(even) {
+        background-color: #f5f5f5 !important;
+        }
+    }
+    
+}
+
+#form.form-masse {
+    
+    input[type='text'] {
+    width:70%;
+    display:inline-block;
+    }
+    
+}
+
+#form.form-carbone {
+    
+    table.carbone tbody td {
+        padding: 0 !important;
+    }
+    
+    table.carbone tbody td.commentaire {
+        vertical-align: bottom;
+        
+        div {
+            width:80%;
+            margin-left:20%;
+            font-size:12px;
+            color:#333;
+            word-break: keep-all;
+        }
+    }
+
+    input[type='text'] {
+        width:90%;
+        display:inline-block;
+        float:right;
+        margin: 2px 0 2px 0;
+    }
+
+    label {
+        width:10%;
+        display:inline-block;
+        float:left;
+        text-align:center;
+        font-weight: bold;
+        padding-top: 9px;
+    }
+
+    input[type='text'].small {
+        width:80%;
+        display:inline-block;
+        float:right;
+        margin: 2px 0 2px 0;
+    }
+
+    label.small {
+        width:20%;
+        display:inline-block;
+        float:left;
+    }
+    
+
+    
+}
+
+@media screen and (max-width : 650px) {
+    
+    #form.form-masse input[type='text'] {
+    width:100%;
+    display:inline-block;
+    }
+    
+    #form.form-masse .unites {
+        font-size: 10px;
+        float: right;
+        display: inline-block;
+        line-height: 0px;
+        margin-top:-7px;
+    }
+}
