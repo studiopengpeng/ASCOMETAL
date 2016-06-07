@@ -2,17 +2,17 @@
     /*---------------------------------------------------------------
 REGLAGES GLOBAUX / GLOBAL SETTINGS
 ---------------------------------------------------------------*/
-    
-    // * * * * * * * * * * helper-class * * * * * * * * * * 
+
+    // * * * * * * * * * * helper-class * * * * * * * * * *
     .pad-0 {
         padding: 0;
     }
-    
+
     .marg-0 {
         margin: 0;
     }
-    
-    // * * * * * * * * * * Couleurs des marchés * * * * * * * * * * 
+
+    // * * * * * * * * * * Couleurs des marchés * * * * * * * * * *
     $automobile: #99be51;
     $automobileAlpha: rgba(153, 190, 81, 0.7);
     $roulement: #f28e00;
@@ -31,34 +31,34 @@ REGLAGES GLOBAUX / GLOBAL SETTINGS
         overflow: hidden;
         margin: auto;
     }
-    
-    // * * * * * * * * * * * * * page.php * * * * * * * * * * * * * 
+
+    // * * * * * * * * * * * * * page.php * * * * * * * * * * * * *
     #global-container {
         max-width: 80em !important;
         overflow: hidden;
         margin: 0 auto;
     }
-    
+
     #page,
     #single-post {
         margin-top: 0;
         background: #fafafa;
     }
-    
+
     // * * * * * * * * * * * * * END page.php * * * * * * * * * * *
     .indent {
         text-indent: -8000px;
         height: 0px;
         margin: 0;
     }
-    
+
     .shadow {
         background: #f5f5f5;
         padding: 30px 30px 0px 30px;
         box-shadow: inset 14px 0px 30px -10px rgba(143, 143, 143, 0.2);
     }
-    
-    // * * * * * * * * * * * * * Fleches fixes pour remonter ou descendre dans la page * * * * * * * * * * *    
+
+    // * * * * * * * * * * * * * Fleches fixes pour remonter ou descendre dans la page * * * * * * * * * * *
     .lift {
         height: 37px;
         position: fixed;
@@ -95,17 +95,17 @@ REGLAGES GLOBAUX / GLOBAL SETTINGS
         }
     }
     /*---------------------------------------------------------------
-MARCHES HOME (présentation + effets au survol) 
+MARCHES HOME (présentation + effets au survol)
 ---------------------------------------------------------------*/
-    
+
     article.rolling {
         padding-bottom: 20px;
     }
-    
+
     #markets {
         overflow: auto;
     }
-    
+
     .ih-item {
         -webkit-box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
         -moz-box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
@@ -115,26 +115,26 @@ MARCHES HOME (présentation + effets au survol)
         -moz-transition: all 0.35s ease-in-out;
         transition: all 0.35s ease-in-out;
     }
-    
+
     .ih-item,
     .ih-item * {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
     }
-    
+
     .ih-item a {
         color: #333;
     }
-    
+
     .ih-item a:hover {
         text-decoration: none;
     }
-    
+
     .ih-item.square {
         position: relative;
     }
-    
+
     .ih-item.square .info {
         position: absolute;
         top: 0;
@@ -145,19 +145,19 @@ MARCHES HOME (présentation + effets au survol)
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
     }
-    
+
     .ih-item.square.effect13 {
         overflow: hidden;
     }
-    
+
     .ih-item.square.effect13.colored .info {
         background: rgba(26, 74, 114, 0.6);
     }
-    
+
     .ih-item.square.effect13.colored .info h3 {
         background: rgba(12, 34, 52, 0.6);
     }
-    
+
     .ih-item.square.effect13 .img {
         -webkit-transition: all 0.35s ease-in-out;
         -moz-transition: all 0.35s ease-in-out;
@@ -168,7 +168,7 @@ MARCHES HOME (présentation + effets au survol)
         -o-transform: scale(1);
         transform: scale(1);
     }
-    
+
     .ih-item.square.effect13 .info {
         background: #333333;
         background: rgba(0, 0, 0, 0.6);
@@ -179,47 +179,47 @@ MARCHES HOME (présentation + effets au survol)
         -moz-transition: all 0.35s ease-in-out;
         transition: all 0.35s ease-in-out;
     }
-    
+
     article.automobile .ih-item.square.effect13 .info {
         background: $automobileAlpha;
     }
-    
+
     article.roulement .ih-item.square.effect13 .info {
         background: $roulementAlpha;
     }
-    
+
     article.petrole .ih-item.square.effect13 .info {
         background: $petroleAlpha;
     }
-    
+
     article.mecanique .ih-item.square.effect13 .info {
         background: $mecaniqueAlpha;
     }
-    
+
     article.corporate .ih-item.square.effect13 .info {
         background: $ascoAlpha;
     }
-    
+
     .ih-item.square.effect13 .mec {
         background: rgba(174, 62, 40, 0.75);
     }
-    
+
     .ih-item.square.effect13 .rol {
         background: rgba(242, 142, 0, 0.75);
     }
-    
+
     .ih-item.square.effect13 .aut {
         background: rgba(153, 190, 81, 0.75);
     }
-    
+
     .ih-item.square.effect13 .pet {
         background: rgba(3, 136, 142, 0.75);
     }
-    
+
     .ih-item.square.effect13 .asco {
         background: rgba(255, 255, 255, 0.3);
     }
-    
+
     .ih-item.square.effect13 .info h3 {
         text-transform: uppercase;
         font-weight: 700;
@@ -232,7 +232,7 @@ MARCHES HOME (présentation + effets au survol)
         margin-top: rem-calc(15);
         padding: 0px 10px;
     }
-    
+
     #about {
         padding-bottom: 30px;
         overflow: auto;
@@ -248,7 +248,7 @@ MARCHES HOME (présentation + effets au survol)
             }
         }
     }
-    
+
     .ih-item.square.effect13 .info p {
         font-weight: 400;
         font-size: rem-calc(16);
@@ -257,7 +257,7 @@ MARCHES HOME (présentation + effets au survol)
         padding: 15px 20px;
         text-align: center;
     }
-    
+
     .ih-item.square.effect13 a:hover .img {
         -webkit-transform: scale(1.2);
         -moz-transform: scale(1.2);
@@ -265,12 +265,12 @@ MARCHES HOME (présentation + effets au survol)
         -o-transform: scale(1.2);
         transform: scale(1.2);
     }
-    
+
     .ih-item.square.effect13 a:hover .info {
         visibility: visible;
         opacity: 1;
     }
-    
+
     .ih-item.square.effect13.top_to_bottom .info {
         -webkit-transform: translateY(-100%);
         -moz-transform: translateY(-100%);
@@ -278,7 +278,7 @@ MARCHES HOME (présentation + effets au survol)
         -o-transform: translateY(-100%);
         transform: translateY(-100%);
     }
-    
+
     .ih-item.square.effect13.top_to_bottom a:hover .info {
         -webkit-transform: translateY(0);
         -moz-transform: translateY(0);
@@ -286,7 +286,7 @@ MARCHES HOME (présentation + effets au survol)
         -o-transform: translateY(0);
         transform: translateY(0);
     }
-    
+
     .ih-item.square.effect13.top_to_bottom a h3.title-auto,
     .ih-item.square.effect13.top_to_bottom a h3.title-rolling,
     .ih-item.square.effect13.top_to_bottom a h3.title-mechanical,
@@ -307,52 +307,52 @@ MARCHES HOME (présentation + effets au survol)
         -moz-transition: all 0.2s linear;
         transition: all 0.2s linear;
     }
-    
+
     .ih-item.square.effect13.top_to_bottom a h3.title-asco {
         color: $asco;
     }
-    
+
     .title-auto {
         background-color: rgba(153, 190, 81, 0.7);
     }
-    
+
     .title-rolling {
         background-color: rgba(242, 142, 0, 0.7);
         padding: 0px 10px;
     }
-    
+
     article.automobile .title-rolling {
         background-color: $automobileAlpha;
     }
-    
+
     article.roulement .title-rolling {
         background-color: $roulementAlpha;
     }
-    
+
     article.petrole .title-rolling {
         background-color: $petroleAlpha;
     }
-    
+
     article.mecanique .title-rolling {
         background-color: $mecaniqueAlpha;
     }
-    
+
     article.corporate .title-rolling {
         background-color: $ascoAlpha;
     }
-    
+
     .title-mechanical {
         background-color: rgba(174, 62, 40, 0.7);
     }
-    
+
     .title-petrol {
         background-color: rgba(3, 136, 142, 0.7);
     }
-    
+
     .title-asco {
         background-color: rgba(255, 255, 255, 0.7);
     }
-    
+
     .ih-item.square.effect13.top_to_bottom a:hover h3.title-auto,
     .ih-item.square.effect13.top_to_bottom a:hover h3.title-rolling,
     .ih-item.square.effect13.top_to_bottom a:hover h3.title-mechanical,
@@ -360,12 +360,12 @@ MARCHES HOME (présentation + effets au survol)
     .ih-item.square.effect13.top_to_bottom a:hover h3.title-asco {
         opacity: 0;
     }
-    
+
     .info img {
         margin: 0 auto 0px auto;
         padding-bottom: 0;
     }
-    
+
     #about article .ih-item.square.effect13 .info p.seemore {
         text-transform: uppercase;
         font-size: rem-calc(24);
@@ -375,14 +375,14 @@ MARCHES HOME (présentation + effets au survol)
         text-align: center;
         width: 100%;
     }
-    
+
     #markets {
         padding: 30px 0px 0px 0px;
         article {
             margin-bottom: 30px;
         }
     }
-    
+
     @media screen and (max-width: 1280px) {
         .ih-item.square.effect13 .info {
             img {
@@ -401,7 +401,7 @@ MARCHES HOME (présentation + effets au survol)
             margin-bottom: 10px;
         }
     }
-    
+
     @media screen and (max-width: 1024px) {
         .ih-item.square.effect13 .info {
             img {
@@ -415,13 +415,13 @@ MARCHES HOME (présentation + effets au survol)
             }
         }
     }
-    
+
     @media screen and (min-width: 640px) and (max-width: 740px) {
         .ih-item.square.effect13 .info img {
             margin: 0px auto 10px auto;
         }
     }
-    
+
     @media screen and (max-width: 640px) {
         #markets {
             padding: 25px 0px 0px 0px;
@@ -431,7 +431,7 @@ MARCHES HOME (présentation + effets au survol)
             margin: 10px auto 10px auto;
         }
     }
-    
+
     @media screen and (max-width: 500px) {
         article.ascometal .ih-item.square.effect13 .info p {
             line-height: 20px;
@@ -440,7 +440,7 @@ MARCHES HOME (présentation + effets au survol)
             width: 100%;
         }
     }
-    
+
     @media screen and (max-width: 400px) {
         .ih-item.square.effect13 .info img {
             margin: 10px auto 10px auto;
@@ -452,15 +452,15 @@ MARCHES HOME (présentation + effets au survol)
     /*---------------------------------------------------------------
 MARCHES / NOUVEAUX PRODUITS
 ---------------------------------------------------------------*/
-    
+
     .produits #main-container {
         padding: 30px 50px;
     }
-    
+
     .produits .market-color {
         color: $automobile !important;
     }
-    
+
     .produits .product-view {
         position: relative;
         img {
@@ -485,7 +485,7 @@ MARCHES / NOUVEAUX PRODUITS
             }
         }
     }
-    
+
     .features,
     .advantage,
     .benefits {
@@ -504,7 +504,7 @@ MARCHES / NOUVEAUX PRODUITS
         -moz-transition: all 0.2s ease-out;
         -o-transition: all 0.2s ease-out;
     }
-    
+
     .benefits-info,
     .advantage-info,
     .features-info {
@@ -519,15 +519,15 @@ MARCHES / NOUVEAUX PRODUITS
         -moz-box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
         box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
     }
-    
+
     .short-description {
         text-align: center;
     }
-    
+
     .description {
         margin-top: 20px;
     }
-    
+
     .features {
         background-image: url('../images/features.svg');
         margin-bottom: 15px;
@@ -536,7 +536,7 @@ MARCHES / NOUVEAUX PRODUITS
             cursor: pointer;
         }
     }
-    
+
     .advantage {
         background-image: url('../images/advantage.svg');
         margin: 15px auto;
@@ -545,7 +545,7 @@ MARCHES / NOUVEAUX PRODUITS
             cursor: pointer;
         }
     }
-    
+
     .benefits {
         background-image: url('../images/benefits.svg');
         margin-top: 15px;
@@ -554,24 +554,24 @@ MARCHES / NOUVEAUX PRODUITS
             cursor: pointer;
         }
     }
-    
+
     .features-info {
         background-image: url('../images/features-over.svg');
     }
-    
+
     .advantage-info {
         background-image: url('../images/advantage-over.svg');
     }
-    
+
     .benefits-info {
         background-image: url('../images/benefits-over.svg');
     }
-    
+
     div.features {
         width: 75px;
         margin: 15px auto 0px auto;
     }
-    
+
     .alert-box {
         background-color: #fff;
         padding: 30px;
@@ -582,11 +582,11 @@ MARCHES / NOUVEAUX PRODUITS
             font-family: "Lora", serif;
         }
     }
-    
+
     .features-alert h3 {
         display: block !important;
     }
-    
+
     .documentation {
         background-color: #fff;
         margin-top: 30px;
@@ -618,11 +618,11 @@ MARCHES / NOUVEAUX PRODUITS
             }
         }
     }
-    
+
     .documentation:hover p.title {
         color: $asco;
     }
-    
+
     @media screen and (max-width: 750px) {
         .documentation {
             margin-left: 15px;
@@ -656,7 +656,7 @@ MARCHES / NOUVEAUX PRODUITS
             }
         }
     }
-    
+
     @media screen and (max-width: 640px) {
         .alert-box {
             margin-left: 0;
@@ -668,7 +668,7 @@ MARCHES / NOUVEAUX PRODUITS
     /*---------------------------------------------------------------
 IMAGE D'ENTETE / HEADER-IMAGE
 ---------------------------------------------------------------*/
-    
+
     header.header-image {
         position: relative;
         #featured-hero {
@@ -694,7 +694,7 @@ IMAGE D'ENTETE / HEADER-IMAGE
     /*---------------------------------------------------------------
 BREADCRUMBS
 ---------------------------------------------------------------*/
-    
+
     .breadcrumbs {
         padding: 23px 25px 0px 37px;
         color: #DDD;
@@ -712,7 +712,7 @@ BREADCRUMBS
     /*---------------------------------------------------------------
 CONTENU DE SAISIE / MAIN-CONTAINER
 ---------------------------------------------------------------*/
-    
+
     article > h1 {
         text-transform: uppercase;
         padding-left: 33px;
@@ -720,23 +720,23 @@ CONTENU DE SAISIE / MAIN-CONTAINER
         color: $asco;
         padding-top: rem-calc(30);
     }
-    
+
     article.automobile > h1 {
         color: $automobile;
     }
-    
+
     article.roulement > h1 {
         color: $roulement;
     }
-    
+
     article.petrole > h1 {
         color: $petrole;
     }
-    
+
     article.mecanique > h1 {
         color: $mecanique;
     }
-    
+
     #main-container,
     .main-content {
         background: #f5f5f5;
@@ -826,14 +826,14 @@ CONTENU DE SAISIE / MAIN-CONTAINER
             box-shadow: 0px 7px 29px 0px rgba(0, 0, 0, 0.3);
         }
     }
-    
+
     nav.slidenav {
         width: 100%;
     }
     /*---------------------------------------------------------------
 MENU PRINCIPAL / TOP-BAR
 ---------------------------------------------------------------*/
-    
+
     .top-bar,
     .top-bar ul,
     .top-bar li,
@@ -843,22 +843,22 @@ MENU PRINCIPAL / TOP-BAR
         height: 50px;
         z-index: 200;
     }
-    
+
     nav#site-navigation {
         max-width: 80rem;
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     .top-bar .menu a:hover:not(.button) {
         background-color: #fff;
     }
-    
+
     #masthead {
         padding-bottom: 6px;
         padding-top: 7px;
     }
-    
+
     .top-bar {
         padding: 0;
         li {
@@ -906,29 +906,29 @@ MENU PRINCIPAL / TOP-BAR
             box-shadow: 0px 7px 29px 0px rgba(0, 0, 0, 0.15);
         }
     }
-    
+
     .top-bar-section .dropdown {
         li {
             height: auto;
         }
     }
-    
+
     //items du menu ferrés à droite
     .dropdown.menu:not(.vertical) .is-dropdown-submenu.first-sub {
         left: auto;
         right: 0;
     }
-    
+
     li .active > a {
         color: $asco !important;
     }
-    
+
     .top-bar li .active > a {
         background-color: #f8f8f8;
         box-shadow: inset 5px 0px 0px 0px $asco;
     }
-    
-    // * * * * * * * * * * * * * Logo * * * * * * * * * * * * * 
+
+    // * * * * * * * * * * * * * Logo * * * * * * * * * * * * *
     .top-bar-left {
         position: relative;
         .logo img {
@@ -942,7 +942,7 @@ MENU PRINCIPAL / TOP-BAR
         }
         width: 260px;
     }
-    
+
     @media screen and (max-width: 1024px) {
         #mobile-menu,
         .title-bar {
@@ -954,18 +954,18 @@ MENU PRINCIPAL / TOP-BAR
             box-shadow: 0 7px 0 #E42618, 0 14px 0 #E42618;
         }
     }
-    
+
     .title-bar-title img {
         width: 60%;
         padding-left: 5px;
     }
-    
+
     .top-bar {
         .menu a {
             letter-spacing: 0;
         }
     }
-    
+
     @media screen and (max-width: 1024px) {
         #main-container .top-bar,
         .top-bar ul,
@@ -992,7 +992,7 @@ MENU PRINCIPAL / TOP-BAR
             margin-left: 0!important;
         }
     }
-    
+
     @media screen and (max-width: 1050px) {
         header.header-image h1 {
             line-height: 50px;
@@ -1002,7 +1002,7 @@ MENU PRINCIPAL / TOP-BAR
             margin-right: 53px;
         }
     }
-    
+
     @media screen and (max-width: 640px) {
         #main-container .top-bar,
         .top-bar ul,
@@ -1017,7 +1017,7 @@ MENU PRINCIPAL / TOP-BAR
             font-size: 40px;
         }
     }
-    
+
     @media screen and (max-width: 470px) {
         header.header-image h1 {
             line-height: 35px;
@@ -1026,7 +1026,7 @@ MENU PRINCIPAL / TOP-BAR
             padding: 0 20px;
         }
     }
-    
+
     @media screen and (max-width: 350px) {
         .title-bar-title {
             width: 80%;
@@ -1035,7 +1035,7 @@ MENU PRINCIPAL / TOP-BAR
     /*---------------------------------------------------------------
 MENU LANGUES / RECHERCHE / CONNEXION / CONTACT DIRECT
 ---------------------------------------------------------------*/
-    
+
     #navtools nav {
         //    height: 50px;
         text-align: right;
@@ -1067,13 +1067,13 @@ MENU LANGUES / RECHERCHE / CONNEXION / CONTACT DIRECT
             height: 40px;
         }
     }
-    
+
     #searchform [type='submit'] {
         background-color: $automobile;
         letter-spacing: 0.8px;
         width: 150px;
     }
-    
+
     .offsearch {
         float: right;
         height: 0;
@@ -1082,23 +1082,23 @@ MENU LANGUES / RECHERCHE / CONNEXION / CONTACT DIRECT
         opacity: 0;
         transition: all 200ms ease;
     }
-    
+
     .onsearch {
         height: 40px;
         opacity: 1;
     }
-    
+
     .offcall {
         opacity: 0;
         position: relative;
         transition: all 200ms ease;
         height: 35px;
     }
-    
+
     .oncall {
         opacity: 1;
     }
-    
+
     #navtools span {
         font-size: 1.2em;
         position: absolute;
@@ -1106,75 +1106,75 @@ MENU LANGUES / RECHERCHE / CONNEXION / CONTACT DIRECT
         left: -150px;
     }
     /* header dropdown menu des langues*/
-    
+
     #navtools nav {
         overflow: visible;
     }
-    
+
     #navtools #lang_sel li {
         float: left;
         width: 40px;
     }
-    
+
     #navtools #lang_sel ul ul {
         width: auto;
     }
     /* memo : ! effacer les modifications d'opacité (donc l'animation) si soucis sur mobiles ! */
-    
+
     #lang_sel ul ul {
         width: auto;
         visibility: hidden;
         opacity: 0;
         transition: all .3s;
     }
-    
+
     #lang_sel ul li:hover ul,
     #lang_sel ul a:hover ul {
         visibility: visible;
         opacity: 1;
     }
-    
+
     #navtools #lang_sel ul li {
         /*display:block;
 	float:none;*/
         display: inline-block;
         float: left;
     }
-    
+
     #navtools #lang_sel ul:first-child {
         margin-top: 15px !important;
         li:first-child {
             width: 60px !important;
         }
     }
-    
+
     #navtools #lang_sel ul ul {
         width: 210px;
         position: relative;
         left: -44px;
         top: 5px;
     }
-    
+
     #navtools #lang_sel li a.icl-fr img,
     #navtools #lang_sel li.icl-fr a img {
         content: url('../images/france-flag.svg');
     }
-    
+
     #navtools #lang_sel li.icl-en a img,
     #navtools #lang_sel li a.icl-en img {
         content: url('../images/greatbritain-flag.svg');
     }
-    
+
     #navtools #lang_sel li.icl-de a img,
     #navtools #lang_sel li a.icl-de img {
         content: url('../images/germany-flag.svg');
     }
-    
+
     #navtools #lang_sel li.icl-it a img,
     #navtools #lang_sel li a.icl-it img {
         content: url('../images/italy-flag.svg');
     }
-    
+
     #navtools #lang_sel ul li img.iclflag {
         width: 24px;
         height: auto;
@@ -1182,36 +1182,36 @@ MENU LANGUES / RECHERCHE / CONNEXION / CONTACT DIRECT
         top: 0;
         left: -10px;
     }
-    
+
     #navtools #lang_sel ul li:first-child img.iclflag {
         left: -11px;
     }
-    
+
     #navtools #lang_sel ul ul a {
         padding: 5px 0px;
     }
     /* fin menu des langues */
-    
+
     #navtools #lang_sel li a.icl-fr img,
     #navtools #lang_sel li.icl-fr a img {
         content: url('../images/france-flag.svg');
     }
-    
+
     #navtools #lang_sel li.icl-en a img,
     #navtools #lang_sel li a.icl-en img {
         content: url('../images/greatbritain-flag.svg');
     }
-    
+
     #navtools #lang_sel li.icl-de a img,
     #navtools #lang_sel li a.icl-de img {
         content: url('../images/germany-flag.svg');
     }
-    
+
     #navtools #lang_sel li.icl-it a img,
     #navtools #lang_sel li a.icl-it img {
         content: url('../images/italy-flag.svg');
     }
-    
+
     #navtools #lang_sel ul li img.iclflag {
         width: 24px;
         height: auto;
@@ -1219,16 +1219,16 @@ MENU LANGUES / RECHERCHE / CONNEXION / CONTACT DIRECT
         top: 0;
         left: -10px;
     }
-    
+
     #navtools #lang_sel ul li:first-child img.iclflag {
         left: -11px;
     }
-    
+
     #navtools #lang_sel ul ul a {
         padding: 5px 0px;
     }
     /* fin menu des langues */
-    
+
     @media screen and (max-width: 470px) {
         #searchform [type='submit'] {
             width: auto;
@@ -1237,7 +1237,7 @@ MENU LANGUES / RECHERCHE / CONNEXION / CONTACT DIRECT
     /*---------------------------------------------------------------
 MENU SECONDAIRE GAUCHE / TOUCHSCROLLER
 ---------------------------------------------------------------*/
-    
+
     #touchscroller {
         text-transform: uppercase;
         padding-top: 28px;
@@ -1355,7 +1355,7 @@ MENU SECONDAIRE GAUCHE / TOUCHSCROLLER
     /*---------------------------------------------------------------
 MENU GAUCHE / MASQUAGE sous rubriques non actuelles
 ---------------------------------------------------------------*/
-    
+
     #touchscroller {
         .sub-menu {
             display: none;
@@ -1367,7 +1367,7 @@ MENU GAUCHE / MASQUAGE sous rubriques non actuelles
             display: none;
         }
     }
-    
+
     @media screen and (max-width: 1024px) {
         #touchscroller {
             display: none;
@@ -1376,7 +1376,7 @@ MENU GAUCHE / MASQUAGE sous rubriques non actuelles
     /*---------------------------------------------------------------
 MENU FOOTER
 ---------------------------------------------------------------*/
-    
+
     #footer-container {
         background-color: $gris-asco;
         margin-top: 0;
@@ -1398,7 +1398,7 @@ MENU FOOTER
             }
         }
     }
-    
+
     #footernav {
         ul li {
             display: inline-block;
@@ -1426,7 +1426,7 @@ MENU FOOTER
             padding-right: 0;
         }
     }
-    
+
     @media screen and (max-width: 875px) {
         #footer-container {
             padding: 30px;
@@ -1450,7 +1450,7 @@ MENU FOOTER
             }
         }
     }
-    
+
     @media screen and (max-width: 1070px) {
         #footer-container .social {
             text-align: center;
@@ -1464,7 +1464,7 @@ MENU FOOTER
     /*---------------------------------------------------------------
 WIDGET BOUTONS PERSO
 ---------------------------------------------------------------*/
-    
+
     // * * * * * * * * * * * Bouton simple * * * * * * * * * * * *
     .button.simple-btn {
         display: inline-block;
@@ -1493,20 +1493,20 @@ WIDGET BOUTONS PERSO
         }
         .subtitle {}
     }
-    
+
     .button.simple-btn:hover {
         .title {
             color: #FF0000;
         }
     }
-    
+
     .button.long {
         width: 100%;
     }
     /*---------------------------------------------------------------
 SECTION LOGOS - ils nous font confiance
 ---------------------------------------------------------------*/
-    
+
     .lshowcase-logos {
         box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
         background-color: #fff;
@@ -1521,11 +1521,11 @@ SECTION LOGOS - ils nous font confiance
     /*---------------------------------------------------------------
 PAGE LISTE D'ACTUALITES
 ---------------------------------------------------------------*/
-    
+
     .category-actualites {
         background-color: #fff;
     }
-    
+
     .article-preview {
         overflow: auto;
         background-color: #fff;
@@ -1580,20 +1580,20 @@ PAGE LISTE D'ACTUALITES
             }
         }
     }
-    
+
     @media screen and (max-width: 640px) {
         .article-preview .thumb {
             padding: 0;
         }
     }
-    
+
     #single-post #main-container .entry-content li {
         list-style-image: url('../images/dot.svg');
     }
     /*---------------------------------------------------------------
 BOUTONS DE PARTAGE SOCIAL - presents sur les pages et les articles
 ---------------------------------------------------------------*/
-    
+
     .ssba img {
         border-radius: 100em;
         opacity: .6;
@@ -1605,7 +1605,7 @@ BOUTONS DE PARTAGE SOCIAL - presents sur les pages et les articles
             opacity: 1;
         }
     }
-    
+
     header {
         .title-area {
             padding: 0;
@@ -1615,7 +1615,7 @@ BOUTONS DE PARTAGE SOCIAL - presents sur les pages et les articles
             margin-bottom: 20px;
         }
     }
-    
+
     @media screen and (max-width: 780px) {
         .social-header {
             .title-area {
@@ -1633,7 +1633,7 @@ BOUTONS DE PARTAGE SOCIAL - presents sur les pages et les articles
 /*---------------------------------------------------------------
 HEADER BANNER MARCHES - Permet d'afficher le bon picto dans le header Banner selon le marché dans lequel on se trouve.
 ---------------------------------------------------------------*/
-    
+
     header.header-image {
         position: relative;
         div.automobile {
@@ -1676,7 +1676,3 @@ HEADER BANNER MARCHES - Permet d'afficher le bon picto dans le header Banner sel
             }
         }
     }
-
-#test {
-    background-color: blue;
-}
