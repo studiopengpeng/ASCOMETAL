@@ -64,7 +64,7 @@
 				// europe
 				case 'Deuchland': $('#offcallnumber').text('+ 49 211 924 797 0');break;
 				case 'Italia': $('#offcallnumber').text('+ 39 030 305 848');break;
-				case 'spagna': $('#offcallnumber').text(' + 34 93 363 1973');break;
+				case 'Espana': $('#offcallnumber').text(' + 34 93 363 1973');break;
 				case 'England': $('#offcallnumber').text('+ 44 161 886 0368');break;	
 				// france
 				alert(results[4].formatted_address);
@@ -72,25 +72,35 @@
 									// france-Est
 									case 'Lorraine, France': $('#offcallnumber').text('+33 3 87 70 50 89');break; 
 									case 'Alsace, France': $('#offcallnumber').text('+33 3 87 70 50 89');break;
-									case 'Champagne-Ardrenne, France': $('#offcallnumber').text('+33 3 87 70 50 89');break;
+									case 'Champagne-Ardenne, France': $('#offcallnumber').text('+33 3 87 70 50 89');break;
 									case 'Bourguogne, France': $('#offcallnumber').text('+33 3 87 70 50 89');break;
-									case 'Franche-Conté, France': $('#offcallnumber').text('+33 3 87 70 50 89');break;
+									case 'Franche-Comté, France': $('#offcallnumber').text('+33 3 87 70 50 89');break;
 									case 'Rhone, France': $('#offcallnumber').text('+33 3 87 70 50 89');break;
 									// france-Nord
 									case 'Nord-Pas-de-Calais, France': $('#offcallnumber').text('+33 3 28 29 60 20');break;
-									case 'Piccardie, France': $('#offcallnumber').text('+33 3 28 29 60 20');break;
+									case 'Picardie, France': $('#offcallnumber').text('+33 3 28 29 60 20');break;
+									case 'Normandie, France': $('#offcallnumber').text('+33 3 28 29 60 20');break;
+									case 'Bretagne, France': $('#offcallnumber').text('+33 3 28 29 60 20');break;
 									// france-Centre
-									case 'Auvergne, France': $('#offcallnumber').text('+33 4 77 45 51 58');break;
-									case 'Rhone-Alpes, France': $('#offcallnumber').text('+33 4 77 45 51 58');break;
+									case 'Rhone-Alpes, France': $('#offcallnumber').text('+33 4 77 45 51 54');break;
+									case 'Loire, France': $('#offcallnumber').text('+33 4 77 45 51 54');break;
+									case 'Centre, France': $('#offcallnumber').text('+33 4 77 45 51 54');break;
+									case 'Poitou, France': $('#offcallnumber').text('+33 4 77 45 51 54');break;
+									case 'Limousin, France': $('#offcallnumber').text('+33 4 77 45 51 54');break;
+									case 'Auvergne, France': $('#offcallnumber').text('+33 4 77 45 51 54');break;
 									// france-Sud
 									case 'Corse, France': $('#offcallnumber').text('+33 04 42 47 92 31');break;
 								 	case 'Provence-Alpes-Côte-d\'Azure, France': $('#offcallnumber').text('+33 04 42 47 92 31');break;
 									case 'Languedoc-Roussillon': $('#offcallnumber').text('+33 04 42 47 92 31');break;
-									case 'Midi-Pyrènées, France': $('#offcallnumber').text('+33 04 42 47 92 31');break;
+									case 'Midi-Pyrénées, France': $('#offcallnumber').text('+33 04 42 47 92 31');break;
 									case 'Aquitaine, France': $('#offcallnumber').text('+33 04 42 47 92 31');break;
-									default:$('#offcallnumber').text('+33 1 42 38 74 54');
+                                    // autres
+                                    
+                                    // par defaut
+									default:$('#offcallnumber').text('+ 33 1 42 38 74 66');
+                                   
 								};break;
-				default:$('#offcallnumber').text('+ 33 1 42 38 74 26 ');
+				default:$('#offcallnumber').text('+ 33 1 42 38 74 26');
 				 }
 				 
 						
