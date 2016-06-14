@@ -21,25 +21,25 @@ global $classColor;
 global $linkUrlMarche;
 foreach ($terms as $term) {
     //echo "<br/>ID : ".$term->term_id;
-    if ($term->term_id==18 || $term->term_id==22 || $term->term_id==23 || $term->term_id==24) {$classColor="automobile"; $linkUrlMarche=	
+    if ($term->term_id==18 || $term->term_id==22 || $term->term_id==23 || $term->term_id==24) {$classColor="automobile"; $linkUrlMarche=
 $prelink."/marches-ascometal/";}
-    else if ($term->term_id==19 || $term->term_id==37 || $term->term_id==35 || $term->term_id==36) {$classColor="roulement";$linkUrlMarche=	
+    else if ($term->term_id==19 || $term->term_id==37 || $term->term_id==35 || $term->term_id==36) {$classColor="roulement";$linkUrlMarche=
 $prelink."/marches-ascometal/";}
-    else if ($term->term_id==20 || $term->term_id==33 || $term->term_id==34 || $term->term_id==32) {$classColor="petrole";$linkUrlMarche=	
+    else if ($term->term_id==20 || $term->term_id==33 || $term->term_id==34 || $term->term_id==32) {$classColor="petrole";$linkUrlMarche=
 $prelink."/marches-ascometal/";}
-    else if ($term->term_id==21 || $term->term_id==29 || $term->term_id==30 || $term->term_id==31) {$classColor="mecanique";$linkUrlMarche=	
+    else if ($term->term_id==21 || $term->term_id==29 || $term->term_id==30 || $term->term_id==31) {$classColor="mecanique";$linkUrlMarche=
 $prelink."/marches-ascometal/";}
 }
 
 //echo "OOO : ".$classColor." / ".$linkUrlMarche;
 
- get_header(); 
+ get_header();
 ?>
 
 
     <div id="page" role="main">
 		<?php get_template_part( 'template-parts/header-banner' ); ?>
-       
+
                     <!--menu secondaire : Menu gauche -> page.php-->
                     <?php
 $args_menu1 = array(
@@ -64,11 +64,11 @@ wp_nav_menu( $args_menu1 );
 ?>
 
                         <!--END menu secondaire-->
-		
+
 		<!-- début boucle content posts -->
 		 <?php do_action( 'foundationpress_before_content' ); ?>
          <?php while ( have_posts() ) : the_post(); ?>
-        <article id="main-container" class="small-12 medium-9 large-9 columns" <?php post_class( 'main-content') ?> id="post-
+        <article id="main-container" class="small-12 medium-12 large-9 columns" <?php post_class( 'main-content') ?> id="post-
                             <?php the_ID(); ?>">
                                 <header class="social-header row">
                                    <div class="title-area small-12 medium-8 large-8= columns">
@@ -77,14 +77,14 @@ wp_nav_menu( $args_menu1 );
                                      <div class="social-icons small-12 medium-4 large-4 columns">
                                          <?php echo do_shortcode("[ssba]"); ?>
                                      </div>
-                                    
+
                                 </header>
                                 <?php do_action( 'foundationpress_page_before_entry_content' ); ?>
                                 <div class="entry-content">
                                     <?php the_content(); ?>
-                                
+
                                 </div>
-                                
+
                                 <footer>
                                     <?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ), 'after' => '</p></nav>' ) ); ?>
                                         <p>

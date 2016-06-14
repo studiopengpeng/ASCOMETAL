@@ -1,38 +1,30 @@
 /*
  * 	Default theme - Owl Carousel CSS File test
  */
-
-$color-base:			#869791;
-$color-white:			#FFF;
-$color-gray:			#999;
-//nav
-
-$nav-color: 			$color-gray;
-$nav-color-hover:		#000;
-$nav-font-size: 		20px;
-$nav-rounded: 			3px;
-$nav-margin: 			5px;
-$nav-padding: 			4px 7px;
-$nav-background: 		$color-white;
-$nav-background-hover:	$color-white;
-$nav-disabled-opacity: 	0.5;
-
-//dots
-
-$dot-width:				10px;
-$dot-height:			10px;
-$dot-rounded:			30px;
-$dot-margin: 			5px 7px;
-$dot-background:		$color-gray;
-$dot-background-active:	$color-base;
-
+$color-base: #869791;
+$color-white: #FFF;
+$color-gray: #999; //nav
+$nav-color: $color-gray;
+$nav-color-hover: #000;
+$nav-font-size: 20px;
+$nav-rounded: 3px;
+$nav-margin: 5px;
+$nav-padding: 4px 7px;
+$nav-background: $color-white;
+$nav-background-hover: $color-white;
+$nav-disabled-opacity: 0.5; //dots
+$dot-width: 10px;
+$dot-height: 10px;
+$dot-rounded: 30px;
+$dot-margin: 5px 7px;
+$dot-background: $color-gray;
+$dot-background-active: $color-base;
 .owl-theme {
 	// Styling Next and Prev buttons
 	.owl-nav {
 		margin-top: 10px;
 		text-align: center;
 		-webkit-tap-highlight-color: transparent;
-
 		[class*='owl-'] {
 			color: $nav-color;
 			font-size: $nav-font-size;
@@ -42,13 +34,11 @@ $dot-background-active:	$color-base;
 			display: inline-block;
 			cursor: pointer;
 			border-radius: 3px;
-            
-            font-weight: 700;
-            font-family: Open Sans,Arial,helvetica;
-
+			font-weight: 700;
+			font-family: Open Sans,Arial,helvetica;
 			&:hover {
 				background: $nav-background-hover;
-				color:$nav-color-hover;
+				color: $nav-color-hover;
 				text-decoration: none;
 			}
 		}
@@ -57,7 +47,6 @@ $dot-background-active:	$color-base;
 			cursor: default;
 		}
 	}
-
 	// Styling dots
 	.owl-nav.disabled + .owl-dots {
 		margin-top: 10px;
@@ -65,12 +54,10 @@ $dot-background-active:	$color-base;
 	.owl-dots {
 		text-align: center;
 		-webkit-tap-highlight-color: transparent;
-
 		.owl-dot {
 			display: inline-block;
 			zoom: 1;
 			*display: inline;
-
 			span {
 				width: $dot-width;
 				height: $dot-height;
@@ -81,7 +68,6 @@ $dot-background-active:	$color-base;
 				transition: opacity 200ms ease;
 				border-radius: 30px;
 			}
-            
 			&.active,
 			&:hover {
 				span {
@@ -90,870 +76,830 @@ $dot-background-active:	$color-base;
 			}
 		}
 	}
-    
-    .owl-nav .owl-next {
-        display: block;
-        position: absolute;
-        top: 25%;
-        right: -36px;
-        transition:all .3s;
-    }
-    
-    .owl-nav .owl-prev {
-        display: block;
-        position: absolute;
-        top: 25%;
-        left: -36px;
-        transition:all .3s;
-    }
-    
-    .thumb{
-        width: 190px;
-        height: auto;
-        float: left;   
-        margin-right: 20px;
-    }
-    
-    .date {
-        color:$asco; 
-        font-size:rem-calc(15);
-    }
-    
-    .title {    
-        font-weight: 700;
-        line-height: rem-calc(20);
-        padding-bottom: 10px;
-    }
-    
-    .texte {
-        font-size: rem-calc(15);;
-        line-height: rem-calc(17);
-    }
-    
-    .readmore {
-        font-weight: 700;
-        padding-top: 20px;
-        display: block;
-    }
+	.owl-nav .owl-next {
+		display: block;
+		position: absolute;
+		top: 25%;
+		right: -36px;
+		transition: all 0.3s;
+	}
+	.owl-nav .owl-prev {
+		display: block;
+		position: absolute;
+		top: 25%;
+		left: -36px;
+		transition: all 0.3s;
+	}
+	.thumb {
+		width: 190px;
+		height: auto;
+		float: left;
+		margin-right: 20px;
+	}
+	.date {
+		color: $asco;
+		font-size: rem-calc(15);
+	}
+	.title {
+		font-weight: 700;
+		line-height: rem-calc(20);
+		padding-bottom: 10px;
+	}
+	.texte {
+		font-size: rem-calc(15);
+		line-height: rem-calc(17);
+	}
+	.readmore {
+		font-weight: 700;
+		padding-top: 20px;
+		display: block;
+	}
 }
-
 .ih-item.actus-home {
-    background-color:#FFF;
-    padding: 15px 45px 29px 35px;
+	background-color: #FFF;
+	padding: 15px 45px 29px 35px;
 }
-
-.actus-home h4{
-    text-transform: uppercase;
-    text-align:center; 
-    font-weight:700;
+.actus-home h4 {
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: 700;
 }
-
 /* -------------------------------------------- */
 /* OUTIL INDUS                                  */
 /* -------------------------------------------- */
 .usines h1 {
-    color: $asco;
-    text-transform: uppercase;
-    font-size: 30px;
-    font-weight: 400;
-    text-align: left;
-    margin-left: 15px;
+	color: $asco;
+	text-transform: uppercase;
+	font-size: 30px;
+	font-weight: 400;
+	text-align: left;
+	margin-left: 15px;
 }
-
-
 /* -------------------------------------------- */
 /* CARTES INTERACTIVES INTERNATiONAL            */
 /* -------------------------------------------- */
-
 .iwm_map_canvas {
-  //  position: absolute !important;
-  //  top: 0 !important;
+	//  position: absolute !important;
+	//  top: 0 !important;
 }
-
-
-
 a.maps_button {
-    display:block;
-    width:250px;
-    background-color: #FFF;
-    height: auto;
-    font-size:rem-calc(16);
-    font-weight:600;
-    text-transform: uppercase;
-    color:#5e5e5e;
-    letter-spacing: 1px;
-    padding:25px 20px;
-    margin-top:50px;
-    margin-bottom:50px;
-    
-    img {
-        width:73px;
-        height:auto;
-        margin-right:10px;
-    }
+	display: block;
+	width: 250px;
+	background-color: #FFF;
+	height: auto;
+	font-size: rem-calc(16);
+	font-weight: 600;
+	text-transform: uppercase;
+	color: #5e5e5e;
+	letter-spacing: 1px;
+	padding: 25px 20px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	img {
+		width: 73px;
+		height: auto;
+		margin-right: 10px;
+	}
 }
-
-
 #imap1message {
-    position: fixed;
-    left: 40%;
-    top: 50%;
-    z-index:50000;
-    height: auto;
-    font-size: 17px;
-    background-color: #FFF;
-    width: 450px;
-    padding: 25px;
-
-    a.maps_button:hover {
-        color:$asco;
-    }
-
-    #close-imapmessage {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 17px;
-        font-family: arial;
-        font-weight: 700;
-        color: #5c5c5c;
-    }
+	position: fixed;
+	left: 40%;
+	top: 50%;
+	z-index: 50000;
+	height: auto;
+	font-size: 17px;
+	background-color: #FFF;
+	width: 450px;
+	padding: 25px;
+	a.maps_button:hover {
+		color: $asco;
+	}
+	#close-imapmessage {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		font-size: 17px;
+		font-family: arial;
+		font-weight: 700;
+		color: #5c5c5c;
+	}
 }
-
- @media screen and (max-width: 640px) {
-    #imap1message {
-        left: 15%;
-        width: 60%;
-     }
+@media screen and (max-width: 640px) {
+	#imap1message {
+		left: 15%;
+		width: 60%;
+	}
 }
-     
- @media screen and (max-width: 1024px) {
-    #imap1message {
-        left: 25%;
-        width: 60%;
-     }
+@media screen and (max-width: 1024px) {
+	#imap1message {
+		left: 25%;
+		width: 60%;
+	}
 }
-
 /* -------------------------------------------- */
 /* ACCORDEONS                                   */
 /* -------------------------------------------- */
-
 .lsow-accordion.style1 .lsow-panel {
-    background: transparent !important;
-    border-radius: 0px !important;
-    border-left: $asco solid 3px !important;
+	background: transparent !important;
+	border-radius: 0 !important;
+	border-left: $asco solid 3px !important;
 }
-
-.lsow-accordion.style1 .lsow-panel.lsow-active .lsow-panel-title, .lsow-accordion.style1 .lsow-panel:hover .lsow-panel-title, .lsow-accordion.style1 .lsow-panel .lsow-panel-content {
-    background: transparent !important;
+.lsow-accordion.style1 .lsow-panel .lsow-panel-content,
+.lsow-accordion.style1 .lsow-panel.lsow-active .lsow-panel-title,
+.lsow-accordion.style1 .lsow-panel:hover .lsow-panel-title {
+	background: transparent !important;
 }
-
-
-.lsow-accordion.style1 .lsow-panel .lsow-panel-title:after, .lsow-accordion.style3 .lsow-panel .lsow-panel-title:after {
- color :#BDBDBD !important;
+.lsow-accordion.style1 .lsow-panel .lsow-panel-title:after,
+.lsow-accordion.style3 .lsow-panel .lsow-panel-title:after {
+	color: #BDBDBD !important;
 }
-
 .lsow-accordion.style1 .lsow-panel .lsow-panel-title {
-    font-weight: 600 !important;
-    color: #5e5e5e !important;
-    text-transform: uppercase !important;
+	font-weight: 600 !important;
+	color: #5e5e5e !important;
+	text-transform: uppercase !important;
 }
 /* -------------------------------------------- */
 /* ARTICLES / GENERAUX                          */
 /* -------------------------------------------- */
-
 .articlepadding {
-    padding-top : 50px;
+	padding-top: 50px;
 }
-
 .paddingbottom {
-    padding-bottom:25px;
+	padding-bottom: 25px;
 }
-
 .rightpadding {
-    padding-right:40px;
+	padding-right: 40px;
 }
-
 .norightpadding {
- padding-right:0;   
+	padding-right: 0;
 }
-
 .toppadding5 {
-    padding-top:5px;
+	padding-top: 5px;
 }
-
 .leftpadding {
-    padding-left:30px;
+	padding-left: 30px;
 }
-
 .corporate-color {
-    color:$asco;
+	color: $asco;
 }
-
 .rightcol .textwidget {
-    padding-right:45px;
-   // padding-left:30px;
+	padding-right: 45px;
+	// padding-left:30px;
 }
-
 .main-content-large {
-    
-    h2 {
-        color: #5e5e5e;
-        text-transform: uppercase;
-        font-size: 2.25rem;
-        padding-bottom: 15px;
-        border-bottom: 2px solid #989898;
-        font-weight: 600;
-        margin-bottom: .7em;
-        margin-left: 30px;
-        margin-top: 30px;
-    }
-    
-    section#content {
-        margin-left:15px;   
-    }
-    
+	h2 {
+		color: #5e5e5e;
+		text-transform: uppercase;
+		font-size: 2.25rem;
+		padding-bottom: 15px;
+		border-bottom: 2px solid #989898;
+		font-weight: 600;
+		margin-bottom: 0.7em;
+		margin-left: 30px;
+		margin-top: 30px;
+	}
+	section#content {
+		margin-left: 15px;
+	}
 }
-
-
-
 /* -------------------------------------------- */
 /* TABLEAUX                                     */
 /* -------------------------------------------- */
-
-.tablepress tfoot th, .tablepress thead th {
-    background-color: $automobile !important;
+.tablepress tfoot th,
+.tablepress thead th {
+	background-color: $automobile !important;
 }
-
 /* -------------------------------------------- */
 /* FORMULAIRES                                  */
 /* -------------------------------------------- */
 .form-field-input-standard {
-    padding-right:rem-calc(25);
+	padding-right: rem-calc(25);
 }
-
 .form-field-input-standard textarea.adresse {
-    height:197px !important;
+	height: 197px !important;
 }
-
 .form-field-input-standard textarea {
-    height:100px;
+	height: 100px;
 }
-
-.form-field-input-standard input:focus, .form-field-input-standard textarea:focus { 
-    background-color: #E5E7C9;
+.form-field-input-standard input:focus,
+.form-field-input-standard textarea:focus {
+	background-color: #E5E7C9;
 }
-
 .form-title-section {
-    font-size: 28px;
-    line-height: 41px;
-    border-bottom: solid 2px $asco;
-    margin-bottom: 25px;
-    margin-top: 25px;
-    color: #e52713;
+	font-size: 28px;
+	line-height: 41px;
+	border-bottom: solid 2px $asco;
+	margin-bottom: 25px;
+	margin-top: 25px;
+	color: #e52713;
 }
-
 .form-field-input-standard input[type=submit].button {
-    background-color: $asco;
-    width: 100%;
-    font-size: 24px;
-//    padding: 11px;
+	background-color: $asco;
+	width: 100%;
+	font-size: 24px; //    padding: 11px;
 }
-
 .form-field-input-standard input[type=submit].button:focus {
-    background-color: #E5E7C9;
+	background-color: #E5E7C9;
 }
-
 div.wpcf7-mail-sent-ok {
-    border: 2px solid #398f14;
-    background: #398f14;
-    font-size: 25px;
-    color: white;
-    box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
-    position: relative;
-    transition: all 0.35s ease-in-out;
+	border: 2px solid #398f14;
+	background: #398f14;
+	font-size: 25px;
+	color: white;
+	box-shadow: 0 7px 28px -10px rgba(0, 0, 0, 0.44);
+	position: relative;
+	transition: all 0.35s ease-in-out;
 }
-
 div.wpcf7-validation-errors {
-    border: 2px solid $asco;
-    background: $asco;
-    font-size: 25px;
-    color: white;
-    box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
-    position: relative;
-    transition: all 0.35s ease-in-out;
+	border: 2px solid $asco;
+	background: $asco;
+	font-size: 25px;
+	color: white;
+	box-shadow: 0 7px 28px -10px rgba(0, 0, 0, 0.44);
+	position: relative;
+	transition: all 0.35s ease-in-out;
 }
-
-
 /* -------------------------------------------- */
 /* BOUTONS TELECHARGEMENTS                       */
 /* -------------------------------------------- */
-
 /* boutons intégrés */
-
 .btn-dwnld strong {
-    font-weight: bold;
-    font-size: 18px;
-    text-transform: uppercase;
-    transition: color .3s;
-    padding-bottom: 10px;
-    display:block;
+	font-weight: bold;
+	font-size: 18px;
+	text-transform: uppercase;
+	transition: color 0.3s;
+	padding-bottom: 10px;
+	display: block;
 }
-
 .simple-btn p {
-    line-height:rem-calc(18);
+	line-height: rem-calc(18);
 }
-
 .btn-dwnld .media img {
-    vertical-align: middle;
-    float: right;
-    margin-left: 15px;
+	vertical-align: middle;
+	float: right;
+	margin-left: 15px;
 }
 .btn-dwnld:hover strong {
-    color:$asco;
+	color: $asco;
 }
-
 .w3eden .ih-item.documentation {
-    float:none;
-    padding-bottom: 20px;
-    
-    .infos {
-        color: #5e5e5e;
-        width: 70%;
-        display: inline-block;
-        padding-right: 20px;
-        padding-left: 0;
-        padding-top: 22px;
-        float: right;
-    }
+	float: none;
+	padding-bottom: 20px;
+	.infos {
+		color: #5e5e5e;
+		width: 70%;
+		display: inline-block;
+		padding-right: 20px;
+		padding-left: 0;
+		padding-top: 22px;
+		float: right;
+	}
 }
-
 /* -------------------------------------------- */
 /* PAGES DE TELECHARGEMENTS                     */
 /* -------------------------------------------- */
 .w3eden .media {
-    
-    .media-thumb {
-        width:150px;
-        height:150px;
-        overflow:hidden;
-        background-color:#5c5c5c;
-        border:2px solid #b5bf1e;
-        margin:0 auto;
-    }
-    h3.title a {
-        color:$gris-fonce-asco;
-        transition: color .3s;
-        
-        display: block;
-        min-height: 80px;
-        max-height: 80px;
-        overflow:hidden;
-    }
-    h3.title a:hover {
-        color:$asco;
-        text-decoration: none;
-    }
-    .description {
-        display:block;
-        min-height:50px;
-        max-height:50px;
-        overflow: hidden;
-    }
+	.media-thumb {
+		width: 150px;
+		height: 150px;
+		overflow: hidden;
+		background-color: #5c5c5c;
+		border: 2px solid #b5bf1e;
+		margin: 0 auto;
+	}
+	h3.title a {
+		color: $gris-fonce-asco;
+		transition: color 0.3s;
+		display: block;
+		min-height: 80px;
+		max-height: 80px;
+		overflow: hidden;
+	}
+	h3.title a:hover {
+		color: $asco;
+		text-decoration: none;
+	}
+	.description {
+		display: block;
+		min-height: 50px;
+		max-height: 50px;
+		overflow: hidden;
+	}
 }
-
 .w3eden .media-dwnld-button a {
-    text-decoration: none;
-    text-align:center;
-    text-transform:uppercase;
-    color:$gris-fonce-asco;
-    background-color:#FFF;
-    display:block;
-    width:auto;
-    padding:10px;
-    box-shadow: 0px 7px 28px -10px rgba(0, 0, 0, 0.44);
-    position: relative;
-    transition: all 0.35s ease-in-out;
-    transition: color .3s;
+	text-decoration: none;
+	text-align: center;
+	text-transform: uppercase;
+	color: $gris-fonce-asco;
+	background-color: #FFF;
+	display: block;
+	width: auto;
+	padding: 10px;
+	box-shadow: 0 7px 28px -10px rgba(0, 0, 0, 0.44);
+	position: relative;
+	transition: all 0.35s ease-in-out;
+	transition: color 0.3s;
 }
-
- .w3eden .media-dwnld-button a:hover {
-        color:$asco; 
+.w3eden .media-dwnld-button a:hover {
+	color: $asco;
 }
-
 /* -------------------------------------------- */
 /* MENU USINES                                  */
 /* -------------------------------------------- */
-
 #menu-usines-container {
-    position: relative;
-    height:auto;
-    width:100%;
+	position: relative;
+	height: auto;
+	width: 100%;
 }
 #menu-usines {
-    height:360px;
-    width:400px;
-    position:relative;
-    margin:0 auto;
+	height: 360px;
+	width: 400px;
+	position: relative;
+	margin: 0 auto;
 }
 .mu-filets {
-    position:absolute;
-    top:0;
-    left:0;
-    z-index:50;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 50;
 }
 .mu-filets {
-    position: absolute;
-    z-index:52;
-    top:0;
-    left:0;
-    font-size:rem-calc(16);
-    text-transform: uppercase;
-    font-weight:400;
+	position: absolute;
+	z-index: 52;
+	top: 0;
+	left: 0;
+	font-size: rem-calc(16);
+	text-transform: uppercase;
+	font-weight: 400;
 }
 .mu-filets:hover {
-    color:$asco;
-    cursor:pointer;
+	color: $asco;
+	cursor: pointer;
 }
-.mu-filets.active, .mu-filets.forcedactive {
-    color:$asco;
+.mu-filets.active,
+.mu-filets.forcedactive {
+	color: $asco;
 }
-
-.forcedactive path, .active path{
-    fill:$asco;
+.active path,
+.forcedactive path {
+	fill: $asco;
 }
-.forcedactive polyline, .active polyline{
-    stroke:$asco;
+.active polyline,
+.forcedactive polyline {
+	stroke: $asco;
 }
- #filet1 {
-    z-index:55;
-    top:0px;
-    left:0;
-     width:200px;
-    height: 40px;
+#filet1 {
+	z-index: 55;
+	top: 0;
+	left: 0;
+	width: 200px;
+	height: 40px;
 }
-#filet1-svg{
-    position: absolute;
-    width: 280px;
-    height: 90px;
-    z-index:40;
-    top:22px;
-    left:0;
-    text-align: left;
+#filet1-svg {
+	position: absolute;
+	width: 280px;
+	height: 90px;
+	z-index: 40;
+	top: 22px;
+	left: 0;
+	text-align: left;
 }
- #filet2 {
-    z-index:56;
-    top:28px;
-    left:0;
-width:150px;
-    height: 40px;
+#filet2 {
+	z-index: 56;
+	top: 28px;
+	left: 0;
+	width: 150px;
+	height: 40px;
 }
-#filet2-svg{
-    position: absolute;
-    width: 341px;
-    height: 93px;
-    z-index:40;
-    top:50px;
-    left:0;
-    text-align: left;
+#filet2-svg {
+	position: absolute;
+	width: 341px;
+	height: 93px;
+	z-index: 40;
+	top: 50px;
+	left: 0;
+	text-align: left;
 }
- #filet3 {
-    z-index:57;
-    top:56px;
-    left:0;
-width:150px;
-    height: 40px;
+#filet3 {
+	z-index: 57;
+	top: 56px;
+	left: 0;
+	width: 150px;
+	height: 40px;
 }
-#filet3-svg{
-    position: absolute;
-    width: 344px;
-    height: 92px;
-    z-index:40;
-    top:78px;
-    left:0;
-    text-align: left;
+#filet3-svg {
+	position: absolute;
+	width: 344px;
+	height: 92px;
+	z-index: 40;
+	top: 78px;
+	left: 0;
+	text-align: left;
 }
- #filet4 {
-    z-index:58;
-    top:84px;
-    left:0;
-    width:150px;
-    height: 40px;
+#filet4 {
+	z-index: 58;
+	top: 84px;
+	left: 0;
+	width: 150px;
+	height: 40px;
 }
-#filet4-svg{
-    position: absolute;
-    width: 344px;
-    height: 92px;
-    z-index:40;
-    top:106px;
-    left:0;
-    text-align: left;
+#filet4-svg {
+	position: absolute;
+	width: 344px;
+	height: 92px;
+	z-index: 40;
+	top: 106px;
+	left: 0;
+	text-align: left;
 }
- #filet5 {
-    z-index:59;
-    top:112px;
-    left:0;
-    width:150px;
-    height: 40px;
+#filet5 {
+	z-index: 59;
+	top: 112px;
+	left: 0;
+	width: 150px;
+	height: 40px;
 }
-#filet5-svg{
-    position: absolute;
-    width: 344px;
-    height: 92px;
-    z-index:40;
-    top:134px;
-    left:0;
-    text-align: left;
+#filet5-svg {
+	position: absolute;
+	width: 344px;
+	height: 92px;
+	z-index: 40;
+	top: 134px;
+	left: 0;
+	text-align: left;
 }
-
 .filets-map {
-    height:25px;
-    width:25px;
-    position:absolute;
-    bottom:0;
-    right:0;
-    z-index:500;
-    cursor:pointer;
+	height: 25px;
+	width: 25px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	z-index: 500;
+	cursor: pointer;
 }
-
-#filet1-map{
-    top: 86px;
-    left: 255px;
+#filet1-map {
+	top: 86px;
+	left: 255px;
 }
-#filet2-map{
-    top: 111px;
-    left: 315px;
+#filet2-map {
+	top: 111px;
+	left: 315px;
 }
-#filet3-map{
-    top: 135px;
-    left: 321px;
+#filet3-map {
+	top: 135px;
+	left: 321px;
 }
-#filet4-map{
-    top: 198px;
-    left: 290px;
+#filet4-map {
+	top: 198px;
+	left: 290px;
 }
-#filet5-map{
-    top: 234px;
-    left: 299px;
+#filet5-map {
+	top: 234px;
+	left: 299px;
 }
-
 #mu-bg-carte {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 25;
-    background: url("../images/menu-usines/bg-usine-menu.png") 112px 35px no-repeat;
-    background-size: 72%;
-    width: 435px;
-    height: 390px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 25;
+	background: url("../images/menu-usines/bg-usine-menu.png") 112px 35px no-repeat;
+	background-size: 72%;
+	width: 435px;
+	height: 390px;
 }
-
 /* -------------------------------------------- */
 /* COULEURS CONTEXTUELLES                       */
 /* -------------------------------------------- */
-
-.automobile h2, .automobile h3:not(.title-rolling):not(.title-rolled), .automobile h4 {
-    color:$automobile !important;
+.automobile h2,
+.automobile h3:not(.title-rolling):not(.title-rolled),
+.automobile h4 {
+	color: $automobile !important;
 }
-.automobile .tablepress tfoot th, .automobile .tablepress thead th {
-    background-color:$automobile !important;
+.automobile .tablepress tfoot th,
+.automobile .tablepress thead th {
+	background-color: $automobile !important;
 }
-.roulement h2, .roulement h3:not(.title-rolling):not(.title-rolled), .roulement h4
-{
-    color:$roulement !important;
+.roulement h2,
+.roulement h3:not(.title-rolling):not(.title-rolled),
+.roulement h4 {
+	color: $roulement !important;
 }
-.roulement .tablepress tfoot th, .roulement .tablepress thead th {
-    background-color:$roulement !important;
+.roulement .tablepress tfoot th,
+.roulement .tablepress thead th {
+	background-color: $roulement !important;
 }
-.mecanique h2, .mecanique h3:not(.title-rolling):not(.title-rolled), .mecanique h4
-{
-    color:$mecanique !important;
+.mecanique h2,
+.mecanique h3:not(.title-rolling):not(.title-rolled),
+.mecanique h4 {
+	color: $mecanique !important;
 }
-.mecanique .tablepress tfoot th, .mecanique .tablepress thead th {
-    background-color:#D4AFA8 !important;
+.mecanique .tablepress tfoot th,
+.mecanique .tablepress thead th {
+	background-color: #D4AFA8 !important;
 }
-.petrole h2, .petrole h3:not(.title-rolling):not(.title-rolled), .petrole h4
-{
-    color:$petrole !important;
+.petrole h2,
+.petrole h3:not(.title-rolling):not(.title-rolled),
+.petrole h4 {
+	color: $petrole !important;
 }
-.petrole .tablepress tfoot th, .petrole .tablepress thead th {
-    background-color:#9EDADC !important;
+.petrole .tablepress tfoot th,
+.petrole .tablepress thead th {
+	background-color: #9EDADC !important;
 }
 /* -------------------------------------------- */
 /* MODIFS SUR ASCO SCSS A REINTERGRER           */
 /* -------------------------------------------- */
 a.more-link {
-    float: right;
-    text-decoration: none;
-    padding: 30px 0px 0px 0px;
-    font-weight: 700;
+	float: right;
+	text-decoration: none;
+	padding: 30px 0 0;
+	font-weight: 700;
 }
 .article-preview h2 a {
-//    font-size: 1.125rem;
-//    font-family: "Lora", serif;
-    text-transform:none !important;
+	//    font-size: 1.125rem;
+	//    font-family: "Lora", serif;
+	text-transform: none !important;
 }
 header.header-image h1 {
-    width: 88% !important;
+	width: 88% !important;
 }
-
 .media .picto {
-    background-image: url("../images/documentation.svg");
-    width: 65px;
-    height: 75px;
-    margin-left: -18px;
-    display: inline-block;
-    background-repeat: no-repeat;
-    float: left;
-    margin-top: -20px;
-    margin-right:10px;
-    
+	background-image: url("../images/documentation.svg");
+	width: 65px;
+	height: 75px;
+	margin-left: -18px;
+	display: inline-block;
+	background-repeat: no-repeat;
+	float: left;
+	margin-top: -20px;
+	margin-right: 10px;
 }
-
-.callbtn:hover{
-    cursor:pointer;
+.callbtn:hover {
+	cursor: pointer;
 }
-
 .ih-item.square.effect13 .info p.seemore {
-    position: absolute;
-    bottom: -15px;
-    width: 100%;
+	position: absolute;
+	bottom: -15px;
+	width: 100%;
 }
-
 // à supprimer quand autres langues actives que juste l'anglais
-
 #navtools #lang_sel ul ul {
-    left: -4px !important;
+	left: -4px !important;
 }
-
 .actus-home {
-max-height:290px;   
+	max-height: 290px;
 }
-
 .alert-info li {
-    text-align: left;
+	text-align: left;
 }
-
 @media screen and (max-width : 1024px) {
-   .actus-home {
-       max-height:600px;   
-    }
+	.actus-home {
+		max-height: 600px;
+	}
 }
-
-
 /*---------------------------------------------------------------
 PLAN DE SITE (MENU GAUCHE PLACE DANS LE MAIN CONTAINER)
 ---------------------------------------------------------------*/
-
-
 #main-container {
-    
-    .menu {
-        
-        a {
-          color: #5e5e5e; 
-        }
-    
-        > li {
-            display: block;
-            float: left;
-            width: 50%;
-            margin-bottom: 100px;
-            min-height: 700px;
-            
-            > a {
-                display:inline-block;
-                font-size:rem-calc(26);
-                width:auto;
-                
-                padding-left: 50px;
-                background-repeat: no-repeat;
-                margin-bottom: 1.25rem;
-                margin-top: 0.625rem;
-                    line-height: 1;
-                    text-decoration: none;
-                font-weight: 700;
-                    list-style: none;
-                text-transform: uppercase;
-            }
-            
-            > ul > li {
-                display:block;
-            }
-            
-            > ul > li > a {
-                text-transform: uppercase;
-                font-weight: 700;
-                color: #5e5e5e;
-                padding-top: 20px;
-                display: block;
-                padding-bottom: 10px;
-                list-style: none;
-                text-decoration: none;
-                transition:color .3s;
-                }:hover{
-                   color: $asco; 
-                }
-            }
-        
-            > li.asco {
-                width:100%;
-                min-height:150px;
-                > ul > li {
-                    display:block;
-                    width:250px;
-                    float:left;
-                }
-            }
-
-            > li.asco > a {
-                padding-top:6px;
-                color: #5e5e5e;
-                background-image: url("../images/ascomonogram.svg");
-            }
-            > li.asco   {
-                //display: block;
-                //border-top:2px solid $asco;
-            }
-            > li.automobile > a {
-                padding-top:6px;
-                color: #99be51;
-                background-image: url("../images/automobile-icone.svg");
-            }
-            > li.automobile   {
-                display: block;
-                border-top:2px solid #99be51;
-            }
-            > li.roulement > a {
-                padding-top:6px;
-                color: #f28e00;
-                background-image: url("../images/roulement-icone.svg");
-            }
-            > li.roulement   {
-                display: block;
-                border-top:2px solid #f28e00;
-            }
-            > li.mecanique > a {
-                padding-top:6px;
-                color: #ae3e28;
-                background-image: url("../images/mecanique-icone.svg");
-            }
-            > li.mecanique  {
-                display: block;
-                border-top:2px solid #ae3e28;
-            }
-            > li.petrole > a {
-                padding-top:6px;
-                color: #03888e;
-                background-image: url("../images/petrol-icone.svg");
-            }
-            > li.petrole  {
-                display: block;
-                border-top:2px solid #03888e;
-            }
-        }
-    
+	.menu {
+		a {
+			color: #5e5e5e;
+		}
+		> li {
+			display: block;
+			float: left;
+			width: 46%!important;
+			margin-bottom: 100px;
+			min-height: 700px!important;
+			> a {
+				display: inline-block;
+				font-size: rem-calc(26);
+				width: auto;
+				padding-left: 50px;
+				background-repeat: no-repeat;
+				margin-bottom: 1.25rem;
+				margin-top: 0.625rem;
+				line-height: 1;
+				text-decoration: none;
+				font-weight: 700;
+				list-style: none;
+				text-transform: uppercase;
+			}
+			> ul > li {
+				display: block;
+			}
+			> ul > li > a {
+				text-transform: uppercase;
+				font-weight: 700;
+				color: #5e5e5e;
+				padding-top: 20px;
+				display: block;
+				padding-bottom: 10px;
+				list-style: none;
+				text-decoration: none;
+				transition: color 0.3s;
+			}
+			:hover {
+				color: $asco;
+			}
+		}
+		> li.asco {
+			width: 100%!important;
+			min-height: 150px!important;
+			margin-bottom: 50px;
+			> ul > li {
+				display: block;
+				width: 250px;
+				float: left;
+			}
+		}
+		> li.asco > a {
+			padding-top: 6px;
+			color: #5e5e5e;
+			background-image: url("../images/ascomonogram.svg");
+		}
+		> li.asco {
+			//display: block;
+			//border-top:2px solid $asco;
+		}
+		> li.automobile > a {
+			width: 100%;
+			padding: 12px 0 10px 65px;
+			margin-top: 0;
+			margin-left: 0;
+			color: #99be51;
+			background-color: rgba(153, 190, 81, 0.20);
+			border-bottom: solid 2px #99be51;
+			background-image: url("../images/automobile-icone.svg");
+			background-position: 15px 8px;
+		}
+		> li.automobile {
+			display: block;
+			background-color: rgba(153,190,81,0.25);
+			border-top: 2px solid #99be51;
+		}
+		> li.roulement > a {
+			width: 100%;
+			padding: 12px 0 10px 65px;
+			margin-top: 0;
+			margin-left: 0;
+			color: #f28e00;
+			background-color: rgba(242,142,0,0.15);
+			border-bottom: solid 2px #f28e00;
+			background-image: url("../images/roulement-icone.svg");
+			background-position: 15px 8px;
+		}
+		> li.roulement {
+			display: block;
+			background-color: rgba(242, 142, 0, 0.20);
+			border-top: 2px solid #f28e00;
+		}
+		> li.mecanique > a {
+			width: 100%;
+			padding: 12px 0 10px 65px;
+			margin-top: 0;
+			margin-left: 0;
+			color: #ae3e28;
+			background-color: rgba(174,62,40,0.20);
+			border-bottom: solid 2px #ae3e28;
+			background-image: url("../images/mecanique-icone.svg");
+			background-position: 15px 8px;
+		}
+		> li.mecanique {
+			display: block;
+			background-color: rgba(174,62,40,0.20);
+			border-top: 2px solid #ae3e28;
+		}
+		> li.petrole > a {
+			width: 100%;
+			padding: 12px 0 10px 65px;
+			margin-top: 0;
+			margin-left: 0;
+			color: #03888e;
+			background-color: rgba(3, 136, 142, 0.31);
+			background-image: url("../images/petrol-icone.svg");
+			border-bottom: solid 2px #03888e;
+			background-position: 15px 8px;
+		}
+		> li.petrole {
+			display: block;
+			border-top: 2px solid #03888e;
+			background-color: #d7eeef;
+		}
+	}
 }
-
-@media screen and (max-width : 1024px) {
-        #main-container .menu > li {
-            width: 100%;
-            min-height: 150px;
-        }
+#main-container .menu li.automobile,
+#main-container .menu li.mecanique,
+#main-container .menu li.petrole,
+#main-container .menu li.roulement {
+	padding-bottom: 25px;
+	margin-bottom: 50px;
 }
-
-
+@media screen and (min-width : 641px) {
+	#main-container .menu > li {
+		width: 100%;
+		min-height: 150px;
+	}
+	#main-container .menu li.automobile,
+	#main-container .menu li.mecanique,
+	#main-container .menu li.petrole,
+	#main-container .menu li.roulement {
+		margin-bottom: 50px;
+		margin-right: 4%;
+	}
+	#main-container .menu li:last-child, li:nth-last-child(1) {
+		margin-bottom: 0;
+	}
+}
+@media screen and (max-width : 640px) {
+	#main-container {
+		padding: 15px;
+	.menu > li {
+		width: 100%;
+		min-height: 150px;
+	}
+}
+	#main-container .menu li.automobile,
+	#main-container .menu li.mecanique,
+	#main-container .menu li.petrole,
+	#main-container .menu li.roulement {
+		margin-bottom: 15px;
+		width:100%!important;
+	}
+	#main-container .menu li:last-child {
+		margin-bottom: 0;
+	}
+}
 /*---------------------------------------------------------------
 CALCULATRICE : CLASSES FORMULAIRES
 ---------------------------------------------------------------*/
 tr.calc-separator {
-    border-bottom: 1px dotted $asco;
+	border-bottom: 1px dotted $asco;
 }
-
 #form.form-conv {
-    
-    table.convertisseur {
-        border: 0px solid #f5f5f5 !important;
-
-        tbody tr:nth-child(even) {
-        background-color: #f5f5f5 !important;
-        }
-    }
-    
+	table.convertisseur {
+		border: 0 solid #f5f5f5 !important;
+		tbody tr:nth-child(even) {
+			background-color: #f5f5f5 !important;
+		}
+	}
 }
-
 #form.form-masse {
-    
-    input[type='text'] {
-    width:70%;
-    display:inline-block;
-    }
-    
+	input[type='text'] {
+		width: 70%;
+		display: inline-block;
+	}
 }
-
 #form.form-carbone {
-    
-    table.carbone tbody td {
-        padding: 0 !important;
-    }
-    
-    table.carbone tbody td.commentaire {
-        vertical-align: bottom;
-        
-        div {
-            width:80%;
-            margin-left:20%;
-            font-size:12px;
-            color:#333;
-            word-break: keep-all;
-        }
-    }
-
-    input[type='text'] {
-        width:90%;
-        display:inline-block;
-        float:right;
-        margin: 2px 0 2px 0;
-    }
-
-    label {
-        width:10%;
-        display:inline-block;
-        float:left;
-        text-align:center;
-        font-weight: bold;
-        padding-top: 9px;
-    }
-
-    input[type='text'].small {
-        width:80%;
-        display:inline-block;
-        float:right;
-        margin: 2px 0 2px 0;
-    }
-
-    label.small {
-        width:20%;
-        display:inline-block;
-        float:left;
-    }
-    
-
-    
+	table.carbone tbody td {
+		padding: 0 !important;
+	}
+	table.carbone tbody td.commentaire {
+		vertical-align: bottom;
+		div {
+			width: 80%;
+			margin-left: 20%;
+			font-size: 12px;
+			color: #333;
+			word-break: keep-all;
+		}
+	}
+	input[type='text'] {
+		width: 90%;
+		display: inline-block;
+		float: right;
+		margin: 2px 0;
+	}
+	label {
+		width: 10%;
+		display: inline-block;
+		float: left;
+		text-align: center;
+		font-weight: bold;
+		padding-top: 9px;
+	}
+	input[type='text'].small {
+		width: 80%;
+		display: inline-block;
+		float: right;
+		margin: 2px 0;
+	}
+	label.small {
+		width: 20%;
+		display: inline-block;
+		float: left;
+	}
 }
-
 @media screen and (max-width : 650px) {
-    
-    #form.form-masse input[type='text'] {
-    width:100%;
-    display:inline-block;
-    }
-    
-    #form.form-masse .unites {
-        font-size: 10px;
-        float: right;
-        display: inline-block;
-        line-height: 0px;
-        margin-top:-7px;
-    }
+	#form.form-masse input[type='text'] {
+		width: 100%;
+		display: inline-block;
+	}
+	#form.form-masse .unites {
+		font-size: 10px;
+		float: right;
+		display: inline-block;
+		line-height: 0;
+		margin-top: -7px;
+	}
 }
