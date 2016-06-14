@@ -103,14 +103,14 @@ wp_nav_menu( $args_menu1 );
 				<tr><td colspan="3"><label for="form_barre2" class="required"><?php echo __('Bar', 'foundationpress'); ?></label></td></tr>
 				<tr>
 					<td><input id="form_barre2" name="form[bar2Diam]" required="required" type="text" placeholder="<?php echo __('Enter the section in mm', 'foundationpress'); ?>"> <span class="unites">mm</span></td>
-					<td><input id="form_barre2_long" name="form[bar2long]" required="required" type="text" placeholder="<?php echo __('Enter the length', 'foundationpress'); ?>"> <span class="unites">mm</span></td>
+					<td><input id="form_barre2_long" name="form[bar2long]" required="required" type="text" placeholder="<?php echo __('Enter the length in mm', 'foundationpress'); ?>"> <span class="unites">mm</span></td>
 					<td><input disabled id="form_barre2_res" name="form[bar2Res]" required="required" type="text" placeholder=""> <span class="unites">Kg</span></td>
 				</tr>
 				
 				<tr><td colspan="3"><label for="form_billetes2" class="required"><?php echo __('Square blooms/billets', 'foundationpress'); ?></label></td></tr>
 				<tr>
 					<td><input id="form_billetes2" name="form[bil2Haut]" required="required" type="text" placeholder="<?php echo __('Enter the height in mm', 'foundationpress'); ?>"> <span class="unites">mm</span></td>
-					<td><input id="form_billetes2_long" name="form[bil2Long]" required="required" type="text" placeholder="<?php echo __('Enter the length', 'foundationpress'); ?>"> <span class="unites">mm</span></td>
+					<td><input id="form_billetes2_long" name="form[bil2Long]" required="required" type="text" placeholder="<?php echo __('Enter the length in mm', 'foundationpress'); ?>"> <span class="unites">mm</span></td>
 					<td><input disabled id="form_billetes2_res" name="form[bil2Res]" required="required" type="text" placeholder=""> <span class="unites">Kg</span></td>
 				</tr>
 				
@@ -118,7 +118,7 @@ wp_nav_menu( $args_menu1 );
 				<tr>
 					<td><input id="form_larget2_haut" name="form[lar2Haut]" required="required" type="text" placeholder="<?php echo __('Enter the height in mm', 'foundationpress'); ?>"> <span class="unites">mm</span><br/>
 					    <input id="form_larget2_larg" name="form[lar2Larg]" required="required" type="text" placeholder="<?php echo __('Enter the width in mm', 'foundationpress'); ?>"> <span class="unites">mm</span></td>
-					<td><input id="form_larget2_long" name="form[lar2Long]" required="required" type="text" placeholder="<?php echo __('Enter the length', 'foundationpress'); ?>"> <span class="unites">mm</span></td>
+					<td><input id="form_larget2_long" name="form[lar2Long]" required="required" type="text" placeholder="<?php echo __('Enter the length in mm', 'foundationpress'); ?>"> <span class="unites">mm</span></td>
 					<td><input disabled id="form_larget2_res" name="form[lar2Res]" required="required" type="text" placeholder=""> <span class="unites">Kg</span></td>
 				</tr>
 				</table>

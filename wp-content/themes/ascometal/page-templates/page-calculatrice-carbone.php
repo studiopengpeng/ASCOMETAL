@@ -66,7 +66,7 @@ wp_nav_menu( $args_menu1 );
 					<th><?php echo __('Result', 'foundationpress'); ?></th>
 				</tr>
 				<tr>
-					<td><label for="form_C" class="required">C</label><input id="form_C" name="form[C]" required="required" type="text" placeholder="<?php echo __('enter the % content', 'foundationpress'); ?>"></td>
+					<td><label for="form_C" class="required">C</label><input id="form_C" name="form[C]" required="required" type="text" placeholder="<?php echo __('Enter the average value', 'foundationpress'); ?>"></td>
                     <td class="commentaire" rowspan="6"><div><?php echo __('Please enter a value in each box, and use a POINT to separate decimal', 'foundationpress'); ?></br>
 					 CEV = C + Mn/6 + (Cr + Mo + V)/5 + (Cu + Ni)/15<br/>
 					 CET = C + (Mn + Mo)/10 +(Cr + Cu)/20 + Ni/40<br/>
@@ -75,30 +75,30 @@ wp_nav_menu( $args_menu1 );
                 </td>
 				</tr>
 				<tr>
-					<td><label for="form_Nm" class="required">Mn</label><input id="form_Nm" name="form[Nm]" required="required" type="text" placeholder="<?php echo __('enter the % content', 'foundationpress'); ?>"></td>
+					<td><label for="form_Nm" class="required">Mn</label><input id="form_Nm" name="form[Nm]" required="required" type="text" placeholder="<?php echo __('Enter the average value', 'foundationpress'); ?>"></td>
 				</tr>
 				<tr>
-					<td><label for="form_Ni" class="required">Ni</label><input id="form_Ni" name="form[Ni]" required="required" type="text" placeholder="<?php echo __('enter the % content', 'foundationpress'); ?>"></td>
+					<td><label for="form_Ni" class="required">Ni</label><input id="form_Ni" name="form[Ni]" required="required" type="text" placeholder="<?php echo __('Enter the average value', 'foundationpress'); ?>"></td>
 				</tr>
 				<tr>
-					<td><label for="form_Cu" class="required">Cu</label><input id="form_Cu" name="form[Cu]" required="required" type="text" placeholder="<?php echo __('enter the % content', 'foundationpress'); ?>"></td>
+					<td><label for="form_Cu" class="required">Cu</label><input id="form_Cu" name="form[Cu]" required="required" type="text" placeholder="<?php echo __('Enter the average value', 'foundationpress'); ?>"></td>
 				</tr>
 				<tr>
-					<td><label for="form_Mo" class="required">Mo</label><input id="form_Mo" name="form[Mo]" required="required" type="text" placeholder="<?php echo __('enter the % content', 'foundationpress'); ?>"></td>
+					<td><label for="form_Mo" class="required">Mo</label><input id="form_Mo" name="form[Mo]" required="required" type="text" placeholder="<?php echo __('Enter the average value', 'foundationpress'); ?>"></td>
 				</tr>
 				<tr>
-					<td><label for="form_Cr" class="required">Cr</label><input id="form_Cr" name="form[Cr]" required="required" type="text" placeholder="<?php echo __('enter the % content', 'foundationpress'); ?>"></td>
+					<td><label for="form_Cr" class="required">Cr</label><input id="form_Cr" name="form[Cr]" required="required" type="text" placeholder="<?php echo __('Enter the average value', 'foundationpress'); ?>"></td>
 				</tr>
 				<tr>
-					<td><label for="form_B" class="required">B</label><input id="form_B" name="form[B]" required="required" type="text" placeholder="<?php echo __('enter the % content', 'foundationpress'); ?>"></td>
+					<td><label for="form_B" class="required">B</label><input id="form_B" name="form[B]" required="required" type="text" placeholder="<?php echo __('Enter the average value', 'foundationpress'); ?>"></td>
 					<td><label for="form_barre_res_CEV" class="small required">CEV =</label><input disabled id="form_barre_res_CEV" class="small" name="form[barRes]" required="required" type="text" placeholder=""></td>
 				</tr>
 				<tr>
-					<td><label for="form_V" class="required">V</label><input id="form_V" name="form[V]" required="required" type="text" placeholder="<?php echo __('enter the % content', 'foundationpress'); ?>"></td>
+					<td><label for="form_V" class="required">V</label><input id="form_V" name="form[V]" required="required" type="text" placeholder="<?php echo __('Enter the average value', 'foundationpress'); ?>"></td>
 					<td><label for="form_barre_res_CET" class="small required">CET =</label><input disabled id="form_barre_res_CET" class="small" name="form[barRes]" required="required" type="text" placeholder=""></td>
 				</tr>
 				<tr>
-					<td><label for="form_Si" class="required">Si</label><input id="form_Si" name="form[Si]" required="required" type="text" placeholder="<?php echo __('enter the % content', 'foundationpress'); ?>"></td>
+					<td><label for="form_Si" class="required">Si</label><input id="form_Si" name="form[Si]" required="required" type="text" placeholder="<?php echo __('Enter the average value', 'foundationpress'); ?>"></td>
                     <td><label for="form_barre_res_Pcm" class="small required">Pcm =</label><input disabled id="form_barre_res_Pcm" class="small" name="form[barRes]" required="required" type="text" placeholder=""></td>
 				
 				</tr>

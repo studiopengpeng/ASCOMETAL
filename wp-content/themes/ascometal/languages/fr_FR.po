@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FoundationPress\n"
-"POT-Creation-Date: 2016-05-27 17:02+0200\n"
-"PO-Revision-Date: 2016-05-27 17:07+0200\n"
+"POT-Creation-Date: 2016-06-14 22:45+0200\n"
+"PO-Revision-Date: 2016-06-14 22:45+0200\n"
 "Last-Translator: \n"
 "Language-Team: Le Saint <info@lesaint.ca>\n"
 "Language: fr_FR\n"
@@ -47,10 +47,13 @@ msgstr "Cliquez sur le bouton <a href=\"javascript:history.back()\">Retour</a>"
 
 #: ../_marches.php:63 ../homepage.php:66 ../page-home-foundationpress.php:22
 #: ../page-interactivemap.php:33 ../page-templates/front.php:38
+#: ../page-templates/page-calculatrice-carbone.php:111
+#: ../page-templates/page-calculatrice-convertisseur.php:222
+#: ../page-templates/page-calculatrice-masse.php:132
 #: ../page-templates/page-full-width.php:22
 #: ../page-templates/page-sidebar-left.php:22 ../page.php:89
-#: ../single-produits-ascometal.php:127 ../single-produits-ascometal.php:129
-#: ../single.php:99 ../single.php:101 ../woocommerce.php:26
+#: ../single-produits-ascometal.php:140 ../single-produits-ascometal.php:142
+#: ../single.php:109 ../single.php:111 ../woocommerce.php:26
 msgid "Pages:"
 msgstr "Pages"
 
@@ -164,6 +167,141 @@ msgstr "Ils nous font confiance..."
 msgid "Select a country"
 msgstr "Sélectionnez un pays"
 
+#: ../page-templates/page-calculatrice-carbone.php:59
+msgid "Equivalent carbon"
+msgstr "Equivalent carbone"
+
+#: ../page-templates/page-calculatrice-carbone.php:64
+msgid "Element"
+msgstr "Élément"
+
+#: ../page-templates/page-calculatrice-carbone.php:66
+#: ../page-templates/page-calculatrice-convertisseur.php:63
+#: ../page-templates/page-calculatrice-masse.php:66
+#: ../page-templates/page-calculatrice-masse.php:101
+msgid "Result"
+msgstr "Résultat"
+
+#: ../page-templates/page-calculatrice-carbone.php:69
+#: ../page-templates/page-calculatrice-carbone.php:78
+#: ../page-templates/page-calculatrice-carbone.php:81
+#: ../page-templates/page-calculatrice-carbone.php:84
+#: ../page-templates/page-calculatrice-carbone.php:87
+#: ../page-templates/page-calculatrice-carbone.php:90
+#: ../page-templates/page-calculatrice-carbone.php:93
+#: ../page-templates/page-calculatrice-carbone.php:97
+#: ../page-templates/page-calculatrice-carbone.php:101
+msgid "Enter the average value"
+msgstr "Entrez la valeur moyenne"
+
+#: ../page-templates/page-calculatrice-carbone.php:70
+msgid "Please enter a value in each box, and use a POINT to separate decimal"
+msgstr ""
+"Veuillez saisir une valeur dans chacune des zones, le séparateur de "
+"décimales doit être un POINT"
+
+#: ../page-templates/page-calculatrice-convertisseur.php:60
+msgid "Amount"
+msgstr "Quantité"
+
+#: ../page-templates/page-calculatrice-convertisseur.php:61
+msgid "From"
+msgstr "\tUnité de départ"
+
+#: ../page-templates/page-calculatrice-convertisseur.php:62
+msgid "To"
+msgstr "\tUnité d’arrivée"
+
+#: ../page-templates/page-calculatrice-convertisseur.php:65
+#: ../page-templates/page-calculatrice-masse.php:100
+msgid "Length"
+msgstr "Longueur"
+
+#: ../page-templates/page-calculatrice-convertisseur.php:84
+msgid "Surface"
+msgstr "Surface"
+
+#: ../page-templates/page-calculatrice-convertisseur.php:99
+msgid "Volume"
+msgstr "Volume"
+
+#: ../page-templates/page-calculatrice-convertisseur.php:119
+#: ../page-templates/page-calculatrice-masse.php:94
+msgid "Mass"
+msgstr "Masse"
+
+#: ../page-templates/page-calculatrice-convertisseur.php:135
+msgid "Density"
+msgstr "Densité "
+
+#: ../page-templates/page-calculatrice-convertisseur.php:153
+msgid "Stress"
+msgstr "Contrainte "
+
+#: ../page-templates/page-calculatrice-convertisseur.php:157
+#: ../page-templates/page-calculatrice-convertisseur.php:161
+msgid "or"
+msgstr "ou"
+
+#: ../page-templates/page-calculatrice-convertisseur.php:166
+msgid "Pressure"
+msgstr "Pression "
+
+#: ../page-templates/page-calculatrice-convertisseur.php:179
+msgid "Temperature"
+msgstr "Température "
+
+#: ../page-templates/page-calculatrice-convertisseur.php:192
+msgid "Energy"
+msgstr "Énergie "
+
+#: ../page-templates/page-calculatrice-masse.php:59
+msgid "Linear Weight"
+msgstr "Poids métrique"
+
+#: ../page-templates/page-calculatrice-masse.php:64
+#: ../page-templates/page-calculatrice-masse.php:99
+msgid "Product dimension"
+msgstr "Format du produit"
+
+#: ../page-templates/page-calculatrice-masse.php:68
+#: ../page-templates/page-calculatrice-masse.php:103
+msgid "Bar"
+msgstr "Barre"
+
+#: ../page-templates/page-calculatrice-masse.php:70
+#: ../page-templates/page-calculatrice-masse.php:105
+msgid "Enter the section in mm"
+msgstr "Entrez la section en mm"
+
+#: ../page-templates/page-calculatrice-masse.php:75
+#: ../page-templates/page-calculatrice-masse.php:110
+msgid "Square blooms/billets"
+msgstr "Billettes / Bloom carré"
+
+#: ../page-templates/page-calculatrice-masse.php:77
+#: ../page-templates/page-calculatrice-masse.php:84
+#: ../page-templates/page-calculatrice-masse.php:112
+#: ../page-templates/page-calculatrice-masse.php:119
+msgid "Enter the height in mm"
+msgstr "Entrez la hauteur en mm"
+
+#: ../page-templates/page-calculatrice-masse.php:82
+#: ../page-templates/page-calculatrice-masse.php:117
+msgid "Rectangular rolled bloom"
+msgstr "Larget"
+
+#: ../page-templates/page-calculatrice-masse.php:85
+#: ../page-templates/page-calculatrice-masse.php:120
+msgid "Enter the width in mm"
+msgstr "Entrez la largeur en mm"
+
+#: ../page-templates/page-calculatrice-masse.php:106
+#: ../page-templates/page-calculatrice-masse.php:113
+#: ../page-templates/page-calculatrice-masse.php:121
+msgid "Enter the length in mm"
+msgstr "Entrez la longueur en mm"
+
 #: ../search.php:16
 msgid "Search Results for"
 msgstr "Résultats pour"
@@ -172,15 +310,15 @@ msgstr "Résultats pour"
 msgid "Search"
 msgstr "Rechercher"
 
-#: ../single-produits-ascometal.php:101
+#: ../single-produits-ascometal.php:114
 msgid "Properties"
 msgstr "Caractéristiques"
 
-#: ../single-produits-ascometal.php:106
+#: ../single-produits-ascometal.php:119
 msgid "Advantages"
 msgstr "Avantages"
 
-#: ../single-produits-ascometal.php:111
+#: ../single-produits-ascometal.php:124
 msgid "Benefits"
 msgstr "Bénéfices"
 
@@ -192,38 +330,10 @@ msgstr "Sélectionnez un site :"
 msgid "Access map"
 msgstr "Plan d'accès"
 
-#: ../single.php:34
-msgid "bearing"
-msgstr "roulement"
-
-#: ../single.php:35
-msgid "automotive"
-msgstr "automobile"
-
-#: ../single.php:36
-msgid "petrole"
-msgstr "petrole"
-
-#: ../single.php:37
-msgid "mechanical"
-msgstr "mecanique"
-
-#: ../single.php:38
-msgid "Bearing"
-msgstr "Roulement"
-
-#: ../single.php:39 ../template-parts/blocs-marches-index.php:28
+#: ../template-parts/blocs-marches-index.php:28
 #: ../template-parts/blocs-marches-index.php:33
 msgid "Automotive"
 msgstr "Automobile"
-
-#: ../single.php:40
-msgid "Petrole"
-msgstr "Pétrole"
-
-#: ../single.php:41
-msgid "Mechanical"
-msgstr "Mécanique"
 
 #: ../template-parts/blocs-marches-index.php:35
 msgid "A perfect understanding of the technical and economic challenges..."
@@ -289,14 +399,14 @@ msgstr ""
 
 #: ../template-parts/featured-image-actu.php:6
 #: ../template-parts/featured-image-marches.php:13
-#: ../template-parts/featured-image-produits.php:3
+#: ../template-parts/featured-image-produits.php:11
 #: ../template-parts/featured-image-usine.php:16
-#: ../template-parts/featured-image.php:20
+#: ../template-parts/featured-image.php:22
 msgid "Home"
 msgstr "Accueil"
 
 #: ../template-parts/featured-image-marches.php:13
-#: ../template-parts/featured-image.php:20
+#: ../template-parts/featured-image.php:22
 msgid "Markets"
 msgstr "Marchés"
 
@@ -308,6 +418,33 @@ msgstr "Au service de vos performances"
 #: ../template-parts/header-banner-usine.php:11
 msgid "Industrial resources"
 msgstr "Outil industriel"
+
+#~ msgid "Enter the length"
+#~ msgstr "Entrez la longueur en mm"
+
+#~ msgid "enter the % content"
+#~ msgstr "entrez la valeur % moyenne"
+
+#~ msgid "bearing"
+#~ msgstr "roulement"
+
+#~ msgid "automotive"
+#~ msgstr "automobile"
+
+#~ msgid "petrole"
+#~ msgstr "petrole"
+
+#~ msgid "mechanical"
+#~ msgstr "mecanique"
+
+#~ msgid "Bearing"
+#~ msgstr "Roulement"
+
+#~ msgid "Petrole"
+#~ msgstr "Pétrole"
+
+#~ msgid "Mechanical"
+#~ msgstr "Mécanique"
 
 #~ msgid "A key european producer of lng engineering steel products"
 #~ msgstr "Un acteur européen incontournable dans les aciers longs spéciaux..."

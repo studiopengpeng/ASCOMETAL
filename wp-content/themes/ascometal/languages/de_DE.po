@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FoundationPress v5.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-27 17:07+0200\n"
-"PO-Revision-Date: 2016-05-27 17:07+0200\n"
+"POT-Creation-Date: 2016-06-14 22:45+0200\n"
+"PO-Revision-Date: 2016-06-14 23:01+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -58,10 +58,13 @@ msgstr ""
 # @ FoundationPress
 #: _marches.php:63 homepage.php:66 page-home-foundationpress.php:22
 #: page-interactivemap.php:33 page-templates/front.php:38
+#: page-templates/page-calculatrice-carbone.php:111
+#: page-templates/page-calculatrice-convertisseur.php:222
+#: page-templates/page-calculatrice-masse.php:132
 #: page-templates/page-full-width.php:22
 #: page-templates/page-sidebar-left.php:22 page.php:89
-#: single-produits-ascometal.php:127 single-produits-ascometal.php:129
-#: single.php:99 single.php:101 woocommerce.php:26
+#: single-produits-ascometal.php:140 single-produits-ascometal.php:142
+#: single.php:109 single.php:111 woocommerce.php:26
 msgid "Pages:"
 msgstr "Seiten:"
 
@@ -77,7 +80,7 @@ msgstr "neuere Beiträge &rarr;"
 
 #: comments.php:26
 msgid "Reply"
-msgstr ""
+msgstr "Antworten"
 
 # @ FoundationPress
 #: comments.php:35
@@ -164,11 +167,12 @@ msgstr "Sie können diese Tags verwenden:"
 #: template-parts/header-banner-marches.php:12
 #: template-parts/header-banner-produits.php:12
 msgid "...A partner<br />to your success"
-msgstr ""
+msgstr "... Ihr Erfolgsbegleiter"
 
 #: homepage.php:45
 msgid "A key european producer of long engineering steel products"
 msgstr ""
+"Ein wichtiger europäischer Hersteller von lang Engineering Stahlprodukte"
 
 #: homepage.php:46 template-parts/blocs-marches-index.php:36
 #: template-parts/blocs-marches-index.php:56
@@ -177,14 +181,147 @@ msgstr ""
 #: template-parts/carrousel-actualites.php:34
 #: template-parts/content-blocs.php:51 template-parts/content.php:31
 msgid "More..."
-msgstr ""
+msgstr "Mehr..."
 
 #: homepage.php:60
 msgid "Among our references"
-msgstr ""
+msgstr "Unseren Referenzen"
 
 #: page-interactivemap.php:28
 msgid "Select a country"
+msgstr "Wählen Sie ein Land"
+
+#: page-templates/page-calculatrice-carbone.php:59
+msgid "Equivalent carbon"
+msgstr ""
+
+#: page-templates/page-calculatrice-carbone.php:64
+msgid "Element"
+msgstr ""
+
+#: page-templates/page-calculatrice-carbone.php:66
+#: page-templates/page-calculatrice-convertisseur.php:63
+#: page-templates/page-calculatrice-masse.php:66
+#: page-templates/page-calculatrice-masse.php:101
+msgid "Result"
+msgstr ""
+
+#: page-templates/page-calculatrice-carbone.php:69
+#: page-templates/page-calculatrice-carbone.php:78
+#: page-templates/page-calculatrice-carbone.php:81
+#: page-templates/page-calculatrice-carbone.php:84
+#: page-templates/page-calculatrice-carbone.php:87
+#: page-templates/page-calculatrice-carbone.php:90
+#: page-templates/page-calculatrice-carbone.php:93
+#: page-templates/page-calculatrice-carbone.php:97
+#: page-templates/page-calculatrice-carbone.php:101
+msgid "Enter the average value"
+msgstr ""
+
+#: page-templates/page-calculatrice-carbone.php:70
+msgid "Please enter a value in each box, and use a POINT to separate decimal"
+msgstr ""
+
+#: page-templates/page-calculatrice-convertisseur.php:60
+msgid "Amount"
+msgstr ""
+
+#: page-templates/page-calculatrice-convertisseur.php:61
+msgid "From"
+msgstr ""
+
+#: page-templates/page-calculatrice-convertisseur.php:62
+msgid "To"
+msgstr ""
+
+#: page-templates/page-calculatrice-convertisseur.php:65
+#: page-templates/page-calculatrice-masse.php:100
+msgid "Length"
+msgstr ""
+
+#: page-templates/page-calculatrice-convertisseur.php:84
+msgid "Surface"
+msgstr ""
+
+#: page-templates/page-calculatrice-convertisseur.php:99
+msgid "Volume"
+msgstr ""
+
+#: page-templates/page-calculatrice-convertisseur.php:119
+#: page-templates/page-calculatrice-masse.php:94
+msgid "Mass"
+msgstr ""
+
+#: page-templates/page-calculatrice-convertisseur.php:135
+msgid "Density"
+msgstr ""
+
+#: page-templates/page-calculatrice-convertisseur.php:153
+msgid "Stress"
+msgstr ""
+
+#: page-templates/page-calculatrice-convertisseur.php:157
+#: page-templates/page-calculatrice-convertisseur.php:161
+msgid "or"
+msgstr ""
+
+#: page-templates/page-calculatrice-convertisseur.php:166
+msgid "Pressure"
+msgstr ""
+
+#: page-templates/page-calculatrice-convertisseur.php:179
+msgid "Temperature"
+msgstr ""
+
+#: page-templates/page-calculatrice-convertisseur.php:192
+msgid "Energy"
+msgstr ""
+
+#: page-templates/page-calculatrice-masse.php:59
+msgid "Linear Weight"
+msgstr ""
+
+#: page-templates/page-calculatrice-masse.php:64
+#: page-templates/page-calculatrice-masse.php:99
+msgid "Product dimension"
+msgstr ""
+
+#: page-templates/page-calculatrice-masse.php:68
+#: page-templates/page-calculatrice-masse.php:103
+msgid "Bar"
+msgstr ""
+
+#: page-templates/page-calculatrice-masse.php:70
+#: page-templates/page-calculatrice-masse.php:105
+msgid "Enter the section in mm"
+msgstr ""
+
+#: page-templates/page-calculatrice-masse.php:75
+#: page-templates/page-calculatrice-masse.php:110
+msgid "Square blooms/billets"
+msgstr ""
+
+#: page-templates/page-calculatrice-masse.php:77
+#: page-templates/page-calculatrice-masse.php:84
+#: page-templates/page-calculatrice-masse.php:112
+#: page-templates/page-calculatrice-masse.php:119
+msgid "Enter the height in mm"
+msgstr ""
+
+#: page-templates/page-calculatrice-masse.php:82
+#: page-templates/page-calculatrice-masse.php:117
+msgid "Rectangular rolled bloom"
+msgstr ""
+
+#: page-templates/page-calculatrice-masse.php:85
+#: page-templates/page-calculatrice-masse.php:120
+msgid "Enter the width in mm"
+msgstr ""
+
+#: page-templates/page-calculatrice-masse.php:106
+#: page-templates/page-calculatrice-masse.php:113
+#: page-templates/page-calculatrice-masse.php:121
+msgid "Enter the length in mm"
 msgstr ""
 
 # @ FoundationPress
@@ -192,93 +329,67 @@ msgstr ""
 msgid "Search Results for"
 msgstr "Suchergebnisse für"
 
-#: single-produits-ascometal.php:101
+#: single-produits-ascometal.php:114
 msgid "Properties"
-msgstr ""
+msgstr "Eigenschaften"
 
-#: single-produits-ascometal.php:106
+#: single-produits-ascometal.php:119
 msgid "Advantages"
-msgstr ""
+msgstr "Vorteile"
 
-#: single-produits-ascometal.php:111
+#: single-produits-ascometal.php:124
 msgid "Benefits"
-msgstr ""
+msgstr "Nutzen"
 
 #: single-usine.php:74
 msgid "Select a site :"
-msgstr ""
+msgstr "Wählen Sie einen Standort:"
 
 #: single-usine.php:104
 msgid "Access map"
-msgstr ""
+msgstr "Anfahrtskarte"
 
-#: single.php:34
-msgid "bearing"
-msgstr ""
-
-#: single.php:35
-msgid "automotive"
-msgstr ""
-
-#: single.php:36
-msgid "petrole"
-msgstr ""
-
-#: single.php:37
-msgid "mechanical"
-msgstr ""
-
-#: single.php:38
-msgid "Bearing"
-msgstr ""
-
-#: single.php:39 template-parts/blocs-marches-index.php:28
+#: template-parts/blocs-marches-index.php:28
 #: template-parts/blocs-marches-index.php:33
 msgid "Automotive"
-msgstr ""
-
-#: single.php:40
-msgid "Petrole"
-msgstr ""
-
-#: single.php:41
-msgid "Mechanical"
-msgstr ""
+msgstr "Automobilbau"
 
 #: template-parts/blocs-marches-index.php:35
 msgid "A perfect understanding of the technical and economic challenges..."
-msgstr ""
+msgstr "Vollständige kenntnis der technischen und wirtschaftlichen Belange..."
 
 #: template-parts/blocs-marches-index.php:47
 #: template-parts/blocs-marches-index.php:52
 msgid "Bearings"
-msgstr ""
+msgstr "Wälzlager"
 
 #: template-parts/blocs-marches-index.php:54
 msgid "A long-term partnership with the world's bearing manufacturers..."
 msgstr ""
+"Eine historisch gewachsene partnerschaft mit den internationalen "
+"wälzlagerherstellern..."
 
 #: template-parts/blocs-marches-index.php:68
 #: template-parts/blocs-marches-index.php:73
 msgid "Mechanical engineering"
-msgstr ""
+msgstr "Maschinenbau"
 
 #: template-parts/blocs-marches-index.php:75
 msgid "High level technical assistance for innovative solutions..."
-msgstr ""
+msgstr "Hochwertige technische begleitung für neuartige lösungen... "
 
 #: template-parts/blocs-marches-index.php:88
 #: template-parts/blocs-marches-index.php:93
 msgid "Oil / Gas"
-msgstr ""
+msgstr "Erdöl / Gas"
 
 #: template-parts/blocs-marches-index.php:95
 msgid "A world-renowned player in drilling and extraction..."
-msgstr ""
+msgstr "Ein Weltweit berühmter <br/>Akteur im Bohren- und Förederungsbereich"
 
 #: template-parts/carrousel-actualites.php:8
 msgid "News"
-msgstr ""
+msgstr "Nachrichten"
 
 # @ FoundationPress
 #: template-parts/content-none.php:14
@@ -312,25 +423,25 @@ msgstr "Es scheint, wir finden nicht, was Sie suchen. Vielleicht hilft suchen."
 
 #: template-parts/featured-image-actu.php:6
 #: template-parts/featured-image-marches.php:13
-#: template-parts/featured-image-produits.php:3
+#: template-parts/featured-image-produits.php:11
 #: template-parts/featured-image-usine.php:16
-#: template-parts/featured-image.php:20
+#: template-parts/featured-image.php:22
 msgid "Home"
-msgstr ""
+msgstr "Startseite"
 
 #: template-parts/featured-image-marches.php:13
-#: template-parts/featured-image.php:20
+#: template-parts/featured-image.php:22
 msgid "Markets"
-msgstr ""
+msgstr "Märkte"
 
 #: template-parts/featured-image-usine.php:16
 msgid "A partner to your success"
-msgstr ""
+msgstr "... Ihr Erfolgsbegleiter"
 
 #: template-parts/featured-image-usine.php:16
 #: template-parts/header-banner-usine.php:11
 msgid "Industrial resources"
-msgstr ""
+msgstr "Industrieanlagen"
 
 # @ FoundationPress
 #~ msgid "Submit Comment"
