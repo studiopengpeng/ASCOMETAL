@@ -66,7 +66,7 @@ wp_nav_menu( $args_menu1 );
 					<th><?php echo __('Result', 'foundationpress'); ?></th>
 				</tr>
 				<tr>
-					<td><label for="form_C" class="required">C</label><input id="form_C" name="form[C]" required="required" type="text" placeholder="{{'outil.carbonne.default'|trans |raw}}"></td>
+					<td><label for="form_C" class="required">C</label><input id="form_C" name="form[C]" required="required" type="text" placeholder="<?php echo __('enter the % content', 'foundationpress'); ?>"></td>
                     <td class="commentaire" rowspan="6"><div><?php echo __('Please enter a value in each box, and use a POINT to separate decimal', 'foundationpress'); ?></br>
 					 CEV = C + Mn/6 + (Cr + Mo + V)/5 + (Cu + Ni)/15<br/>
 					 CET = C + (Mn + Mo)/10 +(Cr + Cu)/20 + Ni/40<br/>
@@ -103,13 +103,6 @@ wp_nav_menu( $args_menu1 );
 				
 				</tr>
 				</table>
-		
-				<div class="calcul-commentaire">
-					 {{'outil.carbonne.info'|trans |raw}}</br></br/>
-					 CEV = C + Mn/6 + (Cr + Mo + V)/5 + (Cu + Ni)/15<br/>
-					 CET = C + (Mn + Mo)/10 +(Cr + Cu)/20 + Ni/40<br/>
-					 Pcm = C + Si/30 + (Mn + Cu + Cr)/20 + Ni/60 + Mo/15 + V/10 + 5B
-              </div>
 				              
 	              <!-- end masse -->       
                                             
