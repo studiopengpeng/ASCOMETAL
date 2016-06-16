@@ -136,6 +136,12 @@ wp_nav_menu( $args_menu1 );
                                 
                                     </div>
                                      <div class="small-12 medium-7 large-7 columns ">
+                                         <?php
+                                         	
+                                            $taxonomy = get_queried_object();
+                                            echo  "<h3>".$taxonomy->name."</h3>";
+                                         
+                                         ?>
                                     
 	<?php if ( have_posts() ) : ?>
 		<?php /* Start the Loop */ ?>
@@ -168,8 +174,14 @@ wp_nav_menu( $args_menu1 );
 		<?php endwhile; ?>
 
 		<?php else : ?>
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
+			
+        <?php 
+        
+            echo "<p>";
+            echo __("No offer matching this criteria", "foundationpress");
+            echo "</p>";
+        
+        ?> 
 		<?php endif; // End have_posts() check. ?>
 
 		<?php /* Display navigation to next/previous pages when applicable */ ?>
