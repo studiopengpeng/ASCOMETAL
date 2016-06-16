@@ -55,7 +55,7 @@ wp_nav_menu( $args_menu1 );
                                     </div>
                                     <div class="small-12 medium-6 large-6 columns ">
                                         <?php
-                                            // type de poste
+                                        // catégorie d'offre
                                             $taxonomy = 'categorie-offres';
                                             $term_args=array(
                                               'taxonomy' => $taxonomy,
@@ -66,14 +66,57 @@ wp_nav_menu( $args_menu1 );
                                             $tax_terms = get_terms($taxonomy,$term_args);
                                             $count = count($tax_terms);
                                             if ( $count > 0 ){
-                                                echo '<div class="titre-taxo-offres">';
-                                                 echo __('You are:', 'foundationpress');
-                                                echo '</div>';
-                                                 echo '<ul class="liste-taxo-offres">';
-                                                 foreach ( $tax_terms as $term ) {
-                                                   echo '<li data-filter="' . $term->slug . '"><a href="'.get_term_link( $term).'">' . $term->name . '</a>&nbsp;<span class="badge"> ' . $term->count . '</span></li>';
+                                                    echo '<div class="titre-taxo-offres">';
+                                                    echo __('Our offers:', 'foundationpress');
+                                                    echo '</div>';
+                                                    echo '<ul class="liste-taxo-offres">';
+                                                    foreach ( $tax_terms as $term ) {
+                                                       echo '<li data-filter="' . $term->slug . '"><a href="'.get_term_link( $term).'">' . $term->name . '</a>&nbsp;<span class="badge"> ' . $term->count . '</span></li>';
+                                                    }
+                                                    echo '</ul>';
                                             }
-                                            echo '</ul>';
+                                        
+                                        
+                                            // type de poste
+                                            $taxonomy = 'type-de-poste';
+                                            $term_args=array(
+                                              'taxonomy' => $taxonomy,
+                                              'hide_empty' => false,
+                                              'orderby' => 'name',
+                                              'order' => 'ASC'
+                                            );
+                                            $tax_terms = get_terms($taxonomy,$term_args);
+                                            $count = count($tax_terms);
+                                            if ( $count > 0 ){
+                                                    echo '<div class="titre-taxo-offres">';
+                                                    echo __('You are:', 'foundationpress');
+                                                    echo '</div>';
+                                                    echo '<ul class="liste-taxo-offres">';
+                                                    foreach ( $tax_terms as $term ) {
+                                                       echo '<li data-filter="' . $term->slug . '"><a href="'.get_term_link( $term).'">' . $term->name . '</a>&nbsp;<span class="badge"> ' . $term->count . '</span></li>';
+                                                    }
+                                                    echo '</ul>';
+                                            }
+                                        
+                                        // type de poste
+                                            $taxonomy = 'site-offre';
+                                            $term_args=array(
+                                              'taxonomy' => $taxonomy,
+                                              'hide_empty' => false,
+                                              'orderby' => 'name',
+                                              'order' => 'ASC'
+                                            );
+                                            $tax_terms = get_terms($taxonomy,$term_args);
+                                            $count = count($tax_terms);
+                                            if ( $count > 0 ){
+                                                    echo '<div class="titre-taxo-offres">';
+                                                    echo __('Locations:', 'foundationpress');
+                                                    echo '</div>';
+                                                    echo '<ul class="liste-taxo-offres">';
+                                                    foreach ( $tax_terms as $term ) {
+                                                       echo '<li data-filter="' . $term->slug . '"><a href="'.get_term_link( $term).'">' . $term->name . '</a>&nbsp;<span class="badge"> ' . $term->count . '</span></li>';
+                                                    }
+                                                    echo '</ul>';
                                             }
                                         
                                         
