@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FoundationPress\n"
-"POT-Creation-Date: 2016-06-14 23:02+0200\n"
-"PO-Revision-Date: 2016-06-14 23:18+0200\n"
+"POT-Creation-Date: 2016-06-17 15:38+0200\n"
+"PO-Revision-Date: 2016-06-17 15:38+0200\n"
 "Last-Translator: Francesco Michelini <kekko.rider@libero.it>\n"
 "Language-Team: Le Saint <info@lesaint.ca>\n"
 "Language: fr_FR\n"
@@ -52,19 +52,21 @@ msgstr ""
 #: ../page-templates/page-calculatrice-convertisseur.php:222
 #: ../page-templates/page-calculatrice-masse.php:132
 #: ../page-templates/page-full-width.php:22
+#: ../page-templates/page-recrutement.php:196
 #: ../page-templates/page-sidebar-left.php:22 ../page.php:89
 #: ../single-produits-ascometal.php:140 ../single-produits-ascometal.php:142
+#: ../single-recrutement.php:145 ../single-recrutement.php:147
 #: ../single.php:109 ../single.php:111 ../woocommerce.php:26
 msgid "Pages:"
 msgstr "Pagine:"
 
 #: ../archive.php:37 ../index.php:74 ../search.php:34
-#: ../taxonomy-categories.php:74
+#: ../taxonomy-categories.php:74 ../taxonomy.php:190
 msgid "&larr; Older posts"
 msgstr "&larr; Post più vecchi"
 
 #: ../archive.php:38 ../index.php:77 ../search.php:35
-#: ../taxonomy-categories.php:77
+#: ../taxonomy-categories.php:77 ../taxonomy.php:191
 msgid "Newer posts &rarr;"
 msgstr "Post più recenti &rarr;"
 
@@ -151,7 +153,8 @@ msgstr "...Al serviszio delle<br />vostre prestazioni"
 msgid "A key european producer of long engineering steel products"
 msgstr ""
 
-#: ../homepage.php:46 ../template-parts/blocs-marches-index.php:36
+#: ../homepage.php:46 ../page-templates/page-recrutement.php:184
+#: ../taxonomy.php:171 ../template-parts/blocs-marches-index.php:36
 #: ../template-parts/blocs-marches-index.php:56
 #: ../template-parts/blocs-marches-index.php:77
 #: ../template-parts/blocs-marches-index.php:96
@@ -301,6 +304,18 @@ msgstr ""
 msgid "Enter the length in mm"
 msgstr ""
 
+#: ../page-templates/page-recrutement.php:70 ../taxonomy.php:78
+msgid "Our offers:"
+msgstr ""
+
+#: ../page-templates/page-recrutement.php:92 ../taxonomy.php:100
+msgid "You are:"
+msgstr ""
+
+#: ../page-templates/page-recrutement.php:113 ../taxonomy.php:121
+msgid "Locations:"
+msgstr ""
+
 #: ../search.php:16
 msgid "Search Results for"
 msgstr "Risultati di Ricerca per"
@@ -321,6 +336,42 @@ msgstr "Vantaggi"
 msgid "Benefits"
 msgstr "Benefici"
 
+#: ../single-recrutement.php:115 ../taxonomy.php:54
+msgid "Trades in the heart of steel"
+msgstr ""
+
+#: ../single-recrutement.php:125
+msgid "Back to list"
+msgstr ""
+
+#: ../single-recrutement.php:128
+msgid "Sector"
+msgstr ""
+
+#: ../single-recrutement.php:129
+msgid "Location"
+msgstr ""
+
+#: ../single-recrutement.php:132
+msgid "Main goals"
+msgstr ""
+
+#: ../single-recrutement.php:134
+msgid "Additional activities"
+msgstr ""
+
+#: ../single-recrutement.php:136
+msgid "Required profile"
+msgstr ""
+
+#: ../single-recrutement.php:138
+msgid "Plan and working conditions"
+msgstr ""
+
+#: ../single-recrutement.php:140
+msgid "Thank you for sending your application to"
+msgstr ""
+
 #: ../single-usine.php:74
 msgid "Select a site :"
 msgstr "Scegliere un sito:"
@@ -328,6 +379,10 @@ msgstr "Scegliere un sito:"
 #: ../single-usine.php:104
 msgid "Access map"
 msgstr "Piantina"
+
+#: ../taxonomy.php:181
+msgid "No offer matching this criteria"
+msgstr ""
 
 #: ../template-parts/blocs-marches-index.php:28
 #: ../template-parts/blocs-marches-index.php:33
@@ -400,12 +455,14 @@ msgstr ""
 #: ../template-parts/featured-image-actu.php:6
 #: ../template-parts/featured-image-marches.php:13
 #: ../template-parts/featured-image-produits.php:11
+#: ../template-parts/featured-image-recrutement.php:22
 #: ../template-parts/featured-image-usine.php:16
 #: ../template-parts/featured-image.php:22
 msgid "Home"
 msgstr "Homepage"
 
 #: ../template-parts/featured-image-marches.php:13
+#: ../template-parts/featured-image-recrutement.php:22
 #: ../template-parts/featured-image.php:22
 msgid "Markets"
 msgstr "Mercati"
@@ -418,6 +475,10 @@ msgstr "...Al serviszio delle vostre prestazioni"
 #: ../template-parts/header-banner-usine.php:11
 msgid "Industrial resources"
 msgstr "Attrezzi industriali"
+
+#: ../template-parts/header-banner-recrutement.php:11
+msgid "Ascometal recruits"
+msgstr ""
 
 #~ msgid "<cite class=\"fn\">%s</cite>"
 #~ msgstr "<cite class=\"fn\">%s</cite>"

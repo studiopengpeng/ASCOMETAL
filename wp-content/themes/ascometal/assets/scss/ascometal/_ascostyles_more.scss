@@ -319,6 +319,20 @@ div.wpcf7-validation-errors {
 	position: relative;
 	transition: all 0.35s ease-in-out;
 }
+
+div.col-list-items span.wpcf7-list-item {
+    margin-left: 0.5em;
+    width: 45%;
+    display: inline-block;
+    float: left;
+}
+
+@media screen and (max-width : 650px) {
+	div.col-list-items span.wpcf7-list-item {
+        width: 95%;
+    }
+}
+
 /* -------------------------------------------- */
 /* BOUTONS TELECHARGEMENTS                       */
 /* -------------------------------------------- */
@@ -331,6 +345,7 @@ div.wpcf7-validation-errors {
 	padding-bottom: 10px;
 	display: block;
 }
+
 .simple-btn p {
 	line-height: rem-calc(18);
 }
@@ -644,7 +659,7 @@ header.header-image h1 {
 }
 // à supprimer quand autres langues actives que juste l'anglais
 #navtools #lang_sel ul ul {
-	left: -4px !important;
+	left: -44px !important;
 }
 .actus-home {
 	max-height: 290px;
@@ -657,6 +672,7 @@ header.header-image h1 {
 		max-height: 600px;
 	}
 }
+
 /*---------------------------------------------------------------
 PLAN DE SITE (MENU GAUCHE PLACE DANS LE MAIN CONTAINER)
 ---------------------------------------------------------------*/

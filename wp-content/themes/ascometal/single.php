@@ -29,13 +29,13 @@ foreach ($terms as $term) {
 $prelink."/marches-ascometal/";$nomMarche="Automotive";$contexteType="marche";$nomMarcheUrl="automotive";$linkUrlMarcheSingle=	
 $prelink."/marches-asco/";}
     else if ($term->term_id==19 || $term->term_id==37 || $term->term_id==35 || $term->term_id==36) {$classColor="roulement";$linkUrlMarche=	
-$prelink."/marches-ascometal/";$nomMarche="Bearing";$contexteType="marche";$nomMarcheUrl="bearing";$linkUrlMarcheSingle=	
+$prelink."/marches-ascometal/";$nomMarche="Bearings";$contexteType="marche";$nomMarcheUrl="bearing";$linkUrlMarcheSingle=	
 $prelink."/marches-asco/";}
     else if ($term->term_id==20 || $term->term_id==33 || $term->term_id==34 || $term->term_id==32) {$classColor="petrole";$linkUrlMarche=	
-$prelink."/marches-ascometal/";$nomMarche="Petrole";$contexteType="marche";$nomMarcheUrl="petrole";$linkUrlMarcheSingle=	
+$prelink."/marches-ascometal/";$nomMarche="Oil / Gas"; $contexteType="marche";$nomMarcheUrl="petrole";$linkUrlMarcheSingle=	
 $prelink."/marches-asco/";}
     else if ($term->term_id==21 || $term->term_id==29 || $term->term_id==30 || $term->term_id==31) {$classColor="mecanique";$linkUrlMarche=	
-$prelink."/marches-ascometal/";$nomMarche="Mechanical";$contexteType="marche";$nomMarcheUrl="mechanical";$linkUrlMarcheSingle=	
+$prelink."/marches-ascometal/";$nomMarche="Mechanical engineering";$contexteType="marche";$nomMarcheUrl="mechanical";$linkUrlMarcheSingle=	
 $prelink."/marches-asco/";}
 }
 
@@ -44,7 +44,7 @@ echo __("bearing", "foundationpress")
 echo __("automotive", "foundationpress")
 echo __("petrole", "foundationpress")
 echo __("mechanical", "foundationpress")
-echo __("Bearing", "foundationpress")
+echo __("Bearings", "foundationpress")
 echo __("Automotive", "foundationpress")
 echo __("Petrole", "foundationpress")
 echo __("Mechanical", "foundationpress")

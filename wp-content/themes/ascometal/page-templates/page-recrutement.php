@@ -50,7 +50,7 @@ wp_nav_menu( $args_menu1 );
                                 </header>
                                 <?php do_action( 'foundationpress_page_before_entry_content' ); ?>
                                 <div class="entry-content">
-                                    <div class="small-12">
+                                    <div class="small-12" style="margin-bottom:75px">
                                     <?php the_content(); ?>
                                     </div>
                                     <div class="small-12 medium-5 large-5 columns ">

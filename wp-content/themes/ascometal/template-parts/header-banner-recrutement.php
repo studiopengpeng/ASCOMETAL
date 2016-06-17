@@ -8,7 +8,7 @@
                 global $classColor; global $linkUrlMarche; 
                 ?>
                 <a href="<?php echo get_stylesheet_directory_uri(); ?>?p=2099"><div class="every-market corporate"></div></a>
-                <h1><?php echo __( 'Ascometal® recruits', 'foundationpress') ?></h1>
+                <h1><?php echo __( 'Ascometal recruits', 'foundationpress') ?></h1>
             </header>
     </article>
 </div>

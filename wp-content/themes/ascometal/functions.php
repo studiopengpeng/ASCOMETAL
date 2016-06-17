@@ -61,6 +61,12 @@ function parent_page_title() {
     echo $parent;
 }
 
+function parent_page_title_test() {
+	global $post;
+	$parent = empty( $post->post_parent ) ? '' : get_the_title($post->post_parent);
+    return $parent;
+}
+
 function parent_page_url() {
 	global $post;
 	$parent = empty( $post->post_parent ) ? '' : get_the_permalink($post->post_parent);

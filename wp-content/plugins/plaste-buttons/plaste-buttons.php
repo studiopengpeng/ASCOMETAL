@@ -155,7 +155,7 @@ class plaste_buttons extends WP_Widget {
 
             // Check values
              ${'title'.$x} = ! empty( $instance['title'.$x] ) ? $instance['title'.$x] : __( 'New title', 'plaste-buttons' );
-             ${'subtitle'.$x} = ! empty( $instance['subtitle'.$x] ) ? $instance['subtitle'.$x] : __( 'New subtitle', 'plaste-buttons' );
+             ${'subtitle'.$x} = ! empty( $instance['subtitle'.$x] ) ? $instance['subtitle'.$x] : '';
             if( $instance) {
                  ${'link'.$x} = esc_attr($instance['link'.$x]);
                  ${'type'.$x} = esc_attr($instance['type'.$x]);
