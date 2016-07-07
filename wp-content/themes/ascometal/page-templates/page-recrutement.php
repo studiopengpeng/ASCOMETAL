@@ -76,7 +76,6 @@ wp_nav_menu( $args_menu1 );
                                                     echo '</ul>';
                                             }
                                         
-                                        
                                             // type de poste
                                             $taxonomy = 'type-de-poste';
                                             $term_args=array(

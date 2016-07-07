@@ -64,6 +64,7 @@ wp_nav_menu( $args_menu1 );
                                     <div class="small-12 medium-5 large-5 columns ">
                                         <?php
                                         // catégorie d'offre
+                                        /*
                                             $taxonomy = 'categorie-offres';
                                             $term_args=array(
                                               'taxonomy' => $taxonomy,
@@ -83,7 +84,7 @@ wp_nav_menu( $args_menu1 );
                                                     }
                                                     echo '</ul>';
                                             }
-                                        
+                                        */
                                         
                                             // type de poste
                                             $taxonomy = 'type-de-poste';
