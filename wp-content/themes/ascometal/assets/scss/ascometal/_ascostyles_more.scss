@@ -183,18 +183,33 @@ a.maps_button {
 		font-weight: 700;
 		color: #5c5c5c;
 	}
+    a {
+        word-wrap: break-word !important;
+    }
 }
+
+
 @media screen and (max-width: 640px) {
 	#imap1message {
 		left: 15%;
 		width: 60%;
+        top: 25%;
 	}
+    .google-visualization-tooltip {
+        opacity:0;
+        display:none;
+    }
 }
 @media screen and (max-width: 1024px) {
 	#imap1message {
 		left: 25%;
 		width: 60%;
+        top: 25%;
 	}
+     .google-visualization-tooltip {
+        opacity:0;
+        display:none;
+    }
 }
 /* -------------------------------------------- */
 /* ACCORDEONS                                   */
