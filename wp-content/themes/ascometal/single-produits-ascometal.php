@@ -24,7 +24,7 @@ global $contexteType;
 global $nomMarcheUrl;
 
 foreach ($terms as $term) {
-    echo "<br/>ID : ".$term->term_id;
+   // echo "<br/>ID : ".$term->term_id;
     if ($term->term_id==42 || $term->term_id==54 || $term->term_id==55 || $term->term_id==56) {$classColor="automobile"; $linkUrlMarche=	
 $prelink."/marches-ascometal/";$nomMarche="Automotive";$contexteType="marche";$nomMarcheUrl="automotive";$linkUrlMarcheSingle=	
 $prelink."/marches-asco/";}
