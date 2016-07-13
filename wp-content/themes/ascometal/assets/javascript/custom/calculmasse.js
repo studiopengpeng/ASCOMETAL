@@ -69,7 +69,7 @@
 				$var = $('#form_billetes2').val();
 				$long = $('#form_billetes2_long').val();
 				
-				$var= (parseFloat($var)/1000) * (parseFloat($var)/1000)  * 7850 * $long;
+				$var= ((parseFloat($var)/1000) * (parseFloat($var)/1000)  * 7850 * $long)/1000;
 				
 				
 				$('#form_billetes2_res').attr("value" , $var.toFixed(2));		
@@ -82,8 +82,7 @@
 				$lar = $('#form_larget2_larg').val();
 				$long = $('#form_larget2_long').val();
 				
-				$var= (parseFloat($lar)/1000) * (parseFloat($haut)/1000)  * 7850 * $long;
-				
+				$var= ((parseFloat($lar)/1000) * (parseFloat($haut)/1000)  * 7850 * $long)/1000;
 				
 				$('#form_larget2_res').attr("value" , $var.toFixed(2));
 				
