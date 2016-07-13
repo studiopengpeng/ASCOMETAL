@@ -9,6 +9,12 @@ REGLAGES GLOBAUX / GLOBAL SETTINGS
 .marg-0 {
     margin: 0;
 }
+.uppercase {
+    text-transform: uppercase;
+}
+.no-italic {
+    font-weight: normal;
+}
 // * * * * * * * * * * Couleurs des marchés * * * * * * * * * *
 $automobile: #99be51;
 $automobileAlpha: rgba(153, 190, 81, 0.7);
