@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FoundationPress\n"
 "POT-Creation-Date: 2016-06-17 15:38+0200\n"
-"PO-Revision-Date: 2016-07-07 16:17+0200\n"
+"PO-Revision-Date: 2016-07-21 16:24+0200\n"
 "Last-Translator: Francesco Michelini <kekko.rider@libero.it>\n"
 "Language-Team: Le Saint <info@lesaint.ca>\n"
 "Language: fr_FR\n"
@@ -173,18 +173,18 @@ msgstr "Scegli un Paese"
 
 #: ../page-templates/page-calculatrice-carbone.php:59
 msgid "Equivalent carbon"
-msgstr ""
+msgstr "Carbonio equivalente"
 
 #: ../page-templates/page-calculatrice-carbone.php:64
 msgid "Element"
-msgstr ""
+msgstr "Elemento"
 
 #: ../page-templates/page-calculatrice-carbone.php:66
 #: ../page-templates/page-calculatrice-convertisseur.php:63
 #: ../page-templates/page-calculatrice-masse.php:66
 #: ../page-templates/page-calculatrice-masse.php:101
 msgid "Result"
-msgstr ""
+msgstr "Risultato"
 
 #: ../page-templates/page-calculatrice-carbone.php:69
 #: ../page-templates/page-calculatrice-carbone.php:78
@@ -196,75 +196,77 @@ msgstr ""
 #: ../page-templates/page-calculatrice-carbone.php:97
 #: ../page-templates/page-calculatrice-carbone.php:101
 msgid "Enter the average value"
-msgstr ""
+msgstr "Inserire il valore medio"
 
 #: ../page-templates/page-calculatrice-carbone.php:70
 msgid "Please enter a value in each box, and use a POINT to separate decimal"
 msgstr ""
+"Inserire un valore in ciascuna delle zone, il separatore di decimali deve "
+"essere un PUNTO"
 
 #: ../page-templates/page-calculatrice-convertisseur.php:60
 msgid "Amount"
-msgstr ""
+msgstr "Quantità"
 
 #: ../page-templates/page-calculatrice-convertisseur.php:61
 msgid "From"
-msgstr ""
+msgstr "A"
 
 #: ../page-templates/page-calculatrice-convertisseur.php:62
 msgid "To"
-msgstr ""
+msgstr "Di"
 
 #: ../page-templates/page-calculatrice-convertisseur.php:65
 #: ../page-templates/page-calculatrice-masse.php:100
 msgid "Length"
-msgstr ""
+msgstr "lunghezza"
 
 #: ../page-templates/page-calculatrice-convertisseur.php:84
 msgid "Surface"
-msgstr ""
+msgstr "superficie"
 
 #: ../page-templates/page-calculatrice-convertisseur.php:99
 msgid "Volume"
-msgstr ""
+msgstr "volume"
 
 #: ../page-templates/page-calculatrice-convertisseur.php:119
 #: ../page-templates/page-calculatrice-masse.php:94
 msgid "Mass"
-msgstr ""
+msgstr "massa"
 
 #: ../page-templates/page-calculatrice-convertisseur.php:135
 msgid "Density"
-msgstr ""
+msgstr "densità"
 
 #: ../page-templates/page-calculatrice-convertisseur.php:153
 msgid "Stress"
-msgstr ""
+msgstr "tensione"
 
 #: ../page-templates/page-calculatrice-convertisseur.php:157
 #: ../page-templates/page-calculatrice-convertisseur.php:161
 msgid "or"
-msgstr ""
+msgstr "o"
 
 #: ../page-templates/page-calculatrice-convertisseur.php:166
 msgid "Pressure"
-msgstr ""
+msgstr "pressione"
 
 #: ../page-templates/page-calculatrice-convertisseur.php:179
 msgid "Temperature"
-msgstr ""
+msgstr "temperatura"
 
 #: ../page-templates/page-calculatrice-convertisseur.php:192
 msgid "Energy"
-msgstr ""
+msgstr "energia"
 
 #: ../page-templates/page-calculatrice-masse.php:59
 msgid "Linear Weight"
-msgstr ""
+msgstr "Peso Metrico"
 
 #: ../page-templates/page-calculatrice-masse.php:64
 #: ../page-templates/page-calculatrice-masse.php:99
 msgid "Product dimension"
-msgstr ""
+msgstr "Formato del prodotto"
 
 #: ../page-templates/page-calculatrice-masse.php:68
 #: ../page-templates/page-calculatrice-masse.php:103
@@ -274,47 +276,47 @@ msgstr ""
 #: ../page-templates/page-calculatrice-masse.php:70
 #: ../page-templates/page-calculatrice-masse.php:105
 msgid "Enter the section in mm"
-msgstr ""
+msgstr "inserire la sezione in mm"
 
 #: ../page-templates/page-calculatrice-masse.php:75
 #: ../page-templates/page-calculatrice-masse.php:110
 msgid "Square blooms/billets"
-msgstr ""
+msgstr "bilette /blumo quadrato"
 
 #: ../page-templates/page-calculatrice-masse.php:77
 #: ../page-templates/page-calculatrice-masse.php:84
 #: ../page-templates/page-calculatrice-masse.php:112
 #: ../page-templates/page-calculatrice-masse.php:119
 msgid "Enter the height in mm"
-msgstr ""
+msgstr "inserire l'altezza in mm"
 
 #: ../page-templates/page-calculatrice-masse.php:82
 #: ../page-templates/page-calculatrice-masse.php:117
 msgid "Rectangular rolled bloom"
-msgstr ""
+msgstr "larghezza"
 
 #: ../page-templates/page-calculatrice-masse.php:85
 #: ../page-templates/page-calculatrice-masse.php:120
 msgid "Enter the width in mm"
-msgstr ""
+msgstr "inserire la larghezza in mm"
 
 #: ../page-templates/page-calculatrice-masse.php:106
 #: ../page-templates/page-calculatrice-masse.php:113
 #: ../page-templates/page-calculatrice-masse.php:121
 msgid "Enter the length in mm"
-msgstr ""
+msgstr "inserire la lunghezza in mm"
 
 #: ../page-templates/page-recrutement.php:70 ../taxonomy.php:78
 msgid "Our offers:"
-msgstr ""
+msgstr "le nostre offerte"
 
 #: ../page-templates/page-recrutement.php:92 ../taxonomy.php:100
 msgid "You are:"
-msgstr ""
+msgstr "Siete:"
 
 #: ../page-templates/page-recrutement.php:113 ../taxonomy.php:121
 msgid "Locations:"
-msgstr ""
+msgstr "Localizzazioni"
 
 #: ../search.php:16
 msgid "Search Results for"
@@ -338,39 +340,39 @@ msgstr "Benefici"
 
 #: ../single-recrutement.php:115 ../taxonomy.php:54
 msgid "Trades in the heart of steel"
-msgstr ""
+msgstr "Dei mestieri al cuore dell'acciaio"
 
 #: ../single-recrutement.php:125
 msgid "Back to list"
-msgstr ""
+msgstr "Torna alla lista"
 
 #: ../single-recrutement.php:128
 msgid "Sector"
-msgstr ""
+msgstr "settore"
 
 #: ../single-recrutement.php:129
 msgid "Location"
-msgstr ""
+msgstr "Localizzazione"
 
 #: ../single-recrutement.php:132
 msgid "Main goals"
-msgstr ""
+msgstr "Obiettivi principali"
 
 #: ../single-recrutement.php:134
 msgid "Additional activities"
-msgstr ""
+msgstr "Altre attività"
 
 #: ../single-recrutement.php:136
 msgid "Required profile"
-msgstr ""
+msgstr "Profilo richiesto"
 
 #: ../single-recrutement.php:138
 msgid "Plan and working conditions"
-msgstr ""
+msgstr "Piano e le condizioni di lavoro"
 
 #: ../single-recrutement.php:140
 msgid "Thank you for sending your application to"
-msgstr ""
+msgstr "Grazie per l'invio l'applicazione per"
 
 #: ../single-usine.php:74
 msgid "Select a site :"
@@ -378,11 +380,11 @@ msgstr "Scegliere un sito:"
 
 #: ../single-usine.php:104
 msgid "Access map"
-msgstr "Piantina"
+msgstr "Piano di accesso"
 
 #: ../taxonomy.php:181
 msgid "No offer matching this criteria"
-msgstr ""
+msgstr "Nessuna offerta corrispondenti a questi criteri"
 
 #: ../template-parts/blocs-marches-index.php:28
 #: ../template-parts/blocs-marches-index.php:33

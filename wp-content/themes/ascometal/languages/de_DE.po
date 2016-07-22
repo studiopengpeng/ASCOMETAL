@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: FoundationPress v5.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-17 15:38+0200\n"
-"PO-Revision-Date: 2016-07-07 16:17+0200\n"
+"PO-Revision-Date: 2016-07-21 16:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -198,18 +198,18 @@ msgstr "Wählen Sie ein Land"
 
 #: page-templates/page-calculatrice-carbone.php:59
 msgid "Equivalent carbon"
-msgstr ""
+msgstr "Kohlenstoffäquivalent"
 
 #: page-templates/page-calculatrice-carbone.php:64
 msgid "Element"
-msgstr ""
+msgstr "Element"
 
 #: page-templates/page-calculatrice-carbone.php:66
 #: page-templates/page-calculatrice-convertisseur.php:63
 #: page-templates/page-calculatrice-masse.php:66
 #: page-templates/page-calculatrice-masse.php:101
 msgid "Result"
-msgstr ""
+msgstr "Ergebnis"
 
 #: page-templates/page-calculatrice-carbone.php:69
 #: page-templates/page-calculatrice-carbone.php:78
@@ -221,125 +221,127 @@ msgstr ""
 #: page-templates/page-calculatrice-carbone.php:97
 #: page-templates/page-calculatrice-carbone.php:101
 msgid "Enter the average value"
-msgstr ""
+msgstr "den Mittelwert eingeben"
 
 #: page-templates/page-calculatrice-carbone.php:70
 msgid "Please enter a value in each box, and use a POINT to separate decimal"
 msgstr ""
+"Geben Sie in jedem der Felder einen Wert ein, das Dezimaltrennzeichen muss "
+"ein PUNKT sein"
 
 #: page-templates/page-calculatrice-convertisseur.php:60
 msgid "Amount"
-msgstr ""
+msgstr "Menge"
 
 #: page-templates/page-calculatrice-convertisseur.php:61
 msgid "From"
-msgstr ""
+msgstr "Von"
 
 #: page-templates/page-calculatrice-convertisseur.php:62
 msgid "To"
-msgstr ""
+msgstr "Zu"
 
 #: page-templates/page-calculatrice-convertisseur.php:65
 #: page-templates/page-calculatrice-masse.php:100
 msgid "Length"
-msgstr ""
+msgstr "Länge"
 
 #: page-templates/page-calculatrice-convertisseur.php:84
 msgid "Surface"
-msgstr ""
+msgstr "Oberfläche"
 
 #: page-templates/page-calculatrice-convertisseur.php:99
 msgid "Volume"
-msgstr ""
+msgstr "Volumen"
 
 #: page-templates/page-calculatrice-convertisseur.php:119
 #: page-templates/page-calculatrice-masse.php:94
 msgid "Mass"
-msgstr ""
+msgstr "Masse"
 
 #: page-templates/page-calculatrice-convertisseur.php:135
 msgid "Density"
-msgstr ""
+msgstr "Dichte"
 
 #: page-templates/page-calculatrice-convertisseur.php:153
 msgid "Stress"
-msgstr ""
+msgstr "Festigkeit"
 
 #: page-templates/page-calculatrice-convertisseur.php:157
 #: page-templates/page-calculatrice-convertisseur.php:161
 msgid "or"
-msgstr ""
+msgstr "oder"
 
 #: page-templates/page-calculatrice-convertisseur.php:166
 msgid "Pressure"
-msgstr ""
+msgstr "Druck"
 
 #: page-templates/page-calculatrice-convertisseur.php:179
 msgid "Temperature"
-msgstr ""
+msgstr "Temperatur"
 
 #: page-templates/page-calculatrice-convertisseur.php:192
 msgid "Energy"
-msgstr ""
+msgstr "Energie"
 
 #: page-templates/page-calculatrice-masse.php:59
 msgid "Linear Weight"
-msgstr ""
+msgstr "Metergewicht"
 
 #: page-templates/page-calculatrice-masse.php:64
 #: page-templates/page-calculatrice-masse.php:99
 msgid "Product dimension"
-msgstr ""
+msgstr "Format des Produkts"
 
 #: page-templates/page-calculatrice-masse.php:68
 #: page-templates/page-calculatrice-masse.php:103
 msgid "Bar"
-msgstr ""
+msgstr "Bar"
 
 #: page-templates/page-calculatrice-masse.php:70
 #: page-templates/page-calculatrice-masse.php:105
 msgid "Enter the section in mm"
-msgstr ""
+msgstr "den Querschnitt in mm eingeben"
 
 #: page-templates/page-calculatrice-masse.php:75
 #: page-templates/page-calculatrice-masse.php:110
 msgid "Square blooms/billets"
-msgstr ""
+msgstr "Vierkant-Knüppel/Vorblock"
 
 #: page-templates/page-calculatrice-masse.php:77
 #: page-templates/page-calculatrice-masse.php:84
 #: page-templates/page-calculatrice-masse.php:112
 #: page-templates/page-calculatrice-masse.php:119
 msgid "Enter the height in mm"
-msgstr ""
+msgstr "die Höhe in mm eingeben"
 
 #: page-templates/page-calculatrice-masse.php:82
 #: page-templates/page-calculatrice-masse.php:117
 msgid "Rectangular rolled bloom"
-msgstr ""
+msgstr "Platine"
 
 #: page-templates/page-calculatrice-masse.php:85
 #: page-templates/page-calculatrice-masse.php:120
 msgid "Enter the width in mm"
-msgstr ""
+msgstr "die Breite in mm eingeben"
 
 #: page-templates/page-calculatrice-masse.php:106
 #: page-templates/page-calculatrice-masse.php:113
 #: page-templates/page-calculatrice-masse.php:121
 msgid "Enter the length in mm"
-msgstr ""
+msgstr "die Länge in mm eingeben"
 
 #: page-templates/page-recrutement.php:70 taxonomy.php:78
 msgid "Our offers:"
-msgstr ""
+msgstr "Unsere Angebote:"
 
 #: page-templates/page-recrutement.php:92 taxonomy.php:100
 msgid "You are:"
-msgstr ""
+msgstr "Sie sind:"
 
 #: page-templates/page-recrutement.php:113 taxonomy.php:121
 msgid "Locations:"
-msgstr ""
+msgstr "Standorte:"
 
 # @ FoundationPress
 #: search.php:16
@@ -360,39 +362,39 @@ msgstr "Nutzen"
 
 #: single-recrutement.php:115 taxonomy.php:54
 msgid "Trades in the heart of steel"
-msgstr ""
+msgstr "Berufe in der Stahlindustrie"
 
 #: single-recrutement.php:125
 msgid "Back to list"
-msgstr ""
+msgstr "Zurück zur Liste"
 
 #: single-recrutement.php:128
 msgid "Sector"
-msgstr ""
+msgstr "Sektor"
 
 #: single-recrutement.php:129
 msgid "Location"
-msgstr ""
+msgstr "Standort"
 
 #: single-recrutement.php:132
 msgid "Main goals"
-msgstr ""
+msgstr "Hauptziele"
 
 #: single-recrutement.php:134
 msgid "Additional activities"
-msgstr ""
+msgstr "Weitere Aktivitäten"
 
 #: single-recrutement.php:136
 msgid "Required profile"
-msgstr ""
+msgstr "Anforderungsprofil"
 
 #: single-recrutement.php:138
 msgid "Plan and working conditions"
-msgstr ""
+msgstr "Planen und Arbeitsbedingungen"
 
 #: single-recrutement.php:140
 msgid "Thank you for sending your application to"
-msgstr ""
+msgstr "Vielen Dank für das Senden Sie Ihre Bewerbung an"
 
 #: single-usine.php:74
 msgid "Select a site :"
@@ -400,11 +402,11 @@ msgstr "Wählen Sie einen Standort:"
 
 #: single-usine.php:104
 msgid "Access map"
-msgstr "Anfahrtskarte"
+msgstr "Anfahrtsskizze"
 
 #: taxonomy.php:181
 msgid "No offer matching this criteria"
-msgstr ""
+msgstr "Kein Angebot Diese Kriterien entsprechen"
 
 #: template-parts/blocs-marches-index.php:28
 #: template-parts/blocs-marches-index.php:33
