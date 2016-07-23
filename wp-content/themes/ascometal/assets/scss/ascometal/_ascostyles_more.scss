@@ -1063,6 +1063,6 @@ RECRUTEMENTS
 
 
 // correction menu gauche / masquage des sous rubrique niveau 3
-#touchscroller ul li ul li ul li ul li, #touchscroller ul li ul li ul li ul {
-    display:none;
+#touchscroller ul li ul li ul li ul, #touchscroller ul li ul li ul li ul li {
+    display:none !important;
 }

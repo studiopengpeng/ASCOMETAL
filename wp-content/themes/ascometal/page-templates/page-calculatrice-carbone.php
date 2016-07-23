@@ -124,6 +124,6 @@ wp_nav_menu( $args_menu1 );
 
 
     </div>
-    <script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/javascript/custom/carbonne.js">
+    <script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/javascript/custom/carbonne.js"></script>
         
     <?php get_footer();

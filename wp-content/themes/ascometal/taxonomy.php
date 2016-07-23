@@ -194,7 +194,15 @@ wp_nav_menu( $args_menu1 );
 		<?php } ?>
 
 	</article>
-	<?php get_sidebar(); ?>
+	
+   <script type="text/javascript">
+    $(document).ready(function(){
+        <?php //fr // repere NM // ajout langue // addlang ?>
+        $(".menu-item-2300").add(".menu-item-2648").add(".menu-item-2657").add(".menu-item-2665").addClass("current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor active");
+        $(".menu-item-3118").add(".menu-item-3339").add(".menu-item-3343").add(".menu-item-2648").addClass("current-menu-item current_page_item current_page_parent active");
+        $(".menu-item-6191").add(".menu-item-6385").add(".menu-item-3347").add(".menu-item-6409").addClass("current-menu-item current_page_item current_page_parent active");
+    });
+    </script>
 
 </div>
 

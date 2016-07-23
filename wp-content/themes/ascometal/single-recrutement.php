@@ -158,14 +158,13 @@ get_header(); ?>
 			
 			<?php do_action( 'foundationpress_after_content' ); ?>
             
-            <?php if (get_post_type()=='post') { ?>
             <script type="text/javascript">
             $(document).ready(function(){
                 <?php //fr // repere NM // ajout langue // addlang ?>
-                $(".menu-item-2300").add(".menu-item-2648").addClass("current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor active");
-                $(".menu-item-2413").add(".menu-item-2704").addClass("current-menu-item current_page_item current_page_parent active");
+                $(".menu-item-2300").add(".menu-item-2648").add(".menu-item-2657").add(".menu-item-2665").addClass("current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor active");
+                $(".menu-item-3118").add(".menu-item-3339").add(".menu-item-3343").add(".menu-item-2648").addClass("current-menu-item current_page_item current_page_parent active");
+                $(".menu-item-6191").add(".menu-item-6385").add(".menu-item-3347").add(".menu-item-6409").addClass("current-menu-item current_page_item current_page_parent active");
             });
             </script>
-            <?php } ?>
 		</div>
 		<?php get_footer(); ?>
