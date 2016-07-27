@@ -166,5 +166,5 @@ get_header(); ?>
                 $(".menu-item-6191").add(".menu-item-6385").add(".menu-item-3347").add(".menu-item-6409").addClass("current-menu-item current_page_item current_page_parent active");
             });
             </script>
-		</div>
+		
 		<?php get_footer(); ?>

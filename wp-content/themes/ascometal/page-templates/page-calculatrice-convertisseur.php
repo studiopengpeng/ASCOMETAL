@@ -234,7 +234,7 @@ wp_nav_menu( $args_menu1 );
                         <?php do_action( 'foundationpress_after_content' ); ?>
 
 
-    </div>
+    
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/javascript/custom/convertisseur.js"></script>
         
     <?php get_footer();

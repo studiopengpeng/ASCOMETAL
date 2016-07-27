@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FoundationPress\n"
-"POT-Creation-Date: 2016-06-17 15:38+0200\n"
-"PO-Revision-Date: 2016-07-21 16:24+0200\n"
+"POT-Creation-Date: 2016-07-27 19:01+0200\n"
+"PO-Revision-Date: 2016-07-27 19:05+0200\n"
 "Last-Translator: Francesco Michelini <kekko.rider@libero.it>\n"
 "Language-Team: Le Saint <info@lesaint.ca>\n"
 "Language: fr_FR\n"
@@ -52,7 +52,7 @@ msgstr ""
 #: ../page-templates/page-calculatrice-convertisseur.php:222
 #: ../page-templates/page-calculatrice-masse.php:132
 #: ../page-templates/page-full-width.php:22
-#: ../page-templates/page-recrutement.php:196
+#: ../page-templates/page-recrutement.php:195
 #: ../page-templates/page-sidebar-left.php:22 ../page.php:89
 #: ../single-produits-ascometal.php:140 ../single-produits-ascometal.php:142
 #: ../single-recrutement.php:145 ../single-recrutement.php:147
@@ -61,12 +61,12 @@ msgid "Pages:"
 msgstr "Pagine:"
 
 #: ../archive.php:37 ../index.php:74 ../search.php:34
-#: ../taxonomy-categories.php:74 ../taxonomy.php:190
+#: ../taxonomy-categories.php:74 ../taxonomy.php:191
 msgid "&larr; Older posts"
 msgstr "&larr; Post più vecchi"
 
 #: ../archive.php:38 ../index.php:77 ../search.php:35
-#: ../taxonomy-categories.php:77 ../taxonomy.php:191
+#: ../taxonomy-categories.php:77 ../taxonomy.php:192
 msgid "Newer posts &rarr;"
 msgstr "Post più recenti &rarr;"
 
@@ -153,8 +153,8 @@ msgstr "...Al serviszio delle<br />vostre prestazioni"
 msgid "A key european producer of long engineering steel products"
 msgstr ""
 
-#: ../homepage.php:46 ../page-templates/page-recrutement.php:184
-#: ../taxonomy.php:171 ../template-parts/blocs-marches-index.php:36
+#: ../homepage.php:46 ../page-templates/page-recrutement.php:183
+#: ../taxonomy.php:172 ../template-parts/blocs-marches-index.php:36
 #: ../template-parts/blocs-marches-index.php:56
 #: ../template-parts/blocs-marches-index.php:77
 #: ../template-parts/blocs-marches-index.php:96
@@ -176,8 +176,8 @@ msgid "Equivalent carbon"
 msgstr "Carbonio equivalente"
 
 #: ../page-templates/page-calculatrice-carbone.php:64
-msgid "Element"
-msgstr "Elemento"
+msgid "Element (% massic / %WT)"
+msgstr "Elemento (% di massa / %WT)"
 
 #: ../page-templates/page-calculatrice-carbone.php:66
 #: ../page-templates/page-calculatrice-convertisseur.php:63
@@ -275,8 +275,8 @@ msgstr ""
 
 #: ../page-templates/page-calculatrice-masse.php:70
 #: ../page-templates/page-calculatrice-masse.php:105
-msgid "Enter the section in mm"
-msgstr "inserire la sezione in mm"
+msgid "Enter the diameter in mm"
+msgstr "Inserire il diametro in mm"
 
 #: ../page-templates/page-calculatrice-masse.php:75
 #: ../page-templates/page-calculatrice-masse.php:110
@@ -306,15 +306,15 @@ msgstr "inserire la larghezza in mm"
 msgid "Enter the length in mm"
 msgstr "inserire la lunghezza in mm"
 
-#: ../page-templates/page-recrutement.php:70 ../taxonomy.php:78
+#: ../page-templates/page-recrutement.php:70
 msgid "Our offers:"
 msgstr "le nostre offerte"
 
-#: ../page-templates/page-recrutement.php:92 ../taxonomy.php:100
+#: ../page-templates/page-recrutement.php:91 ../taxonomy.php:101
 msgid "You are:"
 msgstr "Siete:"
 
-#: ../page-templates/page-recrutement.php:113 ../taxonomy.php:121
+#: ../page-templates/page-recrutement.php:112 ../taxonomy.php:122
 msgid "Locations:"
 msgstr "Localizzazioni"
 
@@ -382,7 +382,7 @@ msgstr "Scegliere un sito:"
 msgid "Access map"
 msgstr "Piano di accesso"
 
-#: ../taxonomy.php:181
+#: ../taxonomy.php:182
 msgid "No offer matching this criteria"
 msgstr "Nessuna offerta corrispondenti a questi criteri"
 
@@ -457,14 +457,14 @@ msgstr ""
 #: ../template-parts/featured-image-actu.php:6
 #: ../template-parts/featured-image-marches.php:13
 #: ../template-parts/featured-image-produits.php:11
-#: ../template-parts/featured-image-recrutement.php:22
+#: ../template-parts/featured-image-recrutement.php:23
 #: ../template-parts/featured-image-usine.php:16
 #: ../template-parts/featured-image.php:22
 msgid "Home"
 msgstr "Homepage"
 
 #: ../template-parts/featured-image-marches.php:13
-#: ../template-parts/featured-image-recrutement.php:22
+#: ../template-parts/featured-image-recrutement.php:23
 #: ../template-parts/featured-image.php:22
 msgid "Markets"
 msgstr "Mercati"
@@ -481,6 +481,12 @@ msgstr "Attrezzi industriali"
 #: ../template-parts/header-banner-recrutement.php:11
 msgid "Ascometal recruits"
 msgstr "Ascometal reclute"
+
+#~ msgid "Element"
+#~ msgstr "Elemento"
+
+#~ msgid "Enter the section in mm"
+#~ msgstr "inserire la sezione in mm"
 
 #~ msgid "<cite class=\"fn\">%s</cite>"
 #~ msgstr "<cite class=\"fn\">%s</cite>"

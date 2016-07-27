@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FoundationPress v5.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-17 15:38+0200\n"
-"PO-Revision-Date: 2016-07-21 16:24+0200\n"
+"POT-Creation-Date: 2016-07-27 19:03+0200\n"
+"PO-Revision-Date: 2016-07-27 19:05+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -62,7 +62,7 @@ msgstr ""
 #: page-templates/page-calculatrice-convertisseur.php:222
 #: page-templates/page-calculatrice-masse.php:132
 #: page-templates/page-full-width.php:22
-#: page-templates/page-recrutement.php:196
+#: page-templates/page-recrutement.php:195
 #: page-templates/page-sidebar-left.php:22 page.php:89
 #: single-produits-ascometal.php:140 single-produits-ascometal.php:142
 #: single-recrutement.php:145 single-recrutement.php:147 single.php:109
@@ -72,13 +72,13 @@ msgstr "Seiten:"
 
 # @ FoundationPress
 #: archive.php:37 index.php:74 search.php:34 taxonomy-categories.php:74
-#: taxonomy.php:190
+#: taxonomy.php:191
 msgid "&larr; Older posts"
 msgstr "&larr; ältere Beiträge"
 
 # @ FoundationPress
 #: archive.php:38 index.php:77 search.php:35 taxonomy-categories.php:77
-#: taxonomy.php:191
+#: taxonomy.php:192
 msgid "Newer posts &rarr;"
 msgstr "neuere Beiträge &rarr;"
 
@@ -178,7 +178,7 @@ msgid "A key european producer of long engineering steel products"
 msgstr ""
 "Ein wichtiger europäischer Hersteller von lang Engineering Stahlprodukte"
 
-#: homepage.php:46 page-templates/page-recrutement.php:184 taxonomy.php:171
+#: homepage.php:46 page-templates/page-recrutement.php:183 taxonomy.php:172
 #: template-parts/blocs-marches-index.php:36
 #: template-parts/blocs-marches-index.php:56
 #: template-parts/blocs-marches-index.php:77
@@ -201,8 +201,8 @@ msgid "Equivalent carbon"
 msgstr "Kohlenstoffäquivalent"
 
 #: page-templates/page-calculatrice-carbone.php:64
-msgid "Element"
-msgstr "Element"
+msgid "Element (% massic / %WT)"
+msgstr "Element (% Masse / %WT)"
 
 #: page-templates/page-calculatrice-carbone.php:66
 #: page-templates/page-calculatrice-convertisseur.php:63
@@ -300,8 +300,8 @@ msgstr "Bar"
 
 #: page-templates/page-calculatrice-masse.php:70
 #: page-templates/page-calculatrice-masse.php:105
-msgid "Enter the section in mm"
-msgstr "den Querschnitt in mm eingeben"
+msgid "Enter the diameter in mm"
+msgstr "Der Durchmesser in mm"
 
 #: page-templates/page-calculatrice-masse.php:75
 #: page-templates/page-calculatrice-masse.php:110
@@ -331,15 +331,15 @@ msgstr "die Breite in mm eingeben"
 msgid "Enter the length in mm"
 msgstr "die Länge in mm eingeben"
 
-#: page-templates/page-recrutement.php:70 taxonomy.php:78
+#: page-templates/page-recrutement.php:70
 msgid "Our offers:"
 msgstr "Unsere Angebote:"
 
-#: page-templates/page-recrutement.php:92 taxonomy.php:100
+#: page-templates/page-recrutement.php:91 taxonomy.php:101
 msgid "You are:"
 msgstr "Sie sind:"
 
-#: page-templates/page-recrutement.php:113 taxonomy.php:121
+#: page-templates/page-recrutement.php:112 taxonomy.php:122
 msgid "Locations:"
 msgstr "Standorte:"
 
@@ -404,7 +404,7 @@ msgstr "Wählen Sie einen Standort:"
 msgid "Access map"
 msgstr "Anfahrtsskizze"
 
-#: taxonomy.php:181
+#: taxonomy.php:182
 msgid "No offer matching this criteria"
 msgstr "Kein Angebot Diese Kriterien entsprechen"
 
@@ -483,14 +483,14 @@ msgstr "Es scheint, wir finden nicht, was Sie suchen. Vielleicht hilft suchen."
 #: template-parts/featured-image-actu.php:6
 #: template-parts/featured-image-marches.php:13
 #: template-parts/featured-image-produits.php:11
-#: template-parts/featured-image-recrutement.php:22
+#: template-parts/featured-image-recrutement.php:23
 #: template-parts/featured-image-usine.php:16
 #: template-parts/featured-image.php:22
 msgid "Home"
 msgstr "Startseite"
 
 #: template-parts/featured-image-marches.php:13
-#: template-parts/featured-image-recrutement.php:22
+#: template-parts/featured-image-recrutement.php:23
 #: template-parts/featured-image.php:22
 msgid "Markets"
 msgstr "Märkte"
@@ -507,6 +507,12 @@ msgstr "Industrieanlagen"
 #: template-parts/header-banner-recrutement.php:11
 msgid "Ascometal recruits"
 msgstr "Ascometal Rekrutierung"
+
+#~ msgid "Element"
+#~ msgstr "Element"
+
+#~ msgid "Enter the section in mm"
+#~ msgstr "den Querschnitt in mm eingeben"
 
 # @ FoundationPress
 #~ msgid "Submit Comment"

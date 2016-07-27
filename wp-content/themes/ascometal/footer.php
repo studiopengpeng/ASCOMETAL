@@ -42,10 +42,11 @@ $args_menu1 = array(
 wp_nav_menu( $args_menu1 );
 ?>
                 <!--END menu secondaire-->
+                
                 <nav class="social small-12 medium-2 large-2 columns">
                     <ul>
-                       <li><a href="https://www.facebook.com/pages/Ascometal/117989414924769?fref=ts" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/facebook.svg" alt="facebook"></a></li>
-                        <li><a href="https://www.linkedin.com/company/ascometal" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/linkedin.svg" alt="linkedin"></a></li>
+                       <li><!-- <a href="https://www.facebook.com" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/facebook.svg" alt="facebook"></a> --></li>
+                        <li><!--<a href="https://www.linkedin.com/company/ascometal" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/linkedin.svg" alt="linkedin"></a> --></li>
                     </ul>
                 </nav>
 			</footer>

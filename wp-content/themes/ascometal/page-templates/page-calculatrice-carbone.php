@@ -61,7 +61,7 @@ wp_nav_menu( $args_menu1 );
 		
 			<table width="100%" class="carbone" width="100%">
 				<tr>
-					<th><?php echo __('Element', 'foundationpress'); ?></th>
+					<th><?php echo __('Element (% massic / %WT)', 'foundationpress'); ?></th>
 					
 					<th><?php echo __('Result', 'foundationpress'); ?></th>
 				</tr>
@@ -123,7 +123,6 @@ wp_nav_menu( $args_menu1 );
                         <?php do_action( 'foundationpress_after_content' ); ?>
 
 
-    </div>
+    
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/javascript/custom/carbonne.js"></script>
-        
     <?php get_footer();

@@ -67,7 +67,7 @@ wp_nav_menu( $args_menu1 );
 				</tr>
 				<tr><td colspan="2"><label for="form_barre" class="required"><?php echo __('Bar', 'foundationpress'); ?></label></td></tr>
 				<tr>
-					<td><input id="form_barre" name="form[barDiam]" required="required" type="text" placeholder="<?php echo __('Enter the section in mm', 'foundationpress'); ?>"> <span class="unites">mm</span></td>
+					<td><input id="form_barre" name="form[barDiam]" required="required" type="text" placeholder="<?php echo __('Enter the diameter in mm', 'foundationpress'); ?>"> <span class="unites">mm</span></td>
 					
 					<td><input disabled id="form_barre_res" name="form[barRes]" required="required" type="text" placeholder=""> <span class="unites">kg/m</span></td>
 				</tr>
@@ -102,7 +102,7 @@ wp_nav_menu( $args_menu1 );
 				</tr>
 				<tr><td colspan="3"><label for="form_barre2" class="required"><?php echo __('Bar', 'foundationpress'); ?></label></td></tr>
 				<tr>
-					<td><input id="form_barre2" name="form[bar2Diam]" required="required" type="text" placeholder="<?php echo __('Enter the section in mm', 'foundationpress'); ?>"> <span class="unites">mm</span></td>
+					<td><input id="form_barre2" name="form[bar2Diam]" required="required" type="text" placeholder="<?php echo __('Enter the diameter in mm', 'foundationpress'); ?>"> <span class="unites">mm</span></td>
 					<td><input id="form_barre2_long" name="form[bar2long]" required="required" type="text" placeholder="<?php echo __('Enter the length in mm', 'foundationpress'); ?>"> <span class="unites">mm</span></td>
 					<td><input disabled id="form_barre2_res" name="form[bar2Res]" required="required" type="text" placeholder=""> <span class="unites">Kg</span></td>
 				</tr>
@@ -144,7 +144,7 @@ wp_nav_menu( $args_menu1 );
                         <?php do_action( 'foundationpress_after_content' ); ?>
 
 
-    </div>
+    
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/javascript/custom/calculmasse.js"></script>
         
     <?php get_footer();
