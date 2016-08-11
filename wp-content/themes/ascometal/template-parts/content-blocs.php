@@ -18,6 +18,8 @@ global $exception_couleur;
 // préparation des variables à réutiliser dans la page
 $lien="";
 $permalien ="";
+$imgSrc = "";
+
 if ($contexte_blocs=="avecID") {
 	$titre = types_render_field("titre-bloc", array("output"=>"raw", "post_id"=>$idBloc));
 	$imgSrc = types_render_field( "image-bloc", array("alt"=>"", "output"=>"raw", "post_id"=>$idBloc));
@@ -37,6 +39,8 @@ if ($exception_couleur==true) {$classColorException="contact";}
 								 
 ?>
 
+<?php if (strlen($imgSrc)>6) : ?>
+
 	<article class="rolling small-12 medium-6 large-3 columns end <?php echo $classColorException; ?>">
 
 		<div class="ih-item square effect13 top_to_bottom">
@@ -54,3 +58,5 @@ if ($exception_couleur==true) {$classColorException="contact";}
 		</div>
 
 	</article>
+
+<?php endif; ?>

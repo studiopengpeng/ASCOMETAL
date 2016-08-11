@@ -9,8 +9,17 @@ if (ICL_LANGUAGE_CODE=="en") {
 $linkAuto="/en/marches-asco/automotive/";
 $linkRoul="/en/marches-asco/bearing/";
 $linkMec="/en/marches-asco/mechanical/";
-$linkPet="/en/marches-asco/oil-gaz/";
-    
+$linkPet="/en/marches-asco/oil-gaz/";   
+} else if (ICL_LANGUAGE_CODE=="de") {
+$linkAuto="/de/marches-asco/automobilbau/";
+$linkRoul="/de/marches-asco/waelzlager/";
+$linkMec="/de/marches-asco/maschinenbau/";
+$linkPet="/de/marches-asco/erdoelgas/";   
+} else if (ICL_LANGUAGE_CODE=="it") {
+$linkAuto="/it/marches-asco/automobile-it/";
+$linkRoul="/it/marches-asco/cuscinetti-it/";
+$linkMec="/it/marches-asco/meccanica-it/";
+$linkPet="/it/marches-asco/petroliogas-it/";   
 } else {
 $linkAuto="/marches-asco/automobile/";
 $linkRoul="/marches-asco/roulement/";
