@@ -9,3 +9,5 @@ assets/javascript/foundation.js
 assets/javascript/custom/demosite.js
 packaged/
 wpcs/
+wp-config.php
+wp-content/uploads/wpcf7_captcha
