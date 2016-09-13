@@ -669,7 +669,7 @@ header.header-image h1 {
 }
 .ih-item.square.effect13 .info p.seemore {
 	position: absolute;
-	bottom: -15px;
+	bottom: 2px;
 	width: 100%;
 }
 // à supprimer quand autres langues actives que juste l'anglais
@@ -940,18 +940,18 @@ RECRUTEMENTS
 ---------------------------------------------------------------*/
 
 .offres {
-    
+
     h2.entry-title {
         color:$asco !important;
     }
-    
+
     .titre-taxo-offres {
         line-height:rem-calc(24);
         font-size:rem-calc(18);
         font-weight: 700;
-        color:#000;    
+        color:#000;
     }
-    
+
   ul.liste-taxo-offres li a {
         color:$gris-fonce-asco !important;
         text-decoration: none;
@@ -961,14 +961,14 @@ RECRUTEMENTS
     .liste-taxo-offres a:hover, .liste-taxo-offres a:focus,.liste-taxo-offres a:active {
         color:$asco !important;
     }
-    
+
     li.article-preview {
         list-style: none;
         list-style-image: none;
         list-style-position: inside;
-        
+
         .date {
-            color:#b5bf1e;        
+            color:#b5bf1e;
         }
         span.fonction {
             line-height:rem-calc(24);
@@ -989,9 +989,9 @@ RECRUTEMENTS
             text-transform: uppercase;
             float:right;
         }
-        
+
     }
-    
+
 }
 
 .single-offre {
@@ -999,66 +999,66 @@ RECRUTEMENTS
     width:90%;
     margin-left: -15px;
     padding: 15px;
-    
+
     .align-left {
         float:left;
     }
-    
+
     .date {
         width:100%;
         text-align: right;
-        color:#b5bf1e;        
+        color:#b5bf1e;
         }
-    
+
     .offre-header .fonction {
         font-size:rem-calc(30);
         line-height:rem-calc(36);
         text-transform: uppercase;
         color:$gris-fonce-asco;
-        
+
         width:100%;
         border-top:2px solid $gris-fonce-asco;
         margin-top:5px;
         padding-top:15px;
     }
-    
+
     .offre-header .secteur {
         font-size:rem-calc(18);
         line-height:rem-calc(24);
         text-transform: uppercase;
         color:$gris-fonce-asco;
     }
-    
+
     .offre-header .lieu {
         font-size:rem-calc(18);
         line-height:rem-calc(24);
         color:$asco;
-        
+
         width:100%;
         border-bottom:2px solid $gris-fonce-asco;
         margin-bottom:5px;
         padding-bottom:15px;
     }
-    
+
     .subtitle-offre {
         font-size:rem-calc(16);
         line-height:rem-calc(24);
         color: $gris-fonce-asco;
         text-transform: uppercase;
         font-weight: 700;
-        
+
         margin-top:50px;
     }
-    
+
     .email-contact {
         color:$asco !important;
-        
+
         a {
             color:$asco !important;
             text-decoration: underline;
         }
     }
-    
+
 }
 
 
