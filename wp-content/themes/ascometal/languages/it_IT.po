@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FoundationPress\n"
 "POT-Creation-Date: 2016-07-27 19:01+0200\n"
-"PO-Revision-Date: 2016-07-27 19:05+0200\n"
+"PO-Revision-Date: 2016-10-05 11:34+0200\n"
 "Last-Translator: Francesco Michelini <kekko.rider@libero.it>\n"
 "Language-Team: Le Saint <info@lesaint.ca>\n"
 "Language: fr_FR\n"
@@ -147,7 +147,7 @@ msgstr "Inserisci Commento"
 #: ../template-parts/header-banner-marches.php:12
 #: ../template-parts/header-banner-produits.php:12
 msgid "...A partner<br />to your success"
-msgstr "...Al serviszio delle<br />vostre prestazioni"
+msgstr "...Al servizio delle<br />vostre prestazioni"
 
 #: ../homepage.php:45
 msgid "A key european producer of long engineering steel products"
@@ -471,7 +471,7 @@ msgstr "Mercati"
 
 #: ../template-parts/featured-image-usine.php:16
 msgid "A partner to your success"
-msgstr "...Al serviszio delle vostre prestazioni"
+msgstr "...Al servizio delle vostre prestazioni"
 
 #: ../template-parts/featured-image-usine.php:16
 #: ../template-parts/header-banner-usine.php:11
