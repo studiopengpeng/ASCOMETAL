@@ -49,14 +49,12 @@ class Ai1wm_Report {
 				AI1WM_REPORT_URL,
 				array(
 					'body' => array(
-						'email'             => $email,
-						'message'           => $message,
-						'export_options'    => json_encode( get_site_option( AI1WM_EXPORT_OPTIONS, array() ) ),
-						'error_handler'     => json_encode( get_site_option( AI1WM_ERROR_HANDLER, array() ) ),
-						'exception_handler' => json_encode( get_site_option( AI1WM_EXCEPTION_HANDLER, array() ) ),
+						'email'   => $email,
+						'message' => $message,
 					),
 				)
 			);
+
 			if ( is_wp_error( $response ) ) {
 				$errors[] = sprintf( __( 'Something went wrong: %s', AI1WM_PLUGIN_NAME ), $response->get_error_message() );
 			}

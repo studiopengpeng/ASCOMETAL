@@ -6,6 +6,8 @@
  * @var $icon_type
  */
 
+if( !empty( $instance['title'] ) ) echo $args['before_title'] . esc_html($instance['title']) . $args['after_title'];
+
 $plain_styles = array('style2', 'style6', 'style7');
 
 if (in_array($style, $plain_styles, true)):
@@ -57,7 +59,7 @@ foreach ($tabs as $tab) :
     $tab_title .= '</a>';
 
     $tab_nav = '<div class="lsow-tab">' . $tab_title . '</div>';
-    $tab_content = '<div id="' . $tab_id . '" class="lsow-tab-pane">' . wp_kses_post($tab['tab_content']) . '</div>';
+    $tab_content = '<div id="' . $tab_id . '" class="lsow-tab-pane">' . do_shortcode($tab['tab_content']) . '</div>';
 
     $tab_elements[] = $tab_nav;
     $tab_panes[] = $tab_content;

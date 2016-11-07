@@ -27,7 +27,6 @@ $local = array(
 	'iliev.local',
 	'develop.servmask.com',
 	'Borislav-MacBook-Pro.local',
-	'Simeon-PC',
 );
 
 if ( function_exists( 'gethostname' ) && in_array( gethostname(), $local ) ) {
@@ -39,7 +38,7 @@ if ( function_exists( 'gethostname' ) && in_array( gethostname(), $local ) ) {
 // ==================
 // = Plugin Version =
 // ==================
-define( 'AI1WM_VERSION', '5.39' );
+define( 'AI1WM_VERSION', '5.52' );
 
 // ===============
 // = Plugin Name =
@@ -92,6 +91,11 @@ define( 'AI1WM_EXPORT_PATH', AI1WM_MODEL_PATH . DIRECTORY_SEPARATOR . 'export' )
 define( 'AI1WM_IMPORT_PATH', AI1WM_MODEL_PATH . DIRECTORY_SEPARATOR . 'import' );
 
 // =============
+// = Http Path =
+// =============
+define( 'AI1WM_HTTP_PATH', AI1WM_MODEL_PATH . DIRECTORY_SEPARATOR . 'http' );
+
+// =============
 // = View Path =
 // =============
 define( 'AI1WM_TEMPLATES_PATH', AI1WM_LIB_PATH . DIRECTORY_SEPARATOR . 'view' );
@@ -100,11 +104,6 @@ define( 'AI1WM_TEMPLATES_PATH', AI1WM_LIB_PATH . DIRECTORY_SEPARATOR . 'view' );
 // = Set Bandar Path =
 // ===================
 define( 'BANDAR_TEMPLATES_PATH', AI1WM_TEMPLATES_PATH );
-
-// ==================
-// = Exception Path =
-// ==================
-define( 'AI1WM_EXCEPTION_PATH', AI1WM_LIB_PATH . DIRECTORY_SEPARATOR . 'exception' );
 
 // ===============
 // = Vendor Path =
@@ -181,30 +180,15 @@ define( 'AI1WM_IMPORT_NAME', 'import.log' );
 // ==================
 define( 'AI1WM_ERROR_NAME', 'error.log' );
 
-// ======================
-// = Export Options Key =
-// ======================
-define( 'AI1WM_EXPORT_OPTIONS', 'ai1wm_export_options' );
-
-// =====================
-// = Error Handler Key =
-// =====================
-define( 'AI1WM_ERROR_HANDLER', 'ai1wm_error_handler' );
-
-// =========================
-// = Exception Handler Key =
-// =========================
-define( 'AI1WM_EXCEPTION_HANDLER', 'ai1wm_exception_handler' );
-
 // ==========
 // = URL IP =
 // ==========
 define( 'AI1WM_URL_IP', 'ai1wm_url_ip' );
 
-// =================
-// = URL Transport =
-// =================
-define( 'AI1WM_URL_TRANSPORT', 'ai1wm_url_transport' );
+// ===============
+// = URL Adapter =
+// ===============
+define( 'AI1WM_URL_ADAPTER', 'ai1wm_url_adapter' );
 
 // ==============
 // = Secret Key =
@@ -231,10 +215,20 @@ define( 'AI1WM_ACTIVE_PLUGINS', 'active_plugins' );
 // ===========================
 define( 'AI1WM_ACTIVE_SITEWIDE_PLUGINS', 'active_sitewide_plugins' );
 
+// ======================
+// = MS Files Rewriting =
+// ======================
+define( 'AI1WM_MS_FILES_REWRITING', 'ms_files_rewriting' );
+
 // ===============
 // = Updater Key =
 // ===============
 define( 'AI1WM_UPDATER', 'ai1wm_updater' );
+
+// ==============
+// = Status Key =
+// ==============
+define( 'AI1WM_STATUS', 'ai1wm_status' );
 
 // =================
 // = Support Email =
@@ -267,6 +261,11 @@ if ( ! defined( 'WP_CONTENT_DIR' ) ) {
 // = Uploads Path =
 // ================
 define( 'AI1WM_UPLOADS_PATH', 'uploads' );
+
+// ==============
+// = Blogs Path =
+// ==============
+define( 'AI1WM_BLOGSDIR_PATH', 'blogs.dir' );
 
 // ==============
 // = Sites Path =
@@ -325,6 +324,13 @@ if ( ! defined( 'AI1WMDE_PLUGIN_KEY' ) ) {
 	define( 'AI1WMDE_PLUGIN_KEY', 'ai1wmde_plugin_key' );
 }
 
+// ===========================
+// = Dropbox Extension Short =
+// ===========================
+if ( ! defined( 'AI1WMDE_PLUGIN_SHORT' ) ) {
+	define( 'AI1WMDE_PLUGIN_SHORT', 'dropbox' );
+}
+
 // ===================================
 // = Google Drive Extension Base Dir =
 // ===================================
@@ -346,6 +352,13 @@ if ( ! defined( 'AI1WMGE_PLUGIN_ABOUT' ) ) {
 // ==============================
 if ( ! defined( 'AI1WMGE_PLUGIN_KEY' ) ) {
 	define( 'AI1WMGE_PLUGIN_KEY', 'ai1wmge_plugin_key' );
+}
+
+// ================================
+// = Google Drive Extension Short =
+// ================================
+if ( ! defined( 'AI1WMGE_PLUGIN_SHORT' ) ) {
+	define( 'AI1WMGE_PLUGIN_SHORT', 'gdrive' );
 }
 
 // ================================
@@ -371,6 +384,13 @@ if ( ! defined( 'AI1WMSE_PLUGIN_KEY' ) ) {
 	define( 'AI1WMSE_PLUGIN_KEY', 'ai1wmse_plugin_key' );
 }
 
+// =============================
+// = Amazon S3 Extension Short =
+// =============================
+if ( ! defined( 'AI1WMSE_PLUGIN_SHORT' ) ) {
+	define( 'AI1WMSE_PLUGIN_SHORT', 's3' );
+}
+
 // ================================
 // = Multisite Extension Base Dir =
 // ================================
@@ -392,6 +412,13 @@ if ( ! defined( 'AI1WMME_PLUGIN_ABOUT' ) ) {
 // ===========================
 if ( ! defined( 'AI1WMME_PLUGIN_KEY' ) ) {
 	define( 'AI1WMME_PLUGIN_KEY', 'ai1wmme_plugin_key' );
+}
+
+// =============================
+// = Multisite Extension Short =
+// =============================
+if ( ! defined( 'AI1WMME_PLUGIN_SHORT' ) ) {
+	define( 'AI1WMME_PLUGIN_SHORT', 'multisite' );
 }
 
 // ================================
@@ -417,6 +444,13 @@ if ( ! defined( 'AI1WMUE_PLUGIN_KEY' ) ) {
 	define( 'AI1WMUE_PLUGIN_KEY', 'ai1wmue_plugin_key' );
 }
 
+// =============================
+// = Unlimited Extension Short =
+// =============================
+if ( ! defined( 'AI1WMUE_PLUGIN_SHORT' ) ) {
+	define( 'AI1WMUE_PLUGIN_SHORT', 'unlimited' );
+}
+
 // ==========================
 // = FTP Extension Base Dir =
 // ==========================
@@ -438,6 +472,13 @@ if ( ! defined( 'AI1WMFE_PLUGIN_ABOUT' ) ) {
 // =====================
 if ( ! defined( 'AI1WMFE_PLUGIN_KEY' ) ) {
 	define( 'AI1WMFE_PLUGIN_KEY', 'ai1wmfe_plugin_key' );
+}
+
+// =======================
+// = FTP Extension Short =
+// =======================
+if ( ! defined( 'AI1WMFE_PLUGIN_SHORT' ) ) {
+	define( 'AI1WMFE_PLUGIN_SHORT', 'ftp' );
 }
 
 // ==========================
@@ -463,6 +504,13 @@ if ( ! defined( 'AI1WMLE_PLUGIN_KEY' ) ) {
 	define( 'AI1WMLE_PLUGIN_KEY', 'ai1wmle_plugin_key' );
 }
 
+// =======================
+// = URL Extension Short =
+// =======================
+if ( ! defined( 'AI1WMLE_PLUGIN_SHORT' ) ) {
+	define( 'AI1WMLE_PLUGIN_SHORT', 'url' );
+}
+
 // ===============================
 // = OneDrive Extension Base Dir =
 // ===============================
@@ -486,3 +534,39 @@ if ( ! defined( 'AI1WMOE_PLUGIN_KEY' ) ) {
 	define( 'AI1WMOE_PLUGIN_KEY', 'ai1wmoe_plugin_key' );
 }
 
+// ============================
+// = OneDrive Extension Short =
+// ============================
+if ( ! defined( 'AI1WMOE_PLUGIN_SHORT' ) ) {
+	define( 'AI1WMOE_PLUGIN_SHORT', 'onedrive' );
+}
+
+// ==========================
+// = Box Extension Base Dir =
+// ==========================
+if ( defined( 'AI1WMBE_PLUGIN_BASENAME' ) ) {
+	define( 'AI1WMBE_PLUGIN_BASEDIR', dirname( AI1WMBE_PLUGIN_BASENAME ) );
+} else {
+	define( 'AI1WMBE_PLUGIN_BASEDIR', 'all-in-one-wp-migration-box-extension' );
+}
+
+// =======================
+// = Box Extension About =
+// =======================
+if ( ! defined( 'AI1WMBE_PLUGIN_ABOUT' ) ) {
+	define( 'AI1WMBE_PLUGIN_ABOUT', 'https://servmask.com/products/box-extension/about' );
+}
+
+// =====================
+// = Box Extension Key =
+// =====================
+if ( ! defined( 'AI1WMBE_PLUGIN_KEY' ) ) {
+	define( 'AI1WMBE_PLUGIN_KEY', 'ai1wmbe_plugin_key' );
+}
+
+// =======================
+// = Box Extension Short =
+// =======================
+if ( ! defined( 'AI1WMBE_PLUGIN_SHORT' ) ) {
+	define( 'AI1WMBE_PLUGIN_SHORT', 'box' );
+}

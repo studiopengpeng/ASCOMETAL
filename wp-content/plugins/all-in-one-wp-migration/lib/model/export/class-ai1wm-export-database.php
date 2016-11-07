@@ -29,7 +29,7 @@ class Ai1wm_Export_Database {
 		global $wpdb;
 
 		// Set exclude database
-		if ( isset( $params['options']['no-database'] ) ) {
+		if ( isset( $params['options']['no_database'] ) ) {
 			return $params;
 		}
 
@@ -44,7 +44,7 @@ class Ai1wm_Export_Database {
 		}
 
 		// Spam comments
-		if ( isset( $params['options']['no-spam-comments'] ) ) {
+		if ( isset( $params['options']['no_spam_comments'] ) ) {
 			$client->set_table_query_clauses( ai1wm_table_prefix() . 'comments', " WHERE comment_approved != 'spam' " );
 			$client->set_table_query_clauses( ai1wm_table_prefix() . 'commentmeta', sprintf(
 				" WHERE comment_id IN ( SELECT comment_ID FROM `%s` WHERE comment_approved != 'spam' ) ",
@@ -53,7 +53,7 @@ class Ai1wm_Export_Database {
 		}
 
 		// Post revisions
-		if ( isset( $params['options']['no-revisions'] ) ) {
+		if ( isset( $params['options']['no_revisions'] ) ) {
 			$client->set_table_query_clauses( ai1wm_table_prefix() . 'posts', " WHERE post_type != 'revision' " );
 		}
 
@@ -62,10 +62,10 @@ class Ai1wm_Export_Database {
 
 		// Find and replace
 		if ( isset( $params['options']['replace'] ) && ( $replace = $params['options']['replace'] ) ) {
-			for ( $i = 0; $i < count( $replace['old-value'] ); $i++ ) {
-				if ( ! empty( $replace['old-value'][$i] ) && ! empty( $replace['new-value'][$i] ) ) {
-					$old_table_values[] = $replace['old-value'][$i];
-					$new_table_values[] = $replace['new-value'][$i];
+			for ( $i = 0; $i < count( $replace['old_value'] ); $i++ ) {
+				if ( ! empty( $replace['old_value'][$i] ) && ! empty( $replace['new_value'][$i] ) ) {
+					$old_table_values[] = $replace['old_value'][$i];
+					$new_table_values[] = $replace['new_value'][$i];
 				}
 			}
 		}
@@ -100,22 +100,41 @@ class Ai1wm_Export_Database {
 			   ->set_new_table_prefixes( $new_table_prefixes )
 			   ->set_old_replace_values( $old_table_values )
 			   ->set_new_replace_values( $new_table_values )
-   			   ->set_include_table_prefixes( $include_table_prefixes )
+			   ->set_include_table_prefixes( $include_table_prefixes )
 			   ->set_table_prefix_columns( ai1wm_table_prefix() . 'options', array( 'option_name' ) )
 			   ->set_table_prefix_columns( ai1wm_table_prefix() . 'usermeta', array( 'meta_key' ) );
 
+		// Status options
+		$client->set_table_query_clauses( ai1wm_table_prefix() . 'options', sprintf( " WHERE option_name != '%s' ", AI1WM_STATUS ) );
+
+		// Set current table index
+		if ( isset( $params['current_table_index'] ) ) {
+			$current_table_index = (int) $params['current_table_index'];
+ 		} else {
+			$current_table_index = 0;
+		}
+
 		// Export database
-		$client->export( ai1wm_database_path( $params ) );
+		$completed = $client->export( ai1wm_database_path( $params ), $current_table_index, 10 );
 
-		// Get archive file
-		$archive = new Ai1wm_Compressor( ai1wm_archive_path( $params ) );
+		// Export completed
+		if ( $completed ) {
+			// Get archive file
+			$archive = new Ai1wm_Compressor( ai1wm_archive_path( $params ) );
 
-		// Add database to archive
-		$archive->add_file( ai1wm_database_path( $params ), AI1WM_DATABASE_NAME );
-		$archive->close();
+			// Add database to archive
+			$archive->add_file( ai1wm_database_path( $params ), AI1WM_DATABASE_NAME );
+			$archive->close();
 
-		// Set progress
-		Ai1wm_Status::info( __( 'Done exporting database.', AI1WM_PLUGIN_NAME ) );
+			// Set progress
+			Ai1wm_Status::info( __( 'Done exporting database.', AI1WM_PLUGIN_NAME ) );
+		}
+
+		// Set current table index
+		$params['current_table_index'] = $current_table_index;
+
+		// Set completed flag
+		$params['completed'] = $completed;
 
 		return $params;
 	}

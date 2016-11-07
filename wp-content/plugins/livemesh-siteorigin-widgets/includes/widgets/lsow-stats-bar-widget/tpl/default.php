@@ -4,6 +4,8 @@
  */
 ?>
 
+<?php if( !empty( $instance['title'] ) ) echo $args['before_title'] . esc_html($instance['title']) . $args['after_title'] ?>
+
 <div class="lsow-stats-bars">
 
     <?php foreach ($stats_bars as $stats_bar) :

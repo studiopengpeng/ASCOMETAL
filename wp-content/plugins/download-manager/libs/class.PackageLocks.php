@@ -399,11 +399,11 @@ DATA;
         <input type=hidden name="verify" value="email" />
         <input type=hidden name="action" value="wpdm_ajax_call" />
         ';
-            $html = "";
+            $html =  wpdm_render_custom_data('', $package['ID']);
             $html = apply_filters('wpdm_render_custom_form_fields', $html, $package['ID']);
             $data .= $html;
             $data .= '
-
+        <label>'.__('Email','wpdmpro').'</label>
         <input type="email" required="required" class="form-control group-item email-lock-mail" placeholder="'.$eeml.'" size="20" id="email_' . $unqid . '_' . $package['ID'] . '" name="email" style="margin:5px 0" />
 
 

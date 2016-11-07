@@ -16,7 +16,7 @@ class LSOW_Services_Widget extends SiteOrigin_Widget {
             array(
                 'description' => __('Create services to display in a column grid.', 'livemesh-so-widgets'),
                 'panels_icon' => 'dashicons dashicons-minus',
-                'help' => 'http://portfoliotheme.org/widgets-bundle/services-widget-documentation/'
+                'help' => LSOW_PLUGIN_HELP_URL. '#services-widget'
             ),
             array(),
             array(
@@ -24,7 +24,6 @@ class LSOW_Services_Widget extends SiteOrigin_Widget {
                     'type' => 'text',
                     'label' => __('Title', 'livemesh-so-widgets'),
                 ),
-
 
                 'style' => array(
                     'type' => 'select',
@@ -118,15 +117,13 @@ class LSOW_Services_Widget extends SiteOrigin_Widget {
         );
     }
 
-    function initialize() {
+    function enqueue_frontend_scripts($instance) {
 
+        wp_enqueue_style('lsow-frontend-styles', LSOW_PLUGIN_URL . 'assets/css/lsow-frontend.css', array(), LSOW_VERSION);
 
-        $this->register_frontend_styles(array(
-            array(
-                'lsow-services',
-                plugin_dir_url(__FILE__) . 'css/style.css'
-            )
-        ));
+        wp_enqueue_style('lsow-services', siteorigin_widget_get_plugin_dir_url('lsow-services') . 'css/style.css', array(), LSOW_VERSION);
+
+        parent::enqueue_frontend_scripts($instance);
     }
 
     function get_template_variables($instance, $args) {

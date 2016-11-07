@@ -31,8 +31,8 @@ class Ai1wm_Export_Config {
 		// Set progress
 		Ai1wm_Status::info( __( 'Adding configuration to archive...', AI1WM_PLUGIN_NAME ) );
 
-		// Clear WP options cache
-		wp_cache_flush();
+		// Flush WP cache
+		ai1wm_cache_flush();
 
 		// Get options
 		$options = wp_load_alloptions();
@@ -59,6 +59,11 @@ class Ai1wm_Export_Config {
 
 		// Set WordPress Version and Content
 		$config->WordPress = (object) array( 'Version' => $wp_version, 'Content' => WP_CONTENT_DIR );
+
+		// Set No Replace Email
+		if ( isset( $params['options']['no_email_replace'] ) ) {
+			$config->NoEmailReplace = true;
+		}
 
 		// Save package.json file
 		$handle = fopen( ai1wm_package_path( $params ), 'w' );

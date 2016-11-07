@@ -16,7 +16,7 @@ class LSOW_Stats_Bars_Widget extends SiteOrigin_Widget {
             array(
                 'description' => __('Display statistics or skills as a percentage stats bar.', 'livemesh-so-widgets'),
                 'panels_icon' => 'dashicons dashicons-minus',
-                'help' => 'http://portfoliotheme.org/widgets-bundle/stats-bar-widget-documentation/'
+                'help' => LSOW_PLUGIN_HELP_URL. '#statistics-widgets'
             ),
             array(),
             array(
@@ -62,7 +62,7 @@ class LSOW_Stats_Bars_Widget extends SiteOrigin_Widget {
             array(
                 array(
                     'lsow-waypoints',
-                    LSOW_PLUGIN_URL . 'assets/js/jquery.waypoints' . SOW_BUNDLE_JS_SUFFIX . '.js',
+                    LSOW_PLUGIN_URL . 'assets/js/jquery.waypoints' . LSOW_JS_SUFFIX . '.js',
                     array('jquery'),
                     LSOW_VERSION
                 ),
@@ -74,7 +74,7 @@ class LSOW_Stats_Bars_Widget extends SiteOrigin_Widget {
             array(
                 array(
                     'lsow-stats-bar',
-                    plugin_dir_url(__FILE__) . 'js/stats-bar' . SOW_BUNDLE_JS_SUFFIX . '.js',
+                    plugin_dir_url(__FILE__) . 'js/stats-bar' . LSOW_JS_SUFFIX . '.js',
                     array('jquery')
                 ),
             )

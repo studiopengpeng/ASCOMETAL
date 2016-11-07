@@ -45,14 +45,17 @@ class Ai1wm_Status {
 		self::log( array( 'type' => 'done', 'message' => $message, 'title' => $title ) );
 	}
 
+	public static function blogs( $message, $title = null ) {
+		self::log( array( 'type' => 'blogs', 'message' => $message, 'title' => $title ) );
+	}
+
 	public static function progress( $percent, $title = null ) {
 		self::log( array( 'type' => 'progress', 'percent' => $percent, 'title' => $title ) );
 	}
 
 	public static function log( $data = array() ) {
-		if ( $handle = fopen( ai1wm_status_path(), 'w' ) ) {
-			fwrite( $handle, json_encode( $data ) );
-			fclose( $handle );
+		if ( ! defined( 'DOING_CRON' ) ) {
+			update_option( AI1WM_STATUS, $data );
 		}
 	}
 }

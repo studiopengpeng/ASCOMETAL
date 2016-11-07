@@ -16,7 +16,7 @@ class LSOW_Pricing_Table_Widget extends SiteOrigin_Widget {
             array(
                 'description' => __('Display pricing table in a multi-column grid.', 'livemesh-so-widgets'),
                 'panels_icon' => 'dashicons dashicons-minus',
-                'help' => 'http://portfoliotheme.org/widgets-bundle/pricing-widget-documentation/'
+                'help' => LSOW_PLUGIN_HELP_URL. '#pricing-table'
             ),
             array(),
             array(

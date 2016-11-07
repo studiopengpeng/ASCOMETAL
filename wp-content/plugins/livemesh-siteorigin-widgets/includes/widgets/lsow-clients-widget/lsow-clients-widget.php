@@ -16,7 +16,7 @@ class LSOW_Client_Widget extends SiteOrigin_Widget {
             array(
                 'description' => __('Display one or more clients in a multi-column grid.', 'livemesh-so-widgets'),
                 'panels_icon' => 'dashicons dashicons-minus',
-                'help' => 'http://portfoliotheme.org/widgets-bundle/odometer-widget-documentation/'
+                'help' => LSOW_PLUGIN_HELP_URL. '#clients-widget'
             ),
             array(),
             array(
@@ -80,7 +80,7 @@ class LSOW_Client_Widget extends SiteOrigin_Widget {
             array(
                 array(
                     'lsow-waypoints',
-                    LSOW_PLUGIN_URL . 'assets/js/jquery.waypoints' . SOW_BUNDLE_JS_SUFFIX . '.js',
+                    LSOW_PLUGIN_URL . 'assets/js/jquery.waypoints' . LSOW_JS_SUFFIX . '.js',
                     array('jquery'),
                     LSOW_VERSION
                 ),

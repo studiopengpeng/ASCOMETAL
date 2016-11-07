@@ -4,9 +4,9 @@
  * @subpackage wpml-core
  */
 
-require_once( 'translationproxy-api.class.php' );
-require_once( 'translationproxy-service.class.php' );
-require_once( 'translationproxy-batch.class.php' );
+require_once dirname( __FILE__ ) . '/translationproxy-api.class.php';
+require_once dirname( __FILE__ ) . '/translationproxy-service.class.php';
+require_once dirname( __FILE__ ) . '/translationproxy-batch.class.php';
 
 /**
  * Class TranslationProxy_Project
@@ -25,7 +25,7 @@ class TranslationProxy_Project {
 	public $errors;
 
 	/**
-	 * @param object $service
+	 * @param TranslationProxy_Service $service
 	 * @param string $delivery
 	 */
 	public function __construct( $service, $delivery = 'xmlrpc' ) {
@@ -94,23 +94,21 @@ class TranslationProxy_Project {
 		global $sitepress;
 
 		$networking          = wpml_tm_load_tp_networking();
-		$project_creation    = new WPML_TP_Project_Creation( $this, $sitepress,
-			$networking,
-			array(
-				'name'            => $name,
-				'description'     => $description,
-				'url'             => $url,
-				'delivery_method' => $delivery,
-				'sitekey'         => WP_Installer()->get_site_key( 'wpml' ),
-			) );
+		$project_creation    = new WPML_TP_Project_Creation( $this, $sitepress, $networking, array(
+			'name'               => $name,
+			'description'        => $description,
+			'url'                => $url,
+			'delivery_method'    => $delivery,
+			'sitekey'            => WP_Installer_API::get_site_key( 'wpml' ),
+			'client_external_id' => WP_Installer_API::get_ts_client_id(),
+		) );
 		$response_project    = $project_creation->run();
 		$this->id            = $response_project->id;
 		$this->access_key    = $response_project->accesskey;
 		$this->ts_id         = $response_project->ts_id;
 		$this->ts_access_key = $response_project->ts_accesskey;
 
-		if ( isset( $response_project->polling_method ) && $response_project->polling_method != $delivery ) {
-			$this->update_delivery_method( $response_project->polling_method );
+		if ( isset( $response_project->polling_method ) && $response_project->polling_method !== $delivery ) {
 			$this->service->delivery_method = $response_project->polling_method;
 		}
 
@@ -244,8 +242,7 @@ class TranslationProxy_Project {
 				return false;
 			}
 
-			$batch_data = $this->create_batch_job( $source_language,
-				$target_languages );
+			$batch_data = $this->create_batch_job( $source_language, $target_languages );
 			if ( $batch_data ) {
 				TranslationProxy_Basket::set_batch_data( $batch_data );
 			}
@@ -311,8 +308,7 @@ class TranslationProxy_Project {
 			$params['extra_fields'] = $extra_fields;
 		}
 
-		$response = TranslationProxy_Api::proxy_request( '/projects/{project_id}/batches.json',
-			$params, 'POST' );
+		$response = TranslationProxy_Api::proxy_request( '/projects/{project_id}/batches.json', $params, 'POST' );
 
 		$batch = false;
 		if ( $response ) {
@@ -371,7 +367,6 @@ class TranslationProxy_Project {
 				'title'           => $title,
 				'cms_id'          => $cms_id,
 				'url'             => $url,
-				'is_update'       => $is_update,
 				'translator_id'   => $translator_id,
 				'note'            => $note,
 				'source_language' => $source_language,
@@ -408,8 +403,7 @@ class TranslationProxy_Project {
 			'batch_id'    => $tp_batch_id,
 		);
 
-		$response    = TranslationProxy_Api::proxy_request( '/batches/{batch_id}/commit.json',
-			$params, 'PUT', false );
+		$response    = TranslationProxy_Api::proxy_request( '/batches/{batch_id}/commit.json', $params, 'PUT', false );
 		$basket_name = TranslationProxy_Basket::get_basket_name();
 		if ( $basket_name ) {
 			global $wpdb;
@@ -455,15 +449,6 @@ class TranslationProxy_Project {
 	public function finished_jobs() {
 
 		return $this->get_jobs( 'translation_ready' );
-	}
-
-	public function update_delivery_method( $method ) {
-		global $sitepress;
-		if ( 'xmlrpc' === $method ) {
-			$sitepress->set_setting( 'translation_pickup_method', ICL_PRO_TRANSLATION_PICKUP_XMLRPC, true );
-		} elseif ( 'polling' === $method ) {
-			$sitepress->set_setting( 'translation_pickup_method', ICL_PRO_TRANSLATION_PICKUP_POLLING, true );
-		}
 	}
 
 	public function set_delivery_method( $method ) {

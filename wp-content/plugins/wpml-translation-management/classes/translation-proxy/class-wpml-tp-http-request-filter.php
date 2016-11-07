@@ -16,12 +16,15 @@ class WPML_TP_HTTP_Request_Filter {
 		if ( $this->contains_resource( $this->request ) === false ) {
 			$this->request['headers'] = 'Content-type: application/json';
 			$this->request['body']    = wp_json_encode( $this->request['body'] );
-
-			return $this->request;
+		} else {
+			list( $headers, $body ) = $this->_prepare_multipart_request( $this->request['body'] );
+			$this->request['headers'] = $headers;
+			$this->request['body']    = $body;
 		}
-		list( $headers, $body ) = $this->_prepare_multipart_request( $this->request['body'] );
-		$this->request['headers'] = $headers;
-		$this->request['body']    = $body;
+
+		if ( $this->request['method'] === 'GET' ) {
+			unset( $this->request['body'] );
+		}
 
 		return $this->request;
 	}
@@ -44,7 +47,7 @@ class WPML_TP_HTTP_Request_Filter {
 	}
 
 	private function _prepare_multipart_request( $params ) {
-		$boundary = '----' . microtime( true );
+		$boundary = '----' . microtime();
 		$header   = "Content-Type: multipart/form-data; boundary=$boundary";
 		$content  = self::_add_multipart_contents( $boundary, $params );
 		$content .= "--$boundary--\r\n";

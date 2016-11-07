@@ -5,6 +5,8 @@
  * @var $posts
  */
 
+if( !empty( $instance['title'] ) ) echo $args['before_title'] . esc_html($instance['title']) . $args['after_title'];
+
 $query_args = siteorigin_widget_post_selector_process_query($posts);
 
 // Use the processed post selector query to find posts.

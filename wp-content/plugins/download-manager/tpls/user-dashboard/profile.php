@@ -8,6 +8,7 @@ global $current_user, $wpdb;
                 <h3><?php
                     $val = get_option( 'wp_user_roles' );
                     $level = $val[$current_user->roles[0]]['name'];
+                    $level = $level==''?ucfirst($current_user->roles[0]):$level;
                     echo apply_filters("wpdm_udb_user_level",$level); ?></h3>
             </div>
         </div>
@@ -34,26 +35,35 @@ global $current_user, $wpdb;
     <div class="panel-body">
         <div class="panel-row">
             <?php
-            $q = new WP_Query(array(
+            $rc = 0;
+            $qparams = array(
                 'post_type' => 'wpdmpro',
-                'posts_per_page' => 3,
-                'orderby' => 'rand',
-                'meta_query' => array()
-            ));
+                'posts_per_page' => 20,
+                'orderby' => 'rand'
+            );
+            if(isset($params['recommended']) && term_exists($params['recommended'], 'wpdmcategory')){
+                $qparams['tax_query'] = array(array('taxonomy' => 'wpdmcategory', 'field'    => 'slug', 'terms' => $params['recommended']));
+            }
+
+            $q = new WP_Query($qparams);
             while($q->have_posts()){ $q->the_post();
-                ?>
-                <div class="col-md-4">
-                    <div class="card">
+                if(\WPDM\Package::userCanAccess(get_the_ID())) {
+                    ?>
+                    <div class="col-md-4">
+                        <div class="card">
 
 
-                        <?php wpdm_post_thumb(array(400, 300)); ?>
-                        <a href="<?php the_permalink(); ?>" class="card-footer">
-                            <?php the_title(); ?>
-                        </a>
+                            <?php wpdm_post_thumb(array(400, 300)); ?>
+                            <a href="<?php the_permalink(); ?>" class="card-footer">
+                                <?php the_title(); ?>
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                <?php
+                    <?php
+                    $rc++;
+                    if ($rc >= 3) break;
+                }
             }
             wp_reset_postdata();
             ?>

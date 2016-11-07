@@ -6,6 +6,8 @@
 
 ?>
 
+<?php if( !empty( $instance['title'] ) ) echo $args['before_title'] . esc_html($instance['title']) . $args['after_title'] ?>
+
 <div class="lsow-testimonials-slider lsow-flexslider lsow-container" <?php foreach ($settings as $key => $val) : ?>
     <?php if (!empty($val)) : ?>
         data-<?php echo $key . '="' . esc_attr($val) . '"' ?>

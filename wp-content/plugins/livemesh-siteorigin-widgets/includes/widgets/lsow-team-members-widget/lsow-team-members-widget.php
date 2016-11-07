@@ -16,7 +16,7 @@ class LSOW_Team_Widget extends SiteOrigin_Widget {
             array(
                 'description' => __('Create team members to display in a column grid.', 'livemesh-so-widgets'),
                 'panels_icon' => 'dashicons dashicons-minus',
-                'help' => 'http://portfoliotheme.org/widgets-bundle/team-members-widget-documentation/'
+                'help' => LSOW_PLUGIN_HELP_URL. '#team-members'
             ),
             array(),
             array(

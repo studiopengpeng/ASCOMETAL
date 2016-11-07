@@ -1,25 +1,40 @@
+# 1.4.19
+
+## Fixes
+* [wpmlcore-3030] Class auto loading is not compatible with version of PHP older than 5.3
+
+# 1.4.18
+
+## Performances
+* [wpmlcore-2988] Removed unneeded dependencies checks in admin pages: this now runs only once and later only when activating/deactivating plugins
+
+# 1.4.17
+
+## Fixes
+* [wpmlcmsnav-28] $post->ancestors is a @property-read array should not be set
+* [wpmlcmsnav-29] Fixed bug happening when the "auto-save" action was running, and causing some CMS-NAV loss data during post editing
+* [wpmlcmsnav-30] Fixed issue with pages' order not being respected
+
 # 1.4.16
 
-##Cleanup
+## Cleanup
 * [wpmlcore-2541] Removal of "icon-32" usage
 
 # 1.4.15
 
-##Fixes
+## Fixes
 * Removed dead code for handling auto loaded classes: is not used yet
 * [wpmlcmsnav-25] Removed `ENGINE=MyISAM` from table creation script
 
 # 1.4.14
 
-##Fixes
+## Fixes
 * Added backward compatibility for `__DIR__` magic constant not being supported before PHP 5.3.
-
-## Fix
 * [wpmlga-96] WordPress 4.4 compatibility: pulled all html headings by one (e.g. h2 -> h1, he -> h2, etc.)
 
 # 1.4.12
 
-## Fix
+## Fixes
 * Breadcrumb menu for archive pages and CPT single pages
 
 # 1.4.11
@@ -52,14 +67,14 @@
 ## Improvements
 * New way to define plugin url is now tolerant for different server settings
 
-## Fix
+## Fixes
 * Fixed possible SQL injections
 * Fixed corrupted WPML settings when new page is added
 * Minor syntax fixes
 
 # 1.4.3
 
-## Fix
+## Fixes
 * mysql_* functions doesn't show deprecated notice when PHP >= 5.5
 * Several fixes to achieve compatibility with WordPress 3.9
 * Updated links to wpml.org
@@ -70,7 +85,7 @@
 
 # 1.4.2
 
-## Fix
+## Fixes
 * Handled dependency from SitePress::get_setting()
 * Updated translations
 
@@ -82,6 +97,6 @@
 ## Feature
 * Added WPML capabilities (see online documentation)
 
-## Fix
+## Fixes
 * Using CMS Nav in a non content page (e.g. a static page that only calls wp_head()), won't cause any warning because the $post object is null
 * When HTTP_USER_AGENT is not set it won't cause any error

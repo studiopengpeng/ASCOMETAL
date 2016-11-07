@@ -1,10 +1,25 @@
 <?php
 
-
+/**
+ * Types_Helper_Condition
+ *
+ * FIXME please document this!
+ *
+ * @since 2.0
+ */
 abstract class Types_Helper_Condition {
 
-	protected $condition;
 	public static $post_type;
+
+	protected $condition;
+
+	protected static function get_type_name() {
+		// per post
+		if( isset( $_GET['post'] ) )
+			return get_post_type( $_GET['post'] );
+
+		return self::$post_type->name;
+	}
 
 	public function set_condition( $value ) {
 		$this->condition = $value;

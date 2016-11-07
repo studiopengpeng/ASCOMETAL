@@ -55,12 +55,12 @@ class WPToolset_Field_Credfile extends WPToolset_Field_Textfield {
 
     public function init() {
         wp_register_script('wpt-field-credfile', WPTOOLSET_FORMS_RELPATH . '/js/credfile.js', array('wptoolset-forms'), WPTOOLSET_FORMS_VERSION, true);
-        wp_enqueue_script('wpt-field-credfile');
-
+        wp_enqueue_script('wpt-field-credfile');        
         $this->disable_progress_bar = version_compare(CRED_FE_VERSION, '1.3.6.2', '<=');
         $this->disable_progress_bar = apply_filters('cred_file_upload_disable_progress_bar', $this->disable_progress_bar);
-        if ($this->disable_progress_bar)
+        if ($this->disable_progress_bar) {
             return;
+        }
 
         //Add settings switch in order to use AJAX JQUERY UPLOAD or not
         $scriptpath = WPTOOLSET_FORMS_RELPATH . '/js/jquery_upload/';
@@ -68,11 +68,9 @@ class WPToolset_Field_Credfile extends WPToolset_Field_Textfield {
 
         wp_enqueue_style('progress_bar-style', $stylepath . 'progress_bar.css');
 
-        if (!wp_script_is('jquery')) {
-            wp_enqueue_script('jquery', $scriptpath . 'jquery.min.js', array(), '', false);
-        }
-        wp_enqueue_script('jquery-ui-script', $scriptpath . 'jquery-ui.min.js', array('jquery'), '', true);
-        wp_enqueue_script('jquery-ui-widget-script', $scriptpath . 'jquery.ui.widget.js', array('jquery'), '', true);
+        wp_enqueue_script('jquery-ui-core');
+        wp_enqueue_script('jquery-ui-widget');
+        wp_enqueue_script('jquery-ui-progressbar');
         //wp_enqueue_script('jtmpl-script', $scriptpath . 'tmpl.min.js', array('jquery'), '', true);
         wp_enqueue_script('load-image-all-script', $scriptpath . 'load-image.all.min.js', array('jquery'), '', true);
         //wp_enqueue_script('canvas-to-blob-script', $scriptpath . 'canvas-to-blob.min.js', array('jquery'), '', true);
@@ -125,7 +123,7 @@ class WPToolset_Field_Credfile extends WPToolset_Field_Textfield {
         }
 
         $id = str_replace(array("[", "]"), "", $name);
-        $delete_input_showhide = '';
+        $preview_span_input_showhide = '';
         $button_extra_classnames = '';
 
         $has_image = false;
@@ -134,22 +132,23 @@ class WPToolset_Field_Credfile extends WPToolset_Field_Textfield {
         if (empty($value)) {
             $value = ''; // NOTE we need to set it to an empty string because sometimes it is NULL on repeating fields
             $is_empty = true;
-            $delete_input_showhide = ' style="display:none"';
+            $preview_span_input_showhide = ' style="display:none"';
         }
 
-        if ($name == '_featured_image') {
-            $title = __('Featured Image', 'wpv-views');
-            if (!$is_empty) {
-                if (preg_match('/src="([\w\d\:\/\._-]*)"/', $value, $_v)) {
-                    $value = $_v[1];
-                }
-            }
-        }
+//        if ($name == '_featured_image') {
+//            $title = __('Featured Image', 'wpv-views');
+//            if (!$is_empty) {
+//                if (preg_match('/src="([\w\d\:\/\._-]*)"/', $value, $_v)) {
+//                    $value = $_v[1];
+//                }
+//            }
+//        }
 
         if (!$is_empty) {
             $pathinfo = pathinfo($value);
             // TODO we should check against the allowed mime types, not file extensions
-            if (isset($pathinfo['extension']) && in_array(strtolower($pathinfo['extension']), array('png', 'gif', 'jpg', 'jpeg', 'bmp', 'tif'))) {
+            if (($this->_data['type'] == 'credimage' || $this->_data['type'] == 'credfile') && 
+                    isset($pathinfo['extension']) && in_array(strtolower($pathinfo['extension']), array('png', 'gif', 'jpg', 'jpeg', 'bmp', 'tif'))) {
                 $has_image = true;
             }
         }
@@ -173,8 +172,7 @@ class WPToolset_Field_Credfile extends WPToolset_Field_Textfield {
 
         if (!$is_empty) {
             $preview_file = $value;
-            // Set attributes
-            $attr_file['disabled'] = 'disabled';
+//                $attr_file['disabled'] = 'disabled';
             $attr_file['style'] = 'display:none';
         } else {
             $attr_hidden['disabled'] = 'disabled';
@@ -186,10 +184,10 @@ class WPToolset_Field_Credfile extends WPToolset_Field_Textfield {
             '#type' => 'markup',
             '#markup' => '<input type="button" style="display:none" data-action="undo" class="js-wpt-credfile-undo wpt-credfile-undo' . $button_extra_classnames . '" value="' . esc_attr(__('Restore original', 'wpv-views')) . '" />',
         );
-        $form[] = array(
-            '#type' => 'markup',
-            '#markup' => '<input type="button"' . $delete_input_showhide . ' data-action="delete" class="js-wpt-credfile-delete wpt-credfile-delete' . $button_extra_classnames . '" value="' . esc_attr(__('Clear', 'wpv-views')) . '" />',
-        );
+//        $form[] = array(
+//            '#type' => 'markup',
+//            '#markup' => '<input type="button"' . $delete_input_showhide . ' data-action="delete" class="js-wpt-credfile-delete wpt-credfile-delete' . $button_extra_classnames . '" value="' . esc_attr(__('Clear', 'wpv-views')) . '" />',
+//        );
         $form[] = array(
             '#type' => 'hidden',
             '#name' => $name,
@@ -215,17 +213,21 @@ class WPToolset_Field_Credfile extends WPToolset_Field_Textfield {
                 '#markup' => '<div id="progress_' . $id . '" class="meter" style="display:none;"><span class = "progress-bar" style="width:0;"></span></div>',
             );
         }
-
+        
+        $delete_butt = '<input type="button" data-action="delete" class="js-wpt-credfile-delete wpt-credfile-delete' . $button_extra_classnames . '" value="' . __('delete', 'wpv-views') . '" style="width:100%;margin-top:2px;margin-bottom:2px;" />';
         if ($has_image) {
+            //$delete_butt = "<input id='butt_{$id}' style='width:100%;margin-top:2px;margin-bottom:2px;' type='button' value='" . __('delete', 'wpv-views') . "' rel='{$preview_file}' class='delete_ajax_file'>";
+
             $form[] = array(
                 '#type' => 'markup',
-                '#markup' => '<span class="js-wpt-credfile-preview  wpt-credfile-preview"><img id="' . $id . '_image" src="' . $preview_file . '" title="' . $preview_file . '" alt="' . $preview_file . '" class="js-wpt-credfile-preview-item wpt-credfile-preview-item" /></span>',
+                '#markup' => '<span class="js-wpt-credfile-preview wpt-credfile-preview" '.$preview_span_input_showhide.'><img id="' . $id . '_image" src="' . $preview_file . '" title="' . $preview_file . '" alt="' . $preview_file . '" class="js-wpt-credfile-preview-item wpt-credfile-preview-item" style="max-width:150px"/>' . $delete_butt . '</span>',
             );
         } else {
+
             //if ( !$is_empty )
             $form[] = array(
                 '#type' => 'markup',
-                '#markup' => '<span class="js-wpt-credfile-preview wpt-credfile-preview">' . $preview_file . '</span>',
+                '#markup' => '<span class="js-wpt-credfile-preview wpt-credfile-preview" '.$preview_span_input_showhide.'>' . $preview_file . $delete_butt . '</span>',
             );
         }
         return $form;

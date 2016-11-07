@@ -1,9 +1,12 @@
 <?php
 /**
  * @var $clients
+ * @var $settings
  */
 
 ?>
+
+<?php if( !empty( $instance['title'] ) ) echo $args['before_title'] . esc_html($instance['title']) . $args['after_title'] ?>
 
 <?php $num_of_columns = intval($settings['per_line']); ?>
 
@@ -23,7 +26,7 @@
 
                 <?php if (!empty($client['link'])): ?>
 
-                    <a href="<?php echo esc_url($client['link']); ?>" title="<?php echo esc_html($client['name']); ?>"><?php echo esc_html($client['name']); ?></a>
+                    <a href="<?php echo sow_esc_url($client['link']); ?>" title="<?php echo esc_html($client['name']); ?>" target="_blank"><?php echo esc_html($client['name']); ?></a>
 
                 <?php else: ?>
 

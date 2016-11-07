@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: FoundationPress v5.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-27 19:03+0200\n"
-"PO-Revision-Date: 2016-07-27 19:05+0200\n"
+"PO-Revision-Date: 2016-11-03 21:27+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -440,15 +440,15 @@ msgstr "Hochwertige technische begleitung für neuartige lösungen... "
 #: template-parts/blocs-marches-index.php:88
 #: template-parts/blocs-marches-index.php:93
 msgid "Oil / Gas"
-msgstr "Erdöl / Gas"
+msgstr "Erdöl / Erdgas"
 
 #: template-parts/blocs-marches-index.php:95
 msgid "A world-renowned player in drilling and extraction..."
-msgstr "Ein Weltweit berühmter <br/>Akteur im Bohren- und Förederungsbereich"
+msgstr "Ein Weltweit bekannter<br/>Akteur im Bohr- und Fördersektor"
 
 #: template-parts/carrousel-actualites.php:8
 msgid "News"
-msgstr "Nachrichten"
+msgstr "Aktuelles"
 
 # @ FoundationPress
 #: template-parts/content-none.php:14

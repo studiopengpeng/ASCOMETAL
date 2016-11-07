@@ -8,7 +8,8 @@ html {
   display: block;
   cursor: pointer; }
 .lsow-accordion .lsow-panel-content {
-  display: none; }
+  display: none;
+  overflow: hidden; }
 
 .lsow-accordion.style1 .lsow-panel .lsow-panel-title, .lsow-accordion.style3 .lsow-panel .lsow-panel-title {
   -webkit-transition: all 0.3s ease-in-out 0s;

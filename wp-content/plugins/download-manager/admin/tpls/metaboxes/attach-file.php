@@ -112,7 +112,7 @@ else {
             uploader.bind('FileUploaded', function(up, file, response) {
 
                 // this is your ajax response, update the DOM with it or something...
-                //console.log(response);
+                //console.log(file);
                 //response
                 jQuery('#' + file.id ).remove();
                 var d = new Date();
@@ -125,7 +125,11 @@ else {
                 var ext = response.split('.');
                 ext = ext[ext.length-1];
                 var icon = "<?php echo WPDM_BASE_URL; ?>file-type-icons/"+ext+".png";
+                var title = file.name;
+                title = title.replace(/\.([\w]+)/, '');
+                title = title.replace(/[_|\-]/g, ' ');
                 html = html.replace(/##filepath##/g, response);
+                html = html.replace(/##filetitle##/g, title);
                 html = html.replace(/##fileindex##/g, ID);
                 html = html.replace(/##preview##/g, icon);
                 jQuery('#currentfiles').prepend(html);
@@ -162,7 +166,7 @@ else {
                         <img class="file-ico"  onerror="this.src='<?php echo WPDM_BASE_URL.'assets/file-type-icons/_blank.png';?>';" src="##preview##" />
                     </div>
                     <div class="media-body">
-                        <input placeholder="<?php _e('File Title','wpdmpro'); ?>" title="<?php _e('File Title','wpdmpro'); ?>" class="form-control" type="text" name='file[fileinfo][##fileindex##][title]' value="##filepath##" /><br/>
+                        <input placeholder="<?php _e('File Title','wpdmpro'); ?>" title="<?php _e('File Title','wpdmpro'); ?>" class="form-control" type="text" name='file[fileinfo][##fileindex##][title]' value="##filetitle##" /><br/>
                         <div class="input-group">
                             <input placeholder="<?php _e('File Password','wpdmpro'); ?>"  title="<?php _e('File Password','wpdmpro'); ?>" class="form-control inline" type="text" id="indpass_##fileindex##" name='file[fileinfo][##fileindex##][password]' value="">
                                     <span class="input-group-btn">
@@ -199,6 +203,12 @@ jQuery(function(){
             if(ext.length==1 || ext==filename || ext.length>4 || ext=='') ext = '_blank';
 
             var icon = "<?php echo WPDM_BASE_URL; ?>file-type-icons/"+ext.toLowerCase()+".png";
+            var title = file;
+            title = title.split('/');
+            title = title[title.length - 1];
+            title = title.replace(/\.([\w]+)/, '');
+            title = title.replace(/[_|\-]/g, ' ');
+            html = html.replace(/##filetitle##/g, title);
             html = html.replace(/##filepath##/g, file);
             html = html.replace(/##fileindex##/g, ID);
             html = html.replace(/##preview##/g, icon);

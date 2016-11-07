@@ -42,25 +42,25 @@ class Ai1wm_Resolve_Controller {
 		}
 
 		// Verify secret key by using the value in the database, not in cache
-		if ( $secret_key !== get_site_option( AI1WM_SECRET_KEY, false, false ) ) {
+		if ( $secret_key !== get_option( AI1WM_SECRET_KEY ) ) {
 			Ai1wm_Status::error(
-				__( "Unable to authenticate your request with secret_key = \"{$secret_key}\"", AI1WM_PLUGIN_NAME ),
-				__( "Unable to resolve", AI1WM_PLUGIN_NAME )
+				sprintf( __( 'Unable to authenticate your request with secret_key = "%s"', AI1WM_PLUGIN_NAME ), $secret_key ),
+				__( 'Unable to resolve', AI1WM_PLUGIN_NAME )
 			);
 			exit;
 		}
 
 		// Set IP address
 		if ( isset( $params['url_ip'] ) && ( $ip = $params['url_ip' ] ) ) {
-			update_site_option( AI1WM_URL_IP, $ip );
+			update_option( AI1WM_URL_IP, $ip );
 		}
 
-		// Set transport layer
-		if ( isset( $params['url_transport'] ) && ( $transport = $params['url_transport'] ) ) {
-			if ( $transport === 'curl' ) {
-				update_site_option( AI1WM_URL_TRANSPORT, array( 'curl', 'ai1wm' ) );
+		// Set adapter
+		if ( isset( $params['url_adapter'] ) && ( $adapter = $params['url_adapter'] ) ) {
+			if ( $adapter === 'curl' ) {
+				update_option( AI1WM_URL_ADAPTER, 'curl' );
 			} else {
-				update_site_option( AI1WM_URL_TRANSPORT, array( 'ai1wm', 'curl' ) );
+				update_option( AI1WM_URL_ADAPTER, 'stream' );
 			}
 		}
 	}

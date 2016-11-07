@@ -29,8 +29,7 @@
  * we define the version here
  */
 
-
-$toolset_common_version = 200016;
+$toolset_common_version = 220001;
 
 // ----------------------------------------------------------------------//
 // WARNING * WARNING * WARNING
@@ -66,8 +65,7 @@ if ( ! function_exists( 'toolset_common_plugins_loaded' ) ) {
             toolset_common_set_constants_and_start( $toolset_common_paths[ $latest ]['url'] );
         }
     }
-
-    add_action( 'plugins_loaded', 'toolset_common_plugins_loaded' );
+    add_action( 'plugins_loaded', 'toolset_common_plugins_loaded', -1 );
 }
 
 if ( ! function_exists( 'toolset_common_initialize' ) ) {

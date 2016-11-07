@@ -1,9 +1,14 @@
 <?php
 /**
  * @var $settings
+ * @var $heading
  * @var $taxonomy_filter
  * @var $posts
  */
+
+if( !empty( $instance['title'] ) ) echo $args['before_title'] . esc_html($instance['title']) . $args['after_title'];
+
+$current_page = get_queried_object_id();
 
 $query_args = siteorigin_widget_post_selector_process_query($posts);
 
@@ -27,7 +32,7 @@ if ($loop->have_posts()) : ?>
 
         <div class="lsow-portfolio-header">
 
-            <?php if (!empty($settings['heading'])) ?>
+            <?php if (!empty($heading)) ?>
 
             <h3 class="lsow-heading"><?php echo wp_kses_post($heading); ?></h3>
 
@@ -46,8 +51,8 @@ if ($loop->have_posts()) : ?>
             <?php while ($loop->have_posts()) : $loop->the_post(); ?>
 
                 <?php
-                if (get_post_type() === 'page')
-                    continue; // skip pages since they can run into infinite loop when users choose All option in build query
+                if (get_the_ID() === $current_page)
+                    continue; // skip the current page since they can run into infinite loop when users choose All option in build query
                 ?>
 
                 <?php

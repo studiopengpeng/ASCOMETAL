@@ -140,7 +140,8 @@ if(isset($params['jstable']) && $params['jstable']==1):
                 $data['download_link'] = DownloadLink($data, 0, array('popstyle' => 'popup'));
                 $data = apply_filters("wpdm_after_prepare_package_data", $data);
                 $download_link = $data['download_link'];
-                if($download_link != 'blocked'){
+                if(isset($data['base_price']) && $data['base_price'] > 0) $download_link = "<a href='".get_permalink($data['ID'])."'>".__('Buy Now','wpdmpro')." @ {$data['currency']}{$data['effective_price']}</a>";
+                if($download_link != 'blocked' && $download_link != 'loginform'){
                 ?>
 
                 <tr>

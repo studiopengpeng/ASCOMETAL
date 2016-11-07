@@ -28,6 +28,8 @@ if (!class_exists('LSOW_Setup')):
             add_filter('siteorigin_panels_css_object', array($this, 'filter_css_object'), 10, 3);
 
 
+            add_filter('siteorigin_widgets_default_active', array($this, 'activate_plugin_widgets'));
+
         }
 
         function row_style_fields($fields) {
@@ -38,7 +40,6 @@ if (!class_exists('LSOW_Setup')):
                 'group' => 'layout',
                 'description' => __('Top Padding for the row.', 'livemesh-so-widgets'),
                 'priority' => 21,
-                'multiple' => true
             );
 
             $fields['bottom_padding'] = array(
@@ -47,7 +48,6 @@ if (!class_exists('LSOW_Setup')):
                 'group' => 'layout',
                 'description' => __('Bottom Padding for the row.', 'livemesh-so-widgets'),
                 'priority' => 22,
-                'multiple' => true
             );
 
             $fields['tablet_top_padding'] = array(
@@ -56,7 +56,6 @@ if (!class_exists('LSOW_Setup')):
                 'group' => 'layout',
                 'description' => __('Top Padding for the row in tablet resolutions.', 'livemesh-so-widgets'),
                 'priority' => 23,
-                'multiple' => true
             );
 
             $fields['tablet_bottom_padding'] = array(
@@ -65,7 +64,6 @@ if (!class_exists('LSOW_Setup')):
                 'group' => 'layout',
                 'description' => __('Bottom Padding for the row in tablet resolutions.', 'livemesh-so-widgets'),
                 'priority' => 24,
-                'multiple' => true
             );
 
             $fields['mobile_top_padding'] = array(
@@ -74,7 +72,6 @@ if (!class_exists('LSOW_Setup')):
                 'group' => 'layout',
                 'description' => __('Top Padding for the row in mobile resolutions.', 'livemesh-so-widgets'),
                 'priority' => 25,
-                'multiple' => true
             );
 
             $fields['mobile_bottom_padding'] = array(
@@ -83,7 +80,6 @@ if (!class_exists('LSOW_Setup')):
                 'group' => 'layout',
                 'description' => __('Bottom Padding for the row in mobile resolutions.', 'livemesh-so-widgets'),
                 'priority' => 26,
-                'multiple' => true
             );
 
             /* Add design fields */
@@ -194,8 +190,42 @@ if (!class_exists('LSOW_Setup')):
         }
 
         function custom_fields_class_paths($class_paths) {
-            $class_paths[] = LSOW_PLUGIN_DIR . 'includes/custom-fields/';
+            $class_paths[] = LSOW_PLUGIN_DIR . 'includes/fields/';
             return $class_paths;
+        }
+
+        function activate_plugin_widgets($default_widgets) {
+
+            $auto_activate = lsow_get_option('lsow_autoload_widgets', false);
+
+            if (!$auto_activate)
+                return $default_widgets;
+
+            $plugin_widgets = array(
+
+                "lsow-accordion-widget" => true,
+                "lsow-button-widget" => true,
+                "lsow-carousel-widget" => true,
+                "lsow-clients-widget" => true,
+                "lsow-heading-widget" => true,
+                "lsow-hero-image-widget" => true,
+                "lsow-icon-list-widget" => true,
+                "lsow-odometers-widget" => true,
+                "lsow-piecharts-widget" => true,
+                "lsow-portfolio-widget" => true,
+                "lsow-posts-carousel-widget" => true,
+                "lsow-pricing-table-widget" => true,
+                "lsow-services-widget" => true,
+                "lsow-stats-bar-widget" => true,
+                "lsow-tabs-widget" => true,
+                "lsow-team-members-widget" => true,
+                "lsow-testimonials-slider-widget" => true,
+                "lsow-testimonials-widget" => true,
+
+            );
+
+            return wp_parse_args($plugin_widgets, $default_widgets);
+
         }
 
     }

@@ -34,14 +34,6 @@ var LSOW_Tabs = function (tabs) {
     this.makeResponsive();
 };
 
-LSOW_Tabs.prototype.toggleMobile = function (mediaQuery) {
-    if (mediaQuery.matches) {
-
-    } else {
-        document.body.style.backgroundColor = 'FireBrick';
-    }
-};
-
 LSOW_Tabs.prototype.show = function (index) {
     // Clear out existing tab
     this.tabNavs.eq(this.current).removeClass('lsow-active');

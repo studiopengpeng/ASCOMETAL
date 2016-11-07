@@ -2,8 +2,8 @@
 Contributors: yani.iliev, bangelov, pimjitsawang
 Tags: db migration, migration, wordpress migration, db backup, db restore, website backup, website restore, website migration, website deploy, wordpress deploy, db backup, database export, database serialization, database find replace
 Requires at least: 3.3
-Tested up to: 4.4
-Stable tag: 5.39
+Tested up to: 4.6
+Stable tag: 5.52
 License: GPLv2 or later
 
 All-in-One WP Migration is the only tool that you will ever need to migrate a WordPress site.
@@ -55,6 +55,7 @@ All in One WP Plugin is the first plugin to offer true mobile experience on Word
 * [Amazon S3](https://servmask.com/products/amazon-s3-extension)
 * [URL](https://servmask.com/products/url-extension)
 * [OneDrive](https://servmask.com/products/onedrive-extension)
+* [Box](https://servmask.com/products/box-extension)
 * And many more to come
 
 = Contact us =
@@ -63,6 +64,8 @@ All in One WP Plugin is the first plugin to offer true mobile experience on Word
 * [Find out more about us](https://servmask.com)
 
 [youtube http://www.youtube.com/watch?v=BpWxCeUWBOk]
+
+[youtube http://www.youtube.com/watch?v=mRp7qTFYKgs]
 
 == Installation ==
 1. Upload the `all-in-one-wp-migration` folder to the `/wp-content/plugins/` directory
@@ -75,6 +78,65 @@ All in One WP Plugin is the first plugin to offer true mobile experience on Word
 3. Plugin Menu
 
 == Changelog ==
+= 5.52 =
+* Simplify the text on import page
+* Fix an issue with special characters on export and import
+* Fix an issue with export and import of large files
+
+= 5.51 =
+* Add support for utf8mb4_unicode_520_ci database collation
+
+= 5.50 =
+* Improve database export process
+* Simplify export and import cron
+* Fix an issue with export and import progress status
+
+= 5.49 =
+* Test plugin up to WordPress 4.6
+
+= 5.48 =
+* Improve support for large databases on export
+* Add support for Box cloud storage
+* Fix an issue with status on export/import
+* Fix an issue with asynchronous requests on export/import
+
+= 5.47 =
+* Fix an issue with incorrect file size on export
+
+= 5.46 =
+* Add "Restore from Backups" video in readme file
+* Display message if backups are inaccessible
+
+= 5.45 =
+* Fix an issue with blogs.dir path replacement
+
+= 5.44 =
+* Add "Do not replace email domain" option in advanced settings
+* Add "ai1wm_exclude_content_from_export" WordPress hook on export
+* Add HTML5 uploader
+
+= 5.43 =
+* Fix an issue when archiving dynamic files on export
+* Support custom upload path for multisites
+* Add support for various cache plugins
+
+= 5.42 =
+* Catch E_PARSE error on mu-plugins import
+* Fix an issue with stop export that doesn't clean up the storage directory
+* Initialize new cache instead of flushing the existing one on import/export
+
+= 5.41 =
+* Fix an issue when replacing serialized values on import
+* List files in chunks
+* Convert svg images to png
+* Check if backups are readable before displaying them on "Backups" page
+* Display version incompatibility notification on export/import/restore screen
+* Fix double port issue on Bitnami
+* Fix an issue on multisite export with cloud extensions
+
+= 5.40 =
+* Test plugin up to WordPress 4.5
+
 = 5.39 =
 * Fix a bug in uploads path replacement
 

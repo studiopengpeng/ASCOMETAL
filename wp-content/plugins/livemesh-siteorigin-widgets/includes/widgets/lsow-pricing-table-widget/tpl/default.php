@@ -1,9 +1,12 @@
 <?php
 /**
  * @var $pricing_plans
+ * @var $settings
  */
 
 ?>
+
+<?php if( !empty( $instance['title'] ) ) echo $args['before_title'] . esc_html($instance['title']) . $args['after_title'] ?>
 
 <?php $column_style = lsow_get_column_class(intval($settings['per_line'])); ?>
 
@@ -17,14 +20,12 @@
         $tagline = esc_html($pricing_plan['tagline']);
         $price_tag = htmlspecialchars_decode(wp_kses_post($pricing_plan['price_tag']));
         $pricing_img = $pricing_plan['image'];
-        $pricing_url = esc_url($pricing_plan['url']);
+        $pricing_url = (empty($pricing_plan['url'])) ? '#' : sow_esc_url($pricing_plan['url']);
         $pricing_button_text = esc_html($pricing_plan['button_text']);
         $button_new_window = esc_html($pricing_plan['button_new_window']);
         $highlight = esc_html($pricing_plan['highlight']);
-
-
+        
         $price_tag = (empty($price_tag)) ? '' : $price_tag;
-        $pricing_url = (empty($pricing_url)) ? '#' : esc_url($pricing_url);
 
         ?>
 
@@ -60,39 +61,39 @@
 
             <div class="lsow-plan-details">
 
-                    <?php
+                <?php
 
-                    foreach ($pricing_plan['items'] as $pricing_item) : ?>
+                foreach ($pricing_plan['items'] as $pricing_item) : ?>
 
-                            <div class="lsow-pricing-item">
+                    <div class="lsow-pricing-item">
 
-                                <div class="lsow-title">
+                        <div class="lsow-title">
 
-                                    <?php echo htmlspecialchars_decode(wp_kses_post($pricing_item['title'])); ?>
+                            <?php echo htmlspecialchars_decode(wp_kses_post($pricing_item['title'])); ?>
 
-                                </div>
+                        </div>
 
-                                <div class="lsow-value-wrap">
+                        <div class="lsow-value-wrap">
 
-                                    <?php
+                            <?php
 
-                                    if (!empty($pricing_item['icon_new'])) {
-                                        echo siteorigin_widget_get_icon($pricing_item['icon_new']);
-                                    }
+                            if (!empty($pricing_item['icon_new'])) {
+                                echo siteorigin_widget_get_icon($pricing_item['icon_new']);
+                            }
 
-                                    ?>
+                            ?>
 
-                                    <div class="lsow-value">
+                            <div class="lsow-value">
 
-                                        <?php echo htmlspecialchars_decode(wp_kses_post($pricing_item['value'])); ?>
-
-                                    </div>
-
-                                </div>
+                                <?php echo htmlspecialchars_decode(wp_kses_post($pricing_item['value'])); ?>
 
                             </div>
 
-                    <?php endforeach; ?>
+                        </div>
+
+                    </div>
+
+                <?php endforeach; ?>
 
             </div>
             <!-- .lsow-plan-details -->
@@ -108,7 +109,7 @@
         </div>
         <!-- .lsow-pricing-plan -->
 
-    <?php
+        <?php
 
     endforeach;
 

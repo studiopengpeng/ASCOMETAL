@@ -39,7 +39,7 @@ html {
       .lsow-tabs .lsow-tab-nav .lsow-tab a {
         display: block;
         text-overflow: ellipsis;
-        white-space: nowrap;
+        white-space: normal;
         padding: 20px 40px;
         text-decoration: none;
         border: none;
@@ -76,7 +76,8 @@ html {
     position: relative; }
     .lsow-tabs .lsow-tab-panes .lsow-tab-pane {
       padding: 40px;
-      display: none; }
+      display: none;
+      overflow: hidden; }
       .lsow-tabs .lsow-tab-panes .lsow-tab-pane.lsow-active {
         display: block;
         animation: lsow-fade 0.3s ease-in-out; }
@@ -501,7 +502,7 @@ html {
 .lsow-tabs.style7 .lsow-tab-nav .lsow-tab {
   padding: 0 25px 0 0; }
   .lsow-tabs.style7 .lsow-tab-nav .lsow-tab a {
-    max-width: 180px;
+    max-width: none;
     margin: 6px 0; }
     @media only screen and (max-width: 479px) {
       .lsow-tabs.style7 .lsow-tab-nav .lsow-tab a {

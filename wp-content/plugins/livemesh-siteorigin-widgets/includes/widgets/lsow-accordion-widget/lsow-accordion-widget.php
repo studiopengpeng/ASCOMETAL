@@ -16,7 +16,7 @@ class LSOW_Accordion_Widget extends SiteOrigin_Widget {
             array(
                 'description' => __('Displays collapsible content panels to help display information when space is limited.', 'livemesh-so-widgets'),
                 'panels_icon' => 'dashicons dashicons-minus',
-                'help' => 'http://portfoliotheme.org/widgets-bundle/accordion-widget-documentation/'
+                'help' => LSOW_PLUGIN_HELP_URL. '#tabs-accordions'
             ),
             array(),
             array(
@@ -80,7 +80,7 @@ class LSOW_Accordion_Widget extends SiteOrigin_Widget {
             array(
                 array(
                     'lsow-accordion',
-                    plugin_dir_url(__FILE__) . 'js/accordion' . SOW_BUNDLE_JS_SUFFIX . '.js',
+                    plugin_dir_url(__FILE__) . 'js/accordion' . LSOW_JS_SUFFIX . '.js',
                     array('jquery')
                 ),
             )

@@ -7,8 +7,10 @@ abstract class WPML_Templates_Factory {
 	 */
 	private $twig;
 
-	public function __construct() {
+	public function __construct( $custom_functions = array(), $custom_filters = array() ) {
 		$this->init_template_base_dir();
+		$this->custom_functions = $custom_functions;
+		$this->custom_filters   = $custom_filters;
 	}
 
 	abstract protected function init_template_base_dir();
@@ -43,11 +45,30 @@ abstract class WPML_Templates_Factory {
 			$loader = new Twig_Loader_Filesystem( $this->template_paths );
 
 			$environment_args = array();
+
 			if ( WP_DEBUG ) {
 				$environment_args[ 'debug' ] = true;
 			}
 
+			$wpml_cache_directory = new WPML_Cache_Directory( new WPML_WP_API() );
+			$cache_directory      = $wpml_cache_directory->get( 'twig' );
+
+			if ( $cache_directory ) {
+				$environment_args[ 'cache' ]       = $cache_directory;
+				$environment_args[ 'auto_reload' ] = true;
+			}
+
 			$this->twig = new Twig_Environment( $loader, $environment_args );
+			if ( isset( $this->custom_functions ) && count( $this->custom_functions ) > 0 ) {
+				foreach ( $this->custom_functions as $custom_function ) {
+					$this->twig->addFunction( $custom_function );
+				}
+			}
+			if ( isset( $this->custom_filters ) && count( $this->custom_filters ) > 0 ) {
+				foreach ( $this->custom_filters as $custom_filter ) {
+					$this->twig->addFilter( $custom_filter );
+				}
+			}
 		}
 	}
 

@@ -16,7 +16,7 @@ class LSOW_Testimonials_Widget extends SiteOrigin_Widget {
             array(
                 'description' => __('Display testimonials in a responsive multi-column grid.', 'livemesh-so-widgets'),
                 'panels_icon' => 'dashicons dashicons-minus',
-                'help' => 'http://portfoliotheme.org/widgets-bundle/testimonials-widget-documentation/'
+                'help' => LSOW_PLUGIN_HELP_URL. '#testimonials-widgets'
             ),
             array(),
             array(

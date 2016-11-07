@@ -53,10 +53,10 @@ class Ai1wm_Export_Controller {
 		}
 
 		// Verify secret key by using the value in the database, not in cache
-		if ( $secret_key !== get_site_option( AI1WM_SECRET_KEY, false, false ) ) {
+		if ( $secret_key !== get_option( AI1WM_SECRET_KEY ) ) {
 			Ai1wm_Status::error(
-				__( "Unable to authenticate your request with secret_key = \"{$secret_key}\"", AI1WM_PLUGIN_NAME ),
-				__( "Unable to export", AI1WM_PLUGIN_NAME )
+				sprintf( __( 'Unable to authenticate your request with secret_key = "%s"', AI1WM_PLUGIN_NAME ), $secret_key ),
+				__( 'Unable to export', AI1WM_PLUGIN_NAME )
 			);
 			exit;
 		}
@@ -81,7 +81,9 @@ class Ai1wm_Export_Controller {
 					}
 
 					// Log request
-					Ai1wm_Log::export( $params );
+					if ( empty( $params['priority'] ) || is_file( ai1wm_export_path( $params ) ) ) {
+						Ai1wm_Log::export( $params );
+					}
 
 					// Do request
 					if ( $completed === false || ( $next = next( $filters ) ) && ( $params['priority'] = key( $filters ) ) ) {
@@ -102,6 +104,7 @@ class Ai1wm_Export_Controller {
 			apply_filters( 'ai1wm_export_gdrive', Ai1wm_Template::get_content( 'export/button-gdrive' ) ),
 			apply_filters( 'ai1wm_export_s3', Ai1wm_Template::get_content( 'export/button-s3' ) ),
 			apply_filters( 'ai1wm_export_onedrive', Ai1wm_Template::get_content( 'export/button-onedrive' ) ),
+			apply_filters( 'ai1wm_export_box', Ai1wm_Template::get_content( 'export/button-box' ) ),
 		);
 	}
 }

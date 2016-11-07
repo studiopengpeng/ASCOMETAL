@@ -30,12 +30,12 @@ class Ai1wm_Backups_Controller {
 
 		// Username
 		if ( isset( $_POST['ai1wm-username'] ) ) {
-			update_site_option( AI1WM_AUTH_USER, $_POST['ai1wm-username'] );
+			update_option( AI1WM_AUTH_USER, $_POST['ai1wm-username'] );
 		}
 
 		// Password
 		if ( isset( $_POST['ai1wm-password'] ) ) {
-			update_site_option( AI1WM_AUTH_PASSWORD, $_POST['ai1wm-password'] );
+			update_option( AI1WM_AUTH_PASSWORD, $_POST['ai1wm-password'] );
 		}
 
 		Ai1wm_Template::render(
@@ -44,8 +44,8 @@ class Ai1wm_Backups_Controller {
 				'backups'     => $model->get_files(),
 				'free_space'  => $model->get_free_space(),
 				'total_space' => $model->get_total_space(),
-				'username'    => get_site_option( AI1WM_AUTH_USER, false ),
-				'password'    => get_site_option( AI1WM_AUTH_PASSWORD, false ),
+				'username'    => get_option( AI1WM_AUTH_USER ),
+				'password'    => get_option( AI1WM_AUTH_PASSWORD ),
 			)
 		);
 	}

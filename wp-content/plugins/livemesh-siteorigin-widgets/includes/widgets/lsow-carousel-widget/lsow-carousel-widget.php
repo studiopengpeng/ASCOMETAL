@@ -18,7 +18,7 @@ class LSOW_Carousel_Widget extends SiteOrigin_Widget {
             array(
                 'description' => __('Display a collection of html elements as a carousel.', 'livemesh-so-widgets'),
                 'panels_icon' => 'dashicons dashicons-minus',
-                'help' => 'http://portfoliotheme.org/widgets-bundle/carousel-widget-documentation/'
+                'help' => LSOW_PLUGIN_HELP_URL. '#carousel-widget'
             ),
             array(),
             array(
@@ -222,7 +222,7 @@ class LSOW_Carousel_Widget extends SiteOrigin_Widget {
             array(
                 array(
                     'lsow-slick-carousel',
-                    LSOW_PLUGIN_URL . 'assets/js/slick' . SOW_BUNDLE_JS_SUFFIX . '.js',
+                    LSOW_PLUGIN_URL . 'assets/js/slick' . LSOW_JS_SUFFIX . '.js',
                     array('jquery'),
                     LSOW_VERSION
                 ),

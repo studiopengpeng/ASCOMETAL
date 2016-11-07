@@ -14,19 +14,21 @@ html {
 .panel-grid .widget {
   overflow: initial; }
 
-.lsow-container ol, .lsow-container ul, .lsow-container ol li, .lsow-container ul li, .lsow-container ol:hover, .lsow-container ul:hover, .lsow-container ul li:hover, .lsow-container ol li:hover, .lsow-container ol li a, .lsow-container ul li a, .lsow-container ol li a:hover, .lsow-container ul li a:hover, .lsow-container img {
+.lsow-container ol, .lsow-container ul, .lsow-container ol > li, .lsow-container ul > li, .lsow-container ol:hover, .lsow-container ul:hover, .lsow-container ul > li:hover, .lsow-container ol > li:hover, .lsow-container ol > li > a, .lsow-container ul > li > a, .lsow-container ol > li > a:hover, .lsow-container ul > li > a:hover, .lsow-container img {
   padding: 0;
   margin: 0;
   border: none;
   box-shadow: none;
   list-style: none;
   background: none; }
-  .lsow-container ol:before, .lsow-container ol:after, .lsow-container ul:before, .lsow-container ul:after, .lsow-container ol li:before, .lsow-container ol li:after, .lsow-container ul li:before, .lsow-container ul li:after, .lsow-container ol:hover:before, .lsow-container ol:hover:after, .lsow-container ul:hover:before, .lsow-container ul:hover:after, .lsow-container ul li:hover:before, .lsow-container ul li:hover:after, .lsow-container ol li:hover:before, .lsow-container ol li:hover:after, .lsow-container ol li a:before, .lsow-container ol li a:after, .lsow-container ul li a:before, .lsow-container ul li a:after, .lsow-container ol li a:hover:before, .lsow-container ol li a:hover:after, .lsow-container ul li a:hover:before, .lsow-container ul li a:hover:after, .lsow-container img:before, .lsow-container img:after {
+  .lsow-container ol:before, .lsow-container ol:after, .lsow-container ul:before, .lsow-container ul:after, .lsow-container ol > li:before, .lsow-container ol > li:after, .lsow-container ul > li:before, .lsow-container ul > li:after, .lsow-container ol:hover:before, .lsow-container ol:hover:after, .lsow-container ul:hover:before, .lsow-container ul:hover:after, .lsow-container ul > li:hover:before, .lsow-container ul > li:hover:after, .lsow-container ol > li:hover:before, .lsow-container ol > li:hover:after, .lsow-container ol > li > a:before, .lsow-container ol > li > a:after, .lsow-container ul > li > a:before, .lsow-container ul > li > a:after, .lsow-container ol > li > a:hover:before, .lsow-container ol > li > a:hover:after, .lsow-container ul > li > a:hover:before, .lsow-container ul > li > a:hover:after, .lsow-container img:before, .lsow-container img:after {
     display: none; }
 .lsow-container a {
   text-decoration: initial; }
 .lsow-container img {
-  max-width: 100%; }
+  max-width: 100%;
+  width: auto;
+  height: auto; }
 
 /* ------- General styles ------------ */
 .lsow-container {
@@ -223,6 +225,13 @@ html {
     width: 100%; } }
 
 /* --------------- Flexslider Styles -------------- */
+.lsow-container .lsow-thumbnailslider.lsow-flexslider {
+  margin: 0; }
+.lsow-container .lsow-thumbnailslider.lsow-flexslider .lsow-slide {
+  margin: 0 5px; }
+.lsow-container .lsow-flex-direction-nav {
+  padding: 0 !important;
+  margin: 0 !important; }
 .lsow-container .lsow-flex-direction-nav li {
   position: initial; }
 .lsow-container .lsow-flex-direction-nav a, .lsow-container .lsow-flex-direction-nav a:hover {
@@ -253,15 +262,14 @@ html {
   -webkit-transition: all 0.3s ease-in-out 0s;
   -moz-transition: all 0.3s ease-in-out 0s;
   -ms-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s; }
-  .lsow-container .lsow-flex-direction-nav a:before, .lsow-container .lsow-flex-direction-nav a:hover:before, .lsow-container .lsow-flex-direction-nav a:hover:before, .lsow-container .lsow-flex-direction-nav a:hover:hover:before {
+  transition: all 0.3s ease-in-out 0s;
+  outline: none; }
+  .lsow-container .lsow-flex-direction-nav a:before, .lsow-container .lsow-flex-direction-nav a:hover:before {
     margin: 2px;
     vertical-align: middle;
     display: inline;
     font-family: inherit !important;
     opacity: 1; }
-  .lsow-container .lsow-flex-direction-nav a:hover, .lsow-container .lsow-flex-direction-nav a:hover:hover {
-    color: #888; }
   .lsow-dark-bg .lsow-container .lsow-flex-direction-nav a, .lsow-dark-bg .lsow-container .lsow-flex-direction-nav a:hover {
     color: #888; }
     .lsow-dark-bg .lsow-container .lsow-flex-direction-nav a:hover, .lsow-dark-bg .lsow-container .lsow-flex-direction-nav a:hover:hover {
@@ -282,7 +290,9 @@ html {
   width: 100%;
   position: absolute;
   bottom: -40px;
-  text-align: center; }
+  text-align: center;
+  padding: 0 !important;
+  margin: 0 !important; }
   .lsow-container .lsow-flex-control-nav li, .lsow-container .lsow-flex-control-nav li:hover {
     margin: 0 8px 0 0;
     padding: 0;
@@ -300,7 +310,8 @@ html {
     -ms-transition: all 0.2s ease-in 0s;
     transition: all 0.2s ease-in 0s;
     display: inline-block;
-    vertical-align: middle; }
+    vertical-align: middle;
+    outline: none; }
     .lsow-dark-bg .lsow-container .lsow-flex-control-nav li a, .lsow-dark-bg .lsow-container .lsow-flex-control-nav li a:hover {
       background: #ccc;
       border-color: #ccc; }
@@ -347,7 +358,8 @@ html {
   -ms-transition: all 0.3s ease-in-out 0s;
   transition: all 0.3s ease-in-out 0s;
   overflow: hidden;
-  box-shadow: none; }
+  box-shadow: none;
+  outline: none; }
   .lsow-container button.slick-prev:before, .lsow-container button.slick-next:before {
     margin: 2px;
     vertical-align: middle; }
@@ -373,10 +385,13 @@ html {
 .lsow-container ul.slick-dots {
   width: 100%;
   position: absolute;
-  bottom: -40px;
-  text-align: center; }
+  bottom: -30px;
+  text-align: center;
+  padding: 0 !important;
+  margin: 0 !important; }
   .lsow-container ul.slick-dots li {
-    margin: 0 8px 0 0;
+    margin: 0 8px 0 0 !important;
+    padding: 0 !important;
     display: inline-block;
     font-size: 0; }
   .lsow-container ul.slick-dots li button {
@@ -387,17 +402,21 @@ html {
     width: 12px;
     height: 12px;
     box-shadow: none;
-    -webkit-transition: all 0.3s ease-in-out 0s;
-    -moz-transition: all 0.3s ease-in-out 0s;
-    -ms-transition: all 0.3s ease-in-out 0s;
-    transition: all 0.3s ease-in-out 0s;
-    font-size: 0; }
+    -webkit-transition: background 0.3s ease-in-out 0s;
+    -moz-transition: background 0.3s ease-in-out 0s;
+    -ms-transition: background 0.3s ease-in-out 0s;
+    transition: background 0.3s ease-in-out 0s;
+    font-size: 0;
+    outline: none; }
     .lsow-dark-bg .lsow-container ul.slick-dots li button {
       background: #888 !important;
       border-color: #888 !important; }
-  .lsow-container ul.slick-dots li button:hover {
+  .lsow-container ul.slick-dots li button:hover, .lsow-container ul.slick-dots li.slick-active button {
     background: none !important;
     border-color: #aaa !important; }
+  .lsow-container ul.slick-dots li.slick-active button {
+    width: 14px;
+    height: 14px; }
 
 /* -------- Widget separator headline ------------ */
 .lsow-widget-heading {
@@ -417,5 +436,201 @@ html {
     .lsow-widget-heading {
       font-size: 32px;
       line-height: 44px; } }
+
+/*------------- Powertip Tooltip ----------- */
+/* PowerTip Plugin */
+#powerTip {
+  cursor: default;
+  background-color: #333;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 6px;
+  color: #fff;
+  display: none;
+  padding: 10px;
+  position: absolute;
+  white-space: nowrap;
+  z-index: 2147483647; }
+
+#powerTip:before {
+  content: "";
+  position: absolute; }
+
+#powerTip.n:before, #powerTip.s:before {
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  left: 50%;
+  margin-left: -5px; }
+
+#powerTip.e:before, #powerTip.w:before {
+  border-bottom: 5px solid transparent;
+  border-top: 5px solid transparent;
+  margin-top: -5px;
+  top: 50%; }
+
+#powerTip.n:before {
+  border-top: 10px solid #333;
+  border-top: 10px solid rgba(0, 0, 0, 0.8);
+  bottom: -10px; }
+
+#powerTip.e:before {
+  border-right: 10px solid #333;
+  border-right: 10px solid rgba(0, 0, 0, 0.8);
+  left: -10px; }
+
+#powerTip.s:before {
+  border-bottom: 10px solid #333;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.8);
+  top: -10px; }
+
+#powerTip.w:before {
+  border-left: 10px solid #333;
+  border-left: 10px solid rgba(0, 0, 0, 0.8);
+  right: -10px; }
+
+#powerTip.ne:before, #powerTip.se:before {
+  border-right: 10px solid transparent;
+  border-left: 0;
+  left: 10px; }
+
+#powerTip.nw:before, #powerTip.sw:before {
+  border-left: 10px solid transparent;
+  border-right: 0;
+  right: 10px; }
+
+#powerTip.ne:before, #powerTip.nw:before {
+  border-top: 10px solid #333;
+  border-top: 10px solid rgba(0, 0, 0, 0.8);
+  bottom: -10px; }
+
+#powerTip.se:before, #powerTip.sw:before {
+  border-bottom: 10px solid #333;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.8);
+  top: -10px; }
+
+#powerTip.nw-alt:before, #powerTip.ne-alt:before,
+#powerTip.sw-alt:before, #powerTip.se-alt:before {
+  border-top: 10px solid #333;
+  border-top: 10px solid rgba(0, 0, 0, 0.8);
+  bottom: -10px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  left: 10px; }
+
+#powerTip.ne-alt:before {
+  left: auto;
+  right: 10px; }
+
+#powerTip.sw-alt:before, #powerTip.se-alt:before {
+  border-top: none;
+  border-bottom: 10px solid #333;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.8);
+  bottom: auto;
+  top: -10px; }
+
+#powerTip.se-alt:before {
+  left: auto;
+  right: 10px; }
+
+/* --------------- Button CSS -------------------- */
+input.lsow-button, button.lsow-button, a.lsow-button, .lsow-button:active, .lsow-button:visited {
+  display: inline-block;
+  text-align: center;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-appearance: none;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 16px 40px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: #f94213;
+  color: #fefefe;
+  outline: none;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  -ms-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s; }
+  input.lsow-button.lsow-rounded, button.lsow-button.lsow-rounded, a.lsow-button.lsow-rounded, .lsow-button:active.lsow-rounded, .lsow-button:visited.lsow-rounded {
+    border-radius: 999px; }
+  input.lsow-button.lsow-large, button.lsow-button.lsow-large, a.lsow-button.lsow-large, .lsow-button:active.lsow-large, .lsow-button:visited.lsow-large {
+    padding: 20px 60px; }
+  input.lsow-button.lsow-small, button.lsow-button.lsow-small, a.lsow-button.lsow-small, .lsow-button:active.lsow-small, .lsow-button:visited.lsow-small {
+    padding: 12px 25px;
+    font-size: 11px; }
+  input.lsow-button:hover, button.lsow-button:hover, a.lsow-button:hover, .lsow-button:active:hover, .lsow-button:visited:hover {
+    background-color: #f9633e;
+    color: #fefefe; }
+
+.lsow-button.lsow-black {
+  background-color: #363636; }
+
+.lsow-button.lsow-black:hover {
+  background-color: #434343; }
+
+.lsow-button.lsow-blue {
+  background-color: #46a5d5; }
+
+.lsow-button.lsow-blue:hover {
+  background-color: #5bafda; }
+
+.lsow-button.lsow-cyan {
+  background-color: #57c0dc; }
+
+.lsow-button.lsow-cyan:hover {
+  background-color: #6cc8e0; }
+
+.lsow-button.lsow-green {
+  background-color: #00a57d; }
+
+.lsow-button.lsow-green:hover {
+  background-color: #00bf90; }
+
+.lsow-button.lsow-orange {
+  background-color: #e87151; }
+
+.lsow-button.lsow-orange:hover {
+  background-color: #eb8368; }
+
+.lsow-button.lsow-pink {
+  background-color: #dd5679; }
+
+.lsow-button.lsow-pink:hover {
+  background-color: #e16b8a; }
+
+.lsow-button.lsow-red {
+  background-color: #da4f49; }
+
+.lsow-button.lsow-red:hover {
+  background-color: #de635e; }
+
+.lsow-button.lsow-teal {
+  background-color: #28c2ba; }
+
+.lsow-button.lsow-teal:hover {
+  background-color: #2fd4cc; }
+
+.lsow-button.lsow-trans {
+  color: #333;
+  background-color: transparent;
+  /* IE */
+  background-color: transparent;
+  border: 2px solid #a5a5a5; }
+  .lsow-button.lsow-trans:hover {
+    background-color: #fff;
+    color: #333 !important;
+    border-color: #fff; }
+
+.lsow-button.lsow-semitrans {
+  color: #fff;
+  background-color: transparent;
+  /* IE */
+  background-color: rgba(125, 125, 125, 0.5); }
+  .lsow-button.lsow-semitrans:hover {
+    background-color: #fff;
+    color: #333 !important; }
 
 /*# sourceMappingURL=lsow-frontend.css.map */

@@ -3,7 +3,7 @@
 Plugin Name: Disable Comments
 Plugin URI: http://wordpress.org/extend/plugins/disable-comments/
 Description: Allows administrators to globally disable comments on their site. Comments can be disabled according to post type.
-Version: 1.4
+Version: 1.5.2
 Author: Samir Shah
 Author URI: http://rayofsolaris.net/
 License: GPL2
@@ -40,9 +40,6 @@ class Disable_Comments {
 			$this->options = get_option( 'disable_comments_options', array() );
 		}
 
-		// load language files
-		load_plugin_textdomain( 'disable-comments', false, dirname( plugin_basename( __FILE__ ) ) .  '/languages' );
-
 		// If it looks like first run, check compat
 		if( empty( $this->options ) ) {
 			$this->check_compatibility();
@@ -55,11 +52,11 @@ class Disable_Comments {
 	}
 
 	private function check_compatibility() {
-		if ( version_compare( $GLOBALS['wp_version'], '3.6', '<' ) ) {
+		if ( version_compare( $GLOBALS['wp_version'], '3.8', '<' ) ) {
 			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 			deactivate_plugins( __FILE__ );
 			if ( isset( $_GET['action'] ) && ( $_GET['action'] == 'activate' || $_GET['action'] == 'error_scrape' ) ) {
-				exit( sprintf( __( 'Disable Comments requires WordPress version %s or greater.', 'disable-comments' ), '3.6' ) );
+				exit( sprintf( __( 'Disable Comments requires WordPress version %s or greater.', 'disable-comments' ), '3.8' ) );
 			}
 		}
 	}
@@ -135,7 +132,12 @@ class Disable_Comments {
 		}
 
 		// These can happen later
+		add_action( 'plugins_loaded', array( $this, 'register_text_domain' ) );
 		add_action( 'wp_loaded', array( $this, 'init_wploaded_filters' ) );
+	}
+
+	public function register_text_domain() {
+		load_plugin_textdomain( 'disable-comments', false, dirname( plugin_basename( __FILE__ ) ) .  '/languages' );
 	}
 
 	public function init_wploaded_filters(){
@@ -149,6 +151,7 @@ class Disable_Comments {
 					remove_post_type_support( $type, 'trackbacks' );
 				}
 			}
+			add_filter( 'comments_array', array( $this, 'filter_existing_comments' ), 20, 2 );
 			add_filter( 'comments_open', array( $this, 'filter_comment_status' ), 20, 2 );
 			add_filter( 'pings_open', array( $this, 'filter_comment_status' ), 20, 2 );
 		}
@@ -188,6 +191,11 @@ class Disable_Comments {
 		// Filters for front end only
 		else {
 			add_action( 'template_redirect', array( $this, 'check_comment_template' ) );
+
+			if( $this->options['remove_everywhere'] ) {
+				add_filter( 'feed_links_show_comments_feed', '__return_false' );
+				add_action( 'wp_footer', array( $this, 'hide_meta_widget_link' ), 100 );
+			}
 		}
 	}
 
@@ -237,8 +245,7 @@ class Disable_Comments {
 	public function filter_admin_bar() {
 		if( is_admin_bar_showing() ) {
 			// Remove comments links from admin bar
-			remove_action( 'admin_bar_menu', 'wp_admin_bar_comments_menu', 50 );	// WP<3.3
-			remove_action( 'admin_bar_menu', 'wp_admin_bar_comments_menu', 60 );	// WP 3.3
+			remove_action( 'admin_bar_menu', 'wp_admin_bar_comments_menu', 60 );
 			if( is_multisite() ) {
 				add_action( 'admin_bar_menu', array( $this, 'remove_network_comment_links' ), 500 );
 			}
@@ -249,9 +256,10 @@ class Disable_Comments {
 	 * Remove comment links from the admin bar in a multisite network.
 	 */
 	public function remove_network_comment_links( $wp_admin_bar ) {
-		if( $this->networkactive ) {
-			foreach( (array) $wp_admin_bar->user->blogs as $blog )
+		if( $this->networkactive && is_user_logged_in() ) {
+			foreach( (array) $wp_admin_bar->user->blogs as $blog ) {
 				$wp_admin_bar->remove_menu( 'blog-' . $blog->userblog_id . '-c' );
+			}
 		}
 		else {
 			// We have no way to know whether the plugin is active on other sites, so only remove this one
@@ -320,13 +328,23 @@ jQuery(document).ready(function($){
 	}
 
 	public function dashboard_js(){
-		if( version_compare( $GLOBALS['wp_version'], '3.8', '<' ) ) {
-			// getting hold of the discussion box is tricky. The table_discussion class is used for other things in multisite
-			echo '<script> jQuery(function($){ $("#dashboard_right_now .table_discussion").has(\'a[href="edit-comments.php"]\').first().hide(); }); </script>';
+		echo '<script>
+		jQuery(function($){
+			$("#dashboard_right_now .comment-count, #latest-comments").hide();
+		 	$("#welcome-panel .welcome-comments").parent().hide();
+		});
+		</script>';
+	}
+
+	public function hide_meta_widget_link(){
+		if ( is_active_widget( false, false, 'meta', true ) && wp_script_is( 'jquery', 'enqueued' ) ) {
+			echo '<script> jQuery(function($){ $(".widget_meta a[href=\'' . esc_url( get_bloginfo( 'comments_rss2_url' ) ) . '\']").parent().remove(); }); </script>';
 		}
-		else {
-			echo '<script> jQuery(function($){ $("#dashboard_right_now .comment-count, #latest-comments").hide(); }); </script>';
-		}
+	}
+
+	public function filter_existing_comments($comments, $post_id) {
+		$post = get_post( $post_id );
+		return ( $this->options['remove_everywhere'] || $this->is_post_type_disabled( $post->post_type ) ) ? array() : $comments;
 	}
 
 	public function filter_comment_status( $open, $post_id ) {
@@ -335,7 +353,6 @@ jQuery(document).ready(function($){
 	}
 
 	public function disable_rc_widget() {
-		// This widget has been removed from the Dashboard in WP 3.8 and can be removed in a future version
 		unregister_widget( 'WP_Widget_Recent_Comments' );
 	}
 

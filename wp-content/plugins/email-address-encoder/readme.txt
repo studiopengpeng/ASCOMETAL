@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/tillkruss
 Tags: antispam, anti spam, spam, email, e-mail, mail, spider, crawler, harvester, robots, spambot, block, obfuscate, obfuscation, encode, encoder, encoding, encrypt, encryption, protect, protection
 Requires at least: 2.0
 Tested up to: 4.5
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -51,9 +51,9 @@ This plugin doesn't encode the entire website for performance reasons, it encode
 
 You can override [the pattern](http://fightingforalostcause.net/misc/2006/compare-email-regex.php "Comparing E-mail Address Validating Regular Expressions") with the `eae_regexp` filter: `add_filter( 'eae_regexp', function () { return '/^pattern$/'; } );`
 
-= How can I change the priorty of the default filters? =
+= How can I change the priority of the default filters? =
 
-The default filter priorty is `1000` and you can adjust it by defining the `EAE_FILTER_PRIORITY` constant: `define( 'EAE_FILTER_PRIORITY', 99999 );`. The constant has to be defined before this plugin is loaded, e.g. in your `wp-config.php` or in Must-use plugin (a.k.a. mu-plugin).
+The default filter priority is `1000` and you can adjust it by defining the `EAE_FILTER_PRIORITY` constant: `define( 'EAE_FILTER_PRIORITY', 99999 );`. The constant has to be defined before this plugin is loaded, e.g. in your `wp-config.php` or in Must-use plugin (a.k.a. mu-plugin).
 
 = How can I disable the @-sign check? =
 
@@ -62,9 +62,13 @@ Like this: `add_filter( 'eae_at_sign_check', '__return_false' );`
 
 == Changelog ==
 
+= 1.0.5 =
+
+* Prevented error when `eae_encode_emails()` doesn't receive a `string`
+
 = 1.0.4 =
 
-* Added `EAE_FILTER_PRIORITY` constant to adjust default filter priorty
+* Added `EAE_FILTER_PRIORITY` constant to adjust default filter priority
 
 = 1.0.3 =
 
@@ -87,9 +91,13 @@ Like this: `add_filter( 'eae_at_sign_check', '__return_false' );`
 
 == Upgrade Notice ==
 
+= 1.0.5 =
+
+This update includes a minor bug fix.
+
 = 1.0.4 =
 
-Added constant to adjust default filter priorty.
+Added constant to adjust default filter priority.
 
 = 1.0.3 =
 

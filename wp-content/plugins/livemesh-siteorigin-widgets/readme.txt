@@ -2,10 +2,10 @@
 Author URI: http://portfoliotheme.org
 Plugin URI: http://portfoliotheme.org/siteorigin-widgets
 Contributors: livemesh
-Tags: widget, siteorigin, siteorigin widgets bundle, siteorigin page builder, siteorigin addons, video background, portfolio, carousel, shortcode, tabs, admin, plugin, page
+Tags: widget, siteorigin, siteorigin widgets bundle, siteorigin page builder, siteorigin addons, grid, gallery, video background, portfolio, carousel, shortcode, tabs, admin, plugin, page
 Requires at least: 4.1
-Tested up to: 4.4.2
-Stable Tag: 1.2
+Tested up to: 4.6
+Stable Tag: 1.4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,9 @@ A collection of premium quality widgets for use in any widgetized area or in Sit
 
 == Description ==
 
-Livemesh SiteOrigin widgets features professional looking, easy to use yet highly functional widgets that can be used in a page builder like SiteOrigin or in any widgetized area of your site.
+Livemesh SiteOrigin widgets features huge collection of premium, easy to use yet highly functional widgets that can be used in a page builder like <a href="https://wordpress.org/plugins/siteorigin-panels/" rel="nofollow">SiteOrigin</a> or in any widgetized area of your site. This is really a premium plugin that you can get for free.
+
+This plugin comes with widgets for just about everything you need to build a professional website without switching to a premium theme - hero headers, services, team profiles, statistics, testimonials, clients list, portfolio/posts grid, carousels, varieties of tabs, accordions, buttons, icon lists, pricing plan and much more in the <a href="http://portfoliotheme.org/products/livemesh-siteorigin-widgets-pro/" title="Livemesh SiteOrigin Widgets Premium Version">PRO version</a>. All the widgets that help turn your free theme into a premium one with just a few clicks. Every premium page builder element you need is available for easy drag and drop into your page by just activating this plugin.
 
 <a href="https://wordpress.org/plugins/so-widgets-bundle/" alt="SiteOrigin Widgets Bundle" target="_blank">SiteOrigin Widgets Bundle</a> plugin must be activated to use this plugin. After you activate the required plugins, enable our widgets by going to Plugins > SiteOrigin Widgets in your WordPress admin.
 
@@ -21,14 +23,14 @@ Although not required, <a href="https://wordpress.org/plugins/siteorigin-panels/
 
 See the all of widgets in action here -
 
-<a href="http://portfoliotheme.org/siteorigin-widgets" title="Livemesh SiteOrigin Widgets Demo Site"><strong>LIVE DEMO</strong></a>.
+<a href="http://portfoliotheme.org/siteorigin-widgets" title="Livemesh SiteOrigin Widgets Demo Site"><strong>LIVE DEMO</strong></a> | <a href="http://portfoliotheme.org/products/livemesh-siteorigin-widgets-pro/" title="Livemesh SiteOrigin Widgets Premium Version"><strong>PRO Version</strong></a>.
 
 The plugin comes with the following widgets. <strong>Almost all of the widgets come with a dark version.</strong> -
 
 <ul>
 <li>Services that capture what you can offer for your clients/customers.</li>
-<li>Responsive Tabs that function seamlessly across all devices and resolutions.</li>
-<li>Accordion/Toggle that capture collapsible content panels when space is limited.</li>
+<li><a href="http://portfoliotheme.org/siteorigin-widgets/tabs-and-accordions/" title="Responsive Tabs and Accordion Widgets">Responsive Tabs</a> that function seamlessly across all devices and resolutions.</li>
+<li><a href="http://portfoliotheme.org/siteorigin-widgets/tabs-and-accordions/" title="Responsive Tabs and Accordion Widgets">Accordion/Toggle</a> that capture collapsible content panels when space is limited.</li>
 <li>Heading styles to capture effective headings for your page sections.</li>
 <li>Team Profiles widgets to display all the team members.</li>
 <li>Odometer to show impressive numbers pertaining to your work or company.</li>
@@ -38,15 +40,33 @@ The plugin comes with the following widgets. <strong>Almost all of the widgets c
 <li>Testimonials slider is a responsive touch enabled slider that cycles through testimonials.</li>
 <li>Post Carousel Widget that displays your posts or custom post types as a highly responsive carousel.</li>
 <li>Generic Carousel Widget that displays lets you present a list of HTML content in a carousel.</li>
-<li>Hero Header Widget that lets you display any type of header content with option to set Parallax, YouTube or HTML5 video background.</li>
-<li>Grid widget that displays portfolio or blog entries in a nice responsive grid. Masonry and packed options are supported.</li>
+<li><a href="http://portfoliotheme.org/siteorigin-widgets/hero-headers/" title="Hero Header Widget">Hero Header Widget</a> that lets you display any type of header content with option to set Parallax, YouTube or HTML5 video background.</li>
+<li><a href="http://portfoliotheme.org/siteorigin-widgets/livemesh-grid/" title="Livemesh Grid">Grid widget</a> that displays portfolio or blog entries in a nice responsive grid. Masonry and packed options are supported.</li>
 <li>Client List widget to showcase the clients that you have handled.</li>
 <li>Pricing Plans to help get more sales.</li>
+<li><a href="http://portfoliotheme.org/siteorigin-widgets/icon-lists-buttons/" title="Icon Lists and Buttons">Flat style buttons</a> with rich set of customization options.</li>
+<li><a href="http://portfoliotheme.org/siteorigin-widgets/icon-lists-buttons/" title="Icon List widget">Icon list widget</a> that lets you use either images or icon fonts to create custom social icons list, capture payment options etc.</li>
+</ul>
+
+The <strong><a href="http://portfoliotheme.org/products/livemesh-siteorigin-widgets-pro/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">PRO version</a></strong> of the plugin comes with additional widgets and advanced features added to widgets above -
+
+<ul>
+<li><a href="http://portfoliotheme.org/siteorigin-widgets/livemesh-sliders/" title="Image Slider Widget">Image Slider</a> to create a responsive slider of images with support for captions, multiple slider types like Nivo, Flex, Slick and lightweight sliders, thumbnail navigation etc.</li>
+<li><a href="http://portfoliotheme.org/siteorigin-widgets/image-gallery/" title="Image Gallery Widget">Image Gallery</a> widget that lets you create a grid of images with options for masonry or fit rows, pagination, lazy load, lightbox support etc.</li>
+<li><a href="http://portfoliotheme.org/siteorigin-widgets/video-gallery/" title="Video Gallery Widget">Video Gallery</a> to build a beautiful grid of videos to help showcase a collection of YouTube/Vimeo videos on your site.</li>
+<li><a href="http://portfoliotheme.org/siteorigin-widgets/gallery-carousel/" title="Image Carousel">Image Carousel</a> for a responsive carousel of images.</li>
+<li><a href="http://portfoliotheme.org/siteorigin-widgets/gallery-carousel/" title="Video Carousel">Video Carousel</a> for creation of a responsive carousel of YouTube/Vimeo videos.</li>
+<li>Countdown widget to display a countdown timer on your site pages such as those that feature events or under construction/coming soon pages.</li>
+<li>FAQ widget to display a set of Frequently Asked Questions in a page.</li>
+<li><a href="http://portfoliotheme.org/siteorigin-widgets/livemesh-grid/" title="Livemesh Grid">Lazy Load</a> - The portfolio/post grid and image gallery widgets incorporate option to lazy load posts/images with the click of a Load More button.</li>
+<li><a href="http://portfoliotheme.org/siteorigin-widgets/livemesh-grid/" title="Livemesh Grid">Pagination</a> - Create a grid of posts or custom post types with AJAX based pagination support. </li>
+<li>Lightbox Support - The premium version comes with support for Lightbox for grid and carousel widgets.</li>
+<li>Custom Fonts - Ability to choose custom fonts from Google Fonts library for headings in heading widget and the hero header widget.</li>
+<li>Sample Data - Sample data that you can import into your site to get started quickly on the widgets and some sample layouts.</li>
+<li>Premium Support - The customers will be provided access to a dedicated support forum with searchable content, private tickets, with threads attended to within 24 hours.</li>
 </ul>
 
 <strong>Important: You must activate widgets you need to use from Plugins &gt; SiteOrigin Widgets so that they can be available to use.</strong>. 
-
-Visit Tools &gt; Import page in WordPress admin to import into your site sample-data.xml file located in the plugin folder. The sample data lets you replicate the demo site fully to help get a head start on using the widgets bundled with the plugin. 
 
 Do you have suggestions to make or want to be notified of important updates? Reach out to us on Twitter -
 http://twitter.com/live_mesh
@@ -57,9 +77,9 @@ http://twitter.com/live_mesh
 2. Unzip the downloaded livemesh-so-widgets.zip file and upload to the `/wp-content/plugins/` directory or install the Livemesh SiteOrigin Widgets plugin from WordPress repository. Activate the plugin through the 'Plugins' menu in WordPress
 3. Enable all the widgets you need from Plugins &gt; SiteOrigin Widgets.
 4. If you need page builder functions, install and activate the <strong>optional plugin</strong> <a href="https://wordpress.org/plugins/siteorigin-panels/" rel="nofollow">Page Builder by SiteOrigin</a>.
-4. For Portfolio widget, install and activate the <strong>optional plugin</strong> <a href="https://wordpress.org/plugins/jetpack/" rel="nofollow">Jetpack by WordPress.com</a>. The Portfolio widget is built using custom post types registered by <strong>Custom Content Types</strong> module. Activate and configure this Jetpack module and check the option 'Enable Portfolio Projects for this site' at the bottom of Settings &gt; Writing page.
+4. For Portfolio widget, install and activate the <strong>optional plugin</strong> <a href="https://wordpress.org/plugins/portfolio-post-type/" title="Portfolio Post Type">Portfolio Post Type plugin</a>. The Portfolio widget is built using custom post type registered by this plugin.
 
-Optionally, you can import the sample data that replicates the demo site for you by importing the file sample-data.xml file located in the plugin directory. The import option is available under Tools &gt; Import in WordPress admin. 
+Optionally, if you have <a href="http://portfoliotheme.org/products/livemesh-siteorigin-widgets-pro/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">premium version</a> installed, you can import the sample data that replicates the demo site for you by importing the file sample-data.xml file located in the plugin directory. The import option is available under Tools &gt; Import in WordPress admin.
 
 == Frequently Asked Questions ==
 
@@ -81,7 +101,7 @@ Please make sure the SiteOrigin Widgets Bundle plugin is installed/activated and
 
 = My portfolio does not show any items. =
 
-Pls install and activate Jetpack plugin, activate the Custom Post Types module and make sure the option 'Enable Portfolio Projects for this site' is checked at the bottom of Settings &gt; Writing page in WordPress admin.
+Pls install and activate the <a href="https://wordpress.org/plugins/portfolio-post-type/" title="Portfolio Post Type">Portfolio Post Type plugin</a> to enable custom post type Portfolio.
 
 == Screenshots ==
 1. Enable widgets in Plugins > SiteOrigin Widgets > Disabled tab.
@@ -91,6 +111,38 @@ Pls install and activate Jetpack plugin, activate the Custom Post Types module a
 5. Livemesh SiteOrigin widgets in the Appearance > Widgets page.
 
 == Changelog ==
+
+= 1.4.4 =
+* Fixed - Admin notices were being removed due to a missing conditional statement.
+
+= 1.4.3 =
+* Fixed - Top padding and bottom padding field for various resolutions.
+
+= 1.4.2 =
+* Added - Compatibility with WordPress 4.6.
+* Added - Comparison table of Lite vs PRO version.
+
+= 1.4.1 =
+* Fixed - Display of titles for widgets
+* Fixed - Check for page id when displaying posts/pages in a grid to avoid infinite loop
+
+= 1.4 =
+* Added - Detailed documentation for all widgets
+* Added - Plugin options window for enabling all widgets in one go along with other options.
+* Added - Ability to enter Custom CSS in plugin options
+* Added - Default theme color option for widgets
+* Added - Support for lightweight Portfolio Post Type plugin. Jetpack custom post types module no longer recommended.
+* Fixed - The shortcodes not processed by accordion
+* Fixed - The grid heading was not being displayed
+* Some styling improvements and fixes
+
+= 1.3 =
+* New widgets - Flat style buttons and Icon List widget
+* New fields - Datepicker and Timepicker for developing SiteOrigin widgets
+* Fixed - Some themes squeeze the images in a Livemesh grid or Team widget.
+* Fixed - Couple of widgets fail to display the post links.
+* Fixed - The testimonials slider not aligned to the center
+* Some styling improvements and fixes
 
 = 1.2 =
 * New widgets - Responsive Tabs and Accordion of variety of styles
@@ -106,5 +158,5 @@ Pls install and activate Jetpack plugin, activate the Custom Post Types module a
 * Display hover information for entries in carousel
 * Fixed some bugs and design improvements
 
-= 1.0: =
+= 1.0 =
 * Initial release.

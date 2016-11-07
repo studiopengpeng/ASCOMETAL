@@ -48,6 +48,14 @@ class WPML_ST_String extends WPML_WPDB_User {
 
 		return $this->language;
 	}
+	
+	/**
+	 * @return string
+	 */
+	
+	public function get_value() {
+		return $this->wpdb->get_var( "SELECT value " . $this->from_where_snippet() . " LIMIT 1" );
+	}
 
 	/**
 	 * @return int
@@ -193,7 +201,7 @@ class WPML_ST_String extends WPML_WPDB_User {
 		}
 
 		if ( $ICL_Pro_Translation ) {
-			$ICL_Pro_Translation->_content_fix_links_to_translated_content( $st_id, $language, 'string' );
+			$ICL_Pro_Translation->fix_links_to_translated_content( $st_id, $language, 'string' );
 		}
 
 		icl_update_string_status( $this->string_id );
@@ -202,7 +210,11 @@ class WPML_ST_String extends WPML_WPDB_User {
 		return $st_id;
 	}
 
-	private function set_property( $property, $value ) {
+	/**
+	 * @param string $property
+	 * @param mixed  $value
+	 */
+	protected function set_property( $property, $value ) {
 		$this->wpdb->update( $this->wpdb->prefix . 'icl_strings', array( $property => $value ), array( 'id' => $this->string_id ) );
 	}
 
@@ -211,7 +223,7 @@ class WPML_ST_String extends WPML_WPDB_User {
 	 *
 	 * @return string
 	 */
-	private function from_where_snippet( $translations = false ) {
+	protected function from_where_snippet( $translations = false ) {
 
 		if ( $translations ) {
 			$id_column = 'string_id';

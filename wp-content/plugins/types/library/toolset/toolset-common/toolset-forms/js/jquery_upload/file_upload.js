@@ -56,24 +56,26 @@ jQuery(function () {
 
         var myid = jQuery("input[name='_cred_cred_prefix_post_id']").val();
         var myformid = jQuery("input[name='_cred_cred_prefix_form_id']").val();
+        var post_id = myid;
 
         jQuery(file).fileupload({
             url: url + '?id=' + myid + '&formid=' + myformid + '&nonce=' + nonce,
             dataType: 'json',
             cache: false,
             maxChunkSize: 0,
+            drop: function (e, data) {
+                return false
+            },
+            dragover: function (e) {
+                return false
+            },
             formData: {id: myid, formid: myformid},
             //acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
             done: function (e, data) {
                 var id = jQuery(curr_file).attr('id');
-                //progress bar hide
-                //jQuery('#progress_' + wpt_id).css({'width': '0%'});
-//                jQuery('#progress_' + wpt_id + ' .progress-bar').css(
-//                        {'width': '0%'}
-//                );
-//                jQuery('#progress_' + wpt_id).hide();                
-
-                var wpt_id = jQuery(this).next(".meter").attr("id"); //id.replace("_file", "");
+                //progress bar hiding            
+                var wpt_id = jQuery('#' + id).siblings(".meter").attr("id"); //id.replace("_file", "");
+                //console.log(wpt_id);
                 jQuery('#' + wpt_id).show();
                 jQuery('#' + wpt_id + ' .progress-bar').css(
                         {'width': '0%'}
@@ -85,24 +87,34 @@ jQuery(function () {
                 }
                 if (data.result.files) {
                     jQuery.each(data.result.files, function (index, file) {
-
+                        //console.log("url: " + file);
                         var id = jQuery(curr_file).attr('id');
-                        //console.log(id);
+                        //console.log("id: " + id);
                         var wpt_id = id.replace("_file", "");
-//                        var wpt_id = jQuery(curr_file).attr('data-wpt-name');
-//                        wpt_id = wpt_id.replace(/[^a-z0-9\-\_]/gi, '');
-                        //console.log(wpt_id);
                         var myid = wpt_id;
-                        //console.log(myid);
+                        //console.log("wpt_id: " + wpt_id);
 
+                        var number = 0;
                         if (id.toLowerCase().indexOf("wpt-form-el") >= 0) {
                             var number = id.replace(/[^0-9]/g, '');
+                            //console.log("number: " + number);
                             var new_num = number - 1;
+                            //console.log("new_num: " + new_num);
                             var hidden_id = "wpt-form-el" + new_num;
                         } else
                             var hidden_id = wpt_id + '_hidden';
 
-                        //console.log(hidden_id);
+                        //console.log("hidden_id: " + hidden_id);
+
+                        var is_repetitive = jQuery('#' + id).parent().parent().hasClass("js-wpt-repetitive");
+                        //console.log("is_repetitive: " + is_repetitive);
+                        if (is_repetitive) {
+                            var newname = wpt_id.replace(number, "[" + number + "]");
+                            jQuery('input[name="' + newname + '"]#' + wpt_id).val(file);
+                            //console.log(jQuery('input[name="' + wpt_id + '[' + number + ']"]#' + wpt_id).val());
+                        } else {
+                            jQuery('input[name=' + wpt_id + ']#' + wpt_id).val(file);
+                        }
 
                         //hidden text set
                         jQuery('#' + hidden_id).val(file);
@@ -114,60 +126,90 @@ jQuery(function () {
                         //remove restore button
                         jQuery('#' + id).siblings(".js-wpt-credfile-undo").hide();
 
+
+//                            //add image/file uploaded and button to delete
+//                            if (isImage(file) && data.result.previews) {
+//                                var preview = data.result.previews[index];
+//                                var attachid = data.result.attaches[index];
+//                                jQuery("<img id='loaded_" + myid + "' src='" + preview + "'><input id='butt_" + myid + "' style='width:100%;margin-top:2px;margin-bottom:2px;' type='button' value='" + settings.delete_text + "' rel='" + preview + "' class='delete_ajax_file'>").insertAfter('#' + jQuery(curr_file).attr('id'));
+//                                jQuery("<input type='hidden' id='attachid_" + myid + "' name='attachid_" + myid + "' value='" + attachid + "'>").insertAfter('#' + jQuery(curr_file).attr('id'));
+//                            } else {
+//                                jQuery("<a id='loaded_" + myid + "' href='" + file + "' target='_blank'>" + file + "</a></label><input id='butt_" + myid + "' style='width:100%;margin-top:2px;margin-bottom:2px;' type='button' value='" + settings.delete_text + "' rel='" + file + "' class='delete_ajax_file'>").insertAfter('#' + jQuery(curr_file).attr('id'));
+//                            }
+//                        } else {
+//                        
+                        var preview_span = jQuery('#' + id).siblings(".js-wpt-credfile-preview");
+
                         //add image/file uploaded and button to delete
                         if (isImage(file) && data.result.previews) {
                             var preview = data.result.previews[index];
-                            jQuery("<img id='loaded_" + myid + "' src='" + preview + "'><input id='butt_" + myid + "' style='width:100%;margin-top:2px;margin-bottom:2px;' type='button' value='" + settings.delete_text + "' rel='" + preview + "' class='delete_ajax_file'>").insertAfter('#' + jQuery(curr_file).attr('id'));
-                        } else {
-                            jQuery("<a id='loaded_" + myid + "' href='" + file + "' target='_blank'>" + file + "</a></label><input id='butt_" + myid + "' style='width:100%;margin-top:2px;margin-bottom:2px;' type='button' value='" + settings.delete_text + "' rel='" + file + "' class='delete_ajax_file'>").insertAfter('#' + jQuery(curr_file).attr('id'));
-                        }
+                            var attachid = data.result.attaches[index];
 
-//                        jQuery("#loaded_" + myid).each(function (i) {
-//                            var max_size = settings.media_settings.width;
-//                            if (jQuery(this).height() > jQuery(this).width()) {
-//                                var h = max_size;
-//                                var w = Math.ceil(jQuery(this).width() / jQuery(this).height() * max_size);
-//                            } else {
-//                                var w = max_size;
-//                                var h = Math.ceil(jQuery(this).height() / jQuery(this).width() * max_size);
-//                            }
-//                            jQuery(this).css({height: h, width: w});
-//                        });
+                            //console.log(preview_span);
+                            if (typeof preview_span !== undefined) {
+                                //console.log(jQuery(preview_span).find("img").length>0);
+                                if (jQuery(preview_span).find("img").length > 0 &&
+                                        jQuery(preview_span).find("input").length > 0) {
+                                    jQuery(preview_span).find("img").attr("src", preview);
+                                    jQuery(preview_span).find("input").attr("rel", preview);
+                                } else {
+                                    //append new image and delete button to the span
+                                    jQuery("<img id='loaded_" + myid + "' src='" + preview + "'>").prependTo(preview_span);
+                                }
+                            }
+
+                            //<input id='butt_" + myid + "' style='width:100%;margin-top:2px;margin-bottom:2px;' type='button' value='" + settings.delete_text + "' rel='" + preview + "' class='delete_ajax_file'>
+                            //jQuery("<img id='loaded_" + myid + "' src='" + preview + "'>").insertAfter('#' + jQuery(curr_file).attr('id'));
+                            //jQuery(".js-wpt-credfile-preview-item").find("img").attr("src", preview);
+                            //jQuery("<input type='hidden' id='attachid_" + myid + "' name='attachid_" + myid + "' value='" + attachid + "'>").insertAfter('#' + jQuery(curr_file).attr('id'));
+                            jQuery("#attachid_" + myid).attr("value", attachid);
+                        } else {
+                            //<input id='butt_" + myid + "' style='width:100%;margin-top:2px;margin-bottom:2px;' type='button' value='" + settings.delete_text + "' rel='" + file + "' class='delete_ajax_file'>
+                            jQuery("<a id='loaded_" + myid + "' href='" + file + "' target='_blank'>" + file + "</a></label>").insertAfter('#' + jQuery(curr_file).attr('id'));
+                        }
+                        if (typeof preview_span !== undefined)
+                            jQuery(preview_span).show();
+
+//                        }
 
                         //add function to delete button
-                        jQuery("#butt_" + myid).on('click', function () {
-                            if (confirm(settings.delete_confirm_text)) {
-                                jQuery("#loaded_" + myid).remove();
-                                jQuery("#butt_" + myid).remove();
+//                        jQuery(document).off('click', "#butt_" + myid, null);
+//                        jQuery(document).on('click', "#butt_" + myid, function () {
+//                            if (confirm(settings.delete_confirm_text)) {
+//                                jQuery("#loaded_" + myid).remove();
+//                                jQuery("#butt_" + myid).remove();
+//                                jQuery("#attachid_" + myid).remove();
+//
+//                                jQuery('#' + id).show();
+//                                jQuery('#' + id).prop('disabled', false);
+//
+//                                jQuery('#' + hidden_id).val("");
+//                                jQuery('#' + hidden_id).prop('disabled', true);
+//
+//                                jQuery.ajax({
+//                                    url: url,
+//                                    timeout: 10000,
+//                                    type: 'POST',
+//                                    data: {action: 'delete', file: file, nonce: nonce, id: post_id},
+//                                    dataType: 'json',
+//                                    success: function (data)
+//                                    {
+//                                        if (!data.result) {
+//                                            if (data.error)
+//                                                alert(data.error);
+//                                            else
+//                                                alert(settings.delete_alert_text);
+//                                        }
+//                                        credfile_fu_init();
+//                                    },
+//                                    error: function ()
+//                                    {
+//                                    }
+//                                });
+//                            }
+//                        });
 
-                                jQuery('#' + id).show();
-                                jQuery('#' + id).prop('disabled', false);
-
-                                jQuery('#' + hidden_id).val("");
-                                jQuery('#' + hidden_id).prop('disabled', true);
-
-                                jQuery.ajax({
-                                    url: url,
-                                    timeout: 10000,
-                                    type: 'POST',
-                                    data: {action: 'delete', file: file, nonce: nonce},
-                                    dataType: 'json',
-                                    success: function (data)
-                                    {
-                                        if (!data.result) {
-                                            if (data.error)
-                                                alert(data.error);
-                                            else
-                                                alert(settings.delete_alert_text);
-                                        }
-                                        credfile_fu_init();
-                                    },
-                                    error: function ()
-                                    {
-                                    }
-                                });
-                            }
-                        });
+                        wptCredfile.init('body');
                     });
                     credfile_fu_init();
                 }
@@ -195,13 +237,8 @@ jQuery(function () {
             progressall: function (e, data) {
                 var progress = parseInt(data.loaded / data.total * 100, 10);
                 var id = jQuery(curr_file).attr('id');
-//                var wpt_id = id.replace("_file", "");
-//                jQuery('#progress_' + wpt_id).show();
-//                //jQuery('#progress_' + wpt_id).css({'width': '100%'});
-//                jQuery('#progress_' + wpt_id + ' .progress-bar').css(
-//                        {'width': progress + '%'}
-//                );                
-                var wpt_id = jQuery(this).next(".meter").attr("id"); //id.replace("_file", "");
+          
+                var wpt_id = jQuery('#' + id).siblings(".meter").attr("id"); //id.replace("_file", "");
                 jQuery('#' + wpt_id).show();
                 //jQuery('#progress_' + wpt_id).css({'width': '100%'});
                 jQuery('#' + wpt_id + ' .progress-bar').css(
@@ -221,18 +258,24 @@ jQuery(function () {
         }).prop('disabled', !jQuery.support.fileInput)
                 .parent().addClass(jQuery.support.fileInput ? undefined : 'disabled');
 
+        jQuery(document).bind('dragover', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        });
     }
 
     function credfile_fu_init() {
-        jQuery('input[type="file"]:visible:not(#_featured_image_file)').each(o);
+        jQuery('input[type="file"]:visible').each(o);
 
+        jQuery(document).off('click', '.js-wpt-credfile-delete, .js-wpt-credfile-undo', null);
         jQuery(document).on('click', '.js-wpt-credfile-delete, .js-wpt-credfile-undo', function (e) {
-            jQuery('input[type="file"]:visible:not(#_featured_image_file)').each(o);
+            jQuery('input[type="file"]:visible').each(o);
         });
 
         //AddRepetitive add event
         wptCallbacks.addRepetitive.add(function () {
-            jQuery('input[type="file"]:visible:not(#_featured_image_file)').each(o);
+            jQuery('input[type="file"]:visible').each(o);
         });
 
         //AddRepetitive remove event
@@ -258,6 +301,12 @@ jQuery(function () {
 //        }
 //        jQuery(this).css({height: h, width: w});
 //    });
+
+    //Fix the not visible field under false conditional
+    jQuery(document).off('click', 'input[type="file"]', null);
+    jQuery(document).on('click', 'input[type="file"]', function () {
+        credfile_fu_init();
+    });
 
     credfile_fu_init();
 });

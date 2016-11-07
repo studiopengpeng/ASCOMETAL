@@ -539,7 +539,7 @@ class Package {
         if(is_array($extras))
             extract($extras);
         $data = '';
-        get_currentuserinfo();
+         
 
         $package['link_url'] = home_url('/?download=1&');
         $package['link_label'] = !isset($package['link_label']) || $package['link_label'] == '' ? __("Download", "wpdmpro") : $package['link_label'];
@@ -1225,9 +1225,8 @@ class Package {
      */
     public static function docPreview($package){
 
-
-        $files = $package['files'];
-
+        //$files = $package['files'];
+        $files = self::getFiles($package['ID']);
         if(!is_array($files)) return "";
         $ind = -1;
         foreach($files as $i=>$sfile){
@@ -1235,6 +1234,7 @@ class Package {
             $sfile = explode(".", $sfile);
             if(in_array(end($sfile),array('pdf','doc','docx','xls','xlsx','ppt','pptx'))) { $ind = \WPDM_Crypt::Encrypt($ifile); break; }
         }
+
         if($ind==-1) return "";
         $ext = count($files)>1?'ind='.$ind:'';
         $url = wpdm_download_url($package, $ext);

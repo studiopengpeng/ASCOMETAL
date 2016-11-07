@@ -1,6 +1,7 @@
 <?php
 /**
  * @var $style
+ * @var $align
  * @var $heading
  * @var $subtitle
  * @var $short_text
@@ -8,7 +9,7 @@
 
 ?>
 
-<div class="lsow-heading lsow-<?php echo $style; ?>">
+<div class="lsow-heading lsow-<?php echo $style; ?> lsow-align<?php echo $align; ?>">
 
     <?php if ($style == 'style2' && !empty($subtitle)): ?>
 

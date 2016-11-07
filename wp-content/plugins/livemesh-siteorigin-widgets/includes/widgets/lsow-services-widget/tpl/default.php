@@ -7,6 +7,8 @@
 
 ?>
 
+<?php if( !empty( $instance['title'] ) ) echo $args['before_title'] . esc_html($instance['title']) . $args['after_title'] ?>
+
 <?php $column_style = lsow_get_column_class(intval($settings['per_line'])); ?>
 
 <div class="lsow-services lsow-<?php echo $style; ?> lsow-container">

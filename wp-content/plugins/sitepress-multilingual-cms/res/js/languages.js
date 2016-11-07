@@ -56,6 +56,14 @@ jQuery(document).ready(function(){
     icl_hide_languages.submit(iclSaveForm);
     jQuery('#icl_adjust_ids').submit(iclSaveForm);
     jQuery('#icl_automatic_redirect').submit(iclSaveForm);
+    jQuery('#icl_automatic_redirect input[name="icl_automatic_redirect"]').on('click', function() {
+        var $redirect_warn = jQuery(this).parents('#icl_automatic_redirect').find('.js-redirect-warning');
+        if (0 != jQuery(this).val()) {
+            $redirect_warn.fadeIn();
+        } else {
+            $redirect_warn.fadeOut();
+        }
+    });
     jQuery('input[name="icl_language_negotiation_type"]').change(iclLntDomains);
     jQuery('#icl_use_directory').change(iclUseDirectoryToggle);
 
@@ -68,7 +76,7 @@ jQuery(document).ready(function(){
     });
 
     jQuery('#icl_seo_options').submit(iclSaveForm);
-
+	jQuery('#icl_seo_head_langs').on('click', update_seo_head_langs_priority);
     jQuery('#icl_setup_back_1').click({step: "1"}, iclSetupStep);
     jQuery('#icl_setup_back_2').click({step: "2"}, iclSetupStep);
 
@@ -208,11 +216,32 @@ jQuery(document).ready(function(){
     jQuery(document).on('click', '#installer_registration_form :submit', function(){
         jQuery('#installer_registration_form').find('input[name=button_action]').val(jQuery(this).attr('name'));
     });
+
+    manageWizardButtonStatesSpinner();
 	
 	// Initialize the language switcher preview on document ready
 	updateSwitcherPreview();
 });
 
+function manageWizardButtonStatesSpinner(){
+    var buttons = jQuery( '#icl_setup_back_1, #icl_setup_next_1, #icl_setup_back_2' );
+    var submit_buttons = jQuery( '#icl_initial_language .buttons-wrap .button-primary, #icl_setup_back_2, #icl_setup_nav_3 .button-primary, #installer_registration_form div .button-primary' );
+    var forms = jQuery( '#icl_initial_language, #icl_save_language_switcher_options, #installer_registration_form' );
+    var spinner = jQuery( '<span class="spinner"></span>' );
+    var spinner_location = '#icl_initial_language .buttons-wrap input, #icl_setup_back_1, #icl_setup_back_2, #icl_save_language_switcher_options, #installer_registration_form div .button-primary';
+
+    spinner.insertBefore( spinner_location );
+
+    jQuery( forms ).submit(function(){
+        spinner.addClass( 'is-active' );
+        jQuery( submit_buttons ).attr( 'disabled', 'disabled' );
+    });
+
+    jQuery( buttons ).click(function(){
+        spinner.addClass( 'is-active' );
+        buttons.attr( 'disabled', 'disabled');
+    });
+}
 
 function updateSwitcherPreview(){
 
@@ -937,10 +966,11 @@ function iclRenderLangPreviewFooter() {
 
 function iclUpdateLangSelColorSchemeFooter() {
     /*jshint validthis: true*/
-    var element = jQuery(this);
+	var element = jQuery(this);
     var scheme = element.val();
     if (scheme && confirm(element.next().html())) {
         jQuery('#icl_lang_preview_config_footer').find('input[type="text"]').each(function () {
+			var element = jQuery(this);
             var this_n = element.attr('name').replace('icl_lang_sel_footer_config[', '').replace(']', '');
             var value = jQuery('#icl_lang_sel_footer_config_alt_' + scheme + '_' + this_n).val();
             element.wpColorPicker('color', value);
@@ -1059,4 +1089,13 @@ function installer_registration_form_submit(){
 
     return false;
 }
+
+	function update_seo_head_langs_priority(event) {
+		var element = jQuery(this);
+		if (element.attr('checked')) {
+			jQuery('#wpml-seo-head-langs-priority').removeAttr('disabled');
+		} else {
+			jQuery('#wpml-seo-head-langs-priority').attr('disabled', 'disabled');
+		}
+	}
 }());

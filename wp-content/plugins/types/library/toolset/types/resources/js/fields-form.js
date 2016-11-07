@@ -75,11 +75,33 @@ jQuery(document).ready(function($){
         if( uiDialog.length ) {
             // reset all hidden inputs
             $( '[id^=wpcf-form-groups-support-]' ).val( '' );
+            $( '[id^=wpcf-form-groups-support-tax]' ).remove();
 
             $( 'input[type=checkbox]:checked', uiDialog ).each( function() {
-                var id = '#wpcf-form-groups-support-' + $( this ).data( 'wpcf-prefix' ) + $( this ).attr( 'name' );
-                var value = $( this ).data( 'wpcf-value' );
-                $( id ).val( value );
+                // taxonomies are the only not using a prefix ('tax' is inside name)
+                if( $( this ).data( 'wpcf-prefix' ) == '' ) {
+                    $( '<input/>' ).attr( {
+                        type: 'hidden',
+                        id: 'wpcf-form-groups-support-' + $( this ).attr( 'name' ),
+                        name: 'wpcf[group][taxonomies][' + $( this ).attr( 'data-wpcf-taxonomy-slug' ) + '][' + $( this ).attr( 'data-wpcf-value' ) + ']',
+                        'data-wpcf-label': $( this ).attr( 'data-wpcf-name' ),
+                        value: $( this ).attr( 'data-wpcf-value' ),
+                    } ).appendTo( '.wpcf-conditions-container' );
+                // taxonomies on term fields
+                } else if( $( this ).data( 'wpcf-prefix' ) == 'taxonomy-'  ) {
+                    $( '<input/>' ).attr( {
+                        type: 'hidden',
+                        id: 'wpcf-form-groups-support-taxonomy-' + $( this ).attr( 'name' ),
+                        name: 'wpcf[group][taxonomies][' + $( this ).attr( 'data-wpcf-value' ) + ']',
+                        'data-wpcf-label': $( this ).attr( 'data-wpcf-name' ),
+                        value: $( this ).attr( 'data-wpcf-value' ),
+                        class: 'js-wpcf-filter-support-taxonomy wpcf-form-hidden form-hidden hidden',
+                    } ).appendTo( '.wpcf-conditions-container' );
+                } else {
+                    var id = '#wpcf-form-groups-support-' + $( this ).data( 'wpcf-prefix' ) + $( this ).attr( 'name' );
+                    var value = $( this ).data( 'wpcf-value' );
+                    $( id ).val( value );
+                }
             } );
         }
 
@@ -461,13 +483,16 @@ jQuery(document).ready(function($){
             wpcf_setup_conditions();
         }
 
+        // This can be wpcf-postmeta, wpcf-usermeta or wpcf-termmeta.
+        var fieldKind = $thiz.data('wpcf-type');
+
         dialog.load(
             ajaxurl,
             {
                 action: 'wpcf_edit_field_choose',
                 _wpnonce: $thiz.data('wpcf-nonce'),
                 id: $thiz.data('wpcf-id'),
-                type: $thiz.data('wpcf-type'),
+                type: fieldKind,
                 current: $current
             },
             function (responseText, textStatus, XMLHttpRequest) {
@@ -483,7 +508,8 @@ jQuery(document).ready(function($){
                         data: {
                             action: 'wpcf_edit_field_insert',
                             _wpnonce: $('#wpcf-fields-add-nonce').val(),
-                            type: $(this).data('wpcf-field-type')
+                            type: $(this).data('wpcf-field-type'),
+                            field_kind: fieldKind
                         }
                     })
                     .done(function(html){
@@ -631,7 +657,7 @@ jQuery(document).ready(function($){
                     $(this).remove();
                 });
             });
-            wpcfLoadingButtonStop();
+            wpcf_fields_form_submit_failed();
             return false;
         }
         // Check field names unique
@@ -668,7 +694,7 @@ jQuery(document).ready(function($){
                     $(this).remove();
                 });
             });
-            wpcfLoadingButtonStop();
+            wpcf_fields_form_submit_failed();
             return false;
         }
 
@@ -713,7 +739,7 @@ jQuery(document).ready(function($){
 
         // Conditional check
         if (wpcfConditionalFormDateCheck() == false) {
-            wpcfLoadingButtonStop();
+            wpcf_fields_form_submit_failed();
             return false;
         }
 
@@ -731,7 +757,7 @@ jQuery(document).ready(function($){
                     $(this).remove();
                 });
             });
-            wpcfLoadingButtonStop();
+            wpcf_fields_form_submit_failed();
             return false;
         }
 
@@ -739,8 +765,33 @@ jQuery(document).ready(function($){
          * modal advertising dialog is shown on this event
          */
         $( document ).trigger( 'js-wpcf-event-types-show-modal' );
-    });
+    } );
 });
+
+/**
+ * on form submit fail
+ */
+function wpcf_fields_form_submit_failed() {
+    wpcfLoadingButtonStop();
+    wpcf_highlight_first_error();
+}
+
+/**
+ * scroll to first issue
+ */
+function wpcf_highlight_first_error() {
+    var $ = jQuery,
+        firstError = $( '.wpcf-form-error' ).first(),
+        postBox = firstError.closest( '.postbox' );
+
+
+    if( postBox.hasClass( 'closed' ) ) {
+        postBox.removeClass( 'closed' );
+        postBox.find( '.handlediv' ).attr( 'aria-expanded', 'true' );
+    }
+
+    firstError.next( 'input' ).focus();
+}
 
 /**
  * remove row
@@ -869,7 +920,7 @@ function wpcfAddPostboxToggles()
     // on dialogopen
     $( document ).on( 'dialogopen', '.ui-dialog', function( e, ui ) {
         // normalize primary buttons
-        $( 'button.button-primary' )
+        $( 'button.button-primary, button.wpcf-ui-dialog-cancel' )
             .blur()
             .addClass( 'button' )
             .removeClass( 'ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only' );

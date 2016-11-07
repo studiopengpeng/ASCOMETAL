@@ -133,16 +133,27 @@ class Toolset_Assets_Manager
 	protected static $instance;
 	protected $styles		= array();
 	protected $scripts		= array();
+	
+	/**
+	* assets_url
+	*
+	* Base URL for the Toolset Common instance.
+	*
+	* @note Does not have a trailing slash due to untrailingslashit, add it when registering each asset.
+	* @since 2.0
+	*/
 	protected $assets_url	= '';
 
 	protected function __construct() {
+		
 		if ( is_admin() ) {
 			$this->assets_url = TOOLSET_COMMON_URL;
 		} else {
 			$this->assets_url = TOOLSET_COMMON_FRONTEND_URL;
 		}
+		$this->assets_url = untrailingslashit( $this->assets_url );
 		
-		add_action( 'init', 					array( $this, 'init' ) );
+		add_action( 'init', 					array( $this, 'init' ), 99 );
 		//be
 		add_action( 'admin_enqueue_scripts',	array( $this, 'get_rid_of_default_scripts' ) );
 		add_action( 'admin_enqueue_scripts',	array( $this, 'get_rid_of_default_styles' ) );
@@ -158,15 +169,28 @@ class Toolset_Assets_Manager
 	final public static function getInstance() {
 		static $instances = array();
 		$called_class = get_called_class();
-		if ( ! isset( $instances[ $called_class ] ) ) {
-			$instances[ $called_class ] = new $called_class();
+
+		if( isset( $instances[ $called_class ] ) ) {
+			return $instances[ $called_class ];
+		} else {
+			if( class_exists( $called_class ) ) {
+				$instances[ $called_class ] = new $called_class();
+				return $instances[ $called_class ];
+			} else {
+				// This can unfortunately happen when the get_called_class() workaround for PHP 5.2 misbehaves.
+				return false;
+			}
 		}
-		return $instances[ $called_class ];
+
 	}
 
 	public function init() {
 		$this->__initialize_styles();
 		$this->__initialize_scripts();
+	}
+	
+	public function get_assets_url() {
+		return $this->assets_url;
 	}
 
 	/*
@@ -278,7 +302,12 @@ class Toolset_Assets_Manager
 																		array(),
 																		TOOLSET_COMMON_VERSION
 																	);
-                $this->styles['toolset-dialogs-overrides-css'] = new Toolset_Style(
+
+        $this->styles['ddl-dialogs-forms-css'] = new Toolset_Style('ddl-dialogs-forms-css', $this->assets_url . '/utility/dialogs/css/dd-dialogs-forms.css', TOOLSET_VERSION);
+        $this->styles['ddl-dialogs-general-css'] = new Toolset_Style('ddl-dialogs-general-css', $this->assets_url . '/utility/dialogs/css/dd-dialogs-general.css', array( 'wp-jquery-ui-dialog' ), TOOLSET_VERSION);
+        $this->styles['ddl-dialogs-css'] = new Toolset_Style('ddl-dialogs-css', $this->assets_url . '/utility/dialogs/css/dd-dialogs.css', array('ddl-dialogs-general-css'), TOOLSET_VERSION );
+
+        $this->styles['toolset-dialogs-overrides-css'] = new Toolset_Style(
                         'toolset-dialogs-overrides-css', $this->assets_url . '/res/css/toolset-dialogs.css', array(), TOOLSET_COMMON_VERSION
                 );
 
@@ -329,6 +358,16 @@ class Toolset_Assets_Manager
 																				'1.0', 
 																				true
 																			);
+
+        $this->scripts['toolset-event-manager'] = new Toolset_Script(
+            'toolset-event-manager',
+            $this->assets_url . "/res/lib/toolset-event-manager/toolset-event-manager.min.js",
+            array(),
+            '1.0',
+            true
+        );
+		
+		
 		$this->scripts['toolset-codemirror-script']							= new Toolset_Script(
 																				'toolset-codemirror-script', 
 																				$this->assets_url . '/visual-editor/res/js/codemirror/lib/codemirror.js', 

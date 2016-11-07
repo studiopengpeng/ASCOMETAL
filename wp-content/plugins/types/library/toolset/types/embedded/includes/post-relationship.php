@@ -344,6 +344,11 @@ function wpcf_pr_admin_post_meta_box_belongs_form( $post, $type, $belongs )
             'data-input-too-short' => esc_attr(__('Please enter 1 or more character.', 'wpcf')),
         ),
     );
+
+    if( $form[$type]['#value'] != 0 && get_post_status( $form[$type]['#value'] ) ) {
+        $form[$type]['#attributes']['data-belongs-title'] = get_the_title( $belongs['belongs'][$type] );
+    }
+
     return $form;
 }
 
@@ -525,6 +530,16 @@ function wpcf_pr_admin_save_post_hook( $parent_post_id ) {
         // WPML
         wpcf_wpml_relationship_save_post_hook( $parent_post_id );
 
+	    /**
+	     * Temporary workaround until https://core.trac.wordpress.org/ticket/17817 is fixed.
+	     *
+	     * Saving child posts cancels all save_post actions for the parent post that would otherwise come
+	     * after this one.
+	     *
+	     * @since 2.2
+	     */
+	    do_action( 'types_finished_saving_child_posts', $parent_post_id );
+
         $cached[$parent_post_id] = true;
     }
 
@@ -583,10 +598,19 @@ function wpcf_pr_admin_wpcf_relationship_search()
     $posts_per_page = apply_filters( 'wpcf_pr_belongs_post_numberposts', 10 );
 
     $args = array(
+
+	    /**
+	     * wpcf_pr_belongs_post_posts_per_page
+	     *
+	     * Limit how many items are returned for the post relationship field when searching with AJAX.
+	     *
+	     * @param int $posts_per_page
+	     * @since unknown
+	     */
         'posts_per_page' => apply_filters( 'wpcf_pr_belongs_post_posts_per_page', $posts_per_page ),
         'post_status' => apply_filters( 'wpcf_pr_belongs_post_status', array( 'publish', 'private' ) ),
         'post_type' => $_REQUEST['post_type'],
-        'suppress_filters' => 1,
+        'suppress_filters' => false,
     );
 
     if ( isset( $_REQUEST['s'] ) ) {

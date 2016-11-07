@@ -16,7 +16,7 @@ class LSOW_Testimonials_Slider_Widget extends SiteOrigin_Widget {
             array(
                 'description' => __('Share your product/service testimonials in a responsive slider.', 'livemesh-so-widgets'),
                 'panels_icon' => 'dashicons dashicons-minus',
-                'help' => 'http://portfoliotheme.org/widgets-bundle/testimonials-slider-widget-documentation/'
+                'help' => LSOW_PLUGIN_HELP_URL. '#testimonials-widgets'
             ),
             array(),
             array(
@@ -114,7 +114,7 @@ class LSOW_Testimonials_Slider_Widget extends SiteOrigin_Widget {
             array(
                 array(
                     'lsow-flexslider',
-                    LSOW_PLUGIN_URL . 'assets/js/jquery.flexslider' . SOW_BUNDLE_JS_SUFFIX . '.js',
+                    LSOW_PLUGIN_URL . 'assets/js/jquery.flexslider' . LSOW_JS_SUFFIX . '.js',
                     array('jquery'),
                     LSOW_VERSION
                 ),
@@ -136,8 +136,8 @@ class LSOW_Testimonials_Slider_Widget extends SiteOrigin_Widget {
         $this->register_frontend_scripts(array(
             array(
                 'lsow-testimonials-slider',
-                plugin_dir_url(__FILE__) . 'js/testimonials' . SOW_BUNDLE_JS_SUFFIX . '.js',
-                array('jquery')
+                plugin_dir_url(__FILE__) . 'js/testimonials' . LSOW_JS_SUFFIX . '.js',
+                array('lsow-flexslider')
             )
         ));
 

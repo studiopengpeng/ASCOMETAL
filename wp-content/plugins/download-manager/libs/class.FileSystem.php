@@ -235,6 +235,44 @@ class FileSystem
         return $files;
     }
 
+    /**
+     * @param $dir
+     * @param bool|true $recur
+     * @return array
+     */
+    public static function subDirs($dir){
+        $dir = realpath($dir)."/";
+        if($dir == '/' || $dir == '') return array();
+        $tmpfiles = file_exists($dir)?array_diff( scandir( $dir ), array( ".", ".." ) ):array();
+        $subdirs = array();
+        foreach($tmpfiles as $file){
+            if( is_dir($dir.$file)) $subdirs[] = $dir.$file;
+
+        }
+        return $subdirs;
+    }
+
+
+    /**
+     * @param $dir
+     * @param bool|true $recur
+     * @return array
+     */
+    public static function deleteFiles($dir, $recur = true){
+        $dir = realpath($dir)."/";
+        if($dir == '/' || $dir == '') return array();
+        $tmpfiles = file_exists($dir)?array_diff( scandir( $dir ), array( ".", ".." ) ):array();
+        $files = array();
+        foreach($tmpfiles as $file){
+            if( is_dir($dir.$file) && $recur == true) $files = array_merge($files, self::scanDir($dir.$file, true));
+            else
+                @unlink($dir.$file);
+        }
+        return true;
+    }
+
+
+
     public static function imageThumbnail($path, $width, $height){
         $opath = $path;
         $abspath = str_replace("\\","/", ABSPATH);

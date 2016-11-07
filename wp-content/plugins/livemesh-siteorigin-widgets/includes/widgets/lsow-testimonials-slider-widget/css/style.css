@@ -7,7 +7,8 @@ html {
 .lsow-testimonials-slider {
   position: relative; }
   .lsow-testimonials-slider.lsow-container {
-    max-width: 900px; }
+    max-width: 900px;
+    margin: 0 auto; }
   .lsow-testimonials-slider .lsow-testimonial-text {
     text-align: center;
     max-width: 750px;

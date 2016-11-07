@@ -7,7 +7,7 @@
  * Author URI: http://portfoliotheme.org/
  * License: GPL3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
- * Version: 1.2
+ * Version: 1.4.4
  * Text Domain: livemesh-so-widgets
  * Domain Path: languages
  *
@@ -92,7 +92,7 @@ if (!class_exists('Livemesh_SiteOrigin_Widgets')) :
 
             // Plugin version
             if (!defined('LSOW_VERSION')) {
-                define('LSOW_VERSION', '1.0');
+                define('LSOW_VERSION', '1.4.4');
             }
 
             // Plugin Folder Path
@@ -109,6 +109,36 @@ if (!class_exists('Livemesh_SiteOrigin_Widgets')) :
             if (!defined('LSOW_PLUGIN_FILE')) {
                 define('LSOW_PLUGIN_FILE', __FILE__);
             }
+
+            // Plugin Help Page URL
+            if (!defined('LSOW_PLUGIN_HELP_URL')) {
+                define('LSOW_PLUGIN_HELP_URL', admin_url() . 'admin.php?page=livemesh_so_widgets_documentation');
+            }
+
+            $this->setup_debug_constants();
+        }
+
+        private function setup_debug_constants() {
+
+            $enable_debug = false;
+
+            $settings = get_option('lsow_settings');
+
+            if ($settings && isset($settings['lsow_enable_debug']) && $settings['lsow_enable_debug'] == "true")
+                $enable_debug = true;
+
+            // Enable script debugging
+            if (!defined('LSOW_SCRIPT_DEBUG')) {
+                define('LSOW_SCRIPT_DEBUG', $enable_debug);
+            }
+
+            // Minified JS file name suffix
+            if (!defined('LSOW_JS_SUFFIX')) {
+                if ($enable_debug)
+                    define('LSOW_JS_SUFFIX', '');
+                else
+                    define('LSOW_JS_SUFFIX', '.min');
+            }
         }
 
         /**
@@ -119,6 +149,10 @@ if (!class_exists('Livemesh_SiteOrigin_Widgets')) :
 
             require_once LSOW_PLUGIN_DIR . 'includes/class-lsow-setup.php';
             require_once LSOW_PLUGIN_DIR . 'includes/helper-functions.php';
+
+            if (is_admin()) {
+                require_once LSOW_PLUGIN_DIR . 'admin/admin-init.php';
+            }
 
         }
 
@@ -156,9 +190,7 @@ if (!class_exists('Livemesh_SiteOrigin_Widgets')) :
          */
         private function hooks() {
 
-            add_action('admin_enqueue_scripts', array($this, 'load_admin_scripts'), 100);
-
-            add_action('wp_enqueue_scripts', array($this, 'load_frontend_scripts'), 100);
+            add_action('wp_enqueue_scripts', array($this, 'load_frontend_scripts'), 10);
         }
 
         /**
@@ -167,8 +199,8 @@ if (!class_exists('Livemesh_SiteOrigin_Widgets')) :
          */
         public function load_frontend_scripts() {
 
-            // Use minified libraries if SCRIPT_DEBUG is turned off
-            $suffix = (defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) ? '' : '.min';
+            // Use minified libraries if LSOW_SCRIPT_DEBUG is turned off
+            $suffix = (defined('LSOW_SCRIPT_DEBUG') && LSOW_SCRIPT_DEBUG) ? '' : '.min';
 
             wp_register_style('lsow-frontend-styles', LSOW_PLUGIN_URL . 'assets/css/lsow-frontend.css', array(), LSOW_VERSION);
             wp_enqueue_style('lsow-frontend-styles');
@@ -179,27 +211,32 @@ if (!class_exists('Livemesh_SiteOrigin_Widgets')) :
             wp_register_script('lsow-modernizr', LSOW_PLUGIN_URL . 'assets/js/modernizr-custom' . $suffix . '.js', array(), LSOW_VERSION, true);
             wp_enqueue_script('lsow-modernizr');
 
-            wp_register_script('lsow-frontend-scripts', LSOW_PLUGIN_URL . 'assets/js/lsow-frontend' . $suffix . '.js', array(), LSOW_VERSION, true);
+            wp_register_script('lsow-waypoints', LSOW_PLUGIN_URL . 'assets/js/jquery.waypoints' . $suffix . '.js', array('jquery'), LSOW_VERSION, true);
+            wp_enqueue_script('lsow-waypoints');
+
+            wp_register_script('lsow-frontend-scripts', LSOW_PLUGIN_URL . 'assets/js/lsow-frontend' . $suffix . '.js', array('jquery'), LSOW_VERSION, true);
             wp_enqueue_script('lsow-frontend-scripts');
+
+            add_action('wp_enqueue_scripts', array($this, 'localize_scripts'), 999999);
 
         }
 
-        /**
-         * Load Admin Scripts/Styles
-         *
-         */
-        public function load_admin_scripts() {
+        public function localize_scripts() {
 
-            // Use minified libraries if SCRIPT_DEBUG is turned off
-            $suffix = (defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) ? '' : '.min';
+            $panels_mobile_width = 780; // default
 
-            wp_register_style('lsow-admin-styles', LSOW_PLUGIN_URL . 'assets/css/lsow-admin.css', array(), LSOW_VERSION);
-            wp_enqueue_style('lsow-admin-styles');
+            if (function_exists('siteorigin_panels_setting')) {
 
-            wp_register_script('lsow-admin-scripts', LSOW_PLUGIN_URL . 'assets/js/lsow-admin' . $suffix . '.js', array(), LSOW_VERSION, true);
-            wp_enqueue_script('lsow-admin-scripts');
+                $settings = siteorigin_panels_setting();
 
-            wp_enqueue_script('jquery-ui-datepicker');
+                $panels_mobile_width = $settings['mobile-width'];
+
+            }
+
+            $custom_css = lsow_get_option('lsow_custom_css', '');
+
+            wp_localize_script('lsow-frontend-scripts', 'lsow_settings', array('mobile_width' => $panels_mobile_width, 'custom_css' => $custom_css));
+
         }
 
     }

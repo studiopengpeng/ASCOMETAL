@@ -15,6 +15,8 @@ if ($background['bg_type'] == 'youtube') {
 
 ?>
 
+<?php if( !empty( $instance['title'] ) ) echo $args['before_title'] . esc_html($instance['title']) . $args['after_title'] ?>
+
 <div class="lsow-hero-header lsow-section-bg-<?php echo $background['bg_type']; ?>" <?php echo $youtube_markup; ?>>
 
     <div class="lsow-background">
@@ -94,8 +96,8 @@ if ($background['bg_type'] == 'youtube') {
 
                 <?php if (!empty($standard_header['button_url'])) : ?>
 
-                    <a class="lsow-button"
-                       href="<?php echo $standard_header['button_url']; ?>"
+                    <a class="lsow-button lsow-trans"
+                       href="<?php echo sow_esc_url($standard_header['button_url']); ?>"
                         <?php echo (empty($standard_header['new_window'])) ? '' : 'target="_blank"'; ?>><?php echo $standard_header['button_text']; ?></a>
 
                 <?php endif; ?>

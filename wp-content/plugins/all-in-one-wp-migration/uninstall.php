@@ -35,14 +35,10 @@ if ( defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	global $wpdb, $wp_filesystem;
 
 	// Delete any options or other data stored in the database here
-	delete_site_option( AI1WM_EXPORT_OPTIONS );
-	delete_site_option( AI1WM_ERROR_HANDLER );
-	delete_site_option( AI1WM_EXCEPTION_HANDLER );
-	delete_site_option( AI1WM_MAINTENANCE_MODE );
-	delete_site_option( AI1WM_URL_IP );
-	delete_site_option( AI1WM_URL_TRANSPORT );
-	delete_site_option( AI1WM_SECRET_KEY );
-	delete_site_option( AI1WM_AUTH_USER );
-	delete_site_option( AI1WM_AUTH_PASSWORD );
-	delete_site_option( AI1WM_MESSAGES );
+	delete_option( AI1WM_URL_IP );
+	delete_option( AI1WM_URL_ADAPTER );
+	delete_option( AI1WM_SECRET_KEY );
+	delete_option( AI1WM_AUTH_USER );
+	delete_option( AI1WM_AUTH_PASSWORD );
+	delete_option( AI1WM_STATUS );
 }

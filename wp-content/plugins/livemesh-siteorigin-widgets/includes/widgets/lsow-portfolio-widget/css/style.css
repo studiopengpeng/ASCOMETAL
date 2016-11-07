@@ -135,8 +135,8 @@ html {
       .lsow-portfolio-wrap .lsow-portfolio .lsow-portfolio-item .lsow-project-image .lsow-image-info h3 {
         padding: 10px;
         margin: 0;
-        font-size: 24px;
-        line-height: 36px;
+        font-size: 18px;
+        line-height: 28px;
         font-weight: 400;
         color: #fff; }
         @media only screen and (max-width: 1024px) {
@@ -152,7 +152,7 @@ html {
           transition: all 0.3s ease-in-out 0s;
           border-bottom: 1px solid transparent; }
           .lsow-portfolio-wrap .lsow-portfolio .lsow-portfolio-item .lsow-project-image .lsow-image-info h3 a:hover {
-            border-bottom: 2px solid #ccc; }
+            border-bottom: 1px solid #ccc; }
       .lsow-portfolio-wrap .lsow-portfolio .lsow-portfolio-item .lsow-project-image .lsow-image-info .lsow-terms {
         display: block;
         color: #f9f9f9; }

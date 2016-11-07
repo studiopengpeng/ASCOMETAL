@@ -1,7 +1,7 @@
 <?php
 global $wpdb, $current_user;
 $limit = 20;
-get_currentuserinfo(); 
+ 
 $_GET['paged'] = isset($_GET['paged'])?(int)$_GET['paged']:1;
 $start = isset($_GET['paged'])?(($_GET['paged']-1)*$limit):0;
 $field = isset($_GET['sfield'])?$_GET['sfield']:'id';

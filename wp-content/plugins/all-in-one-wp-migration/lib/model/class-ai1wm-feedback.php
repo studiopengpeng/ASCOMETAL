@@ -52,12 +52,9 @@ class Ai1wm_Feedback {
 				AI1WM_FEEDBACK_URL,
 				array(
 					'body' => array(
-						'type'              => $type,
-						'email'             => $email,
-						'message'           => $message,
-						'export_options'    => json_encode( get_site_option( AI1WM_EXPORT_OPTIONS, array() ) ),
-						'error_handler'     => json_encode( get_site_option( AI1WM_ERROR_HANDLER, array() ) ),
-						'exception_handler' => json_encode( get_site_option( AI1WM_EXCEPTION_HANDLER, array() ) ),
+						'type'    => $type,
+						'email'   => $email,
+						'message' => $message,
 					),
 				)
 			);

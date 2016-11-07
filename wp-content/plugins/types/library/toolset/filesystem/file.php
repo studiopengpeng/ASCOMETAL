@@ -1,5 +1,8 @@
 <?php
 
+if( class_exists( 'Toolset_Filesystem_File', false ) )
+	return;
+
 class Toolset_Filesystem_File {
 
 	private $handle = false;
@@ -20,7 +23,7 @@ class Toolset_Filesystem_File {
 		}
 
 		$this->path = $path;
-		return $this->path;
+		return true;
 	}
 
 	/**
@@ -58,12 +61,17 @@ class Toolset_Filesystem_File {
 	public function search( $search, $return = 'bool' ) {
 		$this->open_file();
 
+		if( ! is_array( $search ) )
+			$search = array( $search );
+
 		while( ( $line = fgets( $this->handle ) ) !== false) {
-			if( strpos( $line , $search ) !== false ) {
-				switch( $return ) {
-					case 'bool':
-						$this->close_file();
-						return true;
+			foreach( $search as $needle ) {
+				if( strpos( $line , $needle ) !== false ) {
+					switch( $return ) {
+						case 'bool':
+							$this->close_file();
+							return true;
+					}
 				}
 			}
 		}

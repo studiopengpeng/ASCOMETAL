@@ -68,16 +68,70 @@ class Ai1wm_Import_Database {
 		// Get Blog URLs
 		foreach ( $blogs as $blog ) {
 
-			// Get Upload Path
-			if ( ! in_array( ai1wm_uploads_path( $blog->Old->Id ), $old_values ) ) {
-				$old_values[] = ai1wm_uploads_path( $blog->Old->Id );
-				$new_values[] = ai1wm_uploads_path( $blog->New->Id );
+			// Get blogs dir Upload Path
+			if ( ! in_array( sprintf( "'%s'", trim( ai1wm_blogsdir_path( $blog->Old->Id ), '/' ) ), $old_values ) ) {
+				$old_values[] = sprintf( "'%s'", trim( ai1wm_blogsdir_path( $blog->Old->Id ), '/' ) );
+				$new_values[] = sprintf( "'%s'", get_option( 'upload_path' ) );
 			}
 
-			// Get escaped Upload Path
-			if ( ! in_array( addslashes( addcslashes( ai1wm_uploads_path( $blog->Old->Id ), '\/' ) ), $old_values ) ) {
-				$old_values[] = addslashes( addcslashes( ai1wm_uploads_path( $blog->Old->Id ), '\/' ) );
-				$new_values[] = addslashes( addcslashes( ai1wm_uploads_path( $blog->New->Id ), '\/' ) );
+			// Get sites Upload Path
+			if ( ! in_array( sprintf( "'%s'", trim( ai1wm_uploads_path( $blog->Old->Id ), '/' ) ), $old_values ) ) {
+				$old_values[] = sprintf( "'%s'", trim( ai1wm_uploads_path( $blog->Old->Id ), '/' ) );
+				$new_values[] = sprintf( "'%s'", get_option( 'upload_path' ) );
+			}
+
+			// Handle old and new sites dir style
+			if ( defined( 'UPLOADBLOGSDIR' ) ) {
+
+				// Get Upload Path
+				if ( ! in_array( ai1wm_blogsdir_path( $blog->Old->Id ), $old_values ) ) {
+					$old_values[] = ai1wm_blogsdir_path( $blog->Old->Id );
+					$new_values[] = ai1wm_blogsdir_path( $blog->New->Id );
+				}
+
+				// Get escaped Upload Path
+				if ( ! in_array( addslashes( addcslashes( ai1wm_blogsdir_path( $blog->Old->Id ), '\/' ) ), $old_values ) ) {
+					$old_values[] = addslashes( addcslashes( ai1wm_blogsdir_path( $blog->Old->Id ), '\/' ) );
+					$new_values[] = addslashes( addcslashes( ai1wm_blogsdir_path( $blog->New->Id ), '\/' ) );
+				}
+
+				// Get Upload Path
+				if ( ! in_array( ai1wm_uploads_path( $blog->Old->Id ), $old_values ) ) {
+					$old_values[] = ai1wm_uploads_path( $blog->Old->Id );
+					$new_values[] = ai1wm_blogsdir_path( $blog->New->Id );
+				}
+
+				// Get escaped Upload Path
+				if ( ! in_array( addslashes( addcslashes( ai1wm_uploads_path( $blog->Old->Id ), '\/' ) ), $old_values ) ) {
+					$old_values[] = addslashes( addcslashes( ai1wm_uploads_path( $blog->Old->Id ), '\/' ) );
+					$new_values[] = addslashes( addcslashes( ai1wm_blogsdir_path( $blog->New->Id ), '\/' ) );
+				}
+
+			} else {
+
+				// Get Upload Path
+				if ( ! in_array( ai1wm_blogsdir_path( $blog->Old->Id ), $old_values ) ) {
+					$old_values[] = ai1wm_blogsdir_path( $blog->Old->Id );
+					$new_values[] = ai1wm_uploads_path( $blog->New->Id );
+				}
+
+				// Get escaped Upload Path
+				if ( ! in_array( addslashes( addcslashes( ai1wm_blogsdir_path( $blog->Old->Id ), '\/' ) ), $old_values ) ) {
+					$old_values[] = addslashes( addcslashes( ai1wm_blogsdir_path( $blog->Old->Id ), '\/' ) );
+					$new_values[] = addslashes( addcslashes( ai1wm_uploads_path( $blog->New->Id ), '\/' ) );
+				}
+
+				// Get Upload Path
+				if ( ! in_array( ai1wm_uploads_path( $blog->Old->Id ), $old_values ) ) {
+					$old_values[] = ai1wm_uploads_path( $blog->Old->Id );
+					$new_values[] = ai1wm_uploads_path( $blog->New->Id );
+				}
+
+				// Get escaped Upload Path
+				if ( ! in_array( addslashes( addcslashes( ai1wm_uploads_path( $blog->Old->Id ), '\/' ) ), $old_values ) ) {
+					$old_values[] = addslashes( addcslashes( ai1wm_uploads_path( $blog->Old->Id ), '\/' ) );
+					$new_values[] = addslashes( addcslashes( ai1wm_uploads_path( $blog->New->Id ), '\/' ) );
+				}
 			}
 
 			// Get Site URL
@@ -87,32 +141,37 @@ class Ai1wm_Import_Database {
 				$old_domain = parse_url( $blog->Old->SiteURL, PHP_URL_HOST );
 				$new_domain = parse_url( $blog->New->SiteURL, PHP_URL_HOST );
 
-				// Replace Site URL protocol
-				foreach ( array( 'http', 'https' ) as $protocol ) {
+				// Get scheme
+				$new_scheme = parse_url( $blog->New->SiteURL, PHP_URL_SCHEME );
+
+				// Replace Site URL scheme
+				foreach ( array( 'http', 'https' ) as $old_scheme ) {
 
 					// Add plain Site URL
-					if ( ! in_array( set_url_scheme( $blog->Old->SiteURL, $protocol ), $old_values ) ) {
-						$old_values[] = set_url_scheme( $blog->Old->SiteURL, $protocol );
-						$new_values[] = set_url_scheme( $blog->New->SiteURL );
+					if ( ! in_array( set_url_scheme( $blog->Old->SiteURL, $old_scheme ), $old_values ) ) {
+						$old_values[] = set_url_scheme( $blog->Old->SiteURL, $old_scheme );
+						$new_values[] = set_url_scheme( $blog->New->SiteURL, $new_scheme );
 					}
 
 					// Add encoded Site URL
-					if ( ! in_array( urlencode( set_url_scheme( $blog->Old->SiteURL, $protocol ) ), $old_values ) ) {
-						$old_values[] = urlencode( set_url_scheme( $blog->Old->SiteURL, $protocol ) );
-						$new_values[] = urlencode( set_url_scheme( $blog->New->SiteURL ) );
+					if ( ! in_array( urlencode( set_url_scheme( $blog->Old->SiteURL, $old_scheme ) ), $old_values ) ) {
+						$old_values[] = urlencode( set_url_scheme( $blog->Old->SiteURL, $old_scheme ) );
+						$new_values[] = urlencode( set_url_scheme( $blog->New->SiteURL, $new_scheme ) );
 					}
 
 					// Add escaped Site URL
-					if ( ! in_array( addslashes( addcslashes( set_url_scheme( $blog->Old->SiteURL, $protocol ), '/' ) ), $old_values ) ) {
-						$old_values[] = addslashes( addcslashes( set_url_scheme( $blog->Old->SiteURL, $protocol ), '/' ) );
-						$new_values[] = addslashes( addcslashes( set_url_scheme( $blog->New->SiteURL ), '/' ) );
+					if ( ! in_array( addslashes( addcslashes( set_url_scheme( $blog->Old->SiteURL, $old_scheme ), '/' ) ), $old_values ) ) {
+						$old_values[] = addslashes( addcslashes( set_url_scheme( $blog->Old->SiteURL, $old_scheme ), '/' ) );
+						$new_values[] = addslashes( addcslashes( set_url_scheme( $blog->New->SiteURL, $new_scheme ), '/' ) );
 					}
 				}
 
 				// Add email
-				if ( ! in_array( sprintf( "@%s", $old_domain ), $old_values ) ) {
-					$old_values[] = sprintf( "@%s", $old_domain );
-					$new_values[] = sprintf( "@%s", $new_domain );
+				if ( ! isset( $config->NoEmailReplace ) ) {
+					if ( ! in_array( sprintf( "@%s", $old_domain ), $old_values ) ) {
+						$old_values[] = sprintf( "@%s", $old_domain );
+						$new_values[] = sprintf( "@%s", $new_domain );
+					}
 				}
 			}
 
@@ -123,32 +182,37 @@ class Ai1wm_Import_Database {
 				$old_domain = parse_url( $blog->Old->HomeURL, PHP_URL_HOST );
 				$new_domain = parse_url( $blog->New->HomeURL, PHP_URL_HOST );
 
-				// Replace Home URL protocol
-				foreach ( array( 'http', 'https' ) as $protocol ) {
+				// Get scheme
+				$new_scheme = parse_url( $blog->New->HomeURL, PHP_URL_SCHEME );
+
+				// Replace Home URL scheme
+				foreach ( array( 'http', 'https' ) as $old_scheme ) {
 
 					// Add plain Home URL
-					if ( ! in_array( set_url_scheme( $blog->Old->HomeURL, $protocol ), $old_values ) ) {
-						$old_values[] = set_url_scheme( $blog->Old->HomeURL, $protocol );
-						$new_values[] = set_url_scheme( $blog->New->HomeURL );
+					if ( ! in_array( set_url_scheme( $blog->Old->HomeURL, $old_scheme ), $old_values ) ) {
+						$old_values[] = set_url_scheme( $blog->Old->HomeURL, $old_scheme );
+						$new_values[] = set_url_scheme( $blog->New->HomeURL, $new_scheme );
 					}
 
 					// Add encoded Home URL
-					if ( ! in_array( urlencode( set_url_scheme( $blog->Old->HomeURL, $protocol ) ), $old_values ) ) {
-						$old_values[] = urlencode( set_url_scheme( $blog->Old->HomeURL, $protocol ) );
-						$new_values[] = urlencode( set_url_scheme( $blog->New->HomeURL ) );
+					if ( ! in_array( urlencode( set_url_scheme( $blog->Old->HomeURL, $old_scheme ) ), $old_values ) ) {
+						$old_values[] = urlencode( set_url_scheme( $blog->Old->HomeURL, $old_scheme ) );
+						$new_values[] = urlencode( set_url_scheme( $blog->New->HomeURL, $new_scheme ) );
 					}
 
 					// Add escaped Home URL
-					if ( ! in_array( addslashes( addcslashes( set_url_scheme( $blog->Old->HomeURL, $protocol ), '/' ) ), $old_values ) ) {
-						$old_values[] = addslashes( addcslashes( set_url_scheme( $blog->Old->HomeURL, $protocol ), '/' ) );
-						$new_values[] = addslashes( addcslashes( set_url_scheme( $blog->New->HomeURL ), '/' ) );
+					if ( ! in_array( addslashes( addcslashes( set_url_scheme( $blog->Old->HomeURL, $old_scheme ), '/' ) ), $old_values ) ) {
+						$old_values[] = addslashes( addcslashes( set_url_scheme( $blog->Old->HomeURL, $old_scheme ), '/' ) );
+						$new_values[] = addslashes( addcslashes( set_url_scheme( $blog->New->HomeURL, $new_scheme ), '/' ) );
 					}
 				}
 
 				// Add email
-				if ( ! in_array( sprintf( "@%s", $old_domain ), $old_values ) ) {
-					$old_values[] = sprintf( "@%s", $old_domain );
-					$new_values[] = sprintf( "@%s", $new_domain );
+				if ( ! isset( $config->NoEmailReplace ) ) {
+					if ( ! in_array( sprintf( "@%s", $old_domain ), $old_values ) ) {
+						$old_values[] = sprintf( "@%s", $old_domain );
+						$new_values[] = sprintf( "@%s", $new_domain );
+					}
 				}
 			}
 		}
@@ -174,38 +238,43 @@ class Ai1wm_Import_Database {
 				$old_path = parse_url( $url, PHP_URL_PATH );
 				$new_path = parse_url( site_url(), PHP_URL_PATH );
 
+				// Get scheme
+				$new_scheme = parse_url( site_url(), PHP_URL_SCHEME );
+
 				// Add domain and path
 				if ( ! in_array( sprintf( "%s','%s", $old_domain, trailingslashit( $old_path ) ), $old_values ) ) {
 					$old_values[] = sprintf( "%s','%s", $old_domain, trailingslashit( $old_path ) );
 					$new_values[] = sprintf( "%s','%s", $new_domain, trailingslashit( $new_path ) );
 				}
 
-				// Replace Site URL protocol
-				foreach ( array( 'http', 'https' ) as $protocol ) {
+				// Replace Site URL scheme
+				foreach ( array( 'http', 'https' ) as $old_scheme ) {
 
 					// Add plain Site URL
-					if ( ! in_array( set_url_scheme( $url, $protocol ), $old_values ) ) {
-						$old_values[] = set_url_scheme( $url, $protocol );
-						$new_values[] = set_url_scheme( site_url() );
+					if ( ! in_array( set_url_scheme( $url, $old_scheme ), $old_values ) ) {
+						$old_values[] = set_url_scheme( $url, $old_scheme );
+						$new_values[] = set_url_scheme( site_url(), $new_scheme );
 					}
 
 					// Add encoded Site URL
-					if ( ! in_array( urlencode( set_url_scheme( $url, $protocol ) ), $old_values ) ) {
-						$old_values[] = urlencode( set_url_scheme( $url, $protocol ) );
-						$new_values[] = urlencode( set_url_scheme( site_url() ) );
+					if ( ! in_array( urlencode( set_url_scheme( $url, $old_scheme ) ), $old_values ) ) {
+						$old_values[] = urlencode( set_url_scheme( $url, $old_scheme ) );
+						$new_values[] = urlencode( set_url_scheme( site_url(), $new_scheme ) );
 					}
 
 					// Add escaped Site URL
-					if ( ! in_array( addslashes( addcslashes( set_url_scheme( $url, $protocol ), '/' ) ), $old_values ) ) {
-						$old_values[] = addslashes( addcslashes( set_url_scheme( $url, $protocol ), '/' ) );
-						$new_values[] = addslashes( addcslashes( set_url_scheme( site_url() ), '/' ) );
+					if ( ! in_array( addslashes( addcslashes( set_url_scheme( $url, $old_scheme ), '/' ) ), $old_values ) ) {
+						$old_values[] = addslashes( addcslashes( set_url_scheme( $url, $old_scheme ), '/' ) );
+						$new_values[] = addslashes( addcslashes( set_url_scheme( site_url(), $new_scheme ), '/' ) );
 					}
 				}
 
 				// Add email
-				if ( ! in_array( sprintf( "@%s", $old_domain ), $old_values ) ) {
-					$old_values[] = sprintf( "@%s", $old_domain );
-					$new_values[] = sprintf( "@%s", $new_domain );
+				if ( ! isset( $config->NoEmailReplace ) ) {
+					if ( ! in_array( sprintf( "@%s", $old_domain ), $old_values ) ) {
+						$old_values[] = sprintf( "@%s", $old_domain );
+						$new_values[] = sprintf( "@%s", $new_domain );
+					}
 				}
 			}
 		}
@@ -231,38 +300,43 @@ class Ai1wm_Import_Database {
 				$old_path = parse_url( $url, PHP_URL_PATH );
 				$new_path = parse_url( home_url(), PHP_URL_PATH );
 
+				// Get scheme
+				$new_scheme = parse_url( home_url(), PHP_URL_SCHEME );
+
 				// Add domain and path
 				if ( ! in_array( sprintf( "%s','%s", $old_domain, trailingslashit( $old_path ) ), $old_values ) ) {
 					$old_values[] = sprintf( "%s','%s", $old_domain, trailingslashit( $old_path ) );
 					$new_values[] = sprintf( "%s','%s", $new_domain, trailingslashit( $new_path ) );
 				}
 
-				// Replace Home URL protocol
-				foreach ( array( 'http', 'https' ) as $protocol ) {
+				// Replace Home URL scheme
+				foreach ( array( 'http', 'https' ) as $old_scheme ) {
 
 					// Add plain Home URL
-					if ( ! in_array( set_url_scheme( $url, $protocol ), $old_values ) ) {
-						$old_values[] = set_url_scheme( $url, $protocol );
-						$new_values[] = set_url_scheme( home_url() );
+					if ( ! in_array( set_url_scheme( $url, $old_scheme ), $old_values ) ) {
+						$old_values[] = set_url_scheme( $url, $old_scheme );
+						$new_values[] = set_url_scheme( home_url(), $new_scheme );
 					}
 
 					// Add encoded Home URL
-					if ( ! in_array( urlencode( set_url_scheme( $url, $protocol ) ), $old_values ) ) {
-						$old_values[] = urlencode( set_url_scheme( $url, $protocol ) );
-						$new_values[] = urlencode( set_url_scheme( home_url() ) );
+					if ( ! in_array( urlencode( set_url_scheme( $url, $old_scheme ) ), $old_values ) ) {
+						$old_values[] = urlencode( set_url_scheme( $url, $old_scheme ) );
+						$new_values[] = urlencode( set_url_scheme( home_url(), $new_scheme ) );
 					}
 
 					// Add escaped Home URL
-					if ( ! in_array( addslashes( addcslashes( set_url_scheme( $url, $protocol ), '/' ) ), $old_values ) ) {
-						$old_values[] = addslashes( addcslashes( set_url_scheme( $url, $protocol ), '/' ) );
-						$new_values[] = addslashes( addcslashes( set_url_scheme( home_url() ), '/' ) );
+					if ( ! in_array( addslashes( addcslashes( set_url_scheme( $url, $old_scheme ), '/' ) ), $old_values ) ) {
+						$old_values[] = addslashes( addcslashes( set_url_scheme( $url, $old_scheme ), '/' ) );
+						$new_values[] = addslashes( addcslashes( set_url_scheme( home_url(), $new_scheme ), '/' ) );
 					}
 				}
 
 				// Add email
-				if ( ! in_array( sprintf( "@%s", $old_domain ), $old_values ) ) {
-					$old_values[] = sprintf( "@%s", $old_domain );
-					$new_values[] = sprintf( "@%s", $new_domain );
+				if ( ! isset( $config->NoEmailReplace ) ) {
+					if ( ! in_array( sprintf( "@%s", $old_domain ), $old_values ) ) {
+						$old_values[] = sprintf( "@%s", $old_domain );
+						$new_values[] = sprintf( "@%s", $new_domain );
+					}
 				}
 			}
 		}
@@ -290,22 +364,22 @@ class Ai1wm_Import_Database {
 		}
 
 		// Get URL IP
-		$url_ip = get_site_option( AI1WM_URL_IP, false, false );
+		$url_ip = get_option( AI1WM_URL_IP );
 
-		// Get URL transport
-		$url_transport = get_site_option( AI1WM_URL_TRANSPORT, false, false );
+		// Get URL adapter
+		$url_adapter = get_option( AI1WM_URL_ADAPTER );
 
 		// Get secret key
-		$secret_key = get_site_option( AI1WM_SECRET_KEY, false, false );
+		$secret_key = get_option( AI1WM_SECRET_KEY );
 
 		// Get HTTP user
-		$auth_user = get_site_option( AI1WM_AUTH_USER, false, false );
+		$auth_user = get_option( AI1WM_AUTH_USER );
 
 		// Get HTTP password
-		$auth_password = get_site_option( AI1WM_AUTH_PASSWORD, false, false );
+		$auth_password = get_option( AI1WM_AUTH_PASSWORD );
 
-		// Get active plugins
-		$active_plugins = get_site_option( AI1WM_ACTIVE_PLUGINS, array(), false );
+		// Get active ServMask plugins
+		$active_servmask_plugins = ai1wm_active_servmask_plugins();
 
 		$old_prefixes = array();
 		$new_prefixes = array();
@@ -366,30 +440,26 @@ class Ai1wm_Import_Database {
 		// Import database
 		$client->import( ai1wm_database_path( $params ) );
 
-		// Clear WP options cache
-		wp_cache_flush();
+		// Flush WP cache
+		ai1wm_cache_flush();
 
 		// Activate plugins
-		foreach ( $active_plugins as $plugin ) {
-			if ( in_array( $plugin, ai1wm_active_plugins() ) ) {
-				activate_plugin( $plugin );
-			}
-		}
+		activate_plugins( $active_servmask_plugins, null, is_multisite() );
 
 		// Set the new URL IP
-		update_site_option( AI1WM_URL_IP, $url_ip );
+		update_option( AI1WM_URL_IP, $url_ip );
 
-		// Set the new URL transport
-		update_site_option( AI1WM_URL_TRANSPORT, $url_transport );
+		// Set the new URL adapter
+		update_option( AI1WM_URL_ADAPTER, $url_adapter );
 
 		// Set the new secret key value
-		update_site_option( AI1WM_SECRET_KEY, $secret_key );
+		update_option( AI1WM_SECRET_KEY, $secret_key );
 
 		// Set the new HTTP user
-		update_site_option( AI1WM_AUTH_USER, $auth_user );
+		update_option( AI1WM_AUTH_USER, $auth_user );
 
 		// Set the new HTTP password
-		update_site_option( AI1WM_AUTH_PASSWORD, $auth_password );
+		update_option( AI1WM_AUTH_PASSWORD, $auth_password );
 
 		return $params;
 	}

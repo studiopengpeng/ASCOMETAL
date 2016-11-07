@@ -65,7 +65,7 @@ else {
 
 
 
-                <?php if ($files): ?>
+                <?php // if ($files): ?>
                     <script type="text/javascript">
 
 
@@ -96,7 +96,7 @@ else {
                     </script>
 
 
-                <?php endif; ?>
+                <?php //endif; ?>
 
 
             </div>

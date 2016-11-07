@@ -18,13 +18,51 @@ class WPML_Fix_Type_Assignments extends WPML_WPDB_And_SP_User {
 	 * @return int Number of rows in icl_translations that were fixed
 	 */
 	public function run() {
-		$rows_fixed = $this->fix_missing_original();
+		$rows_fixed = $this->fix_broken_duplicate_rows();
+		$rows_fixed += $this->fix_missing_original();
 		$rows_fixed += $this->fix_wrong_source_language();
 		$rows_fixed += $this->fix_broken_taxonomy_assignments();
 		$rows_fixed += $this->fix_broken_post_assignments();
 		$rows_fixed += $this->fix_broken_type_assignments();
 		icl_cache_clear();
 		wp_cache_init();
+
+		return $rows_fixed;
+	}
+
+	/**
+	 * Deletes rows from icl_translations that are duplicated in terms of their
+	 * element id and within their meta type ( post,taxonomy,package ...),
+	 * with the duplicate actually being of the correct type.
+	 *
+	 * @return int number of rows fixed
+	 */
+	private function fix_broken_duplicate_rows() {
+
+		$rows_fixed = $this->wpdb->query( "
+			DELETE t
+			FROM {$this->wpdb->prefix}icl_translations i
+			  JOIN {$this->wpdb->prefix}icl_translations t
+			    ON i.element_id = t.element_id
+			       AND SUBSTRING_INDEX(i.element_type, '_', 1) =
+			           SUBSTRING_INDEX(t.element_type, '_', 1)
+			       AND i.element_type != t.element_type
+			       AND i.translation_id != t.translation_id
+			  JOIN (SELECT
+			          CONCAT('post_', p.post_type) AS element_type,
+			          p.ID                         AS element_id
+			        FROM {$this->wpdb->posts} p
+			        UNION ALL
+			        SELECT
+			          CONCAT('tax_', tt.taxonomy) AS element_type,
+			          tt.term_taxonomy_id         AS element_id
+			        FROM {$this->wpdb->term_taxonomy} tt) AS data
+			    ON data.element_id = i.element_id
+			       AND data.element_type = i.element_type" );
+
+		if( 0 < $rows_fixed ) {
+			do_action( 'wpml_translation_update', array( 'type' => 'delete', 'rows_affected' => $rows_fixed ) );
+		}
 
 		return $rows_fixed;
 	}
@@ -38,12 +76,25 @@ class WPML_Fix_Type_Assignments extends WPML_WPDB_And_SP_User {
 	 */
 	private function fix_broken_taxonomy_assignments() {
 
-		return $this->wpdb->query( "UPDATE {$this->wpdb->prefix}icl_translations t
+		$rows_fixed = $this->wpdb->query( "UPDATE {$this->wpdb->prefix}icl_translations t
 									JOIN {$this->wpdb->term_taxonomy} tt
 										ON tt.term_taxonomy_id = t.element_id
 											AND t.element_type LIKE 'tax%'
 											AND t.element_type <> CONCAT('tax_', tt.taxonomy)
 									SET t.element_type = CONCAT('tax_', tt.taxonomy)" );
+
+		if( 0 < $rows_fixed ) {
+			do_action(
+				'wpml_translation_update',
+				array(
+					'context' => 'tax',
+					'type' => 'element_type_update',
+					'rows_affected' => $rows_fixed
+				)
+			);
+		}
+
+		return $rows_fixed;
 	}
 
 	/**
@@ -55,12 +106,25 @@ class WPML_Fix_Type_Assignments extends WPML_WPDB_And_SP_User {
 	 */
 	private function fix_broken_post_assignments() {
 
-		return $this->wpdb->query( "UPDATE {$this->wpdb->prefix}icl_translations t
+		$rows_fixed = $this->wpdb->query( "UPDATE {$this->wpdb->prefix}icl_translations t
 									JOIN {$this->wpdb->posts} p
 										ON p.ID = t.element_id
 											AND t.element_type LIKE 'post%'
 											AND t.element_type <> CONCAT('post_', p.post_type)
 									SET t.element_type = CONCAT('post_', p.post_type)" );
+
+		if( 0 < $rows_fixed ) {
+			do_action(
+				'wpml_translation_update',
+				array(
+					'context' => 'tax',
+					'type' => 'element_type_update',
+					'rows_affected' => $rows_fixed
+				)
+			);
+		}
+
+		return $rows_fixed;
 	}
 
 	/**
@@ -72,13 +136,25 @@ class WPML_Fix_Type_Assignments extends WPML_WPDB_And_SP_User {
 	 */
 	private function fix_broken_type_assignments() {
 
-		return $this->wpdb->query( "UPDATE {$this->wpdb->prefix}icl_translations t
+		$rows_fixed = $this->wpdb->query( "UPDATE {$this->wpdb->prefix}icl_translations t
 									JOIN {$this->wpdb->prefix}icl_translations c
 										ON c.trid = t.trid
 											AND c.language_code != t.language_code
 									SET t.element_type = c.element_type
 									WHERE c.source_language_code IS NULL
 										AND t.source_language_code IS NOT NULL" );
+
+		if( 0 < $rows_fixed ) {
+			do_action(
+				'wpml_translation_update',
+				array(
+					'type' => 'element_type_update',
+					'rows_affected' => $rows_fixed
+				)
+			);
+		}
+
+		return $rows_fixed;
 	}
 
 	/**
@@ -113,7 +189,7 @@ class WPML_Fix_Type_Assignments extends WPML_WPDB_And_SP_User {
 				GROUP BY iclt.trid" );
 		$rows_affected   = 0;
 		foreach ( $broken_elements as $element ) {
-			$rows_affected += $this->wpdb->query(
+			$rows_affected_per_element = $this->wpdb->query(
 				$this->wpdb->prepare(
 					"UPDATE {$this->wpdb->prefix}icl_translations
 					 SET source_language_code = NULL
@@ -122,6 +198,15 @@ class WPML_Fix_Type_Assignments extends WPML_WPDB_And_SP_User {
 					$element->element_id
 				)
 			);
+
+			if( 0 < $rows_affected_per_element ) {
+				do_action(
+					'wpml_translation_update',
+					array( 'trid' => $element->trid )
+				);
+			}
+
+			$rows_affected += $rows_affected_per_element;
 		}
 
 		return $rows_affected;

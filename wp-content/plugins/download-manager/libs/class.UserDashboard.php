@@ -32,6 +32,7 @@ class UserDashboard
         $udb_page = isset($wp_query->query_vars['udb_page'])?$wp_query->query_vars['udb_page']:'';
         $udb_page_parts = explode("/", $udb_page);
         $udb_page = $udb_page_parts[0];
+        $udb_page_parts = array_merge($udb_page_parts, $params);
         if(isset($this->dashboard_menu[$udb_page]['callback']))
             $dashboard_contents = call_user_func($this->dashboard_menu[$udb_page]['callback'], $udb_page_parts);
         else if(isset($this->dashboard_menu[$udb_page]['shortcode']))
@@ -44,7 +45,7 @@ class UserDashboard
         include_once wpdm_tpl_path('wpdm-dashboard.php');
     }
 
-    function Profile(){
+    function Profile($params = array()){
         ob_start();
         include_once wpdm_tpl_path('user-dashboard/profile.php');
         return ob_get_clean();

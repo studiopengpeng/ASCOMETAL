@@ -77,9 +77,17 @@ function wpdm_file_browser(){
                         var ext = file.split('.');
                         ext = ext[ext.length - 1];
                         var icon = "<?php echo WPDM_BASE_URL; ?>assets/file-type-icons/" + ext + ".png";
+
+                        var title = filename;
+                        title = title.replace(/\.([\w]+)$/, '');
+                        title = title.replace(/[_|\-]/g, ' ');
+
                         html = html.replace(/##filepath##/g, file);
+                        html = html.replace(/##filetitle##/g, title);
                         html = html.replace(/##fileindex##/g, ID);
                         html = html.replace(/##preview##/g, icon);
+
+
                         jQuery('#currentfiles').prepend(html);
                         <?php } else { ?>
                         jQuery('#wpdm-files').dataTable().fnAddData([

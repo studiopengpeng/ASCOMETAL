@@ -2,9 +2,9 @@
 Contributors: takayukister
 Donate link: http://contactform7.com/donate/
 Tags: captcha
-Requires at least: 3.9
-Tested up to: 4.1
-Stable tag: 1.8.0.1
+Requires at least: 4.4
+Tested up to: 4.5.1
+Stable tag: 1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -91,6 +91,13 @@ If you have any further questions, please submit them [to the support forum](htt
 
 == Changelog ==
 
+= 1.9 =
+
+* Change the default file mode: 0644 for image and 0640 for answer.
+* Add "Text Domain" field to the plugin header.
+* Update bundled font: Gentium Basic 1.102.
+* Add $max argument to cleanup() to prevent an endless file cleanup.
+
 = 1.8.0.1 =
 
 * The required WordPress version changed to 3.9 and higher.
@@ -99,4 +106,4 @@ If you have any further questions, please submit them [to the support forum](htt
 = 1.8 =
 
 * The required WordPress version changed to 3.7 and higher.
-* Introduce normalize_path() to normalize file paths on different file systems.
+* Introduce normalize_path() to normalize file paths on different file systems.

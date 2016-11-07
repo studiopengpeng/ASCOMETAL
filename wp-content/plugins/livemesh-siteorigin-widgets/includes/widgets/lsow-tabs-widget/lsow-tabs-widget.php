@@ -16,7 +16,7 @@ class LSOW_Tabs_Widget extends SiteOrigin_Widget {
             array(
                 'description' => __('Display tabbed content in variety of styles.', 'livemesh-so-widgets'),
                 'panels_icon' => 'dashicons dashicons-minus',
-                'help' => 'http://portfoliotheme.org/widgets-bundle/tab-widget-documentation/'
+                'help' => LSOW_PLUGIN_HELP_URL. '#tabs-accordions'
             ),
             array(),
             array(
@@ -139,7 +139,7 @@ class LSOW_Tabs_Widget extends SiteOrigin_Widget {
             array(
                 array(
                     'lsow-tabs',
-                    plugin_dir_url(__FILE__) . 'js/tabs' . SOW_BUNDLE_JS_SUFFIX . '.js',
+                    plugin_dir_url(__FILE__) . 'js/tabs' . LSOW_JS_SUFFIX . '.js',
                     array('jquery')
                 ),
             )

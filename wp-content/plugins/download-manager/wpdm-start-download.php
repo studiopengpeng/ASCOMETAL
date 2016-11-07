@@ -9,7 +9,7 @@ global $current_user, $dfiles;
 $speed = 1024; //in KB - default 1 MB
 $speed = apply_filters('wpdm_download_speed', $speed);
 
-get_currentuserinfo();
+ 
 
 if(in_array($package['post_status'], array('draft','inherit','trash','pending'))) wp_die(__('Package is not available!', 'wpdmpro'));
 

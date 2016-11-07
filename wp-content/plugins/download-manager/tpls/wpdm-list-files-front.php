@@ -2,7 +2,7 @@
 global $wpdb, $current_user, $wp_query;
 
 $limit = 10;
-get_currentuserinfo(); 
+ 
 $cond[] = "uid='{$current_user->ID}'";
 $Q = wpdm_query_var('q','txt');
 $paged = $wp_query->query_vars['paged']?$wp_query->query_vars['paged']:1;

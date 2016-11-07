@@ -27,33 +27,6 @@ class Ai1wm_Import_Confirm {
 
 	public static function execute( $params ) {
 
-		// Obtain the name of the archive
-		$name = ai1wm_archive_name( $params );
-
-		// Obtain the size of the archive
-		$size = ai1wm_archive_bytes( $params );
-
-		// Check file size of the archive
-		if ( false === $size ) {
-			throw new Ai1wm_Not_Accesible_Exception(
-				__( "Unable to get the file size of <strong>{$name}</strong>", AI1WM_PLUGIN_NAME )
-			);
-		}
-
-		$allowed_size = apply_filters( 'ai1wm_max_file_size', AI1WM_MAX_FILE_SIZE );
-
-		// Let's check the size of the file to make sure it is less than the maximum allowed
-		if ( ( $allowed_size > 0 ) && ( $size > $allowed_size ) ) {
-			throw new Ai1wm_Import_Exception(
-				__(
-					"The file that you are trying to import is over the maximum upload file size limit of {$allowed_size}.<br />" .
-					"You can remove this restriction by purchasing our " .
-					"<a href=\"https://servmask.com/products/unlimited-extension\" target=\"_blank\">Unlimited Extension</a>.",
-					AI1WM_PLUGIN_NAME
-				)
-			);
-		}
-
 		// Set progress
 		Ai1wm_Status::confirm( __(
 			'The import process will overwrite your database, media, plugins, and themes. ' .

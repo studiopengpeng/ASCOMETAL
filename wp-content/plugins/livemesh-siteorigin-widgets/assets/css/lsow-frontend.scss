@@ -11,7 +11,7 @@
   }
 
 .lsow-container {
-  ol, ul, ol li, ul li, ol:hover, ul:hover, ul li:hover, ol li:hover, ol li a, ul li a, ol li a:hover, ul li a:hover, img {
+  ol, ul, ol > li, ul > li, ol:hover, ul:hover, ul > li:hover, ol > li:hover, ol > li > a, ul > li > a, ol > li > a:hover, ul > li > a:hover, img {
     padding: 0;
     margin: 0;
     border: none;
@@ -27,6 +27,8 @@
     }
   img {
     max-width: 100%;
+    width: auto;
+    height: auto;
   }
   }
 
@@ -239,6 +241,16 @@ $grid-columns: 12;
 /* --------------- Flexslider Styles -------------- */
 
 .lsow-container {
+  .lsow-thumbnailslider.lsow-flexslider {
+    margin: 0;
+    }
+  .lsow-thumbnailslider.lsow-flexslider .lsow-slide {
+    margin: 0 5px;
+    }
+  .lsow-flex-direction-nav {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
   .lsow-flex-direction-nav li {
     position: initial;
   }
@@ -260,16 +272,14 @@ $grid-columns: 12;
     text-align: center;
     color: #aaa;
     @include vendorize(transition, all 0.3s ease-in-out 0s);
-    &:before, &:hover:before {
+    outline: none;
+    &:before {
       margin: 2px;
       vertical-align: middle;
       display: inline;
       font-family: inherit !important;
       opacity: 1;
     }
-    &:hover {
-      color: #888;
-      }
     .lsow-dark-bg & {
       color: #888;
       &:hover {
@@ -297,6 +307,8 @@ $grid-columns: 12;
     position: absolute;
     bottom: -40px;
     text-align: center;
+    padding: 0 !important;
+    margin: 0 !important;
     li, li:hover {
       margin: 0 8px 0 0;
       padding: 0;
@@ -313,7 +325,7 @@ $grid-columns: 12;
       @include vendorize(transition, all 0.2s ease-in 0s);
       display: inline-block;
       vertical-align: middle;
-
+      outline: none;
       .lsow-dark-bg & {
         background: #ccc;
         border-color: #ccc;
@@ -360,6 +372,7 @@ $grid-columns: 12;
     @include vendorize(transition, all 0.3s ease-in-out 0s);
     overflow: hidden;
     box-shadow: none;
+    outline: none;
     &:before {
       margin: 2px;
       vertical-align: middle;
@@ -393,10 +406,13 @@ $grid-columns: 12;
   ul.slick-dots {
     width: 100%;
     position: absolute;
-    bottom: -40px;
+    bottom: -30px;
     text-align: center;
+    padding: 0 !important;
+    margin: 0 !important;
     li {
-      margin: 0 8px 0 0;
+      margin: 0 8px 0 0 !important;
+      padding: 0 !important;
       display: inline-block;
       font-size: 0;
       }
@@ -408,16 +424,21 @@ $grid-columns: 12;
       width: 12px;
       height: 12px;
       box-shadow: none;
-      @include vendorize(transition, all 0.3s ease-in-out 0s);
+      @include vendorize(transition, background 0.3s ease-in-out 0s);
       font-size: 0;
+      outline: none;
       .lsow-dark-bg & {
         background: #888 !important;
         border-color: #888 !important;
         }
       }
-    li button:hover {
+    li button:hover, li.slick-active button {
       background: none !important;
       border-color: #aaa !important;
+      }
+    li.slick-active button {
+      width: 14px;
+      height: 14px;
       }
     }
   }
@@ -434,3 +455,171 @@ $grid-columns: 12;
     line-height: 44px;
     }
   }
+
+/*------------- Powertip Tooltip ----------- */
+
+/* PowerTip Plugin */
+#powerTip {
+  cursor: default;
+  background-color: #333;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 6px;
+  color: #fff;
+  display: none;
+  padding: 10px;
+  position: absolute;
+  white-space: nowrap;
+  z-index: 2147483647;
+  }
+#powerTip:before {
+  content: "";
+  position: absolute;
+  }
+#powerTip.n:before, #powerTip.s:before {
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  left: 50%;
+  margin-left: -5px;
+  }
+#powerTip.e:before, #powerTip.w:before {
+  border-bottom: 5px solid transparent;
+  border-top: 5px solid transparent;
+  margin-top: -5px;
+  top: 50%;
+  }
+#powerTip.n:before {
+  border-top: 10px solid #333;
+  border-top: 10px solid rgba(0, 0, 0, 0.8);
+  bottom: -10px;
+  }
+#powerTip.e:before {
+  border-right: 10px solid #333;
+  border-right: 10px solid rgba(0, 0, 0, 0.8);
+  left: -10px;
+  }
+#powerTip.s:before {
+  border-bottom: 10px solid #333;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.8);
+  top: -10px;
+  }
+#powerTip.w:before {
+  border-left: 10px solid #333;
+  border-left: 10px solid rgba(0, 0, 0, 0.8);
+  right: -10px;
+  }
+#powerTip.ne:before, #powerTip.se:before {
+  border-right: 10px solid transparent;
+  border-left: 0;
+  left: 10px;
+  }
+#powerTip.nw:before, #powerTip.sw:before {
+  border-left: 10px solid transparent;
+  border-right: 0;
+  right: 10px;
+  }
+#powerTip.ne:before, #powerTip.nw:before {
+  border-top: 10px solid #333;
+  border-top: 10px solid rgba(0, 0, 0, 0.8);
+  bottom: -10px;
+  }
+#powerTip.se:before, #powerTip.sw:before {
+  border-bottom: 10px solid #333;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.8);
+  top: -10px;
+  }
+#powerTip.nw-alt:before, #powerTip.ne-alt:before,
+#powerTip.sw-alt:before, #powerTip.se-alt:before {
+  border-top: 10px solid #333;
+  border-top: 10px solid rgba(0, 0, 0, 0.8);
+  bottom: -10px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  left: 10px;
+  }
+#powerTip.ne-alt:before {
+  left: auto;
+  right: 10px;
+  }
+#powerTip.sw-alt:before, #powerTip.se-alt:before {
+  border-top: none;
+  border-bottom: 10px solid #333;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.8);
+  bottom: auto;
+  top: -10px;
+  }
+#powerTip.se-alt:before {
+  left: auto;
+  right: 10px;
+  }
+
+
+/* --------------- Button CSS -------------------- */
+
+input.lsow-button, button.lsow-button, a.lsow-button, .lsow-button:active, .lsow-button:visited {
+  display: inline-block;
+  text-align: center;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-appearance: none;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 16px 40px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: #f94213;
+  color: #fefefe;
+  outline: none;
+  @include vendorize(transition, all 0.4s ease-in-out 0s);
+  &.lsow-rounded {
+    border-radius: 999px;
+    }
+  &.lsow-large {
+    padding: 20px 60px;
+    }
+  &.lsow-small {
+    padding: 12px 25px;
+    font-size: 11px;
+    }
+  &:hover {
+    background-color: #f9633e;
+    color: #fefefe;
+    }
+  }
+$skin-names: ("black", "blue", "cyan", "green", "orange", "pink", "red", "teal");
+$color-collection: (#363636, #46a5d5, #57c0dc, #00a57d, #e87151, #dd5679, #da4f49, #28c2ba);
+
+@for $i from 0 to length($skin-names) {
+  $skin-name: nth($skin-names, $i+1);
+  $skin-color: nth($color-collection, $i+1);
+  .lsow-button.lsow-#{$skin-name} {
+    background-color: $skin-color;
+    }
+  .lsow-button.lsow-#{$skin-name}:hover {
+    background-color: lighten($skin-color, 5%);
+    }
+  }
+.lsow-button.lsow-trans {
+  color: #333;
+  background-color: transparent; /* IE */
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid #a5a5a5;
+  &:hover {
+    background-color: #fff;
+    color: #333 !important;
+    border-color: #fff;
+    }
+  }
+.lsow-button.lsow-semitrans {
+  color: #fff;
+  background-color: transparent; /* IE */
+  background-color: rgba(125, 125, 125, 0.5);
+  &:hover {
+    background-color: #fff;
+    color: #333 !important;
+    }
+  }
+

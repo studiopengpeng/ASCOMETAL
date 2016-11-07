@@ -16,7 +16,7 @@ class LSOW_Odometer_Widget extends SiteOrigin_Widget {
             array(
                 'description' => __('Display statistics as animated odometers in a multi-column grid.', 'livemesh-so-widgets'),
                 'panels_icon' => 'dashicons dashicons-minus',
-                'help' => 'http://portfoliotheme.org/widgets-bundle/odometer-widget-documentation/'
+                'help' => LSOW_PLUGIN_HELP_URL. '#statistics-widgets'
             ),
             array(),
             array(
@@ -125,13 +125,13 @@ class LSOW_Odometer_Widget extends SiteOrigin_Widget {
             array(
                 array(
                     'lsow-waypoints',
-                    LSOW_PLUGIN_URL . 'assets/js/jquery.waypoints' . SOW_BUNDLE_JS_SUFFIX . '.js',
+                    LSOW_PLUGIN_URL . 'assets/js/jquery.waypoints' . LSOW_JS_SUFFIX . '.js',
                     array('jquery'),
                     LSOW_VERSION
                 ),
                 array(
                     'lsow-stats',
-                    LSOW_PLUGIN_URL . 'assets/js/jquery.stats' . SOW_BUNDLE_JS_SUFFIX . '.js',
+                    LSOW_PLUGIN_URL . 'assets/js/jquery.stats' . LSOW_JS_SUFFIX . '.js',
                     array('jquery'),
                     LSOW_VERSION
                 ),
@@ -143,7 +143,7 @@ class LSOW_Odometer_Widget extends SiteOrigin_Widget {
             array(
                 array(
                     'lsow-odometers',
-                    plugin_dir_url(__FILE__) . 'js/odometer' . SOW_BUNDLE_JS_SUFFIX . '.js',
+                    plugin_dir_url(__FILE__) . 'js/odometer' . LSOW_JS_SUFFIX . '.js',
                     array('jquery')
                 )
             )

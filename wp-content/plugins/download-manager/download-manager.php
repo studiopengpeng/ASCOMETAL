@@ -4,7 +4,7 @@ Plugin Name: Download Manager
 Plugin URI: http://www.wpdownloadmanager.com/purchases/
 Description: Manage, Protect and Track File Downloads from your WordPress site
 Author: Shaon
-Version: 4.5.4
+Version: 4.5.5
 Author URI: http://www.wpdownloadmanager.com/
 */
 
@@ -14,7 +14,7 @@ namespace WPDM;
 if(!isset($_SESSION))
 @session_start();
 
-define('WPDM_Version','4.5.4');
+define('WPDM_Version','4.5.5');
 
 $content_dir = str_replace('\\','/',WP_CONTENT_DIR);
 
@@ -337,7 +337,7 @@ class WordPressDownloadManager{
         $class_file = end($parts);
         if(file_exists(WPDM_BASE_DIR."libs/class.{$name}.php")){
             require_once WPDM_BASE_DIR."libs/class.{$name}.php";
-        } else if(file_exists(WPDM_BASE_DIR.str_replace($class_file, 'class.'.$class_file.'.php', $relative_path))){
+        } else if(file_exists(WPDM_BASE_DIR.str_replace($class_file, 'class.'.$class_file.'.php', $relative_path))){             
             require_once WPDM_BASE_DIR.str_replace($class_file, 'class.'.$class_file.'.php', $relative_path);
         }
     }

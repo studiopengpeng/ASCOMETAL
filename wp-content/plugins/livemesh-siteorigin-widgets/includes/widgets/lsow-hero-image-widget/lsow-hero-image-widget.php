@@ -16,7 +16,7 @@ class LSOW_Hero_Image_Widget extends SiteOrigin_Widget {
             array(
                 'description' => __('Display a hero background with video or image background.', 'livemesh-so-widgets'),
                 'panels_icon' => 'dashicons dashicons-minus',
-                'help' => 'http://portfoliotheme.org/widgets-bundle/hero-image-widget-documentation/'
+                'help' => LSOW_PLUGIN_HELP_URL. '#hero-header'
             ),
             array(),
             array(
@@ -205,7 +205,7 @@ class LSOW_Hero_Image_Widget extends SiteOrigin_Widget {
                                 'image' => array(
                                     'type' => 'media',
                                     'label' => __('Background Image', 'livemesh-so-widgets'),
-                                    'label' => __('This background image will be used as a placeholder image if YouTube or HTML5 video background option is chosen.', 'livemesh-so-widgets'),
+                                    'description' => __('This background image will be used as a placeholder image if YouTube or HTML5 video background option is chosen.', 'livemesh-so-widgets'),
                                     'library' => 'image',
                                     'fallback' => true,
                                 ),
@@ -326,7 +326,7 @@ class LSOW_Hero_Image_Widget extends SiteOrigin_Widget {
             array(
                 array(
                     'lsow-ytp',
-                    LSOW_PLUGIN_URL . 'assets/js/jquery.mb.YTPlayer' . SOW_BUNDLE_JS_SUFFIX . '.js',
+                    LSOW_PLUGIN_URL . 'assets/js/jquery.mb.YTPlayer' . LSOW_JS_SUFFIX . '.js',
                     array('jquery'),
                     LSOW_VERSION
                 ),

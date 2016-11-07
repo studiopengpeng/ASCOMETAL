@@ -14,9 +14,19 @@ if (typeof (jQuery) != 'undefined') {
             var LSOW_Frontend = {
 
                 init: function () {
+                    this.output_custom_css();
                     this.carousel();
                     this.setup_parallax();
                     this.setup_ytp();
+                },
+
+                output_custom_css: function () {
+
+                    var custom_css = lsow_settings['custom_css'];
+                    if (custom_css !== undefined && custom_css != '') {
+                        custom_css = '<style type="text/css">' + custom_css + '</style>';
+                        $('head').append(custom_css);
+                    }
                 },
 
                 isMobile: function () {
@@ -49,7 +59,7 @@ if (typeof (jQuery) != 'undefined') {
                         return;
                     }
 
-                    var carousel_elements = $('.lsow-carousel, .lsow-posts-carousel');
+                    var carousel_elements = $('.lsow-carousel, .lsow-posts-carousel, .lsow-gallery-carousel');
 
                     carousel_elements.each(function () {
 
@@ -181,7 +191,7 @@ if (typeof (jQuery) != 'undefined') {
                         containment: 'self'});
 
 
-                }
+                },
             }
 
             LSOW_Frontend.init();

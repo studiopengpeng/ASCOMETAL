@@ -6,8 +6,10 @@
     .lsow-icon-wrapper span {
       display: block;
       text-align: center;
-      font-size: 34px;
+      font-size: 96px;
+      line-height: 1;
       margin-bottom: 20px;
+      color: #aaa;
       }
     .lsow-image-wrapper img {
       display: block;
@@ -127,6 +129,9 @@
 .lsow-services {
   .lsow-service {
     margin-bottom: 50px;
+    .lsow-icon-wrapper span {
+      @include lsow-transition(color);
+      }
     .lsow-service-text {
       font-size: 15px;
       line-height: 24px;

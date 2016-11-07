@@ -110,6 +110,8 @@ html {
       line-height: 48px;
       color: #333;
       vertical-align: middle; }
+      .lsow-dark-bg .lsow-odometers .lsow-odometer .lsow-prefix, .lsow-dark-bg .lsow-odometers .lsow-odometer .lsow-suffix {
+        color: #e5e5e5; }
     .lsow-odometers .lsow-odometer .lsow-prefix {
       margin-right: 5px;
       margin-left: 5px; }

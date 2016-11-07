@@ -53,35 +53,33 @@ class Ai1wm_Database_Utility {
 		try {
 
 			// Some unserialized data cannot be re-serialized eg. SimpleXMLElements
-			if ( $data ) {
-				if ( is_serialized( $data ) && ( $unserialized = @unserialize( $data ) ) !== false ) {
-					$data = self::replace_serialized_values( $from, $to, $unserialized, true );
-				} else if ( is_array( $data ) ) {
-					$tmp = array();
-					foreach ( $data as $key => $value ) {
-						$tmp[$key] = self::replace_serialized_values( $from, $to, $value, false );
-					}
-
-					$data = $tmp;
-					unset( $tmp );
-				} elseif ( is_object( $data ) ) {
-					$tmp = $data;
-					$props = get_object_vars( $data );
-					foreach ( $props as $key => $value ) {
-						$tmp->$key = self::replace_serialized_values( $from, $to, $value, false );
-					}
-
-					$data = $tmp;
-					unset( $tmp );
-				} else {
-					if ( is_string( $data ) ) {
-						$data = str_ireplace( $from, $to, $data );
-					}
+			if ( is_serialized( $data ) && ( $unserialized = @unserialize( $data ) ) !== false ) {
+				$data = self::replace_serialized_values( $from, $to, $unserialized, true );
+			} else if ( is_array( $data ) ) {
+				$tmp = array();
+				foreach ( $data as $key => $value ) {
+					$tmp[$key] = self::replace_serialized_values( $from, $to, $value, false );
 				}
 
-				if ( $serialized ) {
-					return serialize( $data );
+				$data = $tmp;
+				unset( $tmp );
+			} elseif ( is_object( $data ) ) {
+				$tmp = $data;
+				$props = get_object_vars( $data );
+				foreach ( $props as $key => $value ) {
+					$tmp->$key = self::replace_serialized_values( $from, $to, $value, false );
 				}
+
+				$data = $tmp;
+				unset( $tmp );
+			} else {
+				if ( is_string( $data ) ) {
+					$data = str_ireplace( $from, $to, $data );
+				}
+			}
+
+			if ( $serialized ) {
+				return serialize( $data );
 			}
 
 		} catch ( Exception $e ) {

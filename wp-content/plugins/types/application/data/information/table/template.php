@@ -42,16 +42,6 @@ return array(
 							'label'  => __( 'Learn about creating templates with Toolset', 'types' ),
 							'target' => Types_Helper_Url::get_url( 'creating-templates-with-toolset', 'popup' ),
 						),
-						array(
-							'type' => 'paragraph',
-							'content' => __( 'Or...', 'types' )
-						),
-						array(
-							'type' => 'link',
-							'external' => true,
-							'label' => __( 'Instructions to create a single-%POST-TYPE-NAME%.php in PHP', 'types' ),
-							'target'  => Types_Helper_Url::get_url( 'creating-templates-with-php', 'popup' )
-						),
 					)
 				)
 			)
@@ -78,7 +68,10 @@ return array(
 			array(
 				'type'   => 'link',
 				'external' => true,
-				'label'  => __( 'Visit example %POST-LABEL-SINGULAR%', 'types' ),
+				'label'  => array(
+					'default' => __( 'Visit example %POST-LABEL-SINGULAR%', 'types' ),
+					'post-edit' => __( 'Visit this %POST-LABEL-SINGULAR%', 'types' ),
+				),
 				'target' => '%POST-PERMALINK%'
 			),
 			array(
@@ -99,16 +92,6 @@ return array(
 							'external' => true,
 							'label'  => __( 'Learn about creating templates with Toolset', 'types' ),
 							'target' => Types_Helper_Url::get_url( 'creating-templates-with-toolset', 'popup' ),
-						),
-						array(
-							'type' => 'paragraph',
-							'content' => __( 'Or...', 'types' )
-						),
-						array(
-							'type' => 'link',
-							'external' => true,
-							'label' => __( 'Instructions for adding custom fields to single-%POST-TYPE-NAME%.php in PHP', 'types' ),
-							'target'  => Types_Helper_Url::get_url( 'adding-custom-fields-with-php', 'popup' )
 						),
 					)
 				)
@@ -189,7 +172,10 @@ return array(
 			array(
 				'type'   => 'link',
 				'external' => true,
-				'label'  => __( 'Visit example %POST-LABEL-SINGULAR%', 'types' ),
+				'label'  => array(
+					'default' => __( 'Visit example %POST-LABEL-SINGULAR%', 'types' ),
+					'post-edit' => __( 'Visit this %POST-LABEL-SINGULAR%', 'types' ),
+				),
 				'target' => '%POST-PERMALINK%'
 			),
 			array(

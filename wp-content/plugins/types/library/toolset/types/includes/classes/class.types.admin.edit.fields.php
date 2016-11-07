@@ -150,6 +150,8 @@ abstract class Types_Admin_Edit_Fields extends Types_Admin_Page
 
         // Sanitize
         $form_data = wpcf_sanitize_field( $form_data );
+        
+        $required = (isset($form_data['data']['validate']['required']['active']) && $form_data['data']['validate']['required']['active'] === "1") ? __('- required','wpcf') : '';
         $form_data['id'] = $id;
 
         /**
@@ -157,9 +159,10 @@ abstract class Types_Admin_Edit_Fields extends Types_Admin_Page
          */
         $title = !empty( $form_data['name'] ) ? $form_data['name'] : __( 'Untitled', 'wpcf' );
         $title = sprintf(
-            '<span class="wpcf-legend-update">%s</span> <span class="description">(%s)</span>',
+            '<span class="wpcf-legend-update">%s</span> <span class="description">(%s)</span> <span class="wpcf_required_data">%s</span>',
             $title,
-            $field_data['title']
+            $field_data['title'],
+            $required
         );
 
         // Get init data
@@ -249,6 +252,15 @@ abstract class Types_Admin_Edit_Fields extends Types_Admin_Page
             '#pattern' => $table_row_typeproof,
             '#title' => __('Field slug', 'wpcf'),
         );
+
+        // existing field
+        if ( isset( $form_data['submitted_key'] ) ) {
+            $form_field['slug-pre-save'] = array(
+                '#type' => 'hidden',
+                '#name' => 'slug-pre-save',
+            );
+        }
+
 
         $options = $this->get_available_types($type);
         if ( empty( $options ) ) {
@@ -471,10 +483,9 @@ abstract class Types_Admin_Edit_Fields extends Types_Admin_Page
          */
         $form_field += $this->wpml($form_data);
 
-        /**
-         * Conditional display
-         */
-        $form_field = apply_filters( 'wpcf_form_field', $form_field, $form_data );
+        // Conditional display, Relevanssi integration and other modifications can be added here.
+	    // Note that form_data may contain only meta_key when the field is newly
+	    $form_field = apply_filters( 'wpcf_form_field', $form_field, $form_data, $type );
 
         /**
          * add Remove button
@@ -538,6 +549,10 @@ abstract class Types_Admin_Edit_Fields extends Types_Admin_Page
                     $form[$name]['#pattern'] = $table_row;
                 }
             }
+
+            if( $k == 'slug-pre-save' ) {
+                $form[$name]['#value'] = $form_data['slug'];
+            }
         }
         /**
          * last setup of form
@@ -568,23 +583,6 @@ abstract class Types_Admin_Edit_Fields extends Types_Admin_Page
         return $form;
     }
 
-    /**
-     * Summary.
-     *
-     * Description.
-     *
-     * @since x.x.x
-     * @access (for functions: only use if private)
-     *
-     * @see Function/method/class relied on
-     * @link URL
-     * @global type $varname Description.
-     * @global type $varname Description.
-     *
-     * @param type $var Description.
-     * @param type $var Optional. Description.
-     * @return type Description.
-     */
     protected function button_add_new( $clasess = array() )
     {
         $clasess[] = 'wpcf-fields-add-new';
@@ -599,6 +597,7 @@ abstract class Types_Admin_Edit_Fields extends Types_Admin_Page
                     'data-wpcf-id' => esc_attr($this->ct['id']),
                     'data-wpcf-message-loading' => esc_attr__('Please Wait, Loading…', 'wpcf'),
                     'data-wpcf-nonce' => wp_create_nonce('wpcf-edit-'.$this->ct['id']),
+	                // This can be wpcf-postmeta, wpcf-usermeta or wpcf-termmeta.
                     'data-wpcf-type' => $this->type,
 	                'data-wpcf-page' => wpcf_getget( 'page' )
                 ),
@@ -1199,7 +1198,19 @@ abstract class Types_Admin_Edit_Fields extends Types_Admin_Page
         ) {
             $this->verification_failed_and_die();
         }
-        echo wpcf_form_simple($this->get_field_form_data($_REQUEST['type']));
+
+        // We need to determine the field's meta_type because that will be eventually
+	    // passed through the wpcf_form_field filter in get_field_from_data().
+	    //
+	    // This information is required by the Relevanssi integration.
+        $field_kind = wpcf_getpost( 'field_kind', 'wpcf-postmeta', array( 'wpcf-postmeta', 'wpcf-usermeta', 'wpcf-termmeta' ) );
+	    $faux_form_data = array(
+	    	'meta_type' => substr( $field_kind, 5 ) // get rid of the wpcf- prefix.
+	    );
+
+	    $enlimbo_form = $this->get_field_form_data( $_REQUEST['type'], $faux_form_data );
+
+        echo wpcf_form_simple( $enlimbo_form );
         die;
     }
 
@@ -1313,7 +1324,7 @@ abstract class Types_Admin_Edit_Fields extends Types_Admin_Page
 		        $message = __( 'There is no User Field Group. Please define one first.', 'wpcf' );
 		        break;
 	        case WPCF_Field_Definition_Factory_Term::FIELD_DEFINITIONS_OPTION:
-		        $groups = wpcf_admin_fields_get_groups( WPCF_Field_Group_Term::POST_TYPE );
+		        $groups = wpcf_admin_fields_get_groups( Types_Field_Group_Term::POST_TYPE );
 		        $message = __( 'There is no Term Field Group. Please define one first.', 'wpcf' );
 		        break;
         }

@@ -7,6 +7,9 @@
 
 ?>
 
+<?php if( !empty( $instance['title'] ) ) echo $args['before_title'] . esc_html($instance['title']) . $args['after_title'] ?>
+
+
 <?php $column_style = ''; ?>
 
 <?php if ($style == 'style1'): ?>

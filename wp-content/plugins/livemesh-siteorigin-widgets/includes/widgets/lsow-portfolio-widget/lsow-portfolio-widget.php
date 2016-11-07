@@ -1,8 +1,8 @@
 <?php
 
 /*
-Widget Name: Livemesh Portfolio
-Description: Display portfolio items from Jetpack custom post types in multi-column grid.
+Widget Name: Livemesh Grid
+Description: Display posts or custom post types in a multi-column grid.
 Author: LiveMesh
 Author URI: http://portfoliotheme.org
 */
@@ -14,9 +14,9 @@ class LSOW_Portfolio_Widget extends SiteOrigin_Widget {
             'lsow-portfolio',
             __('Livemesh Grid', 'livemesh-so-widgets'),
             array(
-                'description' => __('Showcase your work or posts or any custom post types with a filterable portfolio layout. Make sure that Custom Post Types module in active in Jetpack plugin', 'livemesh-so-widgets'),
+                'description' => __('Showcase your work or posts or any custom post types with a filterable portfolio layout. Make sure that Portfolio Post Type plugin is activated', 'livemesh-so-widgets'),
                 'panels_icon' => 'dashicons dashicons-minus',
-                'help' => 'http://portfoliotheme.org/widgets-bundle/portfolio-widget-documentation/'
+                'help' => LSOW_PLUGIN_HELP_URL. '#grid-widget'
             ),
             array(),
             array(
@@ -41,7 +41,7 @@ class LSOW_Portfolio_Widget extends SiteOrigin_Widget {
                     'label' => __('Choose the taxonomy to display and filter on.', 'livemesh-so-widgets'),
                     'description' => __('Choose the taxonomy information to display for posts/portfolio and the taxonomy that is used to filter the portfolio/post. Takes effect only if no taxonomy filters are specified when building query.', 'livemesh-so-widgets'),
                     'options' => lsow_get_taxonomies_map(),
-                    'default' => 'jetpack-portfolio-type',
+                    'default' => 'portfolio_category',
                 ),
 
                 'settings' => array(
@@ -192,24 +192,42 @@ class LSOW_Portfolio_Widget extends SiteOrigin_Widget {
             array(
                 array(
                     'lsow-isotope',
-                    LSOW_PLUGIN_URL . 'assets/js/isotope.pkgd' . SOW_BUNDLE_JS_SUFFIX . '.js',
+                    LSOW_PLUGIN_URL . 'assets/js/isotope.pkgd' . LSOW_JS_SUFFIX . '.js',
                     array('jquery'),
                     LSOW_VERSION
                 ),
                 array(
                     'lsow-imagesloaded',
-                    LSOW_PLUGIN_URL . 'assets/js/imagesloaded.pkgd' . SOW_BUNDLE_JS_SUFFIX . '.js',
+                    LSOW_PLUGIN_URL . 'assets/js/imagesloaded.pkgd' . LSOW_JS_SUFFIX . '.js',
                     array('jquery'),
                     LSOW_VERSION
                 ),
             )
         );
 
+        $this->register_frontend_styles(
+            array(
+
+                array(
+                    'lsow-frontend-styles',
+                    LSOW_PLUGIN_URL . 'assets/css/lsow-frontend.css',
+                    array(),
+                    LSOW_VERSION
+                ),
+
+                array(
+                    'lsow-icomoon-styles',
+                    LSOW_PLUGIN_URL . 'assets/css/icomoon.css',
+                    array(),
+                    LSOW_VERSION
+                ),
+            )
+        );
 
         $this->register_frontend_scripts(array(
                 array(
                     'lsow-portfolio',
-                    plugin_dir_url(__FILE__) . 'js/portfolio' . SOW_BUNDLE_JS_SUFFIX . '.js',
+                    plugin_dir_url(__FILE__) . 'js/portfolio' . LSOW_JS_SUFFIX . '.js',
                     array('jquery')
                 )
             )

@@ -7,32 +7,6 @@
  * @since 2.0
  */
 
-
-if ( !function_exists( 'get_called_class' ) ) {
-
-	/**
-	 * PHP 5.2 support.
-	 *
-	 * get_called_class() is only in PHP >= 5.3, this is a workaround.
-	 *
-	 * @since 1.9
-	 */
-	function get_called_class() {
-		$bt = debug_backtrace();
-		$l = 0;
-		do {
-			$l++;
-			$lines = file( $bt[ $l ]['file'] );
-			$callerLine = $lines[ $bt[ $l ]['line'] - 1 ];
-			preg_match( '/([a-zA-Z0-9\_]+)::' . $bt[ $l ]['function'] . '/', $callerLine, $matches );
-		} while( $matches[1] === 'parent' && $matches[1] );
-
-		return $matches[1];
-	}
-}
-
-
-
 if( !function_exists( 'wpcf_getpost' ) ) {
 
 	/**
@@ -84,7 +58,7 @@ if( !function_exists( 'wpcf_getarr' ) ) {
 	 * of allowed values and returns default value if the validation fails.
 	 *
 	 * @param array $source The source array.
-	 * @param string $key The key to be retrieved from the source array.
+	 * @param string|int $key The key to be retrieved from the source array.
 	 * @param mixed $default Default value to be returned if key is not set or the value is invalid. Optional.
 	 *     Default is empty string.
 	 * @param null|array $valid If an array is provided, the value will be validated against it's elements.
@@ -167,14 +141,25 @@ if( !function_exists( 'wpcf_getnest' ) ) {
 	function wpcf_getnest( &$source, $keys = array(), $default = null ) {
 
 		$current_value = $source;
+
+		// For detecting if a value is missing in a sub-array, we'll use this temporary object.
+		// We cannot just use $default on every level of the nesting, because if $default is an
+		// (possibly nested) array itself, it might mess with the value retrieval in an unexpected way.
+		$missing_value = new stdClass();
+
 		while( ! empty( $keys ) ) {
 			$current_key = array_shift( $keys );
 			$is_last_key = empty( $keys );
 
-			$current_value = wpcf_getarr( $current_value, $current_key, null );
+			$current_value = wpcf_getarr( $current_value, $current_key, $missing_value );
 
 			if ( $is_last_key ) {
-				return $current_value;
+				// Apply given default value.
+				if( $missing_value === $current_value ) {
+					return $default;
+				} else {
+					return $current_value;
+				}
 			} elseif ( ! is_array( $current_value ) ) {
 				return $default;
 			}

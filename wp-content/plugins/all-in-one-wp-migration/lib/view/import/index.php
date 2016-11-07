@@ -33,8 +33,7 @@
 				<?php include AI1WM_TEMPLATES_PATH . '/common/report-problem.php'; ?>
 
 				<p class="ai1wm-clear">
-					<?php _e( 'Use the box below to upload the archive file.', AI1WM_PLUGIN_NAME ); ?><br />
-					<?php _e( 'When the file is successfully uploaded, it will be automatically restored on the current WordPress instance.', AI1WM_PLUGIN_NAME ); ?>
+					<?php _e( 'Use the box below to upload a wpress file.', AI1WM_PLUGIN_NAME ); ?><br />
 				</p>
 
 				<?php include AI1WM_TEMPLATES_PATH . '/import/import-buttons.php'; ?>

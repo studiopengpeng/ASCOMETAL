@@ -319,6 +319,8 @@
 
 
 
+
+
  <div class="panel panel-default">
                     <div class="panel-heading"><?php _e("Misc Settings","wpdmpro"); ?></div>
                     <div class="panel-body">
@@ -348,10 +350,40 @@
 
                 <?php do_action('basic_settings_section'); ?>
 
+ <div class="panel panel-default">
+     <div class="panel-heading"><?php _e('Cache & Stats','wpdmpro'); ?></div>
+     <div class="panel-body">
 
+         <div class="form-group">
+
+             <button type="button" id="clearCache" style="width: 200px" class="btn btn-success"><?php _e('Clear Cache Dir','wpdmpro'); ?></button>
+             <button type="button" id="clearStats" style="width: 200px" class="btn btn-danger"><?php _e('Clear Stats Data','wpdmpro'); ?></button>
+
+         </div>
+
+
+
+     </div>
+ </div>
 <script>
     jQuery(function($){
-        $('#wpdmap').change(function(){
+        $('#clearCache').on('click', function () {
+            $(this).html('<i class="fa fa-refresh fa-spin"></i>');
+            $.get(ajaxurl+'?action=clear_cache', function (res) {
+                $('#clearCache').html('<i class="fa fa-check-circle"></i>')
+            });
+            return false;
+        });
+        $('#clearStats').on('click', function () {
+            if(!confirm('Are you sure?')) return false;
+            $(this).html('<i class="fa fa-refresh fa-spin"></i>');
+            $.get(ajaxurl+'?action=clear_stats', function (res) {
+                $('#clearStats').html('<i class="fa fa-check-circle"></i>')
+            });
+            return false;
+        });
+
+    $('#wpdmap').change(function(){
 
             if(this.value==1)
                 $('#aps').slideDown();

@@ -367,6 +367,48 @@ function ai1wm_sites_path( $blog_id = null ) {
 }
 
 /**
+ * Get files absolute path by blog ID
+ *
+ * @param  integer $blog_id Blog ID
+ * @return string
+ */
+function ai1wm_files_path( $blog_id = null ) {
+	if ( ai1wm_main_site( $blog_id ) ) {
+		return AI1WM_UPLOADS_PATH;
+	}
+
+	return AI1WM_BLOGSDIR_PATH . DIRECTORY_SEPARATOR . $blog_id . DIRECTORY_SEPARATOR . 'files';
+}
+
+/**
+ * Get blogs.dir absolute path by blog ID
+ *
+ * @param  integer $blog_id Blog ID
+ * @return string
+ */
+function ai1wm_blogsdir_path( $blog_id = null ) {
+	if ( ai1wm_main_site( $blog_id ) ) {
+		return "/wp-content/blogs.dir/";
+	}
+
+	return "/wp-content/blogs.dir/{$blog_id}/files/";
+}
+
+/**
+ * Get blogs.dir URL by blog ID
+ *
+ * @param  integer $blog_id Blog ID
+ * @return string
+ */
+function ai1wm_blogsdir_url( $blog_id = null ) {
+	if ( ai1wm_main_site( $blog_id ) ) {
+		return get_site_url( $blog_id, "/wp-content/blogs.dir/" );
+	}
+
+	return get_site_url( $blog_id, "/wp-content/blogs.dir/{$blog_id}/files/" );
+}
+
+/**
  * Get uploads absolute path by blog ID
  *
  * @param  integer $blog_id Blog ID
@@ -512,16 +554,22 @@ function ai1wm_plugin_filters( $filters = array() ) {
 		$filters[] = 'plugins' . DIRECTORY_SEPARATOR . 'all-in-one-wp-migration-onedrive-extension';
 	}
 
+	// Box Extension
+	if ( defined( 'AI1WMBE_PLUGIN_BASENAME' ) ) {
+		$filters[] = 'plugins' . DIRECTORY_SEPARATOR . dirname( AI1WMBE_PLUGIN_BASENAME );
+	} else {
+		$filters[] = 'plugins' . DIRECTORY_SEPARATOR . 'all-in-one-wp-migration-box-extension';
+	}
+
 	return $filters;
 }
 
 /**
- * Get active plugins
+ * Get active ServMask plugins
  *
- * @param  array $plugins List of plugins
  * @return array
  */
-function ai1wm_active_plugins( $plugins = array() ) {
+function ai1wm_active_servmask_plugins( $plugins = array() ) {
 	// WP Migration Plugin
 	if ( defined( 'AI1WM_PLUGIN_BASENAME' ) ) {
 		$plugins[] = AI1WM_PLUGIN_BASENAME;
@@ -567,8 +615,53 @@ function ai1wm_active_plugins( $plugins = array() ) {
 		$plugins[] = AI1WMOE_PLUGIN_BASENAME;
 	}
 
+	// Box Extension
+	if ( defined( 'AI1WMBE_PLUGIN_BASENAME' ) ) {
+		$plugins[] = AI1WMBE_PLUGIN_BASENAME;
+	}
+
 	return $plugins;
 }
+
+/**
+ * Get active sitewide plugins
+ *
+ * @return array
+ */
+function ai1wm_active_sitewide_plugins() {
+	return array_keys( get_site_option( AI1WM_ACTIVE_SITEWIDE_PLUGINS, array() ) );
+}
+
+/**
+ * Get active plugins
+ *
+ * @return array
+ */
+function ai1wm_active_plugins() {
+	return array_values( get_option( AI1WM_ACTIVE_PLUGINS, array() ) );
+}
+
+/**
+ * Flush WP options cache
+ *
+ * @return void
+ */
+function ai1wm_cache_flush() {
+	// Initialize WP cache
+	wp_cache_init();
+
+	// Flush WP cache
+	wp_cache_flush();
+
+	// Set WP cache
+	wp_cache_set( 'alloptions', array(), 'options' );
+	wp_cache_set( 'notoptions', array(), 'options' );
+
+	// Delete WP cache
+	wp_cache_delete( 'alloptions', 'options' );
+	wp_cache_delete( 'notoptions', 'options' );
+}
+
 
 /**
  * URL encode
@@ -588,4 +681,75 @@ function ai1wm_urlencode( $value ) {
  */
 function ai1wm_urldecode( $value ) {
 	return is_array( $value ) ? array_map( 'ai1wm_urldecode', $value ) : urldecode( stripslashes( $value ) );
+}
+
+/**
+ * Opens a file in specified mode
+ *
+ * @param  string $file Path to the file to open
+ * @param  string $mode Mode in which to open the file
+ * @return resource
+ * @throws Exception
+ */
+function ai1wm_open( $file, $mode ) {
+	$file_handle = fopen( $file, $mode );
+
+	if ( false === $file_handle ) {
+		throw new Exception( sprintf( __( 'Unable to open %s with mode %s', AI1WM_PLUGIN_NAME ), $file, $mode ) );
+	}
+	return $file_handle;
+}
+
+/**
+ * Write contents to a file
+ *
+ * @param  resource $handle File handle to write to
+ * @param  string   $content Contents to write to the file
+ * @param  string   $file Filename that contents shall be written to
+ * @return int
+ * @throws Exception
+ */
+function ai1wm_write( $handle, $content, $file ) {
+	$write_result = fwrite( $handle, $content );
+
+	if ( false === $write_result ) {
+		throw new Exception( sprintf( __( 'Unable to write to %s.', AI1WM_PLUGIN_NAME ), $file ) );
+	}
+	return $write_result;
+}
+
+/**
+ * Closes a file handle
+ *
+ * @param  resource $handle File handle to close
+ * @return bool
+ */
+function ai1wm_close( $handle ) {
+	return @fclose( $handle );
+}
+
+/**
+ * Deletes a file
+ *
+ * @param  string $file Path to file to delete
+ * @return bool
+ */
+function ai1wm_unlink( $file ) {
+	return @unlink( $file );
+}
+
+/**
+ * Copies one file's contents to another
+ *
+ * @param  string   $source_file      File to copy the contents from
+ * @param  string   $destination_file File to copy the contents to
+ */
+function ai1wm_copy( $source_file, $destination_file ) {
+	$source_handle = ai1wm_open( $source_file, 'rb' );
+	$destination_handle = ai1wm_open( $destination_file, 'ab' );
+	while ( $buffer = fread( $source_handle, 4096 ) ) {
+		ai1wm_write( $destination_handle, $buffer, $destination_file );
+	}
+	ai1wm_close( $source_handle );
+	ai1wm_close( $destination_handle );
 }

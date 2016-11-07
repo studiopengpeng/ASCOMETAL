@@ -17,7 +17,7 @@ class LSOW_Heading_Widget extends SiteOrigin_Widget {
             array(
                 'description' => __('Create heading for display on the top of a section.', 'livemesh-so-widgets'),
                 'panels_icon' => 'dashicons dashicons-minus',
-                'help' => 'http://portfoliotheme.org/widgets-bundle/heading-widget-documentation/'
+                'help' => LSOW_PLUGIN_HELP_URL. '#heading-widget'
             ),
             array(),
             array(
@@ -39,6 +39,17 @@ class LSOW_Heading_Widget extends SiteOrigin_Widget {
                         'style2' => __('Style 2', 'livemesh-so-widgets'),
                         'style3' => __('Style 3', 'livemesh-so-widgets'),
                     )
+                ),
+                'align' => array(
+                    'type' => 'select',
+                    'description' => __('Alignment of the heading.', 'livemesh-so-widgets'),
+                    'label' => __('Align', 'livemesh-so-widgets'),
+                    'options' => array(
+                        'center' => __('Center', 'livemesh-so-widgets'),
+                        'left' => __('Left', 'livemesh-so-widgets'),
+                        'right' => __('Right', 'livemesh-so-widgets'),
+                    ),
+                    'default' => 'center'
                 ),
 
                 'heading' => array(
@@ -84,6 +95,7 @@ class LSOW_Heading_Widget extends SiteOrigin_Widget {
     function get_template_variables($instance, $args) {
         return array(
             'style' => $instance['style'],
+            'align' => $instance['align'],
             'heading' => $instance['heading'],
             'short_text' => !empty($instance['short_text']) ? $instance['short_text'] : '',
             'subtitle' => !empty($instance['subtitle']) ? $instance['subtitle'] : ''

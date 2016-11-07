@@ -45,6 +45,8 @@ class Apply {
         if(!is_admin()) return;
         add_action('save_post', array( $this, 'DashboardPages' ));
         add_action( 'admin_init', array($this, 'sfbAccess'));
+        add_action( 'wp_ajax_clear_cache', array($this, 'clearCache'));
+        add_action( 'wp_ajax_clear_stats', array($this, 'clearStats'));
 
     }
 
@@ -413,7 +415,7 @@ class Apply {
     {
 
         global $wpdb, $current_user, $wp_query;
-        get_currentuserinfo();
+         
         if (!isset($wp_query->query_vars['wpdmdl']) && !isset($_GET['wpdmdl'])) return;
         $id = isset($_GET['wpdmdl']) ? (int)$_GET['wpdmdl'] : (int)$wp_query->query_vars['wpdmdl'];
         if ($id <= 0) return;
@@ -580,6 +582,19 @@ class Apply {
             $query->set('post_type', $post_type);
         }
         return $query;
+    }
+
+    function clearCache(){
+        if(!current_user_can('manage_options')) return;
+        \WPDM\FileSystem::deleteFiles(WPDM_CACHE_DIR, false);
+        die('ok');
+    }
+
+    function clearStats(){
+        if(!current_user_can('manage_options')) return;
+        global $wpdb;
+        $wpdb->query('truncate table '.$wpdb->prefix.'ahm_stats');
+        die('ok');
     }
 
 
