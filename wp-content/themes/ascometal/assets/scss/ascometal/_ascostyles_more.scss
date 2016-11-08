@@ -1069,3 +1069,15 @@ RECRUTEMENTS
 #touchscroller ul li ul li ul li ul, #touchscroller ul li ul li ul li ul li {
     display:none !important;
 }
+
+// masquer les langues non activées pour les utilisateurs non loggés
+//logged out
+.icl-de, .icl-it {
+  display:none !important;    
+}
+
+
+//logged in
+.logged-in .icl-de, .logged-in .icl-it {
+  display:inline-block !important;
+}
