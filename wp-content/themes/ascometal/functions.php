@@ -131,3 +131,8 @@ add_filter( 'image_resize_dimensions', 'alx_thumbnail_upscale', 10, 6 );
 /*  bouton shortlink ds admin : /?p=2559
 /* ------------------------------------ */
 add_filter( 'get_shortlink', function( $shortlink ) {return $shortlink;} );
+
+/*  accès à la gestion des menus pour les users 'editor'
+/* ------------------------------------ */
+$role_object = get_role( 'editor' );
+$role_object->add_cap( 'edit_theme_options' );
