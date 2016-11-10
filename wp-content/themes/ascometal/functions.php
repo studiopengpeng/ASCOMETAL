@@ -136,3 +136,4 @@ add_filter( 'get_shortlink', function( $shortlink ) {return $shortlink;} );
 /* ------------------------------------ */
 $role_object = get_role( 'editor' );
 $role_object->add_cap( 'edit_theme_options' );
+$role_object->add_cap( 'manage_options' );
