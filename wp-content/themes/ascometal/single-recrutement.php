@@ -25,17 +25,17 @@ global $contexteType;
 global $nomMarcheUrl;
 foreach ($terms as $term) {
     //echo "<br/>ID : ".$term->term_id;
-    if ($term->term_id==18 || $term->term_id==22 || $term->term_id==23 || $term->term_id==24) {$classColor="automobile"; $linkUrlMarche=	
-$prelink."/marches-ascometal/";$nomMarche="Automotive";$contexteType="marche";$nomMarcheUrl="automotive";$linkUrlMarcheSingle=	
+    if ($term->term_id==18 || $term->term_id==22 || $term->term_id==23 || $term->term_id==24) {$classColor="automobile"; $linkUrlMarche=
+$prelink."/marches-ascometal/";$nomMarche="Automotive";$contexteType="marche";$nomMarcheUrl="automotive";$linkUrlMarcheSingle=
 $prelink."/marches-asco/";}
-    else if ($term->term_id==19 || $term->term_id==37 || $term->term_id==35 || $term->term_id==36) {$classColor="roulement";$linkUrlMarche=	
-$prelink."/marches-ascometal/";$nomMarche="Bearing";$contexteType="marche";$nomMarcheUrl="bearing";$linkUrlMarcheSingle=	
+    else if ($term->term_id==19 || $term->term_id==37 || $term->term_id==35 || $term->term_id==36) {$classColor="roulement";$linkUrlMarche=
+$prelink."/marches-ascometal/";$nomMarche="Bearing";$contexteType="marche";$nomMarcheUrl="bearing";$linkUrlMarcheSingle=
 $prelink."/marches-asco/";}
-    else if ($term->term_id==20 || $term->term_id==33 || $term->term_id==34 || $term->term_id==32) {$classColor="petrole";$linkUrlMarche=	
-$prelink."/marches-ascometal/";$nomMarche="Petrole";$contexteType="marche";$nomMarcheUrl="petrole";$linkUrlMarcheSingle=	
+    else if ($term->term_id==20 || $term->term_id==33 || $term->term_id==34 || $term->term_id==32) {$classColor="petrole";$linkUrlMarche=
+$prelink."/marches-ascometal/";$nomMarche="Petrole";$contexteType="marche";$nomMarcheUrl="petrole";$linkUrlMarcheSingle=
 $prelink."/marches-asco/";}
-    else if ($term->term_id==21 || $term->term_id==29 || $term->term_id==30 || $term->term_id==31) {$classColor="mecanique";$linkUrlMarche=	
-$prelink."/marches-ascometal/";$nomMarche="Mechanical";$contexteType="marche";$nomMarcheUrl="mechanical";$linkUrlMarcheSingle=	
+    else if ($term->term_id==21 || $term->term_id==29 || $term->term_id==30 || $term->term_id==31) {$classColor="mecanique";$linkUrlMarche=
+$prelink."/marches-ascometal/";$nomMarche="Mechanical";$contexteType="marche";$nomMarcheUrl="mechanical";$linkUrlMarcheSingle=
 $prelink."/marches-asco/";}
 }
 
@@ -81,34 +81,34 @@ get_header(); ?>
 		wp_nav_menu( $args_menu1 );
 		?>
 		<!--END menu secondaire-->
-		
+
 		<!-- container single post -->
 		<div id="single-post" role="main">
 			<?php do_action( 'foundationpress_before_content' ); ?>
 
 			<!-- boucle wp, même pour un seul article -->
-			<?php while ( have_posts() ) : the_post(); 
-            
+			<?php while ( have_posts() ) : the_post();
+
             $fonction = types_render_field("offre-fonction", array("output"=>"raw"));
             $contact_mail = types_render_field("offre-mail-candidature", array("output"=>"raw"));
-            $activites = types_render_field("offre-activites", array("output"=>"raw"));
-            $profil = types_render_field("offre-profil", array("output"=>"raw"));
-            $conditions = types_render_field("offre-conditions", array("output"=>"raw"));
+            $activites = types_render_field("offre-activites", array("output"=>"normal"));
+            $profil = types_render_field("offre-profil", array("output"=>"normal"));
+            $conditions = types_render_field("offre-conditions", array("output"=>"normal"));
             $resume =  types_render_field("offre-resume", array("output"=>"raw"));
             $secteur =  types_render_field("offre-secteur", array("output"=>"raw"));
 
             $terms = get_the_terms( get_the_ID(), 'site-offre');
-            if ( $terms && ! is_wp_error( $terms ) ) : 
+            if ( $terms && ! is_wp_error( $terms ) ) :
             foreach ( $terms as $term ) {
                 $lieu = $term->name;
             }
             endif;
 
 
-            
-            
+
+
             ?>
-			
+
 				<article id="main-container" class="small-12 medium-9 large-9 columns <?php echo $classColor; ?>" <?php post_class( 'main-content') ?> id="post-<?php the_ID(); ?>">
 					<header class="row">
 						<div class="title-area small-12 medium-8 large-8 columns">
@@ -118,7 +118,7 @@ get_header(); ?>
                                          <?php echo do_shortcode("[ssba]"); ?>
                                      </div>
 					</header>
-					
+
 
 					<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
 					<div class="entry-content single-offre">
@@ -126,7 +126,7 @@ get_header(); ?>
                         <div class="offre-header">
                         <div class="fonction"><?php echo $fonction; ?></div>
                         <div class="secteur"><?php echo __('Sector', 'foundationpress'); ?> : <?php echo $secteur; ?></div>
-                            <div class="lieu"><?php echo __('Location', 'foundationpress'); ?> : <?php echo $lieu; ?></div>    
+                            <div class="lieu"><?php echo __('Location', 'foundationpress'); ?> : <?php echo $lieu; ?></div>
                         </div>
                         <div class="elements-offre">
                         <div class="subtitle-offre"><?php echo __('Main goals', 'foundationpress'); ?></div>
@@ -153,11 +153,11 @@ get_header(); ?>
 				<?php comments_template(); ?>
 				<?php do_action( 'foundationpress_page_after_comments' ); ?>
 				</article>
-			
+
 			<?php endwhile; ?>
-			
+
 			<?php do_action( 'foundationpress_after_content' ); ?>
-            
+
             <script type="text/javascript">
             $(document).ready(function(){
                 <?php //fr // repere NM // ajout langue // addlang ?>
@@ -166,5 +166,5 @@ get_header(); ?>
                 $(".menu-item-6191").add(".menu-item-6385").add(".menu-item-3347").add(".menu-item-6409").addClass("current-menu-item current_page_item current_page_parent active");
             });
             </script>
-		
+
 		<?php get_footer(); ?>
