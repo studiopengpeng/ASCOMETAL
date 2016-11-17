@@ -1072,12 +1072,11 @@ RECRUTEMENTS
 
 // masquer les langues non activées pour les utilisateurs non loggés
 //logged out
-.icl-de, .icl-it {
-  display:none !important;    
-}
-
+//.icl-de, .icl-it {
+//  display:none !important;    
+//}
 
 //logged in
-.logged-in .icl-de, .logged-in .icl-it {
-  display:inline-block !important;
-}
+//.logged-in .icl-de, .logged-in .icl-it {
+//  display:inline-block !important;
+//}

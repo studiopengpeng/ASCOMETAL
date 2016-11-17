@@ -13,7 +13,15 @@
  * @since FoundationPress 1.0.0
  */
 
-get_header(); ?>
+get_header(); 
+
+$actulang=ICL_LANGUAGE_CODE;
+if ($actulang=="fr") {$titleheader="Actualités";}
+else if ($actulang=="en") {$titleheader="News";}
+else if ($actulang=="de") {$titleheader="Aktuelles";}
+else if ($actulang=="it") {$titleheader="Notizie";}
+else {$titleheader="News";}
+?>
 
     <div id="page" role="main">
         <!--header de page : contient le bandeau image + le titre de la rubrique principale-->
@@ -21,7 +29,7 @@ get_header(); ?>
             <article class="small-12 medium-12 large-12 columns">
                 <header class="header-image">
                     <?php get_template_part( 'template-parts/featured-image' ); ?>
-                        <h1>Actualités</h1>
+                        <h1><?php echo $titleheader; ?></h1>
                 </header>
             </article>
         </div>
