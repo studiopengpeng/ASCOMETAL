@@ -1,4 +1,64 @@
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+#large files
+*.mp3
+*.mp4
+*.zip
+
+# Windows shortcuts
+*.lnk
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# =========================
+# Project Local Files
+# =========================
+
+wp-config.php
+Gruntfile.js
+.bowerrc
+.htaccess
+**/wp-config.php
+**/ai1wm-backups
+wp-content/uploads
 .DS_Store
 *.log
-wp-config.php
-wp-content/uploads/wpcf7_captcha
+**/bases_de_donnees
+
