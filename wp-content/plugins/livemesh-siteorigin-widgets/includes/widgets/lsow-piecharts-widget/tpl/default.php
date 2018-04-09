@@ -16,16 +16,16 @@ $track_color = ' data-track-color="' . esc_attr($settings['track_color']) . '"';
 
 ?>
 
-<div class="lsow-piecharts lsow-container">
+<div class="lsow-piecharts lsow-grid-container">
 
     <?php foreach ($piecharts as $piechart): ?>
 
         <div class="lsow-piechart <?php echo $column_style; ?>">
 
             <div class="lsow-percentage" <?php echo $bar_color; ?> <?php echo $track_color; ?>
-                 data-percent="<?php echo intval($piechart['percentage']); ?>">
+                 data-percent="<?php echo round($piechart['percentage']); ?>">
 
-                <span><?php echo intval($piechart['percentage']); ?><sup>%</sup></span>
+                <span><?php echo round($piechart['percentage']); ?><sup>%</sup></span>
 
             </div>
 

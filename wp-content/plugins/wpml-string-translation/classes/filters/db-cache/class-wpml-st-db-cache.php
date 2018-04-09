@@ -31,6 +31,9 @@ class WPML_ST_DB_Cache {
 	 */
 	private $page_url;
 
+	/** @var WPML_ST_DB_Shutdown_Url_Validator */
+	private $shutdown_url_validator;
+
 	/**
 	 * @param string $language
 	 * @param IWPML_ST_Page_Translations_Persist $translations_persist
@@ -41,13 +44,15 @@ class WPML_ST_DB_Cache {
 		$language,
 		IWPML_ST_Page_Translations_Persist $translations_persist,
 		WPML_ST_DB_Translation_Retrieve $single_translation_retriever,
-		WPML_ST_Page_URL_Preprocessor $page_url_preprocessor
+		WPML_ST_Page_URL_Preprocessor $page_url_preprocessor,
+		WPML_ST_DB_Shutdown_Url_Validator $shutdown_url_validator
 	) {
 		$this->page_url_preprocessor        = $page_url_preprocessor;
 		$this->page_url                     = $this->get_page_url();
 		$this->language                     = $language;
 		$this->translations_persist         = $translations_persist;
 		$this->single_translation_retriever = $single_translation_retriever;
+		$this->shutdown_url_validator       = $shutdown_url_validator;
 
 		add_action( 'shutdown', array( $this, 'shutdown' ) );
 	}
@@ -59,7 +64,11 @@ class WPML_ST_DB_Cache {
 	}
 
 	public function shutdown() {
-		if ( $this->is_404() ) {
+		if (
+			$this->shutdown_url_validator->is_404() ||
+			$this->shutdown_url_validator->is_resetting_single_site_action() ||
+			$this->shutdown_url_validator->is_resetting_multi_site_action()
+		) {
 			return;
 		}
 
@@ -73,13 +82,6 @@ class WPML_ST_DB_Cache {
 	}
 
 	/**
-	 * @return bool
-	 */
-	private function is_404() {
-		return is_404() || is_home() && '/' !== $_SERVER['REQUEST_URI'];
-	}
-
-	/**
 	 * @param string $name
 	 * @param string $context
 	 * @param string $original_value
@@ -89,7 +91,7 @@ class WPML_ST_DB_Cache {
 	 */
 	public function get_translation( $name, $context, $original_value, $gettext_context = '' ) {
 		if ( md5( '' ) == $name && empty( $original_value ) && empty( $gettext_context ) ) {
-			return $original_value;
+			return null;
 		}
 
 		if ( null === $this->translations ) {

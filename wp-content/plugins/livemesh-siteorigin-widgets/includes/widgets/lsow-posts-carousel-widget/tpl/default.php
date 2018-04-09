@@ -7,6 +7,8 @@
 
 if( !empty( $instance['title'] ) ) echo $args['before_title'] . esc_html($instance['title']) . $args['after_title'];
 
+$taxonomies = array();
+
 $query_args = siteorigin_widget_post_selector_process_query($posts);
 
 // Use the processed post selector query to find posts.
@@ -21,7 +23,13 @@ if ($loop->have_posts()) : ?>
         <?php endif ?>
     <?php endforeach; ?>>
 
-        <?php $taxonomy = $settings['taxonomy_chosen']; ?>
+        <?php
+        // Check if any taxonomy filter has been applied
+        list($chosen_terms, $taxonomies) = lsow_get_chosen_terms($query_args);
+        if (empty($chosen_terms))
+            $taxonomies[] = $settings['taxonomy_chosen'];
+
+        ?>
 
         <?php while ($loop->have_posts()) : $loop->the_post(); ?>
 
@@ -50,13 +58,11 @@ if ($loop->have_posts()) : ?>
                                     <?php the_title('<h3 class="lsow-post-title"><a href="' . get_permalink() . '" title="' . get_the_title() . '"
                                                rel="bookmark">', '</a></h3>'); ?>
 
-                                    <?php echo lsow_get_taxonomy_info($taxonomy); ?>
+                                    <?php echo lsow_get_info_for_taxonomies($taxonomies); ?>
 
                                 </div>
 
                             </div>
-
-                            <div class="lsow-image-overlay"></div>
 
                         </div>
 
@@ -91,7 +97,7 @@ if ($loop->have_posts()) : ?>
 
                                     <?php if ($settings['post_meta']['display_taxonomy']): ?>
 
-                                        <?php echo lsow_get_taxonomy_info($taxonomy); ?>
+                                        <?php echo lsow_get_info_for_taxonomies($taxonomies); ?>
 
                                     <?php endif; ?>
 
@@ -103,7 +109,7 @@ if ($loop->have_posts()) : ?>
 
                                 <div class="entry-summary">
 
-                                    <?php echo get_the_excerpt(); ?>
+                                    <?php the_excerpt(); ?>
 
                                 </div>
 

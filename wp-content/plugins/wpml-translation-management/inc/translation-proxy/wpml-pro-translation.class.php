@@ -67,13 +67,13 @@ class WPML_Pro_Translation extends WPML_TM_Job_Factory_User {
 			case 'set_pickup_mode':
 				$response = $this->update_pm->update_pickup_method( $data, $this->get_current_project() );
 				if ( 'no-ts' === $response ) {
-					wp_send_json_error( array( 'message' => __( 'Please activate translation service first.', 'sitepress' ) ) );
+					wp_send_json_error( array( 'message' => __( 'Please activate translation service first.', 'wpml-translation-management' ) ) );
 				}
 				if ( 'cant-update' === $response ) {
-					wp_send_json_error( array( 'message' => __( 'Could not update the translation pickup mode.', 'sitepress' ) ) );
+					wp_send_json_error( array( 'message' => __( 'Could not update the translation pickup mode.', 'wpml-translation-management' ) ) );
 				}
 
-				wp_send_json_success( array( 'message' => __( 'Ok', 'sitepress' ) ) );
+				wp_send_json_success( array( 'message' => __( 'Ok', 'wpml-translation-management' ) ) );
 				break;
 		}
 	}
@@ -368,7 +368,10 @@ class WPML_Pro_Translation extends WPML_TM_Job_Factory_User {
 
 					return false;
 				}
+				kses_remove_filters();
 				wpml_tm_save_data( $job_xliff_translation );
+				kses_init();
+
 				$translations = $sitepress->get_element_translations( $translation_info->trid, $translation_info->element_type, false, true, true );
 				if ( isset( $translations[ $translation_info->language_code ] ) ) {
 					$translation = $translations[ $translation_info->language_code ];
@@ -414,15 +417,14 @@ class WPML_Pro_Translation extends WPML_TM_Job_Factory_User {
 		return $links;
 	}
 
-	public static function _content_make_links_sticky( $element_id, $element_type = 'post', $string_translation = true ) {
+	public static function _content_make_links_sticky( $element_id, $element_type = 'post' ) {
 
-		require_once ICL_PLUGIN_PATH . '/inc/absolute-links/absolute-links.class.php';
 		$icl_abs_links = new AbsoluteLinks;
 
 		if ( strpos( $element_type, 'post' ) === 0 ) {
 			$icl_abs_links->process_post( $element_id );
 		} elseif($element_type=='string') {
-			$icl_abs_links->process_string( $element_id, $string_translation );
+			$icl_abs_links->process_string( $element_id );
 		}
 	}
 
@@ -441,9 +443,16 @@ class WPML_Pro_Translation extends WPML_TM_Job_Factory_User {
 			$body = $post->post_content;
 			$wpml_element_type = 'post_' . $post->post_type;
 		}elseif($element_type=='string'){
-			$body_prepared = $wpdb->prepare("SELECT value FROM {$wpdb->prefix}icl_string_translations WHERE id=%d", array($element_id));
-			$body = $wpdb->get_var($body_prepared);
+			$string_prepared    = $wpdb->prepare( "SELECT string_id, value FROM {$wpdb->prefix}icl_string_translations WHERE id=%d", array( $element_id ) );
+			$data               = $wpdb->get_row( $string_prepared );
+			$body               = $data->value;
+			$original_string_id = $data->string_id;
+			$string_type        = $wpdb->get_var( $wpdb->prepare( "SELECT type FROM {$wpdb->prefix}icl_strings WHERE id=%d", $original_string_id ) );
+			if ( 'LINK' === $string_type ) {
+				$body = '<a href="' . $body . '">removeit</a>';
+			}
 		}
+
 		$new_body = $body;
 
 		$base_url_parts = parse_url(site_url());
@@ -599,8 +608,14 @@ class WPML_Pro_Translation extends WPML_TM_Job_Factory_User {
 						$fragment = '#' . $pass_on_fragments[ $link_idx ];
 					}
 					if ( ! empty( $pass_on_query_vars[ $link_idx ] ) ) {
-						$url_glue = ( strpos( $rep['to'], '?' ) === false ) ? '?' : '&';
-						$rep_to   = $rep['to'] . $url_glue . join( '&', $pass_on_query_vars[ $link_idx ] );
+						$query_pairs = array();
+						foreach ( $pass_on_query_vars[ $link_idx ] as $query_fragment ) {
+							$query_pair = array();
+							wp_parse_str( $query_fragment, $query_pair );
+							$query_pairs[] = $query_pair;
+						}
+						$query_pairs = call_user_func_array( 'array_merge', $query_pairs );
+						$rep_to = add_query_arg( $query_pairs, $rep_to );
 					}
 				}
 
@@ -618,7 +633,13 @@ class WPML_Pro_Translation extends WPML_TM_Job_Factory_User {
 			if ( strpos( $element_type, 'post' ) === 0 ) {
 				$wpdb->update( $wpdb->posts, array( 'post_content' => $new_body ), array( 'ID' => $element_id) );
             } elseif ($element_type == 'string') {
-                $wpdb->update( $wpdb->prefix . 'icl_string_translations', array( 'value' => $new_body ), array( 'id' => $element_id ) );
+            	if ( 'LINK' === $string_type ) {
+            		$new_body = str_replace( array( '<a href="', '">removeit</a>' ), array( '', '' ), $new_body );
+		            $wpdb->update( $wpdb->prefix . 'icl_string_translations', array( 'value' => $new_body, 'status' => ICL_TM_COMPLETE ), array( 'id' => $element_id ) );
+		            do_action( 'icl_st_add_string_translation', $element_id );
+	            } else {
+		            $wpdb->update( $wpdb->prefix . 'icl_string_translations', array( 'value' => $new_body ), array( 'id' => $element_id ) );
+	            }
             }
         }
 		
@@ -670,7 +691,7 @@ class WPML_Pro_Translation extends WPML_TM_Job_Factory_User {
 
 		echo '<p id="icl_minor_change_box" style="float:left;padding:0;margin:3px;'.$show_box.'">';
 		echo '<label><input type="checkbox" name="icl_minor_edit" value="1" style="min-width:15px;" />&nbsp;';
-		echo __('Minor edit - don\'t update translation','sitepress');
+		echo __('Minor edit - don\'t update translation','wpml-translation-management');
 		echo '</label>';
 		echo '<br clear="all" />';
 		echo '</p>';

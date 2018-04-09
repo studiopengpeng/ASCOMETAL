@@ -4,7 +4,7 @@
 Widget Name: Livemesh Icon List
 Description: Use images or icon fonts to create social icons list, show payment options etc.
 Author: LiveMesh
-Author URI: http://portfoliotheme.org
+Author URI: https://www.livemeshthemes.com
 */
 
 class LSOW_Icon_List_Widget extends SiteOrigin_Widget {

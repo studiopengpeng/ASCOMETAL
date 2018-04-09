@@ -4,7 +4,7 @@
 Widget Name: Livemesh Testimonials Slider
 Description: Display responsive touch friendly slider of testimonials from clients/customers.
 Author: LiveMesh
-Author URI: http://portfoliotheme.org
+Author URI: https://www.livemeshthemes.com
 */
 
 class LSOW_Testimonials_Slider_Widget extends SiteOrigin_Widget {

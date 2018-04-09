@@ -4,7 +4,7 @@
 Widget Name: Livemesh Stats Bars
 Description: Display multiple stats bars that talk about skills or other percentage stats.
 Author: LiveMesh
-Author URI: http://portfoliotheme.org
+Author URI: https://www.livemeshthemes.com
 */
 
 class LSOW_Stats_Bars_Widget extends SiteOrigin_Widget {

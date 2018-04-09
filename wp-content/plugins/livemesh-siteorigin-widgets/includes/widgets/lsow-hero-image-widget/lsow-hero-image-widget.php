@@ -4,7 +4,7 @@
 Widget Name: Livemesh Hero Header
 Description: Display custom header content with option to set HTML5/YouTube video or parallax image background.
 Author: LiveMesh
-Author URI: http://portfoliotheme.org
+Author URI: https://www.livemeshthemes.com
 */
 
 class LSOW_Hero_Image_Widget extends SiteOrigin_Widget {

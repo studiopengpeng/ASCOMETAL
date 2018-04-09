@@ -28,12 +28,23 @@
             // If editing an existing diagram, then get the title of it (if provided).
             diag_title = j_code.attr('title');
             if (typeof diag_title === typeof undefined || diag_title === false) {
-                diag_title = "";
+                // If not in recognized <img> format, check for [drawit-svg] format.
+                svg_re = /\[\s*drawit-svg\s+(.*)\s*]/;
+                matching = svg_re.exec(selected_code);
+                selected_code = '<img ' + matching[1] + ' />';
+                j_code = jQuery('<span>' + selected_code + '</span>').find('img').first();
+
+                if (typeof diag_title === typeof undefined || diag_title === false) {
+                    diag_title = "";
+                } else {
+                    diag_title = '&title=' + diag_title;
+                }
             } else {
                 diag_title = '&title=' + diag_title;
             }
 
-            // If there are multiple classes defined, then find the one we want that has the attachment id#.
+            // If there are multiple classes defined, then find the one we want
+            // that has the attachment id#.
             img_class = j_code.attr('class');
             if (typeof img_class !== typeof undefined && img_class !== false) {
                 img_class_split = img_class.split(' ');
@@ -66,7 +77,7 @@
         jQuery('#TB_window').css({
             'min-width': '90%',
             'left': 'calc(-1 * (' + jQuery('#TB_window').css('margin-left') + ') + 5%)',
-            'background': 'url("/wp-content/plugins/' + plugin_slug + '/img/wpspin-2x.gif") no-repeat center center #fff'
+            'background': 'url("../wp-content/plugins/' + plugin_slug + '/img/wpspin-2x.gif") no-repeat center center #fff'
         });
         jQuery('#TB_window > iframe').css({
             'min-width': '100%'

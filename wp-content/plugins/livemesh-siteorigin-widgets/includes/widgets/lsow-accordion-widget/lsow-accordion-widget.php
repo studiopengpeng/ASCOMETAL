@@ -4,7 +4,7 @@
 Widget Name: Livemesh Accordion
 Description: Displays collapsible content panels to help display information when space is limited.
 Author: LiveMesh
-Author URI: http://portfoliotheme.org
+Author URI: https://www.livemeshthemes.com
 */
 
 class LSOW_Accordion_Widget extends SiteOrigin_Widget {

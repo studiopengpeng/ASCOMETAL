@@ -1,5 +1,5 @@
 #visualizer-icon {
-	background-image: url('../images/icon.png');
+	background-image: url("../images/icon.png");
 }
 
 .visualizer-clearfix {
@@ -21,61 +21,70 @@
 	margin: 20px 0 10px;
 }
 
+.visualizer-list-item .visualizer-pro-only {
+	text-decoration: line-through;
+}
+
 #visualizer-library {
+	display: table-cell;
+	width: auto;
 	margin: 20px 0;
+}
+
+#visualizer-content-wrapper {
+	width: 100%;
 }
 
 .loader {
 	position: absolute;
-	left: 50%;
 	top: 50%;
-	margin-left: -16px;
+	left: 50%;
 	margin-top: -16px;
+	margin-left: -16px;
 }
 
 .visualizer-chart {
-	float: left;
-	padding: 5px;
-	margin: 0 24px 24px 0;
-	border: 1px solid #ddd;
-	-webkit-box-shadow: 0px 0px 8px #ddd;
-	box-shadow: 0px 0px 8px #ddd;
-	background-color: #efefef;
 	display: none;
+	float: left;
+	margin: 0 24px 24px 0;
+	padding: 5px;
+	border: 1px solid #ddd;
+	background-color: #efefef;
+	box-shadow: 0 0 8px #ddd;
 }
 
 .visualizer-chart-canvas {
-	border: 1px solid #ddd;
-	background-color: white;
 	position: relative;
 	width: 30%;
 	height: 18.75%;
+	border: 1px solid #ddd;
+	background-color: white;
 }
 
 .visualizer-nochart-canvas {
-	background-image: url('../images/notfound.png?v=4');
+	background-image: url("../images/notfound.png?v=4");
 	background-repeat: repeat;
 }
 
 .visualizer-notfound {
-	text-align: center;
-	font-weight: bold;
-	font-size: 14px;
-	margin-top: -7px;
 	position: absolute;
 	top: 50%;
-	left: 0;
 	right: 0;
+	left: 0;
+	margin-top: -7px;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
 }
 
 .visualizer-chart-action {
-	float: right;
 	display: block;
-	height: 16px;
+	float: right;
 	width: 16px;
-	background-repeat: no-repeat;
-	background-image: url('../images/ui-icons.png');
+	height: 16px;
 	margin: 2px 5px 0;
+	background-image: url("../images/ui-icons.png");
+	background-repeat: no-repeat;
 }
 
 .visualizer-nochart-delete,
@@ -95,15 +104,16 @@
 
 .visualizer-nochart-export,
 .visualizer-chart-export {
-    background-position: -46px -64px;
+	background-position: -46px -64px;
 }
 
 .visualizer-nochart-clone,
 .visualizer-nochart-delete,
 .visualizer-nochart-edit {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-    filter: alpha(opacity=50);
-    opacity: 0.5
+	opacity: 0.5;
+
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
 }
 
 .visualizer-chart-footer {
@@ -111,16 +121,23 @@
 }
 
 .visualizer-chart-shortcode {
+	padding: 3px 0;
 	color: #aaa;
 	text-shadow: 0 1px 0 #fff;
 	cursor: pointer;
-	padding: 3px 0;
+}
+
+.visualizer-chart-shortcode::-moz-selection,
+.visualizer-chart-shortcode::-moz-selection {
+	color: black;
+	background-color: #a8d1ff;
+	text-shadow: none;
 }
 
 .visualizer-chart-shortcode::selection,
 .visualizer-chart-shortcode::-moz-selection {
-	background-color: #a8d1ff;
 	color: black;
+	background-color: #a8d1ff;
 	text-shadow: none;
 }
 
@@ -129,49 +146,144 @@
 	margin-right: 20px;
 }
 
-.page-numbers {
-	padding: 5px 10px;
-	background-color: #aaa;
-	color: white !important;
-	text-decoration: none;
-	border-radius: 2px;
-	box-shadow: 0 0 5px #ccc;
-	font-weight: bold;
+#visualizer-search form {
+	text-align: right;
 }
 
-.page-numbers.current,
-a.page-numbers:hover {
-	background-color: lightcoral;
-	box-shadow: 0 0 5px lightpink;
+#visualizer-sidebar {
+	display: table-cell;
+	width: 250px;
 }
 
-.visualizer-library-pagination {
+.visualizer-sidebar-box ul li {
+	margin: 4px 0;
+	color: #23282d;
+}
+
+.visualizer-sidebar-box ul {
+	margin-left: 40px;
+	text-align: left;
+	list-style-type: disc;
+}
+
+.visualizer-sidebar-box {
+	display: block;
+	width: 95%;
+	margin: 0;
+	margin-top: 20px;
+	margin-left: 2.5%;
+	padding-top: 10px;
+	padding-bottom: 15px;
+	border-top: 5px solid #0073aa;
+	color: #0073aa;
+	background: white;
+	text-align: center;
+}
+
+/* The switch - the box around the slider */
+.visualizer-switch {
+	display: inline-block;
+	position: relative;
+	width: 30px;
+	height: 18px;
+}
+
+/* Hide default HTML checkbox */
+.visualizer-switch input {
 	display: none;
 }
 
-#visualizer-search form {
-	display:flex;
-	align-items: center;
+/* The slider */
+.visualizer-tracking sup {
+	vertical-align: 3px;
 }
 
-#visualizer-search > form > input[type="text"]:nth-child(1) {
-	height: 30px;
+.visualizer-slider {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: #ccc;
+	cursor: pointer;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
 }
-#visualizer-search .button-secondary {
-	background-color: lightcoral;
-	box-shadow: 0 0 5px lightpink;
-	padding: 5px 10px;
-  color: white;
-  text-decoration: none;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-  font-weight: bold;
-	line-height: 17px;
+
+.visualizer-slider:before {
+	position: absolute;
+	bottom: 1.5px;
+	left: 2px;
+	width: 15px;
+	height: 15px;
+	background-color: white;
+	content: "";
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+input:checked + .visualizer-slider {
+	background-color: #0085ba;
+}
+
+input:focus + .visualizer-slider {
+	box-shadow: 0 0 1px #0085ba;
+}
+
+input:checked + .visualizer-slider:before {
+	-webkit-transform: translateX(11px);
+	-ms-transform: translateX(11px);
+	transform: translateX(11px);
+}
+
+/* Rounded sliders */
+.visualizer-slider.visualizer-round {
+	border-radius: 34px;
+}
+
+.visualizer-slider.visualizer-round:before {
+	border-radius: 50%;
+}
+
+.visualizer-tracking p small sup {
+	margin-left: -3px;
+}
+
+.visualizer-tracking p {
+	padding-left: 14px;
+	color: #23282d;
+	font-size: 12px;
+	line-height: 12px;
+	text-align: left;
+}
+
+.visualizer-tracking span {
+	margin-left: 10px;
+	color: #23282d;
+	background: none;
 	font-size: 14px;
-	margin-left: 20px;
+	font-weight: bold;
 }
-#visualizer-search .button-secondary:hover {
-	background-color: lightpink;
-	border-color: lightpink;
+
+#visualizer-content-wrapper {
+	display: table;
+}
+
+#visualizer-sidebar h3 {
+	margin-top: 0;
+}
+
+#visualizer-sidebar .visualizer-sidebar-box p {
+	margin-bottom: 0;
+}
+
+#visualizer-sidebar .visualizer-sidebar-box {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.visualizer-chart-title {
+	padding-bottom: 5px;
+	font-weight: bold;
+	text-align: center;
 }

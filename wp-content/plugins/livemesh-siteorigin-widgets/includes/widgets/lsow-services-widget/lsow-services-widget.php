@@ -4,7 +4,7 @@
 Widget Name: Livemesh Services
 Description: Capture services in a multi-column grid.
 Author: LiveMesh
-Author URI: http://portfoliotheme.org
+Author URI: https://www.livemeshthemes.com
 */
 
 class LSOW_Services_Widget extends SiteOrigin_Widget {

@@ -6,7 +6,10 @@
  * @var $posts
  */
 
-if( !empty( $instance['title'] ) ) echo $args['before_title'] . esc_html($instance['title']) . $args['after_title'];
+if (!empty($instance['title']))
+    echo $args['before_title'] . esc_html($instance['title']) . $args['after_title'];
+
+$taxonomies = array();
 
 $current_page = get_queried_object_id();
 
@@ -18,35 +21,43 @@ $loop = new WP_Query($query_args);
 // Loop through the posts and do something with them.
 if ($loop->have_posts()) : ?>
 
-    <div class="lsow-portfolio-wrap lsow-container">
+    <div class="lsow-portfolio-wrap lsow-gapless-grid">
 
         <?php $column_style = lsow_get_column_class(intval($settings['per_line'])); ?>
 
         <?php
         // Check if any taxonomy filter has been applied
-        list($chosen_terms, $taxonomy) = lsow_get_chosen_terms($posts);
+        list($chosen_terms, $taxonomies) = lsow_get_chosen_terms($query_args);
         if (empty($chosen_terms))
-            $taxonomy = $taxonomy_filter;
+            $taxonomies[] = $taxonomy_filter;
 
         ?>
 
-        <div class="lsow-portfolio-header">
+        <?php if (!empty($heading) || $settings['filterable']): ?>
 
-            <?php if (!empty($heading)) ?>
+            <?php $header_class = (trim($heading) === '') ? ' lsow-no-heading' : ''; ?>
 
-            <h3 class="lsow-heading"><?php echo wp_kses_post($heading); ?></h3>
+            <div class="lsow-portfolio-header <?php echo $header_class; ?>">
 
-            <?php
+                <?php if (!empty($heading)) : ?>
 
-            if ($settings['filterable'])
-                echo lsow_get_taxonomy_terms_filter($taxonomy, $chosen_terms);
+                    <h3 class="lsow-heading"><?php echo wp_kses_post($heading); ?></h3>
 
-            ?>
+                <?php endif; ?>
 
-        </div>
+                <?php
 
-        <div class="lsow-portfolio js-isotope lsow-<?php echo $settings['layout_mode']; ?>"
-             data-isotope-options='{ "itemSelector": ".lsow-portfolio-item", "layoutMode": "<?php echo esc_attr($settings['layout_mode']); ?>" }'>
+                if ($settings['filterable'])
+                    echo lsow_get_taxonomy_terms_filter($taxonomies, $chosen_terms);
+
+                ?>
+
+            </div>
+
+        <?php endif; ?>
+
+        <div class="lsow-portfolio js-isotope lsow-<?php echo $settings['layout_mode']; ?> lsow-grid-container"
+             data-settings='{ "itemSelector": ".lsow-portfolio-item", "layoutMode": "<?php echo esc_attr($settings['layout_mode']); ?>" }'>
 
             <?php while ($loop->have_posts()) : $loop->the_post(); ?>
 
@@ -56,17 +67,24 @@ if ($loop->have_posts()) : ?>
                 ?>
 
                 <?php
+
                 $style = '';
-                $terms = get_the_terms(get_the_ID(), $taxonomy);
-                if (!empty($terms) && !is_wp_error($terms)) {
-                    foreach ($terms as $term) {
-                        $style .= ' term-' . $term->term_id;
+
+                foreach ($taxonomies as $taxonomy) {
+
+                    $terms = get_the_terms(get_the_ID(), $taxonomy);
+
+                    if (!empty($terms) && !is_wp_error($terms)) {
+
+                        foreach ($terms as $term) {
+                            $style .= ' term-' . $term->term_id;
+                        }
                     }
                 }
                 ?>
 
                 <div data-id="id-<?php the_ID(); ?>"
-                     class="lsow-portfolio-item <?php echo $style; ?> <?php echo $column_style; ?> lsow-zero-margin">
+                     class="lsow-portfolio-item <?php echo $style; ?> <?php echo $column_style; ?>">
 
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -91,13 +109,11 @@ if ($loop->have_posts()) : ?>
                                         <?php the_title('<h3 class="lsow-post-title"><a href="' . get_permalink() . '" title="' . get_the_title() . '"
                                                rel="bookmark">', '</a></h3>'); ?>
 
-                                        <?php echo lsow_get_taxonomy_info($taxonomy); ?>
+                                        <?php echo lsow_get_info_for_taxonomies($taxonomies); ?>
 
                                     </div>
 
                                 </div>
-
-                                <div class="lsow-image-overlay"></div>
 
                             </div>
 
@@ -132,7 +148,7 @@ if ($loop->have_posts()) : ?>
 
                                         <?php if ($settings['post_meta']['display_taxonomy']): ?>
 
-                                            <?php echo lsow_get_taxonomy_info($taxonomy); ?>
+                                            <?php echo lsow_get_info_for_taxonomies($taxonomies); ?>
 
                                         <?php endif; ?>
 
@@ -144,7 +160,7 @@ if ($loop->have_posts()) : ?>
 
                                     <div class="entry-summary">
 
-                                        <?php echo get_the_excerpt(); ?>
+                                        <?php the_excerpt(); ?>
 
                                     </div>
 

@@ -4,7 +4,7 @@
 Widget Name: Livemesh Button
 Description: Flat style buttons with rich set of customization options.
 Author: LiveMesh
-Author URI: http://portfoliotheme.org
+Author URI: https://www.livemeshthemes.com
 */
 
 

@@ -61,10 +61,15 @@ class WPML_Post_Translation_Job extends WPML_Element_Translation_Job {
 								$element->field_format );
 						}
 				}
-				$wpdb->update( $wpdb->prefix . 'icl_translate', array(
-					'field_data_translated' => $field_data,
-					'field_finished'        => 1
-				), array( 'tid' => $element->tid ) );
+				if ( $field_data ) {
+					$wpdb->update( $wpdb->prefix . 'icl_translate',
+						array(
+							'field_data_translated' => $field_data,
+							'field_finished'        => 1
+						),
+						array( 'tid' => $element->tid )
+					);
+				}
 			}
 			$iclTranslationManagement->mark_job_done( $job_id );
 		}
@@ -111,6 +116,12 @@ class WPML_Post_Translation_Job extends WPML_Element_Translation_Job {
 	 * @return string
 	 */
 	public function get_title() {
+		$title = $this->get_title_from_db();
+
+		if ( $title ) {
+			return $title;
+		}
+
 		$original_post = $this->get_original_document();
 
 		return is_object( $original_post ) && isset( $original_post->post_title )
@@ -214,7 +225,7 @@ class WPML_Post_Translation_Job extends WPML_Element_Translation_Job {
 				$wpdb->delete( $j, array( 'field_type' => 't_' . $term->ttid, 'job_id' => $job_id ) );
 			} else {
 				$wpdb->update( $j,
-					array( 'field_data_translated' => base64_encode( $term->name ) ),
+					array( 'field_data_translated' => base64_encode( $term->name ), 'field_finished' => 1 ),
 					array( 'field_type' => 't_' . $term->ttid, 'job_id' => $job_id ) );
 			}
 		}

@@ -1,9 +1,3 @@
-html {
-  box-sizing: border-box; }
-
-*, *::after, *::before {
-  box-sizing: inherit; }
-
 /* Style 1 */
 .lsow-services.lsow-style1 .lsow-service .lsow-icon-wrapper span {
   display: block;
@@ -17,10 +11,8 @@ html {
   max-width: 100%;
   text-align: center;
   margin: 0 auto 25px;
-  -webkit-transition: all 0.4s ease-in-out 0s;
-  -moz-transition: all 0.4s ease-in-out 0s;
-  -ms-transition: all 0.4s ease-in-out 0s;
-  transition: all 0.4s ease-in-out 0s; }
+  -webkit-transition: all .4s ease-in-out 0s;
+  transition: all .4s ease-in-out 0s; }
 .lsow-services.lsow-style1 .lsow-service .lsow-service-text {
   text-align: center;
   max-width: 300px;
@@ -38,9 +30,7 @@ html {
     margin-bottom: 20px; }
 .lsow-services.lsow-style1 .lsow-service:hover .lsow-image-wrapper img {
   -webkit-transform: scale(0.9, 0.9);
-  -moz-transform: scale(0.9, 0.9);
-  -ms-transform: scale(0.9, 0.9);
-  transform: scale(0.9, 0.9); }
+          transform: scale(0.9, 0.9); }
 
 /* Style 2 */
 .lsow-services.lsow-style2 .lsow-service .lsow-image-wrapper img, .lsow-services.lsow-style2 .lsow-service .lsow-icon-wrapper span {
@@ -138,10 +128,8 @@ html {
 .lsow-services .lsow-service {
   margin-bottom: 50px; }
   .lsow-services .lsow-service .lsow-icon-wrapper span {
-    -webkit-transition: color 0.4s ease-in-out 0s;
-    -moz-transition: color 0.4s ease-in-out 0s;
-    -ms-transition: color 0.4s ease-in-out 0s;
-    transition: color 0.4s ease-in-out 0s; }
+    -webkit-transition: color .4s ease-in-out 0s;
+    transition: color .4s ease-in-out 0s; }
   .lsow-services .lsow-service .lsow-service-text {
     font-size: 15px;
     line-height: 24px; }

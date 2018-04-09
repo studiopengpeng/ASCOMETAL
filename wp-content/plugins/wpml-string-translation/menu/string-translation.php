@@ -1,6 +1,7 @@
 <?php
+/** @var WPML_String_Translation $WPML_String_Translation */
+global $sitepress, $WPML_String_Translation, $wpdb, $wpml_st_string_factory;
 
-global $sitepress, $WPML_String_Translation, $wpdb;
 $string_settings = $WPML_String_Translation->get_strings_settings();
 icl_st_reset_current_translator_notifications();
 
@@ -31,10 +32,9 @@ if ( preg_match(
 }
 //$status_filter  = $status_filter !== false ? (int) $status_filter : null;
 $context_filter = filter_input( INPUT_GET, 'context', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+
 $search_filter  = filter_input( INPUT_GET, 'search', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
 $exact_match    = filter_input( INPUT_GET, 'em', FILTER_VALIDATE_BOOLEAN );
-
-$icl_string_translations = icl_get_string_translations();
 
 $active_languages = $sitepress->get_active_languages();
 $icl_contexts = icl_st_get_contexts( $status_filter );
@@ -68,6 +68,8 @@ function _icl_string_translation_rtl_textarea($language) {
     }
 }
 
+$po_importer = apply_filters( 'wpml_st_get_po_importer', null );
+
 ?>
 <div class="wrap">
 
@@ -80,7 +82,8 @@ function _icl_string_translation_rtl_textarea($language) {
     <?php if( isset( $po_importer ) && $po_importer->has_strings() ): ?>
 
         <p><?php printf(__("These are the strings that we found in your .po file. Please carefully review them. Then, click on the 'add' or 'cancel' buttons at the %sbottom of this screen%s. You can exclude individual strings by clearing the check boxes next to them.", 'wpml-string-translation'), '<a href="#add_po_strings_confirm">', '</a>'); ?></p>
-        <form method="post" action="<?php echo admin_url("admin.php?page=" . WPML_ST_FOLDER . "/menu/string-translation.php");?>">
+        <form method="post" id="wpml_add_strings" action="<?php echo admin_url("admin.php?page=" . WPML_ST_FOLDER . "/menu/string-translation.php");?>">
+	    <input type="hidden" id="strings_json" name="strings_json">
         <?php wp_nonce_field('add_po_strings') ?>
         <?php $use_po_translations = filter_input(INPUT_POST, 'icl_st_po_translations', FILTER_VALIDATE_BOOLEAN); ?>
         <?php if ( $use_po_translations == true ): ?>
@@ -137,8 +140,8 @@ function _icl_string_translation_rtl_textarea($language) {
         </table>
         <a name="add_po_strings_confirm"></a>
 
-	        <p><input class="button" type="button" value="<?php echo __( 'Cancel', 'wpml-string-translation' ); ?>" onclick="location.href='admin.php?page=<?php echo htmlspecialchars( $_GET['page'], ENT_QUOTES ) ?>'"/>
-        &nbsp; <input class="button-primary" type="submit" value="<?php echo __('Add selected strings', 'wpml-string-translation'); ?>" />
+	        <p><span style="float: left"><input class="js-wpml-btn-cancel button" type="button" value="<?php echo __( 'Cancel', 'wpml-string-translation' ); ?>" onclick="location.href='admin.php?page=<?php echo htmlspecialchars( $_GET['page'], ENT_QUOTES ) ?>'"/>
+        &nbsp;<input class="js-wpml-btn-add-strings button-primary" type="submit" value="<?php echo __('Add selected strings', 'wpml-string-translation'); ?>" /></span><span class="spinner" style="float: left"></span>
         </p>
         </form>
 
@@ -203,6 +206,11 @@ function _icl_string_translation_rtl_textarea($language) {
                         <option value=""
                                 <?php if ( $context_filter === false ): ?>selected="selected"<?php endif; ?>><?php echo __( 'All domains', 'wpml-string-translation' ) ?></option>
                         <?php foreach ( $icl_contexts as $v ): ?>
+	                        <?php
+	                            if ( ! $v->context ) {
+		                            $v->context = WPML_ST_Strings::EMPTY_CONTEXT_LABEL;
+	                            }
+	                        ?>
                             <option value="<?php echo esc_attr( $v->context ) ?>"
                                     data-unfiltered-count="<?php echo( isset( $unfiltered_contexts[ $v->context ] ) ? $unfiltered_contexts[ $v->context ] : 0 ) ?>"
                                     <?php if ( $context_filter == filter_var( $v->context, FILTER_SANITIZE_FULL_SPECIAL_CHARS ) ): ?>selected="selected"<?php endif; ?>><?php echo  esc_html( $v->context ) . ' (' . $v->c . ')'; ?></option>
@@ -239,7 +247,7 @@ function _icl_string_translation_rtl_textarea($language) {
 		<?php endif; ?>
 
 		<?php
-			$string_translation_table_ui = new WPML_String_Translation_Table( $icl_string_translations );
+			$string_translation_table_ui = new WPML_String_Translation_Table( icl_get_string_translations() );
 			$string_translation_table_ui->render( );
 
 			$change_string_language_dialog = new WPML_Change_String_Language_Dialog( $wpdb, $sitepress );
@@ -326,11 +334,19 @@ function _icl_string_translation_rtl_textarea($language) {
                             echo ' selected="selected"';
                         } ?>>100
                         </option>
-                    </select>&nbsp;<a href="admin.php?page=<?php echo htmlspecialchars( $_GET['page'], ENT_QUOTES ) ?>&amp;show_results=all<?php if ( isset( $_GET['context'] ) ) {
-		                echo '&amp;context=' . htmlspecialchars( $_GET['context'], ENT_QUOTES );
-                    } ?><?php if ( isset( $_GET[ 'status' ] ) ) {
-		                echo '&amp;status=' . htmlspecialchars( $_GET['status'], ENT_QUOTES );
-                    } ?>"><?php echo __( 'Display all results', 'wpml-string-translation' ); ?></a>
+                    </select>&nbsp;
+                    <?php
+                        $url = 'admin.php?page=' . $_GET['page'] . '&amp;show_results=all';
+                        if (isset( $_GET['context'] )) {
+                            $url .= '&amp;context=' . $_GET['context'];
+                        }
+                        if ( isset( $_GET[ 'status' ] ) ) {
+                            $url .= '&amp;status=' . $_GET['status'];
+                        }
+
+                        $url = esc_url( $url );
+                    ?>
+                    <a href="<?php echo $url; ?>"><?php echo __( 'Display all results', 'wpml-string-translation' ); ?></a>
                 <?php endif; ?>
             </div>
 
@@ -369,7 +385,7 @@ function _icl_string_translation_rtl_textarea($language) {
                                 <br/>
                             </div>
                             <h3 class="hndle">
-                                <span><?php echo __('Track where string appear on the site', 'wpml-string-translation')?></span>
+                                <span><?php echo __('Track where strings appear on the site', 'wpml-string-translation')?></span>
                             </h3>
                             <div class="inside">
                                 <p class="sub"><?php echo __("WPML can keep track of where strings are used on the public pages. Activating this feature will enable the 'view in page' functionality and make translation easier.", 'wpml-string-translation')?></p>
@@ -444,9 +460,9 @@ function _icl_string_translation_rtl_textarea($language) {
                                 <p class="sub"><?php echo esc_html__('WPML can automatically register strings for translation. This allows you to translate user-generated content with minimal PHP code.', 'wpml-string-translation')?></p>
 
                                 <p class="wpml-st-excluded-info"
-                                   data-all-included="<?php echo esc_attr__('Strings from all text domains will be auto-registred', 'wpml-string-translation') ?>"
+                                   data-all-included="<?php echo esc_attr__('Strings from all text domains will be auto-registered', 'wpml-string-translation') ?>"
                                    data-all-excluded="<?php echo esc_attr__('Strings from all text domains are excluded', 'wpml-string-translation') ?>"
-                                   data-excluded-preview="<?php echo esc_attr__('You exluded: ', 'wpml-string-translation') ?>"
+                                   data-excluded-preview="<?php echo esc_attr__('You excluded: ', 'wpml-string-translation') ?>"
                                    data-included-preview="<?php echo esc_attr__('You included: ', 'wpml-string-translation') ?>"
                                    data-preview-suffix="<?php echo esc_attr__('and others', 'wpml-string-translation') ?>"
                                 >
@@ -525,7 +541,7 @@ function _icl_string_translation_rtl_textarea($language) {
                                         <label for="icl_st_po_translations"><?php echo __('Also create translations according to the .po file', 'wpml-string-translation')?></label>
                                         <select name="icl_st_po_language" id="icl_st_po_language" style="display:none">
                                         <?php foreach($active_languages as $al): if($al['code']==$string_settings['strings_language']) continue; ?>
-                                        <option value="<?php echo $al['code'] ?>"><?php echo $al['display_name'] ?></option>
+                                        <option value="<?php echo esc_attr( $al['code'] ); ?>"><?php echo esc_html( $al['display_name'] ); ?></option>
                                         <?php endforeach; ?>
                                         </select>
                                     </p>
@@ -585,7 +601,7 @@ function _icl_string_translation_rtl_textarea($language) {
                                     <label for="icl_st_pe_translations"><?php echo __('Also include translations', 'wpml-string-translation')?></label>
                                     <select name="icl_st_e_language" id="icl_st_e_language">
                                     <?php foreach($active_languages as $al): if($al['code']==$string_settings['strings_language']) continue; ?>
-                                    <option value="<?php echo $al['code'] ?>"><?php echo $al['display_name'] ?></option>
+                                    <option value="<?php echo esc_attr( $al['code'] ); ?>"><?php echo esc_html( $al['display_name'] ); ?></option>
                                     <?php endforeach; ?>
                                     </select>
                                 </p>

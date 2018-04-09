@@ -12,7 +12,7 @@ class WPML_ST_DB_Cache_Factory {
 	private $sitepress;
 
 	/**
-	 * @var WPML_ST_WP_Wrapper
+	 * @var WP
 	 */
 	private $wp;
 
@@ -39,7 +39,7 @@ class WPML_ST_DB_Cache_Factory {
 				$wp = $GLOBALS['wp'] = new WP();
 			}
 		}
-		$this->wp = new WPML_ST_WP_Wrapper( $wp );
+		$this->wp = $wp;
 	}
 
 	/**
@@ -51,15 +51,25 @@ class WPML_ST_DB_Cache_Factory {
 		$persist = $this->create_persist();
 
 		$retriever = new WPML_ST_DB_Translation_Retrieve( $this->wpdb );
-		$url_preprocessor = new WPML_ST_Page_URL_Preprocessor( $this->wp );
+		$url_preprocessor = new WPML_ST_Page_URL_Preprocessor( new WPML_ST_WP_Wrapper( $this->wp ) );
 
-		return new WPML_ST_DB_Cache( $language, $persist, $retriever, $url_preprocessor );
+		return new WPML_ST_DB_Cache(
+			$language,
+			$persist,
+			$retriever,
+			$url_preprocessor,
+			new WPML_ST_DB_Shutdown_Url_Validator( $this->wp )
+		);
 	}
 
 	/**
-	 * @return WPML_ST_Page_Translations_Persist
+	 * @return IWPML_ST_Page_Translations_Persist
 	 */
 	public function create_persist() {
-		return new WPML_ST_Page_Translations_Persist( $this->wpdb );
+		$db_persist = new WPML_ST_Page_Translations_Persist( $this->wpdb );
+		$cache = new WPML_WP_Cache( WPML_ST_Page_Translations_Cached_Persist::CACHE_GROUP );
+		$cached_persist = new WPML_ST_Page_Translations_Cached_Persist( $db_persist, $cache );
+
+		return $cached_persist;
 	}
 }

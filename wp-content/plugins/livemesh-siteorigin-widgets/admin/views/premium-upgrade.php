@@ -20,7 +20,7 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
         <div id="plans" class="content-wrapper clear">
             <div class="plans-wrapper clear">
                 <div class="plan-intro">
-                    <div class="w100 clear"><img src="http://portfoliotheme.org/siteorigin-widgets/wp-content/uploads/sites/14/2016/01/logo-light-1.png" class="mb30">
+                    <div class="w100 clear"><img src="https://www.livemeshthemes.com/siteorigin-widgets/wp-content/uploads/sites/14/2016/01/logo-light-1.png" class="mb30">
                         <p>A huge collection of Premium widgets for SiteOrigin Page Builder. Building a beautiful website is as easy as drag and drop.</p></div>
                 </div>
                 <div class="plans">
@@ -35,8 +35,8 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
                         <div class="plan plan2 flex-col">
                             <div class="w100 clear"><h3>Premium</h3>
                                 <p class="mb20 text">More features and additional widgets to build a professional website without switching your WP theme.</p>
-                                <h4 class="b price c-wh">$29</h4>
-                                <div class="action clear"><a href="https://gum.co/kGTBN/save10" class="btn center bg-cy">Purchase Now</a></div>
+                                <h4 class="b price c-wh">$39</h4>
+                                <div class="action clear"><a href="https://www.livemeshthemes.com/siteorigin-widgets/pricing/" class="btn center bg-cy">Purchase Now</a></div>
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
                         <li><span class="help dashicons dashicons-editor-help"></span>
                             <div class="text">Page Builder Elements</div>
                             <div class="tooltip hide">
-                                <div><p>Large collection of plugin widgets with their multiple styles are page builder elements that provide ALL the tools you need to come up with a dream website of yours by just drag, drop and configure. &nbsp;<a target="_blank" href="http://portfoliotheme.org/siteorigin-widgets/">Live Demo</a></p></div>
+                                <div><p>Large collection of plugin widgets with their multiple styles are page builder elements that provide ALL the tools you need to come up with a dream website of yours by just drag, drop and configure. &nbsp;<a target="_blank" href="https://www.livemeshthemes.com/siteorigin-widgets/">Live Demo</a></p></div>
                             </div>
                         </li>
                         <li><span class="help dashicons dashicons-editor-help"></span>
@@ -70,7 +70,14 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
                         <li><span class="help dashicons dashicons-editor-help"></span>
                             <div class="text">Posts/Portfolio Grid</div>
                             <div class="tooltip hide">
-                                <div><p>The PRO version comes with advanced grid functions like pagination, lazy load via AJAX, lightbox support etc.&nbsp;<a target="_blank" href="http://portfoliotheme.org/siteorigin-widgets/livemesh-grid/">Live Demo</a></p></div>
+                                <div><p>The PRO version comes with advanced grid functions like multiple styles, AJAX filtering, pagination, lazy load via AJAX, lightbox support etc.&nbsp;<a target="_blank" href="https://www.livemeshthemes.com/siteorigin-widgets/livemesh-grid/">Live Demo</a></p></div>
+                            </div>
+                        </li>
+                        <li><span class="help dashicons dashicons-editor-help"></span>
+                            <div class="text">Post Blocks!</div>
+                            <div class="tooltip hide">
+                                <div><p>Present your blog posts, events, news items or portfolio in a dozen creative ways. Comes with AJAX filtering, pagination and load more features to help visitors navigate your entire collection of blog posts or custom post types and their categories without reloading the page.&nbsp;<a target="_blank" href="https://www.livemeshthemes.com/siteorigin-widgets/posts-block/">Live Demo</a></p>
+                                </div>
                             </div>
                         </li>
                         <li><span class="help dashicons dashicons-editor-help"></span>
@@ -82,20 +89,13 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
                         <li><span class="help dashicons dashicons-editor-help"></span>
                             <div class="text">Grids with AJAX Pagination</div>
                             <div class="tooltip hide">
-                                <div><p>Multiple pages of posts/portfolio/image/video grid loaded inline without page refresh. Showcase your entire work anywhere on the site.&nbsp;<a target="_blank" href="http://portfoliotheme.org/siteorigin-widgets/livemesh-grid/">Live Demo</a></p></div>
+                                <div><p>Multiple pages of posts/portfolio/image/video grid loaded inline without page refresh. Showcase your entire work anywhere on the site.&nbsp;<a target="_blank" href="https://www.livemeshthemes.com/siteorigin-widgets/livemesh-grid/">Live Demo</a></p></div>
                             </div>
                         </li>
                         <li><span class="help dashicons dashicons-editor-help"></span>
                             <div class="text">Advanced Grid with Lazy Load</div>
                             <div class="tooltip hide">
-                                <div><p>The grid elements are loaded on demand with each press of a Load More button that displays a count of remaining posts.&nbsp;<a target="_blank" href="http://portfoliotheme.org/siteorigin-widgets/livemesh-grid/">Live Demo</a></p></div>
-                            </div>
-                        </li>
-                        <li><span class="help dashicons dashicons-editor-help"></span>
-                            <div class="text">Lightbox Support</div>
-                            <div class="tooltip hide">
-                                <div><p>Magnific Popup plugin integrated for fast and smooth lightbox support for posts/portfolio or image/video grid elements.</p>
-                                </div>
+                                <div><p>The grid elements are loaded on demand with each press of a Load More button that displays a count of remaining posts.&nbsp;<a target="_blank" href="https://www.livemeshthemes.com/siteorigin-widgets/livemesh-grid/">Live Demo</a></p></div>
                             </div>
                         </li>
                         <li><span class="help dashicons dashicons-editor-help"></span>
@@ -106,34 +106,47 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
                             </div>
                         </li>
                         <li><span class="help dashicons dashicons-editor-help"></span>
+                            <div class="text">Animations</div>
+                            <div class="tooltip hide">
+                                <div><p>Choose from over <strong>40+ custom animations</strong> for most widgets (excludes sliders, carousels and grid).</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li><span class="help dashicons dashicons-editor-help"></span>
                             <div class="text">Advanced Image Slider</div>
                             <div class="tooltip hide">
-                                <div><p>Responsive slider with choice of Nivo, Flex, Slick and Ultra Lightweight slider types. Comes with multiple caption styles, thumbnail navigation and detailed customization of slider speed and controls.&nbsp;<a target="_blank" href="http://portfoliotheme.org/siteorigin-widgets/livemesh-sliders/">Live Demo</a></p>
+                                <div><p>Responsive slider with choice of Nivo, Flex, Slick and Ultra Lightweight slider types. Comes with multiple caption styles, thumbnail navigation and detailed customization of slider speed and controls.&nbsp;<a target="_blank" href="https://www.livemeshthemes.com/siteorigin-widgets/livemesh-sliders/">Live Demo</a></p>
                                 </div>
                             </div>
                         </li>
                         <li><span class="help dashicons dashicons-editor-help"></span>
                             <div class="text">Image Gallery</div>
                             <div class="tooltip hide">
-                                <div><p>Create a beautiful yet responsive gallery with support for tagging, linking, filtering, labels, lazy load of images with Load More and pagination.&nbsp;<a target="_blank" href="http://portfoliotheme.org/siteorigin-widgets/image-gallery/">Live Demo</a></p></div>
+                                <div><p>Create a beautiful yet responsive gallery with support for tagging, linking, filtering, labels, lazy load of images with Load More and pagination.&nbsp;<a target="_blank" href="https://www.livemeshthemes.com/siteorigin-widgets/image-gallery/">Live Demo</a></p></div>
                             </div>
                         </li>
                         <li><span class="help dashicons dashicons-editor-help"></span>
                             <div class="text">YouTube/Vimeo Video Gallery</div>
                             <div class="tooltip hide">
-                                <div><p>Essential tool for video bloggers, video marketers, musicians and other sites with video content. Tags, filters, external linking, labels, pagination and lazy load via AJAX supported.&nbsp;<a target="_blank" href="http://portfoliotheme.org/siteorigin-widgets/video-gallery/">Live Demo</a></p></div>
+                                <div><p>Essential tool for video bloggers, video marketers, musicians and other sites with video content. Tags, filters, external linking, labels, pagination and lazy load via AJAX supported.&nbsp;<a target="_blank" href="https://www.livemeshthemes.com/siteorigin-widgets/video-gallery/">Live Demo</a></p></div>
                             </div>
                         </li>
                         <li><span class="help dashicons dashicons-editor-help"></span>
                             <div class="text">Advanced Image Carousel</div>
                             <div class="tooltip hide">
-                                <div><p>Advanced carousel with touch/swipe/drag/paged/click navigation. Extensive customization for responsiveness, animation/slideshow speed, gutter, looping etc.&nbsp;<a target="_blank" href="http://portfoliotheme.org/siteorigin-widgets/gallery-carousel/">Live Demo</a></p></div>
+                                <div><p>Advanced carousel with touch/swipe/drag/paged/click navigation. Extensive customization for responsiveness, animation/slideshow speed, gutter, looping etc.&nbsp;<a target="_blank" href="https://www.livemeshthemes.com/siteorigin-widgets/gallery-carousel/">Live Demo</a></p></div>
                             </div>
                         </li>
                         <li><span class="help dashicons dashicons-editor-help"></span>
                             <div class="text">YouTube/Vimeo Video Carousel</div>
                             <div class="tooltip hide">
-                                <div><p>Perfect for showcasing a select collection of videos with filters, tags, external links, labels, touch/swipe/mouse drag/click navigation, paging and lightbox support.&nbsp;<a target="_blank" href="http://portfoliotheme.org/siteorigin-widgets/gallery-carousel/">Live Demo</a></p></div>
+                                <div><p>Perfect for showcasing a select collection of videos with filters, tags, external links, labels, touch/swipe/mouse drag/click navigation, paging and lightbox support.&nbsp;<a target="_blank" href="https://www.livemeshthemes.com/siteorigin-widgets/gallery-carousel/">Live Demo</a></p></div>
+                            </div>
+                        </li>
+                        <li><span class="help dashicons dashicons-editor-help"></span>
+                            <div class="text">Features List</div>
+                            <div class="tooltip hide">
+                                <div><p>List the product features or services offered in style.&nbsp;<a target="_blank" href="https://www.livemeshthemes.com/siteorigin-widgets/features/">Live Demo</a></p></div>
                             </div>
                         </li>
                         <li><span class="help dashicons dashicons-editor-help"></span>
@@ -188,6 +201,13 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
                                 </li>
                                 <li>
                                     <div class="dashicons dashicons-no-alt"></div>
+                                    <span class="m-feature m">Post Blocks!</span>
+                                    <div class="tooltip hide">
+                                        <p>Present your blog posts, events, news items or portfolio in a dozen creative ways. Comes with AJAX filtering, pagination and load more features to help visitors navigate your entire collection of blog posts or custom post types and their categories without reloading the page.&nbsp;<a target="_blank" href="https://www.livemeshthemes.com/siteorigin-widgets/posts-block/">Live Demo</a></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="dashicons dashicons-no-alt"></div>
                                     <span class="m-feature m">Demo Site Replication</span>
                                     <div class="tooltip hide">
                                         <p>Premium version comes with sample data XML bundled to get a head start on the plugin by import of demo data on our site.</p>
@@ -209,16 +229,16 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
                                 </li>
                                 <li>
                                     <div class="dashicons dashicons-no-alt"></div>
-                                    <span class="m-feature m">Lightbox Support</span>
+                                    <span class="m-feature m">Custom Fonts</span>
                                     <div class="tooltip hide">
-                                        <p>Magnific Popup plugin integrated for fast and smooth lightbox support for posts/portfolio or image/video grid elements.</p>
+                                        <p>Choose from 500+ fonts from Google for Headings and Hero Header widgets. More coming soon.</p>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="dashicons dashicons-no-alt"></div>
-                                    <span class="m-feature m">Custom Fonts</span>
+                                    <span class="m-feature m">Animations</span>
                                     <div class="tooltip hide">
-                                        <p>Choose from 500+ fonts from Google for Headings and Hero Header widgets. More coming soon.</p>
+                                        <p>Choose from over <strong>40+ custom animations</strong> for most widgets (excludes sliders, carousels and grid).</p>
                                     </div>
                                 </li>
                                 <li>
@@ -254,6 +274,13 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
                                     <span class="m-feature m">YouTube/Vimeo Video Carousel</span>
                                     <div class="tooltip hide">
                                         <p>Perfect for showcasing a select collection of videos with filters, tags, external links, labels, touch/swipe/mouse drag/click navigation, paging and lightbox support.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="dashicons dashicons-no-alt"></div>
+                                    <span class="m-feature m">Features List</span>
+                                    <div class="tooltip hide">
+                                        <p>Display a list the product features or services offered in style.</p>
                                     </div>
                                 </li>
                                 <li>
@@ -301,10 +328,17 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
                                 <li>
                                     <div class="dashicons dashicons-yes m"></div>
                                     <span class="m-feature m">Posts/Portfolio Grid</span>
-                                    <div class="m-tooltip hide"><p>The PRO version comes with advanced grid functions like pagination, lazy load via AJAX, lightbox support etc.</p></div>
+                                    <div class="m-tooltip hide"><p>The PRO version comes with advanced grid functions like multiple styles, AJAX filtering, pagination, lazy load via AJAX, lightbox support etc.</p></div>
                                     <span class="message">Advanced</span> <span class="help dashicons dashicons-editor-help"></span>
                                     <div class="tooltip hide">
-                                        <p>The PRO version comes with advanced grid functions like pagination, lazy load via AJAX, lightbox support etc.</p>
+                                        <p>The PRO version comes with advanced grid functions like multiple styles, AJAX filtering, pagination, lazy load via AJAX, lightbox support etc.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="dashicons dashicons-yes"></div>
+                                    <span class="m-feature m">Post Blocks</span>
+                                    <div class="tooltip hide">
+                                        <p>Present your blog posts, events, news items or portfolio in a dozen creative ways. Comes with AJAX filtering, pagination and load more features to help visitors navigate your entire collection of blog posts or custom post types and their categories without reloading the page.</p>
                                     </div>
                                 </li>
                                 <li>
@@ -330,16 +364,16 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
                                 </li>
                                 <li>
                                     <div class="dashicons dashicons-yes"></div>
-                                    <span class="m-feature m">Lightbox Support</span>
+                                    <span class="m-feature m">Custom Fonts</span>
                                     <div class="tooltip hide">
-                                        <p>Magnific Popup plugin integrated for fast and smooth lightbox support for posts/portfolio or image/video grid elements.</p>
+                                        <p>Choose from 500+ fonts from Google for Headings and Hero Header widgets. More coming soon.</p>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="dashicons dashicons-yes"></div>
-                                    <span class="m-feature m">Custom Fonts</span>
+                                    <span class="m-feature m">Animations</span>
                                     <div class="tooltip hide">
-                                        <p>Choose from 500+ fonts from Google for Headings and Hero Header widgets. More coming soon.</p>
+                                        <p>Choose from over <strong>40+ custom animations</strong> for most widgets (excludes sliders, carousels and grid).</p>
                                     </div>
                                 </li>
                                 <li>
@@ -379,6 +413,13 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
                                 </li>
                                 <li>
                                     <div class="dashicons dashicons-yes"></div>
+                                    <span class="m-feature m">Features List</span>
+                                    <div class="tooltip hide">
+                                        <p>Display a list the product features or services offered in style.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="dashicons dashicons-yes"></div>
                                     <span class="m-feature m">Dedicated Support Forum</span>
                                     <div class="tooltip hide">
                                         <p>Customers of PRO version get access to a dedicated support forum with public/private tickets, searchable content and threads which are answered within 24 hours.</p>
@@ -392,7 +433,7 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
                                     </div>
                                 </li>
                             </ul>
-                            <div class="action clear"><a href="https://gum.co/kGTBN/save10" class="btn center bg-cy">Purchase Now</a></div>
+                            <div class="action clear"><a href="https://www.livemeshthemes.com/siteorigin-widgets/pricing/" class="btn center bg-cy">Purchase Now</a></div>
                         </div>
                     </div>
                 </div>
@@ -401,13 +442,13 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
 
     </div>
 
-    <img style="max-width:100%;padding-top: 50px;" class="dashboard-image" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/why-premium.jpg" alt="Why Choose Premium">
+    <img style="max-width:100%;padding-top: 50px;" class="dashboard-image" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/why-premium.jpg" alt="Why Choose Premium">
 
     <div class="button-wrap">
 
-        <a href="https://gum.co/kGTBN/save10" title="Purchase Now">
+        <a href="https://www.livemeshthemes.com/siteorigin-widgets/pricing/" title="Purchase Now">
 
-            <img class="button-image" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/purchase-button.png" alt="Purchase Button">
+            <img class="button-image" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/purchase-button.png" alt="Purchase Button">
 
         </a>
 
@@ -421,13 +462,13 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
             <div id="upgrade-panel" class="panel-left visible">
 
                     <p>
-                        <img class="dashboard-image" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/image-slider.jpg" alt="Image Slider">
-                        <img class="dashboard-image" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/advanced-grid.jpg" alt="Advanced Grid">
-                        <img class="dashboard-image" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/image-gallery.jpg" alt="Image Gallery">
-                        <img class="dashboard-image" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/video-gallery.jpg" alt="Video Gallery">
-                        <img class="dashboard-image" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/image-video-carousel.jpg" alt="Image Video Carousel">
-                        <img class="dashboard-image" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/more-premium.jpg" alt="More Premium Goodness">
-                        <img class="dashboard-image" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/priority-support.jpg" alt="Priority Support">
+                        <img class="dashboard-image" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/image-slider.jpg" alt="Image Slider">
+                        <img class="dashboard-image" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/advanced-grid.jpg" alt="Advanced Grid">
+                        <img class="dashboard-image" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/image-gallery.jpg" alt="Image Gallery">
+                        <img class="dashboard-image" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/video-gallery.jpg" alt="Video Gallery">
+                        <img class="dashboard-image" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/image-video-carousel.jpg" alt="Image Video Carousel">
+                        <img class="dashboard-image" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/more-premium.jpg" alt="More Premium Goodness">
+                        <img class="dashboard-image" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/priority-support.jpg" alt="Priority Support">
 
                        </p>
 
@@ -446,23 +487,26 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
                     version does even more.</p>
 
                 <ul>
-                    <li><a href="http://portfoliotheme.org/siteorigin-widgets/livemesh-sliders/" title="Image Slider Widget" target="_blank">Image
+                    <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/posts-block/" title="Livemesh Post Blocks" target="_blank">Post Blocks</a> - Present your blog posts, events, news items or portfolio
+                        in a dozen creative ways. Comes with AJAX filtering, pagination and load more features to help visitors navigate your entire collection of blog posts or custom post types and their categories without reloading the page.
+                    </li>
+                    <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/livemesh-sliders/" title="Image Slider Widget" target="_blank">Image
                             Slider</a> - Create a responsive slider of images with support
                         for captions,
                         multiple slider types like Nivo, Flex, Slick and lightweight sliders, thumbnail
                         navigation etc.
                     </li>
-                    <li><a href="http://portfoliotheme.org/siteorigin-widgets/image-gallery/" title="Image Gallery Widget" target="_blank">Image
+                    <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/image-gallery/" title="Image Gallery Widget" target="_blank">Image
                             Gallery</a> - Create a gallery of images with options for masonry
                         or fit rows, pagination, lazy load, lightbox support etc.
                     </li>
-                    <li><a href="http://portfoliotheme.org/siteorigin-widgets/video-gallery/" title="Video Gallery Widget" target="_blank">Video
+                    <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/video-gallery/" title="Video Gallery Widget" target="_blank">Video
                             Gallery</a> - Create a beautiful gallery of videos to help
                         showcase a collection of YouTube/Vimeo videos on your site.
                     </li>
-                    <li><a href="http://portfoliotheme.org/siteorigin-widgets/gallery-carousel/" title="Image Carousel" target="_blank">Image
+                    <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/gallery-carousel/" title="Image Carousel" target="_blank">Image
                             Carousel</a> - Build a responsive carousel of images.</li>
-                    <li><a href="http://portfoliotheme.org/siteorigin-widgets/gallery-carousel/" title="Video Carousel" target="_blank">Video
+                    <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/gallery-carousel/" title="Video Carousel" target="_blank">Video
                             Carousel</a> - Build a responsive carousel of YouTube/Vimeo
                         videos.
                     </li>
@@ -470,8 +514,10 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
                         your site pages
                         such as those that feature events or under construction/coming soon pages.
                     </li>
-                    <li><strong>FAQ</strong> - Create a set of Frequently Asked Questions for display in a
+                    <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/services/" title="FAQ Widget" target="_blank">FAQ</a> - Create a set of Frequently Asked Questions for display in a
                         page.
+                    </li>
+                    <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/features/" title="Features Widget" target="_blank">Features Widget</a> - Showcase product features or services provided by your agency/business.
                     </li>
                 </ul>
 
@@ -481,10 +527,10 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
                     updated with additional features for existing widgets -</p>
 
                 <ul>
-                    <li><a href="http://portfoliotheme.org/siteorigin-widgets/livemesh-grid/" title="Livemesh Grid" target="_blank">Lazy Load</a> - The portfolio/post grid and image gallery widgets
+                    <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/livemesh-grid/" title="Livemesh Grid" target="_blank">Lazy Load</a> - The portfolio/post grid and image gallery widgets
                         incorporate option to lazy load posts/images with the click of a Load More button.
                     </li>
-                    <li><a href="http://portfoliotheme.org/siteorigin-widgets/livemesh-grid/" title="Livemesh Grid" target="_blank">Pagination</a> - Create a grid of posts or custom post types with AJAX
+                    <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/livemesh-grid/" title="Livemesh Grid" target="_blank">Pagination</a> - Create a grid of posts or custom post types with AJAX
                         based pagination support.
                     </li>
                     <li><strong>Lightbox Support</strong> - The premium version comes with support for
@@ -492,6 +538,10 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
                     </li>
                     <li><strong>Custom Fonts</strong> - Ability to choose custom fonts from Google Fonts
                         library for headings in heading widget and the hero header widget.
+                    </li>
+                    <li><strong>Animations</strong> - Choose from over <strong>40+ animations</strong> for most widgets
+                        (excludes sliders, carousels and grid). The animations display on user scrolling to the widget or
+                        when the widget becomes visible in the browser window.
                     </li>
                     <li><strong>Sample Data</strong> - Sample data that you can import into your site to get
                         started quickly on the widgets and some sample layouts.
@@ -529,9 +579,9 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
 
                 <div class="button-wrap">
 
-                    <a class="button-wrap" href="https://gum.co/kGTBN/save10" title="Purchase Now">
+                    <a class="button-wrap" href="https://www.livemeshthemes.com/siteorigin-widgets/pricing/" title="Purchase Now">
 
-                        <img class="button-image" style="border:none" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/purchase-button.png" alt="Purchase Button">
+                        <img class="button-image" style="border:none" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/purchase-button.png" alt="Purchase Button">
 
                     </a>
 
@@ -544,7 +594,7 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
                 <div class="panel-inner">
 
                     <div class="panel-aside banner">
-                        <a href="https://gum.co/kGTBN/save10" title="Purchase Now"><img class="dashboard-image" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/purchase-banner2.jpg" alt="Sale Banner"></a>
+                        <a href="https://www.livemeshthemes.com/siteorigin-widgets/pricing/" title="Purchase Now"><img class="dashboard-image" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/purchase-banner2.jpg" alt="Sale Banner"></a>
                     </div>
 
                     <!-- Knowledge base -->
@@ -553,7 +603,7 @@ $plugin = get_plugin_data(LSOW_PLUGIN_FILE);
                         <h4>Have questions regarding premium version of the plugin?</h4>
                         <p>If you have pre-sales questions related to the paid version of this plugin, feel free to get in touch with us via contact form on our website.</p>
 
-                        <a class="button button-primary" href="http://portfoliotheme.org/contact-us"
+                        <a class="button button-primary" href="https://www.livemeshthemes.com/contact-us"
                            title="<?php esc_attr_e('Contact Us', 'livemesh-so-widgets'); ?>"><?php _e('Write to Us', 'livemesh-so-widgets'); ?></a>
 
                     </div><!-- .panel-aside knowledge base -->

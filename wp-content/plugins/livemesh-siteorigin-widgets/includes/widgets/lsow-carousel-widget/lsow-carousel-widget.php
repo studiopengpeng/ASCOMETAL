@@ -4,7 +4,7 @@
 Widget Name: Livemesh Carousel
 Description: Display a list of custom HTML content as a carousel.
 Author: LiveMesh
-Author URI: http://portfoliotheme.org
+Author URI: https://www.livemeshthemes.com
 */
 
 class LSOW_Carousel_Widget extends SiteOrigin_Widget {

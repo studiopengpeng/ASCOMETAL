@@ -61,6 +61,6 @@ elseif ($icon_type == 'icon')
 $button_content = '<a' . $id . ' class= "lsow-button ' . ((!empty($icon_html)) ? ' lsow-with-icon' : '') . esc_attr($class) . $color_class . $type . $rounded . '"' . $style . $color_attr . $hover_color_attr . ' href="' . sow_esc_url($href) . '"' . esc_html($target) . '>' . $icon_html . esc_html($text) . '</a>';
 
 if ($align != 'none')
-    $button_content = '<div class="lsow-button-wrap" style="text-align:' . esc_attr($align) . ';float:' . esc_attr($align) . ';">' . $button_content . '</div>';
+    $button_content = '<div class="lsow-button-wrap" style="clear: both; text-align:' . esc_attr($align) . ';">' . $button_content . '</div>';
 
 echo $button_content;

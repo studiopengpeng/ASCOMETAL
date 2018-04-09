@@ -32,8 +32,13 @@ class WPML_Term_Element extends WPML_Translation_Element {
 		return $this->taxonomy;
 	}
 
-	function get_wpml_element_type() {
-		return 'tax_' . $this->get_wp_element_type();
+	public function get_wpml_element_type() {
+		$element_type = '';
+		if ( ! is_wp_error( $this->get_wp_element_type() ) ) {
+			$element_type = 'tax_' . $this->get_wp_element_type();
+		}
+
+		return $element_type;
 	}
 
 	function get_element_id() {
@@ -51,9 +56,12 @@ class WPML_Term_Element extends WPML_Translation_Element {
 	 * @return array|null|WP_Error|WP_Term
 	 */
 	function get_wp_object() {
-		remove_filter( 'get_term', array( $this->sitepress, 'get_term_adjust_id' ), 1 );
+		$has_filter = remove_filter( 'get_term', array( $this->sitepress, 'get_term_adjust_id' ), 1 );
 		$term = get_term( $this->id, $this->taxonomy, OBJECT );
-		add_filter( 'get_term', array( $this->sitepress, 'get_term_adjust_id' ), 1, 1 );
+
+		if ( $has_filter ) {
+			add_filter( 'get_term', array( $this->sitepress, 'get_term_adjust_id' ), 1, 1 );
+		}
 
 		return $term;
 	}
@@ -71,4 +79,9 @@ class WPML_Term_Element extends WPML_Translation_Element {
 	function is_translatable() {
 		return $this->sitepress->is_translated_taxonomy( $this->get_wp_element_type() );
 	}
+
+	function is_display_as_translated() {
+		return $this->sitepress->is_display_as_translated_taxonomy( $this->get_wp_element_type() );
+	}
+
 }

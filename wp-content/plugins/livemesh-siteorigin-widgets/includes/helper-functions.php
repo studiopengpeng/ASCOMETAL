@@ -38,22 +38,43 @@ function lsow_get_terms($taxonomy) {
 function lsow_get_chosen_terms($query_args) {
 
     $chosen_terms = array();
-    $taxonomy_filter = '';
-
-    $query_args = wp_parse_args($query_args);
+    $taxonomies = array();
 
     if (!empty($query_args) && !empty($query_args['tax_query'])) {
-        $terms_query = explode(',', $query_args['tax_query']);
-        foreach ($terms_query as $term_query) {
-            list($taxonomy, $term_slug) = explode(':', $term_query);
 
-            if (empty($taxonomy) || empty($term_slug))
+        $term_queries = $query_args['tax_query'];
+
+        foreach ($term_queries as $terms_query) {
+
+            if (!is_array($terms_query))
                 continue;
-            $chosen_terms[] = get_term_by('slug', $term_slug, $taxonomy);
-            $taxonomy_filter = $taxonomy;
+
+            $field = $terms_query['field'];
+
+            $taxonomy = $terms_query['taxonomy'];
+
+            $terms = $terms_query['terms'];
+
+            if (empty($taxonomy) || empty($terms))
+                continue;
+
+            $taxonomies[] = $taxonomy;
+
+            if (is_array($terms)) {
+                foreach ($terms as $term) {
+                    $chosen_terms[] = get_term_by($field, $term, $taxonomy);
+                }
+            }
+            else {
+                $chosen_terms[] = get_term_by($field, $terms, $taxonomy);
+            }
         }
     }
-    return array($chosen_terms, $taxonomy_filter);
+
+    // Remove duplicates
+    $taxonomies = array_unique($taxonomies);
+
+    return array($chosen_terms, $taxonomies);
 }
 
 function lsow_entry_terms_list($taxonomy = 'category', $separator = ', ', $before = ' ', $after = ' ') {
@@ -117,7 +138,18 @@ function lsow_get_taxonomy_info($taxonomy) {
     return $output;
 }
 
-function lsow_entry_published($format = "M d, Y") {
+function lsow_get_info_for_taxonomies($taxonomies) {
+    $output = '';
+    foreach ($taxonomies as $taxonomy)  {
+        $output .= lsow_get_taxonomy_info($taxonomy);
+    }
+    return $output;
+}
+
+function lsow_entry_published($format = null) {
+
+    if (empty($format))
+        $format = get_option('date_format');
 
     $published = '<span class="published"><abbr title="' . sprintf(get_the_time(esc_html__('l, F, Y, g:i a', 'livemesh-so-widgets'))) . '">' . sprintf(get_the_time($format)) . '</abbr></span>';
 
@@ -135,14 +167,28 @@ function lsow_entry_author() {
 
 /** Isotope filtering support for Portfolio pages * */
 
-function lsow_get_taxonomy_terms_filter($taxonomy, $chosen_terms = array()) {
+function lsow_get_taxonomy_terms_filter($taxonomies, $chosen_terms = array()) {
 
     $output = '';
 
-    if (empty($chosen_terms))
-        $terms = get_terms($taxonomy);
-    else
+    if (empty($chosen_terms)) {
+
+        global $wp_version;
+
+        if (version_compare($wp_version, '4.5', '>=')) {
+
+            $terms = get_terms($taxonomies);
+
+        }
+        else {
+
+            $terms = get_terms($taxonomies[0]);
+
+        }
+    }
+    else {
         $terms = $chosen_terms;
+    }
 
     if (!empty($terms) && !is_wp_error($terms)) {
 
@@ -167,18 +213,16 @@ function lsow_get_taxonomy_terms_filter($taxonomy, $chosen_terms = array()) {
 
 /* Return the css class name to help achieve the number of columns specified */
 
-function lsow_get_column_class($column_size = 3, $no_margin = false) {
+function lsow_get_column_class($column_size = 3) {
 
     $style_class = 'lsow-threecol';
-
-    $no_margin = lsow_to_boolean($no_margin); // make sure it is not string
 
     $column_styles = array(
         1 => 'lsow-twelvecol',
         2 => 'lsow-sixcol',
         3 => 'lsow-fourcol',
         4 => 'lsow-threecol',
-        5 => 'lsow-onefifthcol',
+        5 => 'lsow-onefifth',
         6 => 'lsow-twocol',
         12 => 'lsow-onecol'
     );
@@ -187,11 +231,8 @@ function lsow_get_column_class($column_size = 3, $no_margin = false) {
         $style_class = $column_styles[$column_size];
     }
 
-    $style_class = $no_margin ? ($style_class . ' lsow-zero-margin') : $style_class;
-
     return $style_class;
 }
-
 /*
 * Converting string to boolean is a big one in PHP
 */
@@ -394,7 +435,6 @@ function lsow_get_sysinfo() {
 
     // PHP configs... now we're getting to the important stuff
     $return .= "\n" . '-- PHP Configuration' . "\n\n";
-    $return .= 'Safe Mode:                ' . (ini_get('safe_mode') ? 'Enabled' : 'Disabled' . "\n");
     $return .= 'Memory Limit:             ' . ini_get('memory_limit') . "\n";
     $return .= 'Upload Max Size:          ' . ini_get('upload_max_filesize') . "\n";
     $return .= 'Post Max Size:            ' . ini_get('post_max_size') . "\n";

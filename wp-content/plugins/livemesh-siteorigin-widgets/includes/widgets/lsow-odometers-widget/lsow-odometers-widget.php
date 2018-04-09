@@ -4,7 +4,7 @@
 Widget Name: Livemesh Odometers
 Description: Display one or more animated odometer statistics in a multi-column grid.
 Author: LiveMesh
-Author URI: http://portfoliotheme.org
+Author URI: https://www.livemeshthemes.com
 */
 
 class LSOW_Odometer_Widget extends SiteOrigin_Widget {

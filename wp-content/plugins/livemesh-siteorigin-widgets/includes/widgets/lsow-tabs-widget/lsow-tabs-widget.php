@@ -4,7 +4,7 @@
 Widget Name: Livemesh Tabs
 Description: Display tabbed content in variety of styles.
 Author: LiveMesh
-Author URI: http://portfoliotheme.org
+Author URI: https://www.livemeshthemes.com
 */
 
 class LSOW_Tabs_Widget extends SiteOrigin_Widget {
@@ -58,11 +58,10 @@ class LSOW_Tabs_Widget extends SiteOrigin_Widget {
                 ),
 
                 'mobile_width' => array(
-                    'type' => 'text',
+                    'type' => 'number',
                     'label' => __('Mobile Resolution', 'livemesh-so-widgets'),
                     'description' => __('The resolution to treat as a mobile resolution for invoking responsive tabs.', 'livemesh-so-widgets'),
                     'default' => 767,
-                    'sanitize' => 'intval',
                 ),
 
                 'icon_type' => array(
@@ -163,7 +162,7 @@ class LSOW_Tabs_Widget extends SiteOrigin_Widget {
         return array(
             'style' => $instance['style'],
             'icon_type' => $instance['icon_type'],
-            'mobile_width' => $instance['mobile_width'],
+            'mobile_width' => intval($instance['mobile_width']),
             'tabs' => !empty($instance['tabs']) ? $instance['tabs'] : array()
         );
     }

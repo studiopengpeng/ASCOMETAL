@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name: Livemesh SiteOrigin Widgets
- * Plugin URI: http://portfoliotheme.org/siteorigin-widgets
+ * Plugin URI: https://www.livemeshthemes.com/siteorigin-widgets
  * Description: A collection of premium quality widgets for use in any widgetized area or in SiteOrigin page builder. SiteOrigin Widgets Bundle is required.
  * Author: Livemesh
- * Author URI: http://portfoliotheme.org/
+ * Author URI: https://www.livemeshthemes.com/siteorigin-widgets
  * License: GPL3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
- * Version: 1.4.4
+ * Version: 1.7.3
  * Text Domain: livemesh-so-widgets
  * Domain Path: languages
  *
@@ -72,7 +72,7 @@ if (!class_exists('Livemesh_SiteOrigin_Widgets')) :
          */
         public function __clone() {
             // Cloning instances of the class is forbidden
-            _doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'livemesh-so-widgets'), '1.6');
+            _doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'livemesh-so-widgets'), '1.7.3');
         }
 
         /**
@@ -81,7 +81,7 @@ if (!class_exists('Livemesh_SiteOrigin_Widgets')) :
          */
         public function __wakeup() {
             // Unserializing instances of the class is forbidden
-            _doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'livemesh-so-widgets'), '1.6');
+            _doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'livemesh-so-widgets'), '1.7.3');
         }
 
         /**
@@ -92,7 +92,7 @@ if (!class_exists('Livemesh_SiteOrigin_Widgets')) :
 
             // Plugin version
             if (!defined('LSOW_VERSION')) {
-                define('LSOW_VERSION', '1.4.4');
+                define('LSOW_VERSION', '1.7.3');
             }
 
             // Plugin Folder Path
@@ -191,6 +191,8 @@ if (!class_exists('Livemesh_SiteOrigin_Widgets')) :
         private function hooks() {
 
             add_action('wp_enqueue_scripts', array($this, 'load_frontend_scripts'), 10);
+
+            add_action('wp_enqueue_scripts', array($this, 'localize_scripts'), 999999);
         }
 
         /**
@@ -216,8 +218,6 @@ if (!class_exists('Livemesh_SiteOrigin_Widgets')) :
 
             wp_register_script('lsow-frontend-scripts', LSOW_PLUGIN_URL . 'assets/js/lsow-frontend' . $suffix . '.js', array('jquery'), LSOW_VERSION, true);
             wp_enqueue_script('lsow-frontend-scripts');
-
-            add_action('wp_enqueue_scripts', array($this, 'localize_scripts'), 999999);
 
         }
 

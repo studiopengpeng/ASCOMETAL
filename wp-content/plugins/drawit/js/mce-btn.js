@@ -40,7 +40,17 @@
                     // If editing an existing diagram, then get the title of it (if provided).
                     diag_title = j_code.attr('title');
                     if (typeof diag_title === typeof undefined || diag_title === false) {
-                        diag_title = "";
+                        // If not in recognized <img> format, check for [drawit-svg] format.
+                        svg_re = /\[\s*drawit-svg\s+(.*)\s*]/;
+                        matching = svg_re.exec(selected_code);
+                        selected_code = '<img ' + matching[1] + ' />';
+                        j_code = jQuery('<span>' + selected_code + '</span>').find('img').first();
+
+                        if (typeof diag_title === typeof undefined || diag_title === false) {
+                            diag_title = "";
+                        } else {
+                            diag_title = '&title=' + diag_title;
+                        }
                     } else {
                         diag_title = '&title=' + diag_title;
                     }

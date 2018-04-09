@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2015 ServMask Inc.
+ * Copyright (C) 2014-2018 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,8 +35,8 @@ class Ai1wmde_Main_Controller {
 
 		// Activate hooks
 		$this->activate_actions()
-			 ->activate_filters()
-			 ->activate_textdomain();
+			->activate_filters()
+			->activate_textdomain();
 	}
 
 	/**
@@ -65,32 +65,14 @@ class Ai1wmde_Main_Controller {
 	 * @return void
 	 */
 	public function admin_menu() {
-		// sublevel Export menu
-		$export_page_hook_suffix = get_plugin_page_hookname( 'site-migration-export', 'site-migration-export' );
-		add_action(
-			'admin_print_scripts-' . $export_page_hook_suffix,
-			array( $this, 'register_export_scripts_and_styles' )
-		);
-
-		// sublevel Import menu
-		$import_page_hook_suffix = get_plugin_page_hookname( 'site-migration-import', 'site-migration-export' );
-		add_action(
-			'admin_print_scripts-' . $import_page_hook_suffix,
-			array( $this, 'register_import_scripts_and_styles' )
-		);
-
 		// sublevel Settings menu
-		$settings_page_hook_suffix = add_submenu_page(
+		add_submenu_page(
 			'site-migration-export',
 			__( 'Dropbox Settings', AI1WMDE_PLUGIN_NAME ),
 			__( 'Dropbox Settings', AI1WMDE_PLUGIN_NAME ),
 			'export',
 			'site-migration-dropbox-settings',
 			'Ai1wmde_Settings_Controller::index'
-		);
-		add_action(
-			'admin_print_scripts-' . $settings_page_hook_suffix,
-			array( $this, 'register_settings_scripts_and_styles' )
 		);
 	}
 
@@ -99,11 +81,19 @@ class Ai1wmde_Main_Controller {
 	 *
 	 * @return void
 	 */
-	public function register_export_scripts_and_styles() {
+	public function register_export_scripts_and_styles( $hook ) {
+		if ( stripos( 'toplevel_page_site-migration-export', $hook ) === false ) {
+			return;
+		}
+
 		wp_enqueue_script(
 			'ai1wmde-js-export',
 			Ai1wm_Template::asset_link( 'javascript/export.min.js', 'AI1WMDE' ),
 			array( 'jquery' )
+		);
+		wp_enqueue_style(
+			'ai1wmde-css-export',
+			Ai1wm_Template::asset_link( 'css/export.min.css', 'AI1WMDE' )
 		);
 	}
 
@@ -112,7 +102,11 @@ class Ai1wmde_Main_Controller {
 	 *
 	 * @return void
 	 */
-	public function register_import_scripts_and_styles() {
+	public function register_import_scripts_and_styles( $hook ) {
+		if ( stripos( 'all-in-one-wp-migration_page_site-migration-import', $hook ) === false ) {
+			return;
+		}
+
 		wp_enqueue_style(
 			'ai1wmde-css-import',
 			Ai1wm_Template::asset_link( 'css/import.min.css', 'AI1WMDE' )
@@ -125,7 +119,7 @@ class Ai1wmde_Main_Controller {
 		wp_localize_script( 'ai1wmde-js-import', 'ai1wmde_import', array(
 			'token' => get_option( 'ai1wmde_dropbox_token' ),
 			'ajax'  => array(
-				'metadata_url'  => admin_url( 'admin-ajax.php?action=ai1wmde_dropbox_metadata' ),
+				'folder_url' => admin_url( 'admin-ajax.php?action=ai1wmde_dropbox_folder' ),
 			),
 		) );
 	}
@@ -135,7 +129,11 @@ class Ai1wmde_Main_Controller {
 	 *
 	 * @return void
 	 */
-	public function register_settings_scripts_and_styles() {
+	public function register_settings_scripts_and_styles( $hook ) {
+		if ( stripos( 'all-in-one-wp-migration_page_site-migration-dropbox-settings', $hook ) === false ) {
+			return;
+		}
+
 		wp_enqueue_script(
 			'ai1wmde-js-settings',
 			Ai1wm_Template::asset_link( 'javascript/settings.min.js', 'AI1WMDE' ),
@@ -156,9 +154,10 @@ class Ai1wmde_Main_Controller {
 			),
 		) );
 		wp_localize_script( 'ai1wmde-js-settings', 'ai1wm_feedback', array(
-			'ajax' => array(
+			'ajax'       => array(
 				'url' => admin_url( 'admin-ajax.php?action=ai1wm_feedback' ),
 			),
+			'secret_key' => get_option( AI1WM_SECRET_KEY ),
 		) );
 	}
 
@@ -194,25 +193,6 @@ class Ai1wmde_Main_Controller {
 	}
 
 	/**
-	 * Add custom cron schedules
-	 *
-	 * @param  array $schedules List of schedules
-	 * @return array
-	 */
-	public function add_cron_schedules( $schedules ) {
-		$schedules['weekly'] = array(
-			'display'  => __( 'Weekly', AI1WMDE_PLUGIN_NAME ),
-			'interval' => 60 * 60 * 24 * 7,
-		);
-		$schedules['monthly'] = array(
-			'display'  => __( 'Monthly', AI1WMDE_PLUGIN_NAME ),
-			'interval' => 60 * 60 * 24 * 7 * 31,
-		);
-
-		return $schedules;
-	}
-
-	/**
 	 * Register listeners for actions
 	 *
 	 * @return Object Instance of this class
@@ -233,6 +213,18 @@ class Ai1wmde_Main_Controller {
 		// Export and import commands
 		add_action( 'plugins_loaded', array( $this, 'ai1wm_commands' ), 20 );
 
+		// Enable notifications
+		add_action( 'plugins_loaded', array( $this, 'ai1wm_notification' ), 20 );
+
+		// Add export scripts and styles
+		add_action( 'admin_enqueue_scripts', array( $this, 'register_export_scripts_and_styles' ), 20 );
+
+		// Add import scripts and styles
+		add_action( 'admin_enqueue_scripts', array( $this, 'register_import_scripts_and_styles' ), 20 );
+
+		// Add settings scripts and styles
+		add_action( 'admin_enqueue_scripts', array( $this, 'register_settings_scripts_and_styles' ), 20 );
+
 		return $this;
 	}
 
@@ -242,10 +234,27 @@ class Ai1wmde_Main_Controller {
 	 * @return Object Instance of this class
 	 */
 	private function activate_filters() {
-		// Add custom schedules
-		add_filter( 'cron_schedules', array( $this, 'add_cron_schedules' ) );
+		// Add links to plugin list page
+		add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 5, 2 );
 
 		return $this;
+	}
+
+	/**
+	 * Enable notifications
+	 *
+	 * @return void
+	 */
+	public function ai1wm_notification() {
+		if ( isset( $_REQUEST['dropbox'] ) ) {
+			// Add ok notifications
+			add_filter( 'ai1wm_notification_ok_toggle', 'Ai1wmde_Settings_Controller::notify_ok_toggle' );
+			add_filter( 'ai1wm_notification_ok_email', 'Ai1wmde_Settings_Controller::notify_email' );
+
+			// Add error notifications
+			add_filter( 'ai1wm_notification_error_toggle', 'Ai1wmde_Settings_Controller::notify_error_toggle' );
+			add_filter( 'ai1wm_notification_error_email', 'Ai1wmde_Settings_Controller::notify_email' );
+		}
 	}
 
 	/**
@@ -258,11 +267,14 @@ class Ai1wmde_Main_Controller {
 			// Add export commands
 			add_filter( 'ai1wm_export', 'Ai1wmde_Export_Dropbox::execute', 250 );
 			add_filter( 'ai1wm_export', 'Ai1wmde_Export_Upload::execute', 260 );
-			add_filter( 'ai1wm_export', 'Ai1wmde_Export_Clean::execute', 270 );
+			add_filter( 'ai1wm_export', 'Ai1wmde_Export_Retention::execute', 270 );
+			add_filter( 'ai1wm_export', 'Ai1wmde_Export_Done::execute', 280 );
 
 			// Add import commands
 			add_filter( 'ai1wm_import', 'Ai1wmde_Import_Dropbox::execute', 20 );
 			add_filter( 'ai1wm_import', 'Ai1wmde_Import_Download::execute', 30 );
+			add_filter( 'ai1wm_import', 'Ai1wmde_Import_Settings::execute', 290 );
+			add_filter( 'ai1wm_import', 'Ai1wmde_Import_Database::execute', 310 );
 
 			// Remove export commands
 			remove_filter( 'ai1wm_export', 'Ai1wm_Export_Download::execute', 250 );
@@ -290,6 +302,12 @@ class Ai1wmde_Main_Controller {
 			} else {
 				add_action( 'admin_menu', array( $this, 'admin_menu' ), 20 );
 			}
+
+			// Dropbox settings
+			add_action( 'admin_post_ai1wmde_dropbox_settings', 'Ai1wmde_Settings_Controller::settings' );
+
+			// Dropbox revoke
+			add_action( 'admin_post_ai1wmde_dropbox_revoke', 'Ai1wmde_Settings_Controller::revoke' );
 
 			// Cron settings
 			add_action( 'ai1wmde_dropbox_hourly_export', 'Ai1wm_Export_Controller::export' );
@@ -322,13 +340,27 @@ class Ai1wmde_Main_Controller {
 			<p>
 				<?php
 				_e(
-					'All in One WP Migration is not activated. Please activate the plugin in order to use Dropbox extension.',
+					'Dropbox extension requires <a href="https://wordpress.org/plugins/all-in-one-wp-migration/" target="_blank">All-in-One WP Migration plugin</a> to be activated. ' .
+					'<a href="https://help.servmask.com/knowledgebase/install-instructions-for-dropbox-extension/" target="_blank">Dropbox extension install instructions</a>',
 					AI1WMDE_PLUGIN_NAME
 				);
 				?>
 			</p>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Add links to plugin list page
+	 *
+	 * @return array
+	 */
+	public function plugin_row_meta( $links, $file ) {
+		if ( $file == AI1WMDE_PLUGIN_BASENAME ) {
+			$links[] = __( '<a href="https://help.servmask.com/knowledgebase/dropbox-extension-user-guide/" target="_blank">User Guide</a>', AI1WMDE_PLUGIN_NAME );
+		}
+
+		return $links;
 	}
 
 	/**
@@ -374,7 +406,7 @@ class Ai1wmde_Main_Controller {
 
 		// Import
 		if ( current_user_can( 'import' ) ) {
-			add_action( 'wp_ajax_ai1wmde_dropbox_metadata', 'Ai1wmde_Import_Controller::metadata' );
+			add_action( 'wp_ajax_ai1wmde_dropbox_folder', 'Ai1wmde_Import_Controller::folder' );
 		}
 	}
 }

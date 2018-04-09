@@ -4,21 +4,29 @@ include_once "cf_dropdown.php";
 
 global $wpdb,$table_prefix;
 
-if( array_key_exists('redirect_to',$_POST) &&  $_POST['redirect_to']!='')
+
+
+$redirect_to = (isset($_POST['redirect_to'])) ? sanitize_text_field($_POST['redirect_to']) : '';
+$nonce = $_REQUEST['_wpnonce'];
+
+if($redirect_to !=='' && wp_verify_nonce( $nonce, 'p404home_nounce' ))
 	{
-		$newoptions['p404_redirect_to']=$_POST['redirect_to'];
-		$newoptions['p404_status']=$_POST['p404_status'];
-		update_my_options($newoptions);
-		option_msg('Options Saved!');
+
+		$newoptions['p404_redirect_to']= $redirect_to;
+		$newoptions['p404_status']=sanitize_text_field($_POST['p404_status']);
+		P404REDIRECT_update_my_options($newoptions);
+		P404REDIRECT_option_msg('Options Saved!');
 		
-	}
+	}else {
+                P404REDIRECT_failure_option_msg('Unable to save data!');
+        }
 	
-$options= get_my_options();
+$options= P404REDIRECT_get_my_options();
 ?>
 
-<?
-if(there_is_cache()!='') 
-info_option_msg("You have a cache plugin installed <b>'" . there_is_cache() . "'</b>, you have to clear cache after any changes to get the changes reflected immediately! ");
+<?php
+if(P404REDIRECT_there_is_cache()!='') 
+P404REDIRECT_info_option_msg("You have a cache plugin installed <b>'" . P404REDIRECT_there_is_cache() . "'</b>, you have to clear cache after any changes to get the changes reflected immediately! ");
 ?>
 
 <div class="wrap">
@@ -35,14 +43,17 @@ info_option_msg("You have a cache plugin installed <b>'" . there_is_cache() . "'
 		$drop->dropdown_print();
 		$drop->select($options['p404_status']);
 	?>
+	
 	<br/><br/>
 	
 	Redirect all 404 pages to: 
-	<input type="text" name="redirect_to" id="redirect_to" size="30" value="<?=$options['p404_redirect_to']?>">		
+	<input type="text" name="redirect_to" id="redirect_to" size="30" value="<?php echo $options['p404_redirect_to']?>">		
 	
-	
+	<br/><br/>
+	<span style="color:red">Plugin detected some 404 pages</span>, upgrade to <a target="_blank" href="http://www.clogica.com/product/seo-redirection-premium-wordpress-plugin">pro</a> to manage all errors and improve your SEO
 	
 <br/><br/><br/>
+<input type="hidden" id="_wpnonce" name="_wpnonce" value="<?php echo $nonce = wp_create_nonce('p404home_nounce'); ?>" />
 <input  class="button-primary" type="submit" value="  Update Options  " name="Save_Options"></form>  
 
 </div></div>
@@ -54,9 +65,6 @@ info_option_msg("You have a cache plugin installed <b>'" . there_is_cache() . "'
 
 <div class='procontainer'><div class='inner'>
 
-<h3>if you concerned about building <font color="#FF0000">SEO redirects</font> 
-and <font color="#FF0000">fixing 404 Errors</font> for your site
-<a target="_blank" href="http://www.clogica.com/product/seo-redirection-premium-wordpress-plugin">
-take a look into this plugin </a></h3>
+<h3>Upgrade to <a target="_blank" href="http://www.clogica.com/product/seo-redirection-premium-wordpress-plugin">pro version</a> and empower your site SEO,<strong style="color:green"> Now 39% off</strong></h3>
 
 </div>

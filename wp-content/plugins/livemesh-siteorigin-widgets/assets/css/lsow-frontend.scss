@@ -1,6 +1,5 @@
 @import "bourbon";
 @import "neat";
-@import "flexbox";
 @import "grid-settings";
 @import "lsow-lib";
 
@@ -9,8 +8,11 @@
 .panel-grid .widget {
   overflow: initial;
   }
-
-.lsow-container {
+.lsow-container, .lsow-grid-container {
+  box-sizing: border-box;
+  *, *::after, *::before {
+    box-sizing: inherit;
+    }
   ol, ul, ol > li, ul > li, ol:hover, ul:hover, ul > li:hover, ol > li:hover, ol > li > a, ul > li > a, ol > li > a:hover, ul > li > a:hover, img {
     padding: 0;
     margin: 0;
@@ -29,231 +31,291 @@
     max-width: 100%;
     width: auto;
     height: auto;
+    }
   }
-  }
-
 /* ------- General styles ------------ */
 
 .lsow-container {
+  @include lsow-container;
   margin-left: auto;
   margin-right: auto;
-}
-
+  }
 .panel-grid .widget {
   border: 0;
   }
-
 .lsow-center {
   text-align: center;
   }
+.lsow-grid-container {
+  @include grid-container;
+  @include grid-collapse();
 
-.lsow-lastcol {
-  @include omega;
-  }
-
-.lsow-container {
-  .lsow-onecol, .lsow-twocol, .lsow-onefifthcol, .lsow-threecol, .lsow-fourcol, .lsow-fivecol, .lsow-sixcol, .lsow-sevencol, .lsow-eightcol, .lsow-ninecol, .lsow-tencol, .lsow-elevencol {
+  .lsow-onecol, .lsow-twocol, .lsow-threecol, .lsow-fourcol, .lsow-fivecol, .lsow-sixcol, .lsow-sevencol, .lsow-eightcol, .lsow-ninecol, .lsow-tencol, .lsow-elevencol, .lsow-twelvecol {
     min-height: 1px; /* Prevents columns from collapsing when housing absolute elements or when lazy loading content */
     }
 
-  @include respond-to-min(801) {
+  .lsow-onecol, .lsow-twocol {
+    @include grid-column(1, $lsow-mobile-grid);
+    }
+
+  .lsow-threecol, .lsow-fourcol, .lsow-fivecol, .lsow-sixcol, .lsow-sevencol, .lsow-eightcol, .lsow-ninecol, .lsow-tencol, .lsow-elevencol, .lsow-twelvecol {
+    @include grid-column(2, $lsow-mobile-grid);
+    }
+
+  @include grid-media($lsow-mobile-only-grid) {
+
+    .lsow-onecol, .lsow-twocol {
+      @include omega(2n);
+      }
+    }
+
+  @include grid-media($lsow-tablet-grid) {
+
+    .lsow-onecol, .lsow-twocol {
+      @include grid-column(2);
+      }
+
+    .lsow-threecol, .lsow-fourcol, .lsow-fivecol, .lsow-sixcol, .lsow-sevencol, .lsow-eightcol, .lsow-ninecol {
+      @include grid-column(3);
+      }
+
+    .lsow-tencol, .lsow-elevencol {
+      @include grid-column(4);
+      }
+
+    .lsow-twelvecol {
+      @include grid-column(6);
+      }
+    }
+
+  @include grid-media($lsow-tablet-only-grid) {
+
+    .lsow-onecol, .lsow-twocol {
+      @include omega(3n);
+      }
+
+    .lsow-threecol, .lsow-fourcol, .lsow-fivecol, .lsow-sixcol, .lsow-sevencol, .lsow-eightcol, .lsow-ninecol {
+      @include omega(2n);
+      }
+    }
+
+  @include grid-media($lsow-desktop-grid) {
 
     .lsow-onecol {
-      @include span-columns(1);
+      @include grid-column(1);
       @include omega(12n);
       }
 
     .lsow-twocol {
-      @include span-columns(2);
+      @include grid-column(2);
       @include omega(6n);
       }
 
     .lsow-threecol {
-      @include span-columns(3);
+      @include grid-column(3);
       @include omega(4n);
       }
 
     .lsow-fourcol {
-      @include span-columns(4);
+      @include grid-column(4);
       @include omega(3n);
       }
 
     .lsow-fivecol {
-      @include span-columns(5);
+      @include grid-column(5);
       }
 
     .lsow-sixcol {
-      @include span-columns(6);
+      @include grid-column(6);
       @include omega(2n);
       }
 
     .lsow-sevencol {
-      @include span-columns(7);
+      @include grid-column(7);
       }
 
     .lsow-eightcol {
-      @include span-columns(8);
+      @include grid-column(8);
       }
 
     .lsow-ninecol {
-      @include span-columns(9);
+      @include grid-column(9);
       }
 
     .lsow-tencol {
-      @include span-columns(10);
+      @include grid-column(10);
       }
 
     .lsow-elevencol {
-      @include span-columns(11);
+      @include grid-column(11);
       }
-    }
 
-  .lsow-twelvecol, .lsow-fullwidth {
-    float: left;
-    display: block;
-    width: 100%;
+    .lsow-twelvecol {
+      @include grid-column(12);
+      }
     }
 
   }
 /*--------- Support for 5 column grid ----*/
 
-$grid-columns: 15;
+.lsow-grid-container {
 
-.lsow-container {
-  @include respond-to-min(801) {
+  .lsow-onefifth {
+    min-height: 1px;
+    }
 
-    .lsow-onefifthcol {
-      @include span-columns(3);
-      @include omega(5n);
+  .lsow-onefifth {
+    @include grid-column(2, $lsow-mobile-grid);
+    }
+
+  @include grid-media($lsow-tablet-grid) {
+
+    .lsow-onefifth {
+      @include grid-column(3);
       }
 
     }
-  }
+  @include grid-media($lsow-tablet-only-grid) {
 
-/* Tablet and Mobile responsiveness */
-
-$grid-columns: 12;
-
-.lsow-container {
-
-  @include respond-between(480, 800) {
-
-    .lsow-onecol, .lsow-twocol, .lsow-onefifthcol, .lsow-threecol, .lsow-fourcol, .lsow-fivecol, .lsow-sixcol, .lsow-sevencol, .lsow-eightcol, .lsow-ninecol, .lsow-tencol, .lsow-elevencol {
-      @include span-columns(6);
+    .lsow-onefifth {
       @include omega(2n);
       }
 
     }
 
-  @include respond-to-max(479) {
+  @include grid-media($lsow-five-col-grid) {
 
-    .lsow-onecol, .lsow-twocol, .lsow-onefifthcol, .lsow-threecol, .lsow-fourcol, .lsow-fivecol, .lsow-sixcol, .lsow-sevencol, .lsow-eightcol, .lsow-ninecol, .lsow-tencol, .lsow-elevencol {
-      width: 100%;
-      @include omega;
+    .lsow-onefifth {
+      @include grid-column(1);
+      @include omega(5n);
       }
-
     }
   }
 
-/*-------- Remove margins on last column -----*/
+/*--------- Gapless grid columns ----*/
 
-.lsow-container .lsow-lastcol {
-  @include omega;
-  }
+.lsow-gapless-grid {
 
-/*--------- No margin columns ----*/
-
-.lsow-container .lsow-zero-margin, #content .lsow-zero-margin {
-  @include omega;
-  }
-
-.lsow-container {
-
-  .lsow-onecol.lsow-zero-margin, .lsow-twocol.lsow-zero-margin, .lsow-onefifthcol.lsow-zero-margin, .lsow-threecol.lsow-zero-margin, .lsow-fourcol.lsow-zero-margin, .lsow-fivecol.lsow-zero-margin, .lsow-sixcol.lsow-zero-margin, .lsow-sevencol.lsow-zero-margin, .lsow-eightcol.lsow-zero-margin, .lsow-ninecol.lsow-zero-margin, .lsow-tencol.lsow-zero-margin, .lsow-elevencol.lsow-zero-margin {
-    @include omega;
+  &.lsow-grid-container, & .lsow-grid-container {
+    margin-left: 0px;
+    margin-right: 0px;
+    width: auto;
     }
 
-  @include respond-to-min(768) {
+  .lsow-onecol, .lsow-twocol {
+    @include grid-column(1, $lsow-gapless-mobile-grid);
+    }
 
-    .lsow-onecol.lsow-zero-margin {
-      width: percentage(1/12);
+  .lsow-threecol, .lsow-fourcol, .lsow-fivecol, .lsow-sixcol, .lsow-sevencol, .lsow-eightcol, .lsow-ninecol, .lsow-tencol, .lsow-elevencol, .lsow-twelvecol, .lsow-onefifth {
+    @include grid-column(2, $lsow-gapless-mobile-grid);
+    }
+
+  @include grid-media($lsow-gapless-tablet-grid) {
+
+    .lsow-onecol, .lsow-twocol {
+      @include grid-column(2);
       }
 
-    .lsow-twocol.lsow-zero-margin {
-      width: percentage(2/12);
+    .lsow-threecol, .lsow-fourcol, .lsow-fivecol, .lsow-sixcol, .lsow-sevencol, .lsow-eightcol, .lsow-ninecol, .lsow-onefifth {
+      @include grid-column(3);
       }
 
-    .lsow-onefifthcol.lsow-zero-margin {
-      width: percentage(3/15);
+    .lsow-tencol, .lsow-elevencol {
+      @include grid-column(4);
       }
 
-    .lsow-threecol.lsow-zero-margin {
-      width: percentage(3/12);
-      }
-
-    .lsow-fourcol.lsow-zero-margin {
-      width: percentage(4/12);
-      }
-
-    .lsow-fivecol.lsow-zero-margin {
-      width: percentage(5/12);
-      }
-
-    .lsow-sixcol.lsow-zero-margin {
-      width: percentage(6/12);
-      }
-
-    .lsow-sevencol.lsow-zero-margin {
-      width: percentage(7/12);
-      }
-
-    .lsow-eightcol.lsow-zero-margin {
-      width: percentage(8/12);
-      }
-
-    .lsow-ninecol.lsow-zero-margin {
-      width: percentage(9/12);
-      }
-
-    .lsow-tencol.lsow-zero-margin {
-      width: percentage(10/12);
-      }
-
-    .lsow-elevencol.lsow-zero-margin {
-      width: percentage(11/12);
+    .lsow-twelvecol {
+      @include grid-column(6);
       }
     }
 
-  @include respond-between(480, 767) {
-    .lsow-onecol.lsow-zero-margin, .lsow-twocol.lsow-zero-margin, .lsow-onefifthcol.lsow-zero-margin, .lsow-threecol.lsow-zero-margin, .lsow-fourcol.lsow-zero-margin, .lsow-fivecol.lsow-zero-margin, .lsow-sixcol.lsow-zero-margin, .lsow-sevencol.lsow-zero-margin, .lsow-eightcol.lsow-zero-margin, .lsow-ninecol.lsow-zero-margin, .lsow-tencol.lsow-zero-margin, .lsow-elevencol.lsow-zero-margin {
-      width: percentage(6/12);
+  @include grid-media($lsow-gapless-desktop-grid) {
+
+    .lsow-onecol {
+      @include grid-column(1);
+      }
+
+    .lsow-twocol {
+      @include grid-column(2);
+      }
+
+    .lsow-threecol {
+      @include grid-column(3);
+      }
+
+    .lsow-fourcol {
+      @include grid-column(4);
+      }
+
+    .lsow-fivecol {
+      @include grid-column(5);
+      }
+
+    .lsow-sixcol {
+      @include grid-column(6);
+      }
+
+    .lsow-sevencol {
+      @include grid-column(7);
+      }
+
+    .lsow-eightcol {
+      @include grid-column(8);
+      }
+
+    .lsow-ninecol {
+      @include grid-column(9);
+      }
+
+    .lsow-tencol {
+      @include grid-column(10);
+      }
+
+    .lsow-elevencol {
+      @include grid-column(11);
+      }
+
+    .lsow-twelvecol {
+      @include grid-column(12);
       }
     }
 
-  @include respond-to-max(479) {
-    .lsow-onecol.lsow-zero-margin, .lsow-twocol.lsow-zero-margin, .lsow-onefifthcol.lsow-zero-margin, .lsow-threecol.lsow-zero-margin, .lsow-fourcol.lsow-zero-margin, .lsow-fivecol.lsow-zero-margin, .lsow-sixcol.lsow-zero-margin, .lsow-sevencol.lsow-zero-margin, .lsow-eightcol.lsow-zero-margin, .lsow-ninecol.lsow-zero-margin, .lsow-tencol.lsow-zero-margin, .lsow-elevencol.lsow-zero-margin {
-      width: 100%;
+  @include grid-media($lsow-gapless-five-col-grid) {
+
+    .lsow-onefifth {
+      @include grid-column(1);
       }
     }
-
   }
 
 /* --------------- Flexslider Styles -------------- */
 
 .lsow-container {
   .lsow-thumbnailslider.lsow-flexslider {
-    margin: 0;
-    }
-  .lsow-thumbnailslider.lsow-flexslider .lsow-slide {
-    margin: 0 5px;
+    margin-top: 15px;
+    .lsow-slide {
+      margin: 0 5px 0 0;
+      img {
+        display: block;
+        opacity: .5;
+        cursor: pointer;
+        &:hover {
+          opacity: 1;
+          }
+        }
+      &.lsow-flex-active-slide img {
+        opacity: 1;
+        cursor: default;
+        }
+      }
     }
   .lsow-flex-direction-nav {
     padding: 0 !important;
     margin: 0 !important;
-  }
+    }
   .lsow-flex-direction-nav li {
     position: initial;
-  }
+    }
   .lsow-flex-direction-nav a, .lsow-flex-direction-nav a:hover {
     opacity: 1;
     text-shadow: none;
@@ -271,7 +333,7 @@ $grid-columns: 12;
     text-indent: 0;
     text-align: center;
     color: #aaa;
-    @include vendorize(transition, all 0.3s ease-in-out 0s);
+    transition: all 0.3s ease-in-out 0s;
     outline: none;
     &:before {
       margin: 2px;
@@ -279,7 +341,7 @@ $grid-columns: 12;
       display: inline;
       font-family: inherit !important;
       opacity: 1;
-    }
+      }
     .lsow-dark-bg & {
       color: #888;
       &:hover {
@@ -322,7 +384,7 @@ $grid-columns: 12;
       width: 12px;
       height: 12px;
       box-shadow: none;
-      @include vendorize(transition, all 0.2s ease-in 0s);
+      transition: all 0.2s ease-in 0s;
       display: inline-block;
       vertical-align: middle;
       outline: none;
@@ -369,14 +431,14 @@ $grid-columns: 12;
     text-indent: 0;
     text-align: center;
     color: #aaa !important;
-    @include vendorize(transition, all 0.3s ease-in-out 0s);
+    transition: all 0.3s ease-in-out 0s;
     overflow: hidden;
     box-shadow: none;
     outline: none;
     &:before {
       margin: 2px;
       vertical-align: middle;
-    }
+      }
     &:hover {
       color: #888 !important;
       }
@@ -424,7 +486,7 @@ $grid-columns: 12;
       width: 12px;
       height: 12px;
       box-shadow: none;
-      @include vendorize(transition, background 0.3s ease-in-out 0s);
+      transition: background 0.3s ease-in-out 0s;
       font-size: 0;
       outline: none;
       .lsow-dark-bg & {
@@ -442,7 +504,6 @@ $grid-columns: 12;
       }
     }
   }
-
 /* -------- Widget separator headline ------------ */
 
 .lsow-widget-heading {
@@ -455,7 +516,6 @@ $grid-columns: 12;
     line-height: 44px;
     }
   }
-
 /*------------- Powertip Tooltip ----------- */
 
 /* PowerTip Plugin */
@@ -551,8 +611,6 @@ $grid-columns: 12;
   left: auto;
   right: 10px;
   }
-
-
 /* --------------- Button CSS -------------------- */
 
 input.lsow-button, button.lsow-button, a.lsow-button, .lsow-button:active, .lsow-button:visited {
@@ -573,7 +631,7 @@ input.lsow-button, button.lsow-button, a.lsow-button, .lsow-button:active, .lsow
   background-color: #f94213;
   color: #fefefe;
   outline: none;
-  @include vendorize(transition, all 0.4s ease-in-out 0s);
+  transition: all 0.4s ease-in-out 0s;
   &.lsow-rounded {
     border-radius: 999px;
     }

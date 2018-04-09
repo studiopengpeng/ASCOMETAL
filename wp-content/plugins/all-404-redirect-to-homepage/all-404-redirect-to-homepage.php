@@ -4,17 +4,20 @@ Plugin Name: All 404 Redirect  to Homepage
 Plugin URI: http://www.clogica.com
 Description: a plugin to redirect 404 pages to home page or any custom page
 Author: Fakhri Alsadi
-Version: 1.4
+Version: 1.10
 Author URI: http://www.clogica.com
 */
 
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 define( 'OPTIONS404', 'options-404-redirect-group' );
 require_once ('functions.php');
-
 add_action('admin_menu', 'p404_admin_menu');
 add_action('admin_head', 'p404_header_code');
 add_action('wp', 'p404_redirect');
+add_action( 'admin_enqueue_scripts', 'p404_enqueue_styles_scripts' );
+
+
 
 register_activation_hook( __FILE__ , 'p404_install' );
 register_deactivation_hook( __FILE__ , 'p404_uninstall' );
@@ -25,8 +28,8 @@ function p404_redirect()
 	if(is_404()) 
 	{
 	 	
-	 	$options= get_my_options();
-	    $link=get_current_URL();
+            $options= P404REDIRECT_get_my_options();
+	    $link=P404REDIRECT_get_current_URL();
 	    if($link == $options['p404_redirect_to'])
 	    {
 	        echo "<b>All 404 Redirect to Homepage</b> has detected that the target URL is invalid, this will cause an infinite loop redirection, please go to the plugin settings and correct the traget link! ";
@@ -45,14 +48,12 @@ function p404_redirect()
 //---------------------------------------------------------------
 
    function p404_check_default_permalink() 
-    {
-       global $util,$wp_rewrite;
-       
+    {      
+       global $util,$wp_rewrite;      
        $file= get_home_path() . "/.htaccess";
-       $filestr ="";
-       $begin_marker = "# BEGIN WordPress";
-       $end_marker = "# END WordPress";
        $content="ErrorDocument 404 /index.php?error=404";
+       $marker_name="ErrorDocument";
+       $filestr ="";
        $findword = "ErrorDocument 404";
        
        if($wp_rewrite->permalink_structure =='')
@@ -73,30 +74,19 @@ function p404_redirect()
                     }
                     else
                     {
-                        fclose($f);
-                        $f = fopen($file, "w");
-                        $n=strpos($filestr , $begin_marker) + strlen('# BEGIN WordPress');;
-                        $div1= substr($filestr,0,$n);
-                        $div2= substr($filestr,($n+1),strlen($filestr));
-                        $filestr = $div1 . PHP_EOL . $content . PHP_EOL . $div2;
-                        fwrite($f ,  $filestr); 
-                        fclose($f);
-                        
+                        // insert content
+                        insert_with_markers( $file,  $marker_name,  $content );
                     }
             }
             
         }else
         {
-          
-          $filestr = $begin_marker . PHP_EOL . $content . PHP_EOL . $end_marker ;
-          if($f = @fopen( $file, 'w' )){
-            fwrite($f ,  $filestr); 
-            fclose($f);
-            }
+            // create the file and insert content
+            insert_with_markers( $file,  $marker_name,  $content );
         }
        
        }
-       
+
     }
 
 
@@ -106,10 +96,18 @@ function p404_redirect()
 function p404_header_code()
 {
 	p404_check_default_permalink();
-	$css=get_url_path() . "style.css";
-	echo '<link type="text/css" rel="stylesheet" href="'. $css .'"/>';
-	
+	      
 }
+
+
+function p404_enqueue_styles_scripts()
+{
+    if( is_admin() ) {              
+        $css= plugins_url() . '/'.  basename(dirname(__FILE__)) . "/style.css";               
+        wp_enqueue_style( 'main-404-css', $css );
+    }
+}
+        
 
 //---------------------------------------------------------------
 

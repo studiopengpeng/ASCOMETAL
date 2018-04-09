@@ -1,10 +1,10 @@
 === DrawIt (draw.io) ===
 Contributors: assortedchips
 Donate link: http://www.assortedchips.com/lunch.html
-Tags: drawit, diagram, block diagram, flow chart, draw, hierarchy, visio, draw.io, chart, network, topology, genealogy, process map, electrical, uml, org chart, bpmn, sitemap, circuit, schematic, floor plan, clipart, family tree
+Tags: drawit, diagram, block diagram, flow chart, draw, hierarchy, visio, draw.io, chart, network, topology, process map, electrical, uml, org chart, bpmn, sitemap, circuit, schematic, floor plan, clipart, clip art, family tree
 Requires at least: 4.0
-Tested up to: 4.5
-Stable tag: 1.1.0
+Tested up to: 4.7
+Stable tag: 1.1.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,6 +43,12 @@ The source code for the diagram is saved with the image in your WordPress instal
 
 For now, you'll have to insert it into a post to be able to edit it. We'll work on improving this later.
 
+= How can I add links in an SVG image? (A.K.A, What are "insecure" SVG images?) =
+
+You can enable links in SVG images by enabling the "Use insecure version for SVG images" setting. This setting refers to a tradeoff for using SVG images. If you want to be able to have advanced SVG features (e.g., having clickable links within the image), then this needs to be enabled. But a tradeoff is that this inserts raw SVG code into the web page, which introduced security holes. You should not enable this option unless you trust all possible sources or creators of SVG files that you will have on your site. Another side-effect of enabling this option is that the image code in the post editor gets replaced with a shortcode in the format of `[drawit-svg ...]` to help keep the editor clean from a lot of raw SVG data, but you also won't be able to see the image in the visual editors - you'll only be able to see the shortcode text.
+
+Please read up more on the vulnerabilities of using SVG images on your website -- here is a very brief introduction: [SVG Uploads in WordPress (the Inconvenient Truth)](https://bjornjohansen.no/svg-in-wordpress)
+
 == Screenshots ==
 
 1. Creating/editing a diagram in the plugin
@@ -51,6 +57,17 @@ For now, you'll have to insert it into a post to be able to edit it. We'll work 
 1. Selecting a diagam to edit from the WordPress text editor
 
 == Changelog ==
+
+= 1.1.3 =
+* Fix warning when editing existing image (only applicable for developers who have WP_DEBUG set to true).
+
+= 1.1.2 =
+* More notification about the security implications of enabling the new advanced SVG features.
+* If you use advanced SVG features, please provide feedback in support page about any requests, shortcomings or bugs.
+
+= 1.1.1 =
+* Added ability to insert raw SVG images, allowing links in images to work (but with security tradeoffs).
+* New options in the settings menu.
 
 = 1.1.0 =
 * Added option to enable DrawIt in frontend-based editors.
@@ -102,6 +119,15 @@ For now, you'll have to insert it into a post to be able to edit it. We'll work 
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.1.3 =
+* Fix warning when editing existing image (only applicable for developers who have WP_DEBUG set to true).
+
+= 1.1.2 =
+More notification about the security implications of enabling the new advanced SVG features. If you use advanced SVG features, please provide feedback in support page about any requests, shortcomings or bugs.
+
+= 1.1.1 =
+Can now choose option to enable in-image links (but with security drawbacks).
 
 = 1.1.0 =
 Added option to enable DrawIt in frontend-based editors.

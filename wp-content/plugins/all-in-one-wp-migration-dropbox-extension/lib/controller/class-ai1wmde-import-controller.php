@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2015 ServMask Inc.
+ * Copyright (C) 2014-2018 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,11 +41,11 @@ class Ai1wmde_Import_Controller {
 		);
 	}
 
-	public static function metadata() {
+	public static function folder() {
 		// Set path
 		$path = null;
 		if ( isset( $_GET['path'] ) ) {
-			$path = trim( $_GET['path'], '/' );
+			$path = untrailingslashit( $_GET['path'] );
 		}
 
 		// Set Dropbox client
@@ -55,30 +55,45 @@ class Ai1wmde_Import_Controller {
 		);
 
 		// List folder
-		$metadata = $dropbox->metadata( $path );
+		$directory = $dropbox->listFolder( $path );
 
 		// Set folder structure
-		$response = array( 'path' => null, 'items' => array() );
-
-		// Set folder path
-		if ( isset( $metadata['path'] ) ) {
-			$response['path'] = $metadata['path'];
-		}
+		$response = array( 'items' => array(), 'numHiddenFiles' => 0 );
 
 		// Set folder items
-		if ( isset( $metadata['contents'] ) && ( $items = $metadata['contents'] ) ) {
-			foreach ( $items as $item ) {
-				$response['items'][] = array(
-					'size'   => isset( $item['size'] ) ? $item['size'] : null,
-					'path'	 => isset( $item['path'] ) ? $item['path'] : null,
-					'icon'   => isset( $item['icon'] ) ? $item['icon'] : null,
-					'bytes'  => isset( $item['bytes'] ) ? $item['bytes'] : null,
-					'is_dir' => isset( $item['is_dir']) ? $item['is_dir'] : null,
-				);
+		if ( isset( $directory['entries'] ) && ( $entries = $directory['entries'] ) ) {
+			foreach ( $entries as $entry ) {
+				if ( $entry['.tag'] === 'folder' || pathinfo( $entry['name'], PATHINFO_EXTENSION ) === 'wpress' ) {
+					$response['items'][] = array(
+						'name'  => isset( $entry['name'] ) ? $entry['name'] : null,
+						'size'  => isset( $entry['size'] ) ? size_format( $entry['size'] ) : null,
+						'date'  => isset( $entry['server_modified'] ) ? human_time_diff( strtotime( $entry['server_modified'] ) ) : null,
+						'path'  => isset( $entry['path_lower'] ) ? $entry['path_lower'] : null,
+						'icon'  => isset( $entry['icon'] ) ? $entry['icon'] : null,
+						'bytes' => isset( $entry['size'] ) ? $entry['size'] : null,
+						'type'  => isset( $entry['.tag'] ) ? $entry['.tag'] : null,
+					);
+				} else {
+					$response['numHiddenFiles']++;
+				}
 			}
+
+			// Sort entries by type desc and name asc
+			usort( $response['items'], 'Ai1wmde_Import_Controller::sort_by_type_desc_name_asc' );
 		}
 
 		echo json_encode( $response );
 		exit;
+	}
+
+	public static function sort_by_type_desc_name_asc( $first_item, $second_item ) {
+		// Sort items by type in desc order
+		$sorted_items = strcasecmp( $second_item['type'], $first_item['type'] );
+		if ( $sorted_items !== 0 ) {
+			return $sorted_items;
+		}
+
+		// Sort the items one more time by name in asc order
+		return strcasecmp( $first_item['name'], $second_item['name'] );
 	}
 }

@@ -108,7 +108,7 @@ if ($background['bg_type'] == 'youtube') {
 
             <div class="lsow-custom-header">
 
-                <?php echo $custom_header['custom']; ?>
+                <?php echo do_shortcode($custom_header['custom']); ?>
 
             </div>
 

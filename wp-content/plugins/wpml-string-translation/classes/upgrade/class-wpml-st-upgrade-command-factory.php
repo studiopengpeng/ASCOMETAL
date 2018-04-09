@@ -1,6 +1,25 @@
 <?php
 
-class WPML_ST_Upgrade_Command_Factory extends WPML_WPDB_And_SP_User {
+class WPML_ST_Upgrade_Command_Factory {
+	/**
+	 * @var wpdb
+	 */
+	private $wpdb;
+
+	/**
+	 * @var SitePress
+	 */
+	private $sitepress;
+
+	/**
+	 * @param wpdb $wpdb
+	 * @param SitePress $sitepress
+	 */
+	public function __construct( wpdb $wpdb, SitePress $sitepress ) {
+		$this->wpdb      = $wpdb;
+		$this->sitepress = $sitepress;
+	}
+
 	/**
 	 * @param string $class_name
 	 * 
@@ -18,6 +37,21 @@ class WPML_ST_Upgrade_Command_Factory extends WPML_WPDB_And_SP_User {
 			case 'WPML_ST_Upgrade_Display_Strings_Scan_Notices' :
 				$themes_and_plugins_settings = new WPML_ST_Themes_And_Plugins_Settings();
 				$result                      = new WPML_ST_Upgrade_Display_Strings_Scan_Notices( $themes_and_plugins_settings );
+				break;
+			case 'WPML_ST_Upgrade_DB_String_Packages' :
+				$result = new WPML_ST_Upgrade_DB_String_Packages( $this->wpdb );
+				break;
+			case 'WPML_ST_Upgrade_DB_String_Location' :
+				$result = new WPML_ST_Upgrade_DB_String_Location( $this->wpdb );
+				break;
+			case 'WPML_ST_Upgrade_MO_Scanning' :
+				$result = new WPML_ST_Upgrade_MO_Scanning( $this->wpdb );
+				break;
+			case 'WPML_ST_Upgrade_DB_String_Name_Index' :
+				$result = new WPML_ST_Upgrade_DB_String_Name_Index( $this->wpdb );
+				break;
+			case 'WPML_ST_Upgrade_DB_Longtext_String_Value' :
+				$result = new WPML_ST_Upgrade_DB_Longtext_String_Value( $this->wpdb );
 				break;
 			default:
 				throw new WPML_ST_Upgrade_Command_Not_Found_Exception( $class_name );

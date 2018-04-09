@@ -5,12 +5,12 @@
  * Description: Extension for All in One WP Migration that enables using Dropbox for imports and exports
  * Author: ServMask
  * Author URI: https://servmask.com/
- * Version: 3.15
+ * Version: 3.28
  * Text Domain: all-in-one-wp-migration-dropbox-extension
  * Domain Path: /languages
  * Network: True
  *
- * Copyright (C) 2014-2015 ServMask Inc.
+ * Copyright (C) 2014-2018 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -53,6 +53,9 @@ define( 'AI1WMDE_URL', plugins_url( '', AI1WMDE_PLUGIN_BASENAME ) );
 
 // Include constants
 require_once dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'constants.php';
+
+// Include exceptions
+require_once dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'exceptions.php';
 
 // Include loader
 require_once dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'loader.php';

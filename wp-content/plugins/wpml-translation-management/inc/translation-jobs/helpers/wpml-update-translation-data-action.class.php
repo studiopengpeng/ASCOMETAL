@@ -22,10 +22,11 @@ abstract class WPML_TM_Update_Translation_Data_Action extends WPML_Translation_J
 	 * @param mixed $rid
 	 * @param mixed $translator_id
 	 * @param       $translation_package
+	 * @param array $batch_options
 	 *
 	 * @return bool|int
 	 */
-	function add_translation_job( $rid, $translator_id, array $translation_package ) {
+	function add_translation_job( $rid, $translator_id, array $translation_package, array $batch_options ) {
 		global $wpdb, $current_user;
 
 		$translation_status = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}icl_translation_status WHERE rid=%d", $rid ) );
@@ -43,6 +44,15 @@ abstract class WPML_TM_Update_Translation_Data_Action extends WPML_Translation_J
 			'translated' => 0,
 			'manager_id' => (int)$manager_id
 		);
+
+		if ( isset( $batch_options['deadline_date'] ) ) {
+			$translate_job_insert_data['deadline_date'] = $this->validate_deadline( $batch_options['deadline_date'] );
+		}
+
+		if ( isset( $translation_package['title'] ) ) {
+			$translate_job_insert_data['title'] = mb_substr( $translation_package['title'], 0, 160 );
+		}
+
 		$wpdb->insert( $wpdb->prefix . 'icl_translate_job', $translate_job_insert_data );
 		$job_id = $wpdb->insert_id;
 
@@ -50,6 +60,27 @@ abstract class WPML_TM_Update_Translation_Data_Action extends WPML_Translation_J
 		$this->fire_notification_actions( $job_id, $translation_status, $translator_id );
 
 		return $job_id;
+	}
+
+	/**
+	 * The expected format is "2017-09-28"
+	 *
+	 * @param string $date
+	 *
+	 * @return null|string
+	 */
+	private function validate_deadline( $date ) {
+		$date_parts = explode( '-', $date );
+
+		if ( ! is_array( $date_parts ) || count( $date_parts ) !== 3 ) {
+			return null;
+		}
+
+		if ( ! checkdate( $date_parts[1], $date_parts[2], $date_parts[0] )) {
+			return null;
+		}
+
+		return $date;
 	}
 
 	/**
@@ -68,29 +99,25 @@ abstract class WPML_TM_Update_Translation_Data_Action extends WPML_Translation_J
 	 */
 	protected function get_translated_field_values( $rid, array $package ) {
 		global $wpdb;
-		
+
 		$prev_translations = $this->populate_prev_translation( $rid, $package );
-		
+
+		if ( ! $prev_translations ) {
+			return array();
+		}
+
 		// if we have a previous job_id for this rid mark it as the top (last) revision
 		list( $prev_job_id, $prev_job_translated ) = $this->get_prev_job_data( $rid );
+
 		if ( ! is_null( $prev_job_id ) ) {
-
-			if ( ! $prev_job_translated ) {
-				// Job id needed to generate the xliff file
-				return $prev_job_id;
-			}
-
-			$last_rev = $wpdb->get_var( $wpdb->prepare( "
+			$last_rev_prepare = $wpdb->prepare( "
 				SELECT MAX(revision)
 				FROM {$wpdb->prefix}icl_translate_job
 				WHERE rid=%d
 					AND ( revision IS NOT NULL OR translated = 1 )
-			",
-			                                            $rid ) );
-			$wpdb->update( $wpdb->prefix . 'icl_translate_job',
-			               array( 'revision' => $last_rev + 1 ),
-			               array( 'job_id' => $prev_job_id ) );
-
+			", $rid );
+			$last_rev         = $wpdb->get_var( $last_rev_prepare );
+			$wpdb->update( $wpdb->prefix . 'icl_translate_job', array( 'revision' => $last_rev + 1 ), array( 'job_id' => $prev_job_id ) );
 		}
 
 		return $prev_translations;

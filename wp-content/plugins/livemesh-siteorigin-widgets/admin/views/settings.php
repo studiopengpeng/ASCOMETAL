@@ -217,23 +217,28 @@ $custom_css = lsow_get_option('lsow_custom_css', '');
                                 version does even more.</p>
 
                             <ul>
-                                <li><a href="http://portfoliotheme.org/siteorigin-widgets/livemesh-sliders/" title="Image Slider Widget" target="_blank">Image
+                                <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/posts-block/" title="Post Blocks Widget" target="_blank">Post
+                                        Blocks!</a> - Present your blog posts, events, news items or portfolio in a dozen creative ways. Comes with AJAX filtering,
+                                    pagination and load more features to help visitors navigate your entire collection of blog posts or custom post types and
+                                    their categories without reloading the page.
+                                </li>
+                                <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/livemesh-sliders/" title="Image Slider Widget" target="_blank">Image
                                         Slider</a> - Create a responsive slider of images with support
                                     for captions,
                                     multiple slider types like Nivo, Flex, Slick and lightweight sliders, thumbnail
                                     navigation etc.
                                 </li>
-                                <li><a href="http://portfoliotheme.org/siteorigin-widgets/image-gallery/" title="Image Gallery Widget" target="_blank">Image
+                                <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/image-gallery/" title="Image Gallery Widget" target="_blank">Image
                                         Gallery</a> - Create a gallery of images with options for masonry
                                     or fit rows, pagination, lazy load, lightbox support etc.
                                 </li>
-                                <li><a href="http://portfoliotheme.org/siteorigin-widgets/video-gallery/" title="Video Gallery Widget" target="_blank">Video
+                                <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/video-gallery/" title="Video Gallery Widget" target="_blank">Video
                                         Gallery</a> - Create a beautiful gallery of videos to help
                                     showcase a collection of YouTube/Vimeo videos on your site.
                                 </li>
-                                <li><a href="http://portfoliotheme.org/siteorigin-widgets/gallery-carousel/" title="Image Carousel" target="_blank">Image
+                                <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/gallery-carousel/" title="Image Carousel" target="_blank">Image
                                         Carousel</a> - Build a responsive carousel of images.</li>
-                                <li><a href="http://portfoliotheme.org/siteorigin-widgets/gallery-carousel/" title="Video Carousel" target="_blank">Video
+                                <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/gallery-carousel/" title="Video Carousel" target="_blank">Video
                                         Carousel</a> - Build a responsive carousel of YouTube/Vimeo
                                     videos.
                                 </li>
@@ -241,14 +246,16 @@ $custom_css = lsow_get_option('lsow_custom_css', '');
                                     your site pages
                                     such as those that feature events or under construction/coming soon pages.
                                 </li>
-                                <li><strong>FAQ</strong> - Create a set of Frequently Asked Questions for display in a
+                                <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/services/" title="FAQ Widget" target="_blank">FAQ</a> - Create a set of Frequently Asked Questions for display in a
                                     page.
+                                </li>
+                                <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/features/" title="Features Widget" target="_blank">Features Widget</a> for showcasing product features or services provided by an agency/business..
                                 </li>
                             </ul>
 
                             <div class="lsow-spacer" style="height: 15px"></div>
 
-                            <a class="lsow-button purchase" href="https://gum.co/kGTBN/save10"><i class="dashicons dashicons-cart"></i><?php echo __('Purchase Now', 'livemesh-so-widgets'); ?></a>
+                            <a class="lsow-button purchase" href="https://www.livemeshthemes.com/siteorigin-widgets/pricing/"><i class="dashicons dashicons-cart"></i><?php echo __('Purchase Now', 'livemesh-so-widgets'); ?></a>
 
                             <div class="lsow-spacer" style="height: 25px"></div>
 
@@ -258,10 +265,10 @@ $custom_css = lsow_get_option('lsow_custom_css', '');
                                 updated with additional features for existing widgets -</p>
 
                             <ul>
-                                <li><a href="http://portfoliotheme.org/siteorigin-widgets/livemesh-grid/" title="Livemesh Grid" target="_blank">Lazy Load</a> - The portfolio/post grid and image gallery widgets
+                                <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/livemesh-grid/" title="Livemesh Grid" target="_blank">Lazy Load</a> - The portfolio/post grid and image gallery widgets
                                     incorporate option to lazy load posts/images with the click of a Load More button.
                                 </li>
-                                <li><a href="http://portfoliotheme.org/siteorigin-widgets/livemesh-grid/" title="Livemesh Grid" target="_blank">Pagination</a> - Create a grid of posts or custom post types with AJAX
+                                <li><a href="https://www.livemeshthemes.com/siteorigin-widgets/livemesh-grid/" title="Livemesh Grid" target="_blank">Pagination</a> - Create a grid of posts or custom post types with AJAX
                                     based pagination support.
                                 </li>
                                 <li><strong>Lightbox Support</strong> - The premium version comes with support for
@@ -269,6 +276,8 @@ $custom_css = lsow_get_option('lsow_custom_css', '');
                                 </li>
                                 <li><strong>Custom Fonts</strong> - Ability to choose custom fonts from Google Fonts
                                     library for headings in heading widget and the hero header widget.
+                                </li>
+                                <li><strong>Custom Animations</strong> - Choose from over <strong>40+ animations</strong> for most widgets (excludes sliders, carousels and grid). The animations display on user scrolling to the widget or when the widget becomes visible in the browser window.
                                 </li>
                                 <li><strong>Sample Data</strong> - Sample data that you can import into your site to get
                                     started quickly on the widgets and some sample layouts.

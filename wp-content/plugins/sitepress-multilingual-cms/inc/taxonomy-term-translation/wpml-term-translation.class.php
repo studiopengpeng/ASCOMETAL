@@ -97,14 +97,7 @@ class WPML_Term_Translation extends WPML_Element_Translation {
 	 * @since 3.2.3
 	 */
 	public function get_taxonomy_post_types( $taxonomy ) {
-		global $wp_taxonomies;
-
-		$post_types = array();
-		if ( isset( $wp_taxonomies[ $taxonomy ] ) && isset( $wp_taxonomies[ $taxonomy ]->object_type ) ) {
-			$post_types = $wp_taxonomies[ $taxonomy ]->object_type;
-		}
-
-		return $post_types;
+		return WPML_WP_Taxonomy::get_linked_post_types( $taxonomy );
 	}
 
 	protected function get_element_join() {
@@ -137,5 +130,20 @@ class WPML_Term_Translation extends WPML_Element_Translation {
 				$this->term_ids[ $row['element_id'] ]               = $row['term_id'];
 			}
 		}
+	}
+
+	/**
+	 * @param $term
+	 * @param string $slug
+	 * @param $taxonomy
+	 * @param $lang_code
+	 *
+	 * @return string
+	 */
+	public function generate_unique_term_slug( $term, $slug = '', $taxonomy, $lang_code ) {
+		if ( '' === trim( $slug ) ) {
+			$slug = sanitize_title( $term );
+		}
+		return WPML_Terms_Translations::term_unique_slug( $slug, $taxonomy, $lang_code );
 	}
 }

@@ -19,7 +19,6 @@
 // +----------------------------------------------------------------------+
 // | Author: Eugene Manuilov <eugene@manuilov.org>                        |
 // +----------------------------------------------------------------------+
-
 /**
  * Source manager for remote CSV files.
  *
@@ -49,10 +48,12 @@ class Visualizer_Source_Csv_Remote extends Visualizer_Source_Csv {
 	 * @return string The serialized array of data.
 	 */
 	public function getData() {
-		return serialize( array(
-			'source' => $this->_filename,
-			'data'   => $this->_data,
-		) );
+		return serialize(
+			array(
+				'source' => $this->_filename,
+				'data'   => $this->_data,
+			)
+		);
 	}
 
 	/**
@@ -66,15 +67,15 @@ class Visualizer_Source_Csv_Remote extends Visualizer_Source_Csv {
 	 */
 	private function _repopulate( $chart_id ) {
 		// if it has been already populated, then just return true
-		if ( !empty( $this->_data ) && !empty( $this->_series ) ) {
+		if ( ! empty( $this->_data ) && ! empty( $this->_series ) ) {
 			return true;
 		}
 
 		// if filename is empty, extract it from chart content
 		if ( empty( $this->_filename ) ) {
 			$chart = get_post( $chart_id );
-			$data = unserialize( $chart->post_content );
-			if ( !isset( $data['source'] ) ) {
+			$data = unserialize( html_entity_decode( $chart->post_content ) );
+			if ( ! isset( $data['source'] ) ) {
 				return false;
 			}
 
@@ -92,7 +93,7 @@ class Visualizer_Source_Csv_Remote extends Visualizer_Source_Csv {
 	 *
 	 * @access public
 	 * @param array $data The actual array of data.
-	 * @param int $chart_id The chart id.
+	 * @param int   $chart_id The chart id.
 	 * @return array The re populated array of data or old one.
 	 */
 	public function repopulateData( $data, $chart_id ) {
@@ -106,7 +107,7 @@ class Visualizer_Source_Csv_Remote extends Visualizer_Source_Csv {
 	 *
 	 * @access public
 	 * @param array $series The actual array of series.
-	 * @param int $chart_id The chart id.
+	 * @param int   $chart_id The chart id.
 	 * @return array The re populated array of series or old one.
 	 */
 	public function repopulateSeries( $series, $chart_id ) {
@@ -138,7 +139,7 @@ class Visualizer_Source_Csv_Remote extends Visualizer_Source_Csv {
 	protected function _get_file_handle( $filename = false ) {
 		static $allow_url_fopen = null;
 
-		if ( $this->_tmpfile && is_readable( $this->_tmpfile ) ) {
+		if ( ! is_wp_error( $this->_tmpfile ) && $this->_tmpfile && is_readable( $this->_tmpfile ) ) {
 			return parent::_get_file_handle( $this->_tmpfile );
 		}
 
@@ -155,7 +156,7 @@ class Visualizer_Source_Csv_Remote extends Visualizer_Source_Csv {
 
 		$this->_tmpfile = download_url( $this->_filename );
 
-		return !is_wp_error( $this->_tmpfile ) ? parent::_get_file_handle( $this->_tmpfile ) : false;
+		return ! is_wp_error( $this->_tmpfile ) ? parent::_get_file_handle( $this->_tmpfile ) : false;
 	}
 
 }

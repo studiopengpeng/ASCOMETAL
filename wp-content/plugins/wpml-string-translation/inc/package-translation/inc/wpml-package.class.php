@@ -1,6 +1,9 @@
 <?php
 
 class WPML_Package {
+
+	const CACHE_GROUP = 'WPML_Package';
+
 	public  $ID;
 	public  $view_link;
 	public  $edit_link;
@@ -13,6 +16,7 @@ class WPML_Package {
 	public  $trid;
 	public  $name;
 	public  $translation_element_type;
+	public  $post_id;
 
 	private $element_type_prefix;
 
@@ -23,6 +27,7 @@ class WPML_Package {
 		$this->element_type_prefix = 'package';
 		$this->view_link           = '';
 		$this->edit_link           = '';
+		$this->post_id             = null;
 		if ( $data_item ) {
 			if ( is_object( $data_item ) ) {
 				$data_item = get_object_vars( $data_item );
@@ -140,9 +145,19 @@ class WPML_Package {
 		$package_id = $this->ID;
 		$results    = false;
 		if ( $package_id ) {
-			$results_query   = "SELECT id, name, value FROM {$wpdb->prefix}icl_strings WHERE string_package_id=%d";
-			$results_prepare = $wpdb->prepare( $results_query, $package_id );
-			$results         = $wpdb->get_results( $results_prepare );
+
+			$cache = new WPML_WP_Cache( self::CACHE_GROUP );
+			$cache_key = 'strings:' . $package_id;
+			$found = false;
+
+			$results = $cache->get( $cache_key, $found );
+			if ( ! $found ) {
+				$results_query   = "SELECT id, name, value, type FROM {$wpdb->prefix}icl_strings WHERE string_package_id=%d";
+				$results_prepare = $wpdb->prepare( $results_query, $package_id );
+				$results         = $wpdb->get_results( $results_prepare );
+
+				$cache->set( $cache_key, $results );
+			}
 		}
 
 		return $results;
@@ -198,6 +213,7 @@ class WPML_Package {
 				'title'     => $this->title,
 				'edit_link' => $this->edit_link,
 				'view_link' => $this->view_link,
+				'post_id'   => $this->post_id,
 			);
 			$wpdb->insert( $wpdb->prefix . 'icl_string_packages', $data );
 			$package_id = $wpdb->insert_id;
@@ -373,21 +389,29 @@ class WPML_Package {
 	private function get_package_from_name_and_kind() {
 		global $wpdb;
 
-		$package_query    = "SELECT * FROM {$wpdb->prefix}icl_string_packages WHERE kind_slug=%s AND name=%s";
-		$package_prepared = $wpdb->prepare( $package_query, array( $this->kind_slug, $this->name ) );
+		$cache = new WPML_WP_Cache( self::CACHE_GROUP );
+		$cache_key = 'name-kind:' . $this->kind_slug . $this->name;
+		$found = false;
 
-		return $wpdb->get_row( $package_prepared );
+		$result = $cache->get( $cache_key, $found );
+		if ( ! $found ) {
+
+			$package_query    = "SELECT * FROM {$wpdb->prefix}icl_string_packages WHERE kind_slug=%s AND name=%s";
+			$package_prepared = $wpdb->prepare( $package_query, array( $this->kind_slug, $this->name ) );
+
+			$result = $wpdb->get_row( $package_prepared );
+
+			if ( $result ) {
+				$cache->set( $cache_key, $result );
+			}
+		}
+		return $result;
 	}
 
 	private function package_name_and_kind_exists() {
 		$result = false;
 		if ( $this->has_kind_and_name() ) {
-			global $wpdb;
-
-			$package_query    = "SELECT ID FROM {$wpdb->prefix}icl_string_packages WHERE kind_slug=%s AND name=%s";
-			$package_prepared = $wpdb->prepare( $package_query, array( $this->kind_slug, $this->name ) );
-
-			$result = $wpdb->get_var( $package_prepared );
+			$result = (bool) $this->get_package_from_name_and_kind();
 		}
 
 		return $result;
@@ -470,9 +494,18 @@ class WPML_Package {
 	
 	public function get_package_language() {
 		global $sitepress;
-		
-		$element_type    = $this->get_package_element_type();
-		$details         = $sitepress->get_element_language_details( $this->ID, $element_type );
+
+		if ( $this->post_id ) {
+			$details = null;
+			$post    = get_post( $this->post_id );
+
+			if ( $post ) {
+				$details = $sitepress->get_element_language_details( $this->post_id, 'post_' . $post->post_type );
+			}
+		} else {
+			$element_type = $this->get_package_element_type();
+			$details      = $sitepress->get_element_language_details( $this->ID, $element_type );
+		}
 		
 		if ( $details ) {
 			return $details->language_code;
@@ -495,5 +528,9 @@ class WPML_Package {
 		
 		return true;
 	}
-	
+
+	public function flush_cache() {
+		$cache = new WPML_WP_Cache( self::CACHE_GROUP );
+		$cache->flush_group_cache();
+	}
 }

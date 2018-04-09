@@ -1,9 +1,3 @@
-html {
-  box-sizing: border-box; }
-
-*, *::after, *::before {
-  box-sizing: inherit; }
-
 .lsow-testimonials-slider {
   position: relative; }
   .lsow-testimonials-slider.lsow-container {

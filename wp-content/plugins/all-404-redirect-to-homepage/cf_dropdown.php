@@ -31,7 +31,7 @@ private $options='';
 private $class='';
 private $onchange='';
 
-public function dropdown($str,$class='',$onchange='')
+public function __construct($str,$class='',$onchange='')
 	{
 	$this->name=$str;
 	

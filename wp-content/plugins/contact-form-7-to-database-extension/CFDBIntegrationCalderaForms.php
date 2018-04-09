@@ -85,6 +85,8 @@ class CFDBIntegrationCalderaForms {
             foreach ($fields as $field_id => $field) {
 
                 $field_value = Caldera_Forms::get_field_data($field_id, $form, $entry_id);
+//                $this->plugin->getErrorLog()->log("$field_id=" . print_r($field_value, true));  // debug
+//                $this->plugin->getErrorLog()->log("$field_id=" . print_r($field, true));  // debug
                 if (!array_key_exists($field_id, $form['fields'])) {
                     // ignore non-field entries _entry_id and _entry_token
                     continue;

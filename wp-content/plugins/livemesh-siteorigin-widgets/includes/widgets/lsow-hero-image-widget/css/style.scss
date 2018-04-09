@@ -60,10 +60,10 @@
     overflow: hidden;
     .lsow-parallax-bg {
       height: 200%;
-      @include vendorize(transform, translate3d(0, -50%, 0));
+      transform: translate3d(0, -50%, 0);
       .lsow-mobile-device & {
         height: 100%;
-        @include vendorize(transform, translate3d(0, 0, 0));
+        transform: translate3d(0, 0, 0);
         }
       }
 
@@ -103,7 +103,7 @@
       border: 1px solid #bbb;
       padding: 10px 35px;
       color: #eeeeee;
-      @include lsow-transition();
+      transition: all .4s ease-in-out 0s;
       margin-top: 30px;
       &:hover {
         color: #fff;
@@ -147,7 +147,7 @@
   z-index: 3;
   padding: 10px 20px;
   border-radius: 2px;
-  @include vendorize(transition, all ease-in-out 0.3s 0s);
+  transition: all .3s ease-in-out 0s;
   color: #fff;
   @include respond-to-max(767) {
     display: none;

@@ -19,8 +19,6 @@
 // +----------------------------------------------------------------------+
 // | Author: Eugene Manuilov <eugene@manuilov.org>                        |
 // +----------------------------------------------------------------------+
-
-
 /**
  * Class for line chart sidebar settings.
  *
@@ -45,6 +43,7 @@ class Visualizer_Render_Sidebar_Type_Line extends Visualizer_Render_Sidebar_Line
 		$this->_renderLineSettings();
 		$this->_renderSeriesSettings();
 		$this->_renderViewSettings();
+		$this->_renderAdvancedSettings();
 	}
 
 	/**
@@ -57,14 +56,14 @@ class Visualizer_Render_Sidebar_Type_Line extends Visualizer_Render_Sidebar_Line
 	protected function _renderLineSettingsItems() {
 		parent::_renderLineSettingsItems();
 
-		echo '<div class="section-delimiter"></div>';
+		echo '<div class="viz-section-delimiter"></div>';
 
 		self::_renderSelectItem(
-			esc_html__( 'Interpolate Nulls', Visualizer_Plugin::NAME ),
+			esc_html__( 'Interpolate Nulls', 'visualizer' ),
 			'interpolateNulls',
 			$this->interpolateNulls,
 			$this->_yesno,
-			esc_html__( 'Whether to guess the value of missing points. If yes, it will guess the value of any missing data based on neighboring points. If no, it will leave a break in the line at the unknown point.', Visualizer_Plugin::NAME )
+			esc_html__( 'Whether to guess the value of missing points. If yes, it will guess the value of any missing data based on neighboring points. If no, it will leave a break in the line at the unknown point.', 'visualizer' )
 		);
 	}
 

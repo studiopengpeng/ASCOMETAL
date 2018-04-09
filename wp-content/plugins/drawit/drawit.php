@@ -1,20 +1,20 @@
 <?php
 /**
  * @package DrawIt (draw.io)
- * @version 1.1.0
+ * @version 1.1.3
  */
 /*
 Plugin Name:    DrawIt (draw.io)
 Plugin URI:     http://www.assortedchips.com/#drawit
 Description:    Draw and edit flow charts, diagrams, images and more while editing a post.
-Version:        1.1.0
+Version:        1.1.3
 Author:         assorted[chips]
 Author URI:     http://www.assortedchips.com/
 License:        GPL3 or later
 License URI:    https://www.gnu.org/licenses/gpl-3.0.html
 
 
-    Copyright 2015  Mike Thomson  (email : contact@mike-thomson.com)
+    Copyright 2015 - 2016  Mike Thomson  (email : contact@mike-thomson.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 3, as 
@@ -49,7 +49,8 @@ $plugin_default_options = array(
     'allow_svg'         => 'no',
     'temp_dir'          => 'wp_default',
     'enable_frontend'   => 'yes',
-    'override_conflict' => 'no'
+    'override_conflict' => 'no',
+    'use_insecure_svg'  => 'no'
 );
 $valid_types = array(
     'png',
@@ -85,7 +86,7 @@ class drawit {
         $this->plugin_default_options = $plugin_default_options;
         $this->valid_units = $valid_units;
         $this->valid_temp_dirs = $valid_temp_dirs;
-        $this->plugin_version = "1.1.0";
+        $this->plugin_version = "1.1.3";
 
         // Options saved to database are used throughout the functions here, so 
         // make a copy now so they are easily accessible later.
@@ -103,6 +104,10 @@ class drawit {
 
         if(!array_key_exists('override_conflict', $this->options)) {
             $this->options['override_conflict'] = $this->plugin_default_options['override_conflict'];
+        }
+
+        if(!array_key_exists('use_insecure_svg', $this->options)) {
+            $this->options['use_insecure_svg'] = $this->plugin_default_options['use_insecure_svg'];
         }
 
         // If the user has selected to not allow SVG uploads, then remove that 
@@ -340,9 +345,10 @@ class drawit {
                         'class' => 'aligncenter wp-image-' . $attach_id,
                         'title' => htmlentities($title)
                     ));
-                    if($img_html != '') {
+                    if(strtolower($img_type) == 'svg' && strtolower($this->options['use_insecure_svg']) == 'yes') {
+                        $resp['html'] = '[' . $this->plugin_slug . '-svg class="' . $this->plugin_slug . '-img aligncenter wp-image-' . $attach_id . '" src="' . $file_url . '" title="' . htmlentities($title) . '"]';
+                    } elseif($img_html != '') {
                         $resp['html'] = $img_html;
-                        
                     } else {
                         $resp['html'] = '<img class="' . $this->plugin_slug . '-img wp-image-' . $attach_id . '" src="' . $file_url . '" title="' . htmlentities($title) . '">';
                     }
@@ -392,7 +398,8 @@ class drawit {
             $metadata = wp_get_attachment_metadata($img_id);
             if($metadata !== false) {
                 $image_meta = $metadata['image_meta'];
-                $save_type = strtolower(end(explode('.', wp_get_attachment_url($img_id))));
+                $save_name = explode('.', wp_get_attachment_url($img_id));
+                $save_type = strtolower(end($save_name));
 
                 if($image_meta['title'] != "") {
                     $diag_title = $image_meta['title'];
@@ -481,6 +488,7 @@ class drawit {
         add_settings_section($this->plugin_slug . '_advanced', 'Advanced Options', array($this, 'advanced_settings_section_text'), $this->plugin_slug);
         add_settings_field($this->plugin_slug . '_enable_frontend', 'Enable in frontend-based editors', array($this, 'setting_enable_frontend'), $this->plugin_slug, $this->plugin_slug . '_advanced');
         add_settings_field($this->plugin_slug . '_override_conflict', 'Override other plugins disabling the frontend buttons', array($this, 'setting_override_conflict'), $this->plugin_slug, $this->plugin_slug . '_advanced');
+        add_settings_field($this->plugin_slug . '_use_insecure_svg', 'Use insecure version for SVG images', array($this, 'setting_use_insecure_svg'), $this->plugin_slug, $this->plugin_slug . '_advanced');
         add_settings_field($this->plugin_slug . '_temp_dir', 'Default temporary directory', array($this, 'setting_temp_dir'), $this->plugin_slug, $this->plugin_slug . '_advanced');
         /*
         add_settings_section($this->plugin_slug . '_diagram_size', 'Diagram Size Settings', array($this, 'diagram_settings_section_text'), $this->plugin_slug);
@@ -520,7 +528,8 @@ class drawit {
             $yes_checked = "";
         }
         echo "<input type='radio' id='allow_svg' name='" . $this->plugin_slug . "_options[allow_svg]' value='yes'" . $yes_checked . "><label for='allow_svg'> Yes</label><br>";
-        echo "<input type='radio' id='disallow_svg' name='" . $this->plugin_slug . "_options[allow_svg]' value='no'" . $no_checked . "><label for='disallow_svg'> No</label>";
+        echo "<input type='radio' id='disallow_svg' name='" . $this->plugin_slug . "_options[allow_svg]' value='no'" . $no_checked . "><label for='disallow_svg'> No</label><br>";
+        echo "<p><strong>NOTICE:</strong> Enabling SVG images has negative security implications if you allow uploads from untrusted sources. If you want to support SVG images, then you really should also use an SVG sanitization plugin like <a href=\"https://wordpress.org/plugins/safe-svg/\">https://wordpress.org/plugins/safe-svg/</a></p>";
     }
 
     public function setting_enable_frontend() {
@@ -545,6 +554,19 @@ class drawit {
         }
         echo "<input type='radio' id='override_conflict' name='" . $this->plugin_slug . "_options[override_conflict]' value='yes'" . $yes_checked . "><label for='override_conflict'> Yes</label><br>";
         echo "<input type='radio' id='no_override_conflict' name='" . $this->plugin_slug . "_options[override_conflict]' value='no'" . $no_checked . "><label for='no_override_conflict'> No</label>";
+    }
+
+    public function setting_use_insecure_svg() {
+        if(strtolower($this->options['use_insecure_svg']) == 'yes') {
+            $yes_checked = " checked";
+            $no_checked = "";
+        } else {
+            $no_checked = " checked";
+            $yes_checked = "";
+        }
+        echo "<input type='radio' id='use_insecure_svg' name='" . $this->plugin_slug . "_options[use_insecure_svg]' value='yes'" . $yes_checked . "><label for='use_insecure_svg'> Yes</label><br>";
+        echo "<input type='radio' id='nouse_insecure_svg' name='" . $this->plugin_slug . "_options[use_insecure_svg]' value='no'" . $no_checked . "><label for='nouse_insecure_svg'> No</label><br>";
+        echo "<p>Allows links in SVG to be clickable, but introduces security holes. You should not enable this option unless you trust all possible sources or creators of SVG files that you will have on your site. In the post editors, you will see shortcode text instead of images, but the images will show in the published post.</p>";
     }
 
     public function setting_default_type() {
@@ -607,6 +629,7 @@ class drawit {
         $opt['enable_frontend'] = $input['enable_frontend'];
         $opt['override_conflict'] = $input['override_conflict'];
         $opt['temp_dir'] = $input['temp_dir'];
+        $opt['use_insecure_svg'] = $input['use_insecure_svg'];
 
         // Remove characters that might be commonly added by mistake.
         /*
@@ -631,6 +654,10 @@ class drawit {
 
         if(strtolower($opt['override_conflict']) != 'yes' && strtolower($opt['override_conflict']) != 'no') {
             $opt['override_conflict'] = $this->plugin_default_options['override_conflict'];
+        }
+
+        if(strtolower($opt['use_insecure_svg']) != 'yes' && strtolower($opt['use_insecure_svg']) != 'no') {
+            $opt['use_insecure_svg'] = $this->plugin_default_options['use_insecure_svg'];
         }
 
 
@@ -690,6 +717,9 @@ class drawit {
     <p>The source code for the diagram is saved with the image in your WordPress installation. As long as you do not delete the image from your media library, then you will be able to open and edit the image from the post/page editor where it is being used.</p>
     <h3>How do I edit a diagram that is only in the media library and not inserted into a post?</h3>
     <p>For now, you'll have to insert it into a post to be able to edit it. We'll work on improving this later.</p>
+    <h3>How can I add links in an SVG image? (A.K.A, What are &quot;insecure&quot; SVG images?)</h3>
+    <p>You can enable links in SVG images by enabling the &quot;Use insecure version for SVG images&quot; setting. This setting refers to a tradeoff for using SVG images. If you want to be able to have advanced SVG features (e.g., having clickable links within the image), then this needs to be enabled. But a tradeoff is that this inserts raw SVG code into the web page, which introduced security holes. You should not enable this option unless you trust all possible sources or creators of SVG files that you will have on your site. Another side-effect of enabling this option is that the image code in the post editor gets replaced with a shortcode in the format of <code>[drawit-svg ...]</code> to help keep the editor clean from a lot of raw SVG data, but you also won't be able to see the image in the visual editors - you'll only be able to see the shortcode text.</p>
+    <p>Please read up more on the vulnerabilities of using SVG images on your website. Here is a very brief introduction: <a href="https://bjornjohansen.no/svg-in-wordpress">https://bjornjohansen.no/svg-in-wordpress</a></p>
      
     <hr>
     <?php
@@ -712,8 +742,51 @@ class drawit {
         wp_localize_script('quicktags_' . $this->plugin_slug, $this->plugin_slug . 'FE', array( 'mediaupload' => admin_url() . '/media-upload.php' ));
     }
 
+    public function drawit_svg_short($atts, $title='') {
+        $att_class = '';
+        $att_alt = '';
+        $att_title = '';
+        $att_src = '';
+
+        if($title != '') {
+            $att_title = $title;
+        }
+
+        foreach($atts as $key => $val) {
+            if(strtolower($key) == 'class') {
+                $att_class = $val;
+            } elseif(strtolower($key) == 'alt') {
+                $att_alt = $val;
+            } elseif(strtolower($key) == 'title') {
+                $att_title = $val;
+            } elseif(strtolower($key) == 'src') {
+                $att_src = $val;
+            }
+        }
+
+        if(preg_match('/wp-image-(?P<id>[0-9]+)/', $att_class, $matches)) {
+            if($att_src == '') {
+                $attach_id = $matches['id'];
+                $file_url = wp_get_attachment_url($attach_id);
+            } else {
+                $file_url = $att_src;
+            }
+
+            if(strtolower($this->options['use_insecure_svg']) == 'yes') {
+                $file_url = rawurlencode($file_url);
+                $ret_html = '<span><span></span><script>jQuery("script").last().siblings().load(decodeURIComponent("' . $file_url . '"),function(){jQuery(this).find("svg").addClass("'.$att_class.'").attr("alt", "'.$att_alt.'").attr("title", "'.$att_title.'")});</script></span>';
+            } else {
+                $ret_html = '<img class="' . $att_class . '" src="' . $file_url . '" alt="' . htmlentities($att_alt) . '" title="' . htmlentities($att_title) . '">';
+            }
+        } else {
+            $ret_html = '';
+        }
+        return $ret_html;
+    }
+
 } // End class
 
 $custom_plugin = new $plugin_slug($plugin_slug, $plugin_label, $plugin_default_options, $valid_types, $valid_units, $valid_temp_dirs);
+add_shortcode('drawit-svg', array($custom_plugin, 'drawit_svg_short'));
 
 ?>

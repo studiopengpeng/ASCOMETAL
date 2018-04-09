@@ -66,12 +66,12 @@ abstract class WPML_TM_Xliff_Shared extends WPML_TM_Job_Factory_User {
 			$type   = (string) $attr['id'];
 			$target = $this->get_xliff_node_target( $node );
 
-			if ( ! $this->is_valid_target( $target ) ) {
+			if ( ! $this->is_valid_unit_content( $target ) ) {
 				return $this->invalid_xliff_error( array( 'target' ) );
 			}
 
 			foreach ( $job->elements as $element ) {
-				if ( strpos($type, $element->field_type ) === 0 || strpos($element->field_type, $type ) === 0) {
+				if ( strpos( $type, $element->field_type ) === 0 || strpos( $element->field_type, $type ) === 0 ) {
 					$target              = str_replace( '<br class="xliff-newline" />', "\n", $target );
 					$field               = array();
 					$field['data']       = $target;
@@ -80,7 +80,7 @@ abstract class WPML_TM_Xliff_Shared extends WPML_TM_Job_Factory_User {
 					$field['field_type'] = $element->field_type;
 					$field['format']     = $element->field_format;
 
-					$data['fields'][] = $field;
+					$data['fields'][ $element->field_type ] = $field;
 					break;
 				}
 			}
@@ -198,15 +198,5 @@ abstract class WPML_TM_Xliff_Shared extends WPML_TM_Job_Factory_User {
 	protected function does_not_belong_error() {
 
 		return new WP_Error( 'xliff_does_not_match', __( "The uploaded xliff file doesn't belong to this system.", 'wpml-translation-management' ) );
-	}
-
-	/**
-	 * @param $target
-	 *
-	 * @return bool
-	 */
-	protected function is_valid_target( $target ) {
-		$target = preg_replace( '/^[\s\t\n\r]+$/m', '', $target );
-		return $target || '0' === $target;
 	}
 }

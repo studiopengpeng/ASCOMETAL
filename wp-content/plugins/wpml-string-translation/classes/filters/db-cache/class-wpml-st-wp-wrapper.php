@@ -6,11 +6,14 @@ class WPML_ST_WP_Wrapper {
 	 */
 	private $wp;
 
+	/** @var array */
+	private $preserved_filters = array( 'sanitize_title', 'home_url' );
+
 	/**
 	 * @param WP $wp
 	 */
 	public function __construct( WP $wp ) {
-		$this->wp = $wp;
+		$this->wp = clone $wp;
 	}
 
 	/**
@@ -22,7 +25,7 @@ class WPML_ST_WP_Wrapper {
 		global $wp_filter;
 
 		$tmp_wp_filter = $wp_filter;
-		$GLOBALS['wp_filter'] = array();
+		$GLOBALS['wp_filter'] = array_intersect_key( $wp_filter, array_fill_keys( $this->preserved_filters, 1 ) );
 
 		$result = $path;
 

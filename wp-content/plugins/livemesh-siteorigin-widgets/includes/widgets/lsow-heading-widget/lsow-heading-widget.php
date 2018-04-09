@@ -4,7 +4,7 @@
 Widget Name: Livemesh Heading
 Description: Create heading for display on the top of a section.
 Author: LiveMesh
-Author URI: http://portfoliotheme.org
+Author URI: https://www.livemeshthemes.com
 */
 
 class LSOW_Heading_Widget extends SiteOrigin_Widget {

@@ -10,7 +10,7 @@
 
 <?php $column_style = lsow_get_column_class(intval($settings['per_line'])); ?>
 
-<div class="lsow-pricing-table lsow-container">
+<div class="lsow-pricing-table lsow-grid-container">
 
     <?php
 

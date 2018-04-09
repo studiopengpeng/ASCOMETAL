@@ -14,7 +14,7 @@
 
         <div class="lsow-panel">
 
-            <div class="lsow-panel-title"><?php echo esc_html($panel['title']); ?></div>
+            <div class="lsow-panel-title"><?php echo htmlspecialchars_decode(esc_html($panel['title'])); ?></div>
 
             <div class="lsow-panel-content"><?php echo do_shortcode($panel['panel_content']); ?></div>
 

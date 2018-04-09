@@ -1,36 +1,50 @@
 <?php
 /**
- * @package wpml-core
+ * @package    wpml-core
  * @subpackage wpml-core
  */
-
-if ( ! class_exists( 'TranslationProxy_Api_Error' ) ) {
-	class TranslationProxy_Api_Error extends Exception {
-
-		public function __construct( $message ) {
-			WPML_TranslationProxy_Com_Log::log_error( $message );
-
-			parent::__construct( $message );
-		}
-	}
-}
 
 class TranslationProxy_Api {
 	const API_VERSION = 1.1;
 
-	public static function proxy_request( $path, $params = array(), $method = 'GET', $multi_part = false, $has_return_value = true ) {
+	public static function proxy_request(
+		$path,
+		$params = array(),
+		$method = 'GET',
+		$multi_part = false,
+		$has_return_value = true
+	) {
 
-		return wpml_tm_load_tp_networking()->send_request( OTG_TRANSLATION_PROXY_URL . $path, $params, $method, $has_return_value );
+		return wpml_tm_load_tp_networking()->send_request( OTG_TRANSLATION_PROXY_URL . $path,
+		                                                   $params,
+		                                                   $method,
+		                                                   $has_return_value );
 	}
 
 	public static function proxy_download( $path, $params ) {
 
-		return wpml_tm_load_tp_networking()->send_request( OTG_TRANSLATION_PROXY_URL . $path, $params, 'GET', true, false );
+		return wpml_tm_load_tp_networking()->send_request( OTG_TRANSLATION_PROXY_URL . $path,
+		                                                   $params,
+		                                                   'GET',
+		                                                   true,
+		                                                   false );
 	}
 
-	public static function service_request( $url, $params = array(), $method = 'GET', $has_return_value = true, $json_response = false, $has_api_response = false ) {
+	public static function service_request(
+		$url,
+		$params = array(),
+		$method = 'GET',
+		$has_return_value = true,
+		$json_response = false,
+		$has_api_response = false
+	) {
 
-		return wpml_tm_load_tp_networking()->send_request( $url, $params, $method, $has_return_value, $json_response, $has_api_response );
+		return wpml_tm_load_tp_networking()->send_request( $url,
+		                                                   $params,
+		                                                   $method,
+		                                                   $has_return_value,
+		                                                   $json_response,
+		                                                   $has_api_response );
 	}
 
 	public static function add_parameters_to_url( $url, $params ) {
@@ -41,8 +55,7 @@ class TranslationProxy_Api {
 					foreach ( $indexes[0] as $index ) {
 						if ( isset( $params[ $index ] ) ) {
 							$value = $params[ $index ];
-							$url   = preg_replace( preg_quote( "/$symb/" ),
-								$value, $url );
+							$url   = preg_replace( preg_quote( "/$symb/" ), $value, $url );
 						}
 					}
 				}

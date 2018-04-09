@@ -4,7 +4,7 @@
 Widget Name: Livemesh Pricing Table
 Description: Display pricing plans in a multi-column grid.
 Author: LiveMesh
-Author URI: http://portfoliotheme.org
+Author URI: https://www.livemeshthemes.com
 */
 
 class LSOW_Pricing_Table_Widget extends SiteOrigin_Widget {

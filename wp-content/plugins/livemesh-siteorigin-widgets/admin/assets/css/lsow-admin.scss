@@ -1,6 +1,6 @@
 @import "bourbon";
 @import "neat";
-@import "flexbox";
+
 
 @import "../../../assets/css/lsow-lib";
 
@@ -110,7 +110,7 @@ label.lsow-inline {
   border-top-right-radius: 4px;
   border-bottom-width: 0;
   white-space: nowrap;
-  @include vendorize(transition, all 0.4s ease-in-out); 
+  transition: all .4s ease-in-out 0s;
   }
 .lsow-menu-options .lsow-tab {
   padding: 15px;

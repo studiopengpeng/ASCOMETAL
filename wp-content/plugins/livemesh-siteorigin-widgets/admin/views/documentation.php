@@ -28,7 +28,7 @@ else {
 
     <div class="intro-wrap">
 
-        <img class="plugin-image" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/plugin-screenshot.jpg" alt="Livemesh SiteOrigin Widgets">
+        <img class="plugin-image" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/plugin-screenshot.jpg" alt="Livemesh SiteOrigin Widgets">
 
         <div class="intro">
             <h3><?php printf(__('Getting started with %1$s v%2$s', 'livemesh-so-widgets'), $plugin['Name'], $plugin['Version']); ?></h3>
@@ -89,6 +89,7 @@ else {
                     <li><a href="#image-video-gallery">Image/Video Gallery – <span class="pro-feature">Pro!</span></a></li>
                     <li><a href="#image-video-carousel">Image/Video Carousel – <span class="pro-feature">Pro!</span></a></li>
                     <li><a href="#faq-widget">FAQ Widget - <span class="pro-feature">Pro!</span></a></li>
+                    <li><a href="#features-widget">Features Widget - <span class="pro-feature">Pro!</span></a></li>
 
                 </ul>
                 <h3 id="getting-started">Getting Started<a class="back-to-top" href="#panel"><span
@@ -130,7 +131,7 @@ else {
                         The portfolio examples of Livemesh Grid widget is built using custom post type registered by
                         this plugin.
                     </li>
-                    <li>Optionally, if you have <a href="http://portfoliotheme.org/products/livemesh-siteorigin-widgets-pro/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">premium version</a> of the plugin installed, you can import the sample data
+                    <li>Optionally, if you have <a href="https://www.livemeshthemes.com/siteorigin-widgets/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">premium version</a> of the plugin installed, you can import the sample data
                         that replicates the demo site for you by importing the
                         file sample-data.xml file located in the plugin directory. The import option is available under
                         <strong> <a href="<?php echo admin_url() . 'import.php'; ?>"
@@ -146,7 +147,7 @@ else {
                 <p>Below is a list of recommended plugins to install that will help you get the most out of this plugin.
                     Although many of these plugins are optional, we recommend that you install these popular plugins if
                     you plan to install the demo data and get most out of this plugin. The demo site and the sample data
-                    provided with the <a href="http://portfoliotheme.org/products/livemesh-siteorigin-widgets-pro/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">premium version</a> of the plugin utilizes all of these plugins including the
+                    provided with the <a href="https://www.livemeshthemes.com/siteorigin-widgets/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">premium version</a> of the plugin utilizes all of these plugins including the
                     SiteOrigin Page Builder and the Portfolio Post type plugin.</p>
                 <p>These plugins are also listed in the Plugins tab of this help file under Livemesh Widgets →
                     Documentation, and you can install the plugins directly from there.</p>
@@ -178,7 +179,7 @@ else {
                 <hr>
                 <h3 id="demo-data">Installing Demo Data<a class="back-to-top" href="#panel"><span
                             class="dashicons dashicons-arrow-up-alt2"></span> Back to top</a></h3>
-                <p>If you have <a href="http://portfoliotheme.org/products/livemesh-siteorigin-widgets-pro/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">premium version</a> of the plugin installed, you can install the demo data to replicate the
+                <p>If you have <a href="https://www.livemeshthemes.com/siteorigin-widgets/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">premium version</a> of the plugin installed, you can install the demo data to replicate the
                     plugin demo site to get a head start on building your site. Installing demo data reduces the
                     learning curve associated with trying out the powerful widgets part of this plugin.</p>
                 <p>The sample data imports the pages part of the demo site. Once you are done with playing around the
@@ -213,7 +214,7 @@ else {
                     <li>Once the Livemesh SiteOrigin Widgets plugin is activated, you should see a menu item <strong> <a href="<?php echo admin_url() . 'admin.php?page=livemesh_so_widgets'; ?>"
                                             target="_blank"><?php echo __('Livemesh Widgets', 'livemesh-so-widgets') ?></a></strong> in WordPress admin with three sections - Settings, Documentation and <strong> <a href="<?php echo admin_url() . 'admin.php?page=livemesh_so_widgets_pro_upgrade'; ?>"
                                                                                                                                                                                                                       target="_blank"><?php echo __('Upgrade to Pro', 'livemesh-so-widgets') ?></a></strong>.
-                        <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/plugin-settings.png" alt="SiteOrigin Widgets Settings"></p>
+                        <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/plugin-settings.png" alt="SiteOrigin Widgets Settings"></p>
 
                         <p><strong> <a href="<?php echo admin_url() . 'admin.php?page=livemesh_so_widgets'; ?>"
                                        target="_blank"><?php echo __('Livemesh Widgets→Settings', 'livemesh-so-widgets') ?></a></strong> - The settings screen for the plugin is self-documenting with minimal
@@ -234,27 +235,27 @@ else {
                         <p>To look for widgets defined by
                         the Livemesh SiteOrigin Widgets plugin, search for widgets starting with name Livemesh in the
                         SiteOrigin Widgets Bundle screen.</p>
-                        <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-widgets2.jpg" alt="SiteOrigin Page Builder Widgets"></p>
+                        <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-widgets2.jpg" alt="SiteOrigin Page Builder Widgets"></p>
                     </li>
 
                     <li>Once a SiteOrigin widget is activated (or auto activated), the widgets are available in
                         <strong><a href="<?php echo admin_url() . 'widgets.php'; ?>"
                            target="_blank"><?php echo __('Appearance→Widgets', 'livemesh-so-widgets') ?></a></strong> screen for drag and drop into widgetized areas defined by the theme
                         activated on your site.
-                        <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-widgets.jpg" alt="Sidebar Widgets from SiteOrigin"></p>
+                        <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-widgets.jpg" alt="Sidebar Widgets from SiteOrigin"></p>
                     </li>
 
                     <li>The activated widgets also become available for drag and drop in the SiteOrigin Page builder. In
                         the Page edit window, click on the <strong>'Page Builder'</strong> tab to bring up the page builder controls on
                         the page edit screen.
-                        <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/page-builder-screen.png" alt="SiteOrigin Page Builder Screen"></p>
+                        <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/page-builder-screen.png" alt="SiteOrigin Page Builder Screen"></p>
                     </li>
 
                     <li>To add a Livemesh widget, just click on the <strong>'Add Widget'</strong> button to bring up the 'Add New Widget'
                         popup screen of the page builder. The plugin widgets are grouped under <strong>'Livemesh SiteOrigin
                         Widgets'</strong> tab on the left. Click on a widget listed on the right closes the popup and adds the
                         widget to the page builder.
-                        <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-widgets3.jpg" alt="Page Builder Widgets from SiteOrigin"></p>
+                        <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-widgets3.jpg" alt="Page Builder Widgets from SiteOrigin"></p>
                     </li>
 
                     <li>Hovering over the widget added to the page builder, you can view the Edit link. Clicking the
@@ -267,13 +268,13 @@ else {
 
                         <p>Click on the <strong>'Done'</strong> button once the required data is provided for the widget and you are done
                         with previewing.</p>
-                        <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/widget-edit-screen.png" alt="SiteOrigin Widget Edit Window"></p>
+                        <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/widget-edit-screen.png" alt="SiteOrigin Widget Edit Window"></p>
 
                     </li>
 
                     <li>After you hit the <strong>Update</strong> or <strong>Publish</strong> button on the page,the widget is then ready for viewing on
                         the frontend page.
-                        <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/widget-rendered.png" alt="SiteOrigin Widget Rendered"></p>
+                        <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/widget-rendered.png" alt="SiteOrigin Widget Rendered"></p>
 
                     </li>
 
@@ -285,7 +286,7 @@ else {
 
                 <hr>
                 <h3 id="heading-widget">Heading Widget<a class="back-to-top" href="#panel"> Back to top</a></h3>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/heading-widget2.png" alt="Heading Widget Rendered"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/heading-widget2.png" alt="Heading Widget Rendered"></p>
 
                 <p>The heading widget is perhaps the most frequently used widget on a page since it displays a heading
                     at the top of a section.</p>
@@ -297,20 +298,20 @@ else {
                     allow you to input a subtitle which is usually displayed on top of the main heading title.</p>
                 <p>You can choose to align the heading left, right or center with center being the default
                     alignment.</p>
-                <p>The <a href="http://portfoliotheme.org/products/livemesh-siteorigin-widgets-pro/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">premium version</a> of the plugin allows selection of a custom font for the heading title. You may
+                <p>The <a href="https://www.livemeshthemes.com/siteorigin-widgets/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">premium version</a> of the plugin allows selection of a custom font for the heading title. You may
                     choose one of 500+ custom fonts hosted in the Google Fonts library. By default, the heading font
                     used by the theme is used for main heading title.</p>
 
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/heading-widget-edit.png" alt="Heading Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/heading-widget-edit.png" alt="Heading Widget Edit Window"></p>
 
                 <hr>
                 <h3 id="services-widget">Services Widget<a class="back-to-top" href="#panel"> Back to top</a></h3>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/services-widget2.png" alt="Services Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/services-widget2.png" alt="Services Widget"></p>
 
                 <p>Many agencies, freelancers, corporates, products/apps require capturing the services provided by the
                     agency or the features of a product. The services widget is designed to help users capture these
                     services or features in a multi-column grid.</p>
-                <p>The widget supports about 3 different styles (with 2 additional styles in <a href="http://portfoliotheme.org/products/livemesh-siteorigin-widgets-pro/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">premium version</a> of the
+                <p>The widget supports about 3 different styles (with 2 additional styles in <a href="https://www.livemeshthemes.com/siteorigin-widgets/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">premium version</a> of the
                     plugin) and each of these styles can be customized further by choosing the type of icon desired to
                     represent the service – a font icon or an custom image icon. While the choice of font icons is huge
                     in number and perhaps sufficient for most common services, the icon images can help present the
@@ -318,9 +319,9 @@ else {
                 <p>Each of the service requires you to input a title for the service/feature and a short description of
                     the service offered or the product feature. Additionally, each service allows you to enter a font
                     icon or an icon image file to represent that service.</p>
-                <p>The <a href="http://portfoliotheme.org/products/livemesh-siteorigin-widgets-pro/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">premium version</a> of the plugin allows you specify a custom font size, font color and and hover
+                <p>The <a href="https://www.livemeshthemes.com/siteorigin-widgets/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">premium version</a> of the plugin allows you specify a custom font size, font color and and hover
                     color for the font icon along with providing two additional styles of services/features.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/services-widget-edit.png" alt="Services Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/services-widget-edit.png" alt="Services Widget Edit Window"></p>
 
                 <p>Services widget supports the following options –</p>
                 <ul>
@@ -335,29 +336,29 @@ else {
 
                 <hr>
                 <h3 id="team-members">Team Members<a class="back-to-top" href="#panel"> Back to top</a></h3>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/team-member2.jpg" alt="Team Members Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/team-member2.jpg" alt="Team Members Widget"></p>
 
                 <p>This widget provides an easy way to capture the team members of your organization or an agency. The
                     details captured include team member name, position, a short description and the email plus social
                     profile of the individual team members.</p>
-                <p>Two different styles are provided with more styles planned in the <a href="http://portfoliotheme.org/products/livemesh-siteorigin-widgets-pro/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">premium version</a> of the plugin. Most
+                <p>Two different styles are provided with more styles planned in the <a href="https://www.livemeshthemes.com/siteorigin-widgets/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">premium version</a> of the plugin. Most
                     of the styles display the team members in a multi-column grid. The option to specify the number of
                     columns is provided that helps to control the number of team members displayed per row of the team
                     members.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/team-members-edit.png" alt="Team Members Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/team-members-edit.png" alt="Team Members Widget Edit Window"></p>
 
                 <hr>
                 <h3 id="statistics-widgets">Statistics Widgets<a class="back-to-top" href="#panel"> Back to top</a></h3>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/statsbars-piecharts.png" alt="Statistics Widgets"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/statsbars-piecharts.png" alt="Statistics Widgets"></p>
 
                 <p>The plugin features a number of widgets that help display statistical information in the form of
-                    odometers, piecharts and stats bars. The <a href="http://portfoliotheme.org/products/livemesh-siteorigin-widgets-pro/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">premium version</a> of the plugin also includes a countdown
+                    odometers, piecharts and stats bars. The <a href="https://www.livemeshthemes.com/siteorigin-widgets/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">premium version</a> of the plugin also includes a countdown
                     widget that displays a countdown timer for planned events such as product launches or website going
                     live.</p>
                 <p>Most of these widgets are designed to animate the display of the statistical information or numbers
                     when the users scroll down to the section containing the widget.</p>
                 <p><strong>Odometers</strong></p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/odometers2.png" alt="Odometer Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/odometers2.png" alt="Odometer Widget"></p>
 
                 <p>This widget displays one or more animated odometer statistics in a multi-column grid. This number
                     statistic requires a start and an end value with a title and icon providing the information about
@@ -365,10 +366,10 @@ else {
                     gained.</p>
                 <p>The widget animates from the start value to the end value when the user scrolls down to the section.
                     You can control the number of such odometers displayed per row.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/odometers-edit.png" alt="Odometer Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/odometers-edit.png" alt="Odometer Edit Window"></p>
 
                 <p><strong>Stats Bars</strong></p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/statsbars-piecharts.png" alt="Stats Bar Piechart Widgets"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/statsbars-piecharts.png" alt="Stats Bar Piechart Widgets"></p>
 
                 <p>Stats Bars capture percentage statistics like coverage area, skills gained, survey findings, usage
                     statistics etc. that typically require bar charts to represent them. Each statistical item requires
@@ -376,27 +377,27 @@ else {
                     multiple or single color with the help of color choice available with each value input.</p>
                 <p>The widget animates from the zero to the percentage value set for the item when the user scrolls down
                     to the section containing the widget. The bars are placed one below the other horizontally.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/stats-bars-edit.png" alt="Stats Bar Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/stats-bars-edit.png" alt="Stats Bar Widget Edit Window"></p>
 
                 <p><strong>Piecharts</strong></p>
                 <p>Piecharts provide an alternative way to display percentage stats. When the users scrolls down and the
                     chart becomes visible, the widget animates from zero to percentage value provided for the statistic.
                     A bar of user chosen color moves along a track to display the percentage information. An option to
                     specify the number of charts displayed per row is provided.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/piecharts-edit.png" alt="Piechart Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/piecharts-edit.png" alt="Piechart Widget Edit Window"></p>
 
                 <p><strong>Countdown&nbsp; - <span class="pro-feature">Pro!</span></strong></p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/countdown.png" alt="Countdown Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/countdown.png" alt="Countdown Widget"></p>
 
                 <p>This widget displays a countdown timer for an end date and time specified by the user. This is like a
                     clock ticking to signal the arrival of an event planned for a future date. The user just provides
                     the end date time, a label for the event and widget displays the time remaining in days, hours,
                     minutes and seconds, with the timer updated every second on the page.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/countdown-edit.png" alt="Countdown Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/countdown-edit.png" alt="Countdown Widget Edit Window"></p>
 
                 <hr>
                 <h3 id="testimonials-widgets">Testimonials Widgets<a class="back-to-top" href="#panel"> Back to top</a></h3>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/testimonials.png" alt="Testimonials Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/testimonials.png" alt="Testimonials Widget"></p>
 
                 <p>The plugin features two widgets for capturing testimonials received for your product or business or
                     services. Most agencies, corporates, small businesses, freelancers and products/apps require
@@ -410,21 +411,21 @@ else {
                     user having the option to specify the number of items per row. This is useful if you need a large
                     number of testimonials to be visible instantly when the user scrolls down to view the testimonials
                     section.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/testimonials-edit.png" alt="Testimonials Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/testimonials-edit.png" alt="Testimonials Widget Edit Window"></p>
 
                 <p><strong>Testimonials Slider</strong></p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/testimonials2.png" alt="Testimonials Slider Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/testimonials2.png" alt="Testimonials Slider Widget"></p>
                 <p>The <strong>testimonials slider widget</strong> is useful for display of endorsements/recommendations
                     with large amount of text for each testimonial. The slider displays the testimonials as a slideshow
                     with multiple widget options provided to control/customize this slideshow – options like speed of
                     switching, speed of animation, whether to pause the slideshow on hover, controls needed for manual
                     navigation by the user etc. The slider is completely responsive and touch swipe controls available
                     for easy navigation on smartphones/tablets.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/testimonials-slider-edit.png" alt="Testimonials Slider Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/testimonials-slider-edit.png" alt="Testimonials Slider Edit Window"></p>
 
                 <hr>
                 <h3 id="posts-carousel">Posts Carousel<a class="back-to-top" href="#panel"> Back to top</a></h3>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/posts-carousel.jpg" alt="Post Carousel Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/posts-carousel.jpg" alt="Post Carousel Widget"></p>
 
                 <p>The responsive carousel helps display posts or any custom post types like your portfolio entries with
                     controls available for easy navigation of the items displayed. The widget features a Posts Query
@@ -432,7 +433,7 @@ else {
                     control what gets displayed and in what order with an additional field available to provide query
                     arguments explained in the <a href="https://codex.wordpress.org/Class_Reference/WP_Query">codex
                         page</a>.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/posts-carousel-edit3.png" alt="Post Carousel Build Query Tool"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/posts-carousel-edit3.png" alt="Post Carousel Build Query Tool"></p>
 
                 <p>The Posts Query tool has the following options for filtering posts –</p>
                 <ol>
@@ -468,7 +469,7 @@ else {
                         specified in the above fields.
                     </li>
                 </ol>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/posts-carousel-edit.png" alt="Post Carousel Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/posts-carousel-edit.png" alt="Post Carousel Edit Window"></p>
 
                 <p>The posts carousel has numerous other options to control the display of posts or custom post types.
                     Some of these are –</p>
@@ -491,7 +492,7 @@ else {
                         to display info” will be used for display taxonomy information.
                     </li>
                 </ul>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/posts-carousel-edit2.png" alt="Post Carousel Widget Settings"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/posts-carousel-edit2.png" alt="Post Carousel Widget Settings"></p>
 
                 <p><strong>Carousel Settings</strong> – This section has options that control how the carousel is
                     displayed. Options include autoplay speed, gutter value between post items in various resolutions,
@@ -524,19 +525,19 @@ else {
 
                 <hr>
                 <h3 id="carousel-widget">Carousel<a class="back-to-top" href="#panel"> Back to top</a></h3>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/generic-carousel.jpg" alt="Generic Carousel Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/generic-carousel.jpg" alt="Generic Carousel Widget"></p>
 
                 <p>Livemesh Carousel is a generic carousel of custom HTML content of your choice. Possibilities are endless – image
                     carousels with textual content describing the images, video carousels, event carousels with link to
                     the events, a carousel of team of volunteers, a collection of books sold on Amazon etc.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-carousel-edit.png" alt="Generic Carousel Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-carousel-edit.png" alt="Generic Carousel Widget Edit Window"></p>
 
                 <p>If you need a carousel of custom content HTML of your choice, this widget helps achieve the same. For
                     the HTML content, you will need to provide your own custom CSS under Settings for the carousel.
                     While posts carousel helps you display carousel items derived from posts or custom post types, this
                     widget lets you display any well-formed HTML content as items in a carousel. You may use the
                     WordPress visual editor to construct the required content. </p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-carousel-edit2.png" alt="Generic Carousel Settings Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-carousel-edit2.png" alt="Generic Carousel Settings Window"></p>
 
                 <p>The section ‘Carousel Settings’ has options that control how the carousel is displayed. Options
                     include autoplay speed, gutter value between post items in various resolutions, navigation controls
@@ -544,31 +545,31 @@ else {
                     items etc. The carousel settings are explained in the help section above for Posts Carousel.</p>
                 <hr>
                 <h3 id="grid-widget">Livemesh Grid<a class="back-to-top" href="#panel"> Back to top</a></h3>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-grid.jpg" alt="Livemesh Grid Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-grid.jpg" alt="Livemesh Grid Widget"></p>
 
                 <p>Perhaps the most popular and most important of all widgets part of all widgets part of this plugin,
                     Livemesh Grid helps you build a multi-column grid of posts or custom post types. The posts displayed
                     are filterable by taxonomy terms.</p>
 
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-grid2.jpg" alt="Livemesh Grid Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-grid2.jpg" alt="Livemesh Grid Widget"></p>
                 <p>Using the Grid widget, you can construct a portfolio of your work/services/products. We recommend you
                     use the popular plugin – <a title="Portfolio Post Type Plugin"
                                                 href="https://wordpress.org/plugins/portfolio-post-type/">https://wordpress.org/plugins/portfolio-post-type/</a>
                     for building a collection of portfolio entries. Once the portfolio entries are in place, make sure
                     you select Portfolio Post type under Post Type entry in Build Tools window as explained below.</p>
 
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-grid-pagination.jpg" alt="Livemesh Grid Pagination"></p>
-                <p>The <a href="http://portfoliotheme.org/products/livemesh-siteorigin-widgets-pro/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">premium version</a> of the plugin has support for pagination, lazy load with load more button and
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-grid-pagination.jpg" alt="Livemesh Grid Pagination"></p>
+                <p>The <a href="https://www.livemeshthemes.com/siteorigin-widgets/" title="Livemesh SiteOrigin Widgets Pro" target="_blank">premium version</a> of the plugin has support for pagination, lazy load with load more button and
                     lightbox option for images. The additional posts are loaded via AJAX when the user navigates through
                     the pages populated or when the user hits the Load More button.</p>
 
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-grid-loadmore.jpg" alt="Livemesh Grid AJAX Load More"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-grid-loadmore.jpg" alt="Livemesh Grid AJAX Load More"></p>
                 
                 <p>The widget features a Posts Query window to help choose posts or custom posts to display. This
                     powerful tool has number of fields to control what gets displayed and in what order with an
                     additional field available to provide query arguments explained in the <a
                         href="https://codex.wordpress.org/Class_Reference/WP_Query">codex page</a>.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/build-posts-query-tool.jpg" alt="Build Post Query Tool"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/build-posts-query-tool.jpg" alt="Build Post Query Tool"></p>
 
                 <p>The Posts Query tool has the following options for filtering posts –</p>
                 <ol>
@@ -608,7 +609,7 @@ else {
                         specified in the above fields.
                     </li>
                 </ol>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-grid-edit1.jpg" alt="Livemesh Grid Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/livemesh-grid-edit1.jpg" alt="Livemesh Grid Edit Window"></p>
 
                 <p>The grid widget has numerous other options to control the display of posts or custom post types. Some
                     of these are –</p>
@@ -666,12 +667,12 @@ else {
 
                 <hr>
                 <h3 id="clients-widget">Clients<a class="back-to-top" href="#panel"> Back to top</a></h3>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/clients-widget.jpg" alt="Clients Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/clients-widget.jpg" alt="Clients Widget Edit Window"></p>
 
                 <p>Whether you are freelancer or run a small business, agency or represent a big corporate house, you
                     have a list of clients that you have worked with. This widget lets you create a list of these
                     clients with banner images representing these clients.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/clients-edit.jpg" alt="Clients Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/clients-edit.jpg" alt="Clients Widget Edit Window"></p>
 
                 <p>For each of the client, you provide a client name, a banner image for the client and a URL for their
                     website. The client name is shown on user hovering over the banner image and title text is
@@ -681,12 +682,12 @@ else {
 
                 <hr>
                 <h3 id="pricing-table">Pricing Table<a class="back-to-top" href="#panel"> Back to top</a></h3>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/pricing-plan.png" alt="Pricing Plan Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/pricing-plan.png" alt="Pricing Plan Widget"></p>
 
                 <p>The pricing plans offered by your business can be captured with pricing plan widget. The pricing
                     plans are displayed in a multi-column grid.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/pricing-plan-edit.jpg" alt="Pricing Plan Edit Window"></p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/pricing-plan-edit2.jpg" alt="Pricing Plan Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/pricing-plan-edit.jpg" alt="Pricing Plan Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/pricing-plan-edit2.jpg" alt="Pricing Plan Edit Window"></p>
 
                 <p>For each of the pricing plan, provide the following information –</p>
                 <ul>
@@ -720,14 +721,14 @@ else {
 
                 <hr>
                 <h3 id="button-widget">Buttons<a class="back-to-top" href="#panel"> Back to top</a></h3>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/buttons.png" alt="Buttons Widget"></p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/buttons2.png" alt="Buttons Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/buttons.png" alt="Buttons Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/buttons2.png" alt="Buttons Widget"></p>
 
                 <p>The plugin lets you create buttons of multiple colors that you would use in your site. The supported
                     colors are Orange, Blue, Teal, Cyan, Green, Pink, Black, Red, Transparent and Semi Transparent (for
                     dark backgrounds). You can choose a custom color and custom hover color too for the button to create
                     a button of your chosen color.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/button-edit.jpg" alt="Button Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/button-edit.jpg" alt="Button Widget Edit Window"></p>
 
                 <p>You may choose to create a button of Default color which is the color derived from the Theme Color
                     set in the plugin options.</p>
@@ -737,19 +738,19 @@ else {
                     image.</p>
                 <p>The widget options are mostly self-explanatory and you can view a live preview of the buttons <a
                         title="Livemesh SiteOrigin Button Widget Demo"
-                        href="http://portfoliotheme.org/siteorigin-widgets/icon-lists-buttons/">here</a>.</p>
+                        href="https://www.livemeshthemes.com/siteorigin-widgets/icon-lists-buttons/">here</a>.</p>
 
 
                 <hr>
                 <h3 id="icon-list">Icon List<a class="back-to-top" href="#panel"> Back to top</a></h3>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/icon-lists.png" alt="Icon Lists Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/icon-lists.png" alt="Icon Lists Widget"></p>
 
                 <p>The icon list widget is extremely useful for creating a list of icons with optional links to sites or
                     pages that the icons represent. Examples include social media profiles, icon lists representing
                     payment options or download platforms or a quick summary of services.</p>
                 <p>Each of the icons part of a list have a title, optional target URL and the icon itself can be a font
                     icon or an custom image. The title for the icon is displayed as a tooltip on mouse hover.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/icon-list-edit.jpg" alt="Icon Lists Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/icon-list-edit.jpg" alt="Icon Lists Widget Edit Window"></p>
 
                 <p>Following options are available –</p>
                 <ul>
@@ -768,13 +769,13 @@ else {
                 
                 <hr>
                 <h3 id="hero-header">Hero Header<a class="back-to-top" href="#panel"> Back to top</a></h3>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/hero-header.jpg" alt="Hero Header Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/hero-header.jpg" alt="Hero Header Widget"></p>
 
                 <p>Hero Headers are popular way to drive across a message, market your products or work, create a call
                     to action for the user etc. Hero headers are often used at the top of a page. With the Hero Image
                     widget, you can display hero header content with option to set HTML5/YouTube video or parallax image
                     background.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/hero-header-edit.jpg" alt="Hero Header Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/hero-header-edit.jpg" alt="Hero Header Widget Edit Window"></p>
 
                 <p>The options include –</p>
                 <p>Header Type – The widget provides option of a built-in standard header content and a custom one where
@@ -813,7 +814,7 @@ else {
                         provided above. Will be embedded inline with the page.
                     </li>
                 </ul>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/hero-header-edit2.jpg" alt="Hero Header Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/hero-header-edit2.jpg" alt="Hero Header Widget Edit Window"></p>
                 <p>Further options for Hero Image include –</p>
                 <ul>
                     <li><strong>URL for Pointer Down</strong> – This option is used for the hero header displayed at the
@@ -841,14 +842,14 @@ else {
 
                 <hr>
                 <h3 id="tabs-accordions">Tabs and Accordions<a class="back-to-top" href="#panel"> Back to top</a></h3>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/tab-widget.jpg" alt="Tabs Widgets"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/tab-widget.jpg" alt="Tabs Widgets"></p>
 
                 <p>A large of finely designed styles are supported by tabs function of the plugin. Tabs can be of two
                     types – vertical and regular horizontal style tabs. </p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/tabs-widget2.jpg" alt="Tabs Widgets"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/tabs-widget2.jpg" alt="Tabs Widgets"></p>
                 <p>There are a total of 10 tab styles to choose
                     from. There is simply no another plugin or theme that supports so many elegant styles for tabs.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/tabs-edit.jpg" alt="Tabs Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/tabs-edit.jpg" alt="Tabs Widget Edit Window"></p>
 
                 <p>Tabs required two attributes – a tab title and tab content. For styles that support icons, choice of
                     displaying a font icon or an icon image along with the tab title is supported.</p>
@@ -856,24 +857,24 @@ else {
                     mobile mode. The tabs are designed to work well in all device resolutions without sacrificing
                     usability.</p>
                 <p><strong>Accordions</strong></p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/accordions.png" alt="Accordion Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/accordions.png" alt="Accordion Widget"></p>
 
                 <p>Accordions support panels that are collapsed by default. The panels can be opened by clicking on
                     panel title bar.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/accordion-edit.jpg" alt="Accordion Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/accordion-edit.jpg" alt="Accordion Widget Edit Window"></p>
 
                 <p>Each of the panels part of an accordion require the user to input a tab title and tab content.</p>
                 <p>Option to allow multiple panels to be open is provided.</p>
 
                 <hr>
                 <h3 id="image-slider">Image Slider – <span class="pro-feature">Pro!</span><a class="back-to-top" href="#panel"> Back to top</a></h3>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/image-slider-flex.jpg" alt="Image Slider Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/image-slider-flex.jpg" alt="Image Slider Widget"></p>
 
                 <p>The image slider lets you create a responsive slider of images with a multiple options to customize
                     the function and presentation of the slider. The slider can be used anywhere on a page and can also
                     function as the main slider of the page displayed at the top of the page. The slider supports
                     multitude of options but for most users, the default options provided should suffice.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/image-slider-edit.jpg" alt="Image Slider Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/image-slider-edit.jpg" alt="Image Slider Widget Edit Window"></p>
 
                 <ul>
                     <li><strong>Class</strong> – Set a unique CSS class for the slider. (optional). This lets you
@@ -885,12 +886,12 @@ else {
                     <li><strong>Flex Slider</strong> – Perhaps the most popular of all and actively maintained by the
                         open source community. Provides features like touch navigation, thumbnail navigation and many
                         options to customize the slider.
-                        <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/image-slider-flex.jpg" alt="Image Flex Slider Widget"></p>
+                        <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/image-slider-flex.jpg" alt="Image Flex Slider Widget"></p>
                     </li>
                     <li><strong>Nivo Slider</strong> – Has been a very popular slider for many years now and loved by
                         many for number of beautiful transition effects that is supports.
 
-                        <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/image-slider-nivo.jpg" alt="Nivo Image Slider Widget"></p>
+                        <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/image-slider-nivo.jpg" alt="Nivo Image Slider Widget"></p>
                     </li>
                     <li><strong>Slick Slider</strong> – The most popular open source library for building carousels.
                         Responsive controls like touch swipe controls, desktop mouse dragging makes it a compeling
@@ -899,7 +900,7 @@ else {
                     <li><strong>Responsive Slider</strong> – Simplest and most lightweight of all sliders (just 1 KB in
                         size minified and gzipped). If you need a slider that uses minimal resources, this option should
                         be worth trying out.
-                        <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/image-slider-responsive.jpg" alt="Responsive Image Slider Widget"></p>
+                        <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/image-slider-responsive.jpg" alt="Responsive Image Slider Widget"></p>
                     </li>
                     <li><strong>Choose Caption Style</strong> – There are two styles of captions – one center aligned
                         and the other left aligned. While center aligned caption is more suited to situation where the
@@ -930,7 +931,7 @@ else {
                     <li><strong>Button Size</strong> – Can be large, medium or small.</li>
                     <li><strong>Display rounded button</strong> – Make the button display with rounded edges.</li>
                 </ul>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/image-slider-edit2.jpg" alt="Image Slider Settings"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/image-slider-edit2.jpg" alt="Image Slider Settings"></p>
 
                 <p><strong>Slider Settings</strong> – The widget has a number of options available for customizing the
                     slider experience –</p>
@@ -967,21 +968,21 @@ else {
 
                 <hr>
                 <h3 id="image-video-gallery">Image/Video Gallery – <span class="pro-feature">Pro!</span><a class="back-to-top" href="#panel"> Back to top</a></h3>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/image-gallery-dark.jpg" alt="Image Gallery Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/image-gallery-dark.jpg" alt="Image Gallery Widget"></p>
 
                 <p>This powerful widget lets you create a gallery of images or videos displayed in a multi-column grid.
                     An instance of this widget can capture a portfolio of work like that of a photographer or graphic
                     designer/artist.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/video-gallery.jpg" alt="Video Gallery Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/video-gallery.jpg" alt="Video Gallery Widget"></p>
                 <p>It can be used to create a gallery of videos uploaded to YouTube/Vimeo – useful for video bloggers,
                     video tutorial sites, video marketers, small businesses or websites with a major presence on
                     YouTube/Vimeo. The videos can be played with a single click of the play button on the gallery item
                     as seen in this <a title="Video Gallery"
-                                       href="http://portfoliotheme.org/siteorigin-widgets/video-gallery/">demo page</a>.
+                                       href="https://www.livemeshthemes.com/siteorigin-widgets/video-gallery/">demo page</a>.
                 </p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/image-gallery-edit1.jpg" alt="Image Gallery Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/image-gallery-edit1.jpg" alt="Image Gallery Widget Edit Window"></p>
                 <p>The configuration for creating a video gallery is similar to that of image gallery; a video URL would be required along with image that acts as a placeholder.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/video-gallery-edit.jpg" alt="Video Gallery Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/video-gallery-edit.jpg" alt="Video Gallery Widget Edit Window"></p>
 
                 <p>Each of the gallery items capture following information –</p>
                 <ul>
@@ -1003,7 +1004,7 @@ else {
                         button, the Vimeo/YouTube video opens up in a lightbox window for playing.
                     </li>
                 </ul>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/image-gallery-edit2.jpg" alt="Image Gallery Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/image-gallery-edit2.jpg" alt="Image Gallery Widget Edit Window"></p>
 
                 <p>The Gallery widget comes with following settings –</p>
                 <ul>
@@ -1011,13 +1012,13 @@ else {
                         filterable on the tags specified by the user just like a Portfolio Grid.
                     </li>
                     <li><strong>Layout for the grid</strong> – Comes with Masonry and FitRows option.</li>
-                    <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/image-gallery-pagination.jpg" alt="Image Gallery Widget Pagination"></p>
-                    <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/image-gallery-loadmore.jpg" alt="Image Gallery Widget Load More Option"></p>
+                    <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/image-gallery-pagination.jpg" alt="Image Gallery Widget Pagination"></p>
+                    <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/image-gallery-loadmore.jpg" alt="Image Gallery Widget Load More Option"></p>
                     <li><strong>Pagination</strong> – Choose pagination type or choose None if no pagination is desired.
                         Make sure you enter the items per page value in the option ‘Number of items to be displayed per
                         page and on each load more invocation’ field below to control number of items to display per
                         page.
-                        <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/video-gallery-pagination.jpg" alt="Video Gallery Widget Pagination"></p>
+                        <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/video-gallery-pagination.jpg" alt="Video Gallery Widget Pagination"></p>
                     </li>
 
                     <li><strong>Columns per row</strong> – Specify the number of images/videos to display per row of the
@@ -1033,21 +1034,21 @@ else {
 
                 <hr>
                 <h3 id="image-video-carousel">Image/Video Carousel – <span class="pro-feature">Pro!</span><a class="back-to-top" href="#panel"> Back to top</a></h3>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/image-carousel.jpg" alt="Image Carousel Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/image-carousel.jpg" alt="Image Carousel Widget"></p>
 
                 <p>You can create a carousel of images/videos (or a combination of both) for showcasing your work or
                     video content uploaded to Vimeo/YouTube. An instance of this widget can capture a portfolio of work
                     like that of a photographer or graphic designer/artist.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/video-carousel.jpg" alt="Video Carousel Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/video-carousel.jpg" alt="Video Carousel Widget"></p>
                 <p>It can be used to create a carousel of videos uploaded to YouTube/Vimeo – useful for video bloggers,
                     video tutorial sites, video marketers, small businesses or websites with a major presence on
                     YouTube/Vimeo. The videos can be played with a single click of the play button on the gallery item
                     as seen in this <a title="Video Gallery"
-                                       href="http://portfoliotheme.org/siteorigin-widgets/video-gallery/">demo page</a>.
+                                       href="https://www.livemeshthemes.com/siteorigin-widgets/video-gallery/">demo page</a>.
                 </p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/image-carousel-edit.jpg" alt="Image Carousel Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/image-carousel-edit.jpg" alt="Image Carousel Widget Edit Window"></p>
                 <p>The option for creation of video carousel is similar to that of image carousel - requires input of URL for the Vimeo/YouTube video along with placeholder image. </p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/video-carousel-edit.jpg" alt="Video Carousel Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/video-carousel-edit.jpg" alt="Video Carousel Widget Edit Window"></p>
 
                 <p>Each of the gallery items in the carousel capture following information –</p>
                 <ol>
@@ -1069,7 +1070,7 @@ else {
                         button, the Vimeo/YouTube video opens up in a lightbox window for playing.
                     </li>
                 </ol>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/image-carousel-edit2.jpg" alt="Image/Video Carousel Settings"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/image-carousel-edit2.jpg" alt="Image/Video Carousel Settings"></p>
 
                 <p>The section ‘Carousel Settings’ has options that control how the carousel is displayed. Options
                     include autoplay speed, gutter value between post items in various resolutions, navigation controls
@@ -1106,15 +1107,39 @@ else {
 
                 <hr>
                 <h3 id="faq-widget">FAQ- <span class="pro-feature">Pro!</span><a class="back-to-top" href="#panel"> Back to top</a></h3>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/faq-widget.png" alt="FAQ Widget"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/faq-widget.png" alt="FAQ Widget"></p>
 
                 <p>The FAQ makes the task of creating a FAQ for a site effortless. Just enter FAQ items and choose the
                     number of items to show per row of content and you are done.</p>
-                <p><img class="alignnone size-large" src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/faq-edit.png" alt="FAQ Widget Edit Window"></p>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/faq-edit.png" alt="FAQ Widget Edit Window"></p>
 
                 <p>Each FAQ item requires two input – question and an answer for the question part of the FAQ.</p>
                 <p>Do note that the Accordion function of the plugin too can be used to create a nicely formed FAQ for a
                     site.</p>
+
+                <hr>
+                <h3 id="features-widget">Features- <span class="pro-feature">Pro!</span><a class="back-to-top" href="#panel"> Back to top</a></h3>
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/features-widget.jpg" alt="Features Widget"></p>
+
+                <p>Features widget lets you showcase a number of things. Below are some examples although possibilities are many - </p>
+
+                <ul>
+                    <li>Features of a product like a mobile app or other types of software.</li>
+                    <li>Showcase features provided by an online service or a tool.</li>
+                    <li>List a set of services an agency or organization may provide.</li>
+                    <li>Describe any type of physical or digital goods you are trying to sell.</li>
+                </ul>
+
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/features-edit.png" alt="Features Widget Edit Window"></p>
+
+                <p>Any feature part of the features widget requires you input an icon image or a screeshot which
+                    represents the feature you are describing. Aside from the icon or screenshot, you will need to
+                    provide details like heading title, subtitle and description of the feature.</p>
+
+                <p>The features widget has an option to apply popular tile-based design to the features list (screenshot
+                    below). The examples of this is seen in the demo site showcasing the features widget.</p>
+
+                <p><img class="alignnone size-large" src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/features-widget2.jpg" alt="Tiled Features Widget"></p>
 
                 <hr>
                 <h3 id="plugin-support">Plugin Support</span><a class="back-to-top" href="#panel"> Back to top</a></h3>
@@ -1248,6 +1273,112 @@ else {
 
             <!-- Updates panel -->
             <div id="updates-panel" class="panel-left">
+                <h3>1.7.3</h3>
+                <ul>
+                    <li>Fixed – Livemesh Grid columns can break in certain resolutions in FireFox.</li>
+                    <li>Fixed - The piechart value is not being rounded.</li>
+                    <li>Fixed - The post grid and posts carousel date format not reflecting the user preference specified in Settings page.</li>
+                </ul>
+                <h3>1.7.2</h3>
+                <ul>
+                    <li>Fixed – Portfolio grid items fail to show up in right size and alignment in certain rare situations</li>
+                </ul>
+                <h3>1.7.1</h3>
+                <ul>
+                    <li>Fixed – Some themes have trouble rendering grid columns</li>
+                    <li>Fixed - Comma shows up in category list for the image hover in grid</li>
+                    <li>Fixed - Accordion titles not processing HTML tags</li>
+                </ul>
+                <h3>1.7</h3>
+                <ul>
+                    <li>Upgrade – Simpler grid system based on NEAT 2.1 version</li>
+                    <li>Updated - The CSS is now optimized for vendor prefixes with reduced properties and file size.</li>
+                </ul>
+                <h3>1.6.1</h3>
+                <ul>
+                    <li>Added - Ability to rate plugin from admin screen</li>
+                </ul>
+                <h3>1.6</h3>
+                <ul>
+                    <li>Fixed – The post image in a grid or posts carousel was not clickable to the link specified</li>
+                    <li>Fixed – The grid filters would not center when a heading was not specified.</li>
+                    <li>Fixed – The grid filters will not display multi-line on devices of lower resolutions like mobile devices.</li>
+                    <li>Fixed - The grid layout would break between 800px and 1024px device resolution.</li>
+                    <li>Updated - Compatibility with WordPress 4.9 version.</li>
+                </ul>
+
+                <h4>1.5.3</h4>
+
+                <ul>
+                    <li>Fixed - Translations not working with default files provided by plugin</li>
+                </ul>
+
+                <h4>1.5.2</h4>
+
+                <ul>
+                    <li>Correction for author URL and other plugin details</li>
+                </ul>
+
+                <h4>1.5.1</h4>
+
+                <ul>
+                    <li>Added - Support for multiple taxonomies in a single Livemesh grid instance.</li>
+                    <li>Added - Ability to display and filter the grid for multiple taxonomy terms</li>
+                    <li>Added - Display information for grid items from multiple taxonomies</li>
+                    <li>Added - Support for multiple taxonomies in a single posts carousel instance</li>
+                    <li>Added - Display information for post carousel items from multiple taxonomies</li>
+                    <li>Fixed - The client images would show up misaligned and with additional padding in certain sites</li>
+                    <li>Tweak - Parsing the query arguments for chosen taxonomy terms</li>
+                    <li>Added - A new demo site with preview pages for all widgets and digital ecommerce-store for easy purchase management. Moved from Gumroad to Easy Digital Downloads based purchases.</li>
+                </ul>
+
+                <h4>1.5.0</h4>
+
+                <ul>
+                    <li>Fixed - The gutter or spacing between posts carousel items not taking effect with latest update of page builder</li>
+                    <li>Fixed - The heading element for the livemesh grid displayed even when no heading title is specified</li>
+                    <li>Fixed - Restored the missing instagram icon in team profile widget</li>
+                    <li>Tweak - Moved to the_excerpt() from get_the_excerpt() in posts carousel and livemesh grid widgets</li>
+                </ul>
+
+                <h4>1.4.9</h4>
+
+                <ul>
+                    <li>Fixed - The top and bottom padding attributes for rows were not taking effect with 2.5.x version of page builder</li>
+                    <li>Updated - The top and bottom padding attributes for rows deprecated. Pls use native padding settings of page builder which now provides more fine grained padding controls.</li>
+                    <li>Updated - We have moved; all URLs now point to our new site https://www.livemeshthemes.com</li>
+                    <li>Added - Hebrew translation files - thanks Ahrale!</li>
+                </ul>
+
+                <h4>1.4.8</h4>
+
+                <ul>
+                    <li>Fixed - The grid filter hidden behind the grid items when number filters get big</li>
+                    <li>Fixed - Pricing button overflowing the container element.</li>
+                    <li>Updated - Shortcode processing for team position and team member details</li>
+                    <li>Updated - Updated isotope and images loaded plugin scripts</li>
+                </ul>
+
+                <h4>1.4.7</h4>
+
+                <ul>
+                    <li>Fixed - The taxonomy filter not reflecting custom taxonomies in grid widget.</li>
+                    <li>Fixed - The taxonomy list in posts carousel not displaying custom taxonomies.</li>
+                </ul>
+
+                <h4>1.4.6</h4>
+
+                <ul>
+                    <li>Fixed - Translation of published date on the grid.</li>
+                    <li>Fixed - Shortcodes not being processed in hero header widget.</li>
+                    <li>Updated - Documentation for the widgets.</li>
+                </ul>
+
+                <h4>1.4.5</h4>
+
+                <ul>
+                    <li>Fixed - Tabs defaulting to zero on mobile width when saving changes.</li>
+                </ul>
 
                 <h4>1.4.4</h4>
 
@@ -1330,8 +1461,8 @@ else {
                 <div class="panel-inner">
 
                     <div class="panel-aside banner">
-                        <a href="https://gum.co/kGTBN/save10" title="Purchase Now"><img class="dashboard-image"
-                                                                                        src="http://portfoliotheme.org/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/purchase-banner1.jpg"
+                        <a href="https://www.livemeshthemes.com/siteorigin-widgets/pricing/" title="Purchase Now"><img class="dashboard-image"
+                                                                                        src="https://www.livemeshthemes.com/wp-content/uploads/plugin-doc/livemesh-widgets/dashboard/purchase-banner1.jpg"
                                                                                         alt="Sale Banner"></a>
                     </div>
 

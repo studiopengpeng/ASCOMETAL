@@ -9,7 +9,7 @@
 
 <?php $column_style = lsow_get_column_class(intval($settings['per_line'])); ?>
 
-<div class="lsow-odometers lsow-container">
+<div class="lsow-odometers lsow-grid-container">
 
     <?php foreach ($odometers as $odometer): ?>
 

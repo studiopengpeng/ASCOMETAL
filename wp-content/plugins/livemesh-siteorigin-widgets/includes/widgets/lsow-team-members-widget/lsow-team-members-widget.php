@@ -4,7 +4,7 @@
 Widget Name: Livemesh Team Members
 Description: Display a list of your team members optionally in a multi-column grid.
 Author: LiveMesh
-Author URI: http://portfoliotheme.org
+Author URI: https://www.livemeshthemes.com
 */
 
 class LSOW_Team_Widget extends SiteOrigin_Widget {

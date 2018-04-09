@@ -12,13 +12,17 @@
 
 <?php $column_style = ''; ?>
 
+<?php $container_style = 'lsow-container'; ?>
+
 <?php if ($style == 'style1'): ?>
 
     <?php $column_style = lsow_get_column_class(intval($settings['per_line'])); ?>
 
+    <?php $container_style = 'lsow-grid-container'; ?>
+
 <?php endif; ?>
 
-<div class="lsow-team-members lsow-<?php echo $style; ?> lsow-container">
+<div class="lsow-team-members lsow-<?php echo $style; ?> <?php echo $container_style; ?>">
 
     <?php foreach ($team_members as $team_member): ?>
 
@@ -44,13 +48,13 @@
 
                     <div class="lsow-team-member-position">
 
-                        <?php echo esc_html($team_member['position']) ?>
+                        <?php echo do_shortcode($team_member['position']) ?>
 
                     </div>
 
                     <div class="lsow-team-member-details">
 
-                        <?php echo wp_kses_post($team_member['details']) ?>
+                        <?php echo do_shortcode($team_member['details']) ?>
 
                     </div>
 

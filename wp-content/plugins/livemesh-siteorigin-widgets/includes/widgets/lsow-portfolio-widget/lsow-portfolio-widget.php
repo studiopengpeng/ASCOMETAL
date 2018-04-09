@@ -4,7 +4,7 @@
 Widget Name: Livemesh Grid
 Description: Display posts or custom post types in a multi-column grid.
 Author: LiveMesh
-Author URI: http://portfoliotheme.org
+Author URI: https://www.livemeshthemes.com
 */
 
 class LSOW_Portfolio_Widget extends SiteOrigin_Widget {
@@ -19,6 +19,69 @@ class LSOW_Portfolio_Widget extends SiteOrigin_Widget {
                 'help' => LSOW_PLUGIN_HELP_URL. '#grid-widget'
             ),
             array(),
+            false,
+            plugin_dir_path(__FILE__)
+        );
+    }
+
+    function initialize() {
+
+        $this->register_frontend_scripts(
+            array(
+                array(
+                    'lsow-isotope',
+                    LSOW_PLUGIN_URL . 'assets/js/isotope.pkgd' . LSOW_JS_SUFFIX . '.js',
+                    array('jquery'),
+                    LSOW_VERSION
+                ),
+                array(
+                    'lsow-imagesloaded',
+                    LSOW_PLUGIN_URL . 'assets/js/imagesloaded.pkgd' . LSOW_JS_SUFFIX . '.js',
+                    array('jquery'),
+                    LSOW_VERSION
+                ),
+            )
+        );
+
+        $this->register_frontend_styles(
+            array(
+
+                array(
+                    'lsow-frontend-styles',
+                    LSOW_PLUGIN_URL . 'assets/css/lsow-frontend.css',
+                    array(),
+                    LSOW_VERSION
+                ),
+
+                array(
+                    'lsow-icomoon-styles',
+                    LSOW_PLUGIN_URL . 'assets/css/icomoon.css',
+                    array(),
+                    LSOW_VERSION
+                ),
+            )
+        );
+
+        $this->register_frontend_scripts(array(
+                array(
+                    'lsow-portfolio',
+                    plugin_dir_url(__FILE__) . 'js/portfolio' . LSOW_JS_SUFFIX . '.js',
+                    array('jquery')
+                )
+            )
+        );
+
+        $this->register_frontend_styles(array(
+                array(
+                    'lsow-portfolio',
+                    plugin_dir_url(__FILE__) . 'css/style.css'
+                )
+            )
+        );
+    }
+
+    function get_widget_form() {
+        return
             array(
                 'title' => array(
                     'type' => 'text',
@@ -41,7 +104,7 @@ class LSOW_Portfolio_Widget extends SiteOrigin_Widget {
                     'label' => __('Choose the taxonomy to display and filter on.', 'livemesh-so-widgets'),
                     'description' => __('Choose the taxonomy information to display for posts/portfolio and the taxonomy that is used to filter the portfolio/post. Takes effect only if no taxonomy filters are specified when building query.', 'livemesh-so-widgets'),
                     'options' => lsow_get_taxonomies_map(),
-                    'default' => 'portfolio_category',
+                    'default' => 'category',
                 ),
 
                 'settings' => array(
@@ -77,13 +140,13 @@ class LSOW_Portfolio_Widget extends SiteOrigin_Widget {
 
                         'display_title' => array(
                             'type' => 'checkbox',
-                            'label' => __('Display project title below the post/portfolio?', 'livemesh-so-widgets'),
+                            'label' => __('Display project title for the post/portfolio?', 'livemesh-so-widgets'),
                             'default' => true
                         ),
 
                         'display_summary' => array(
                             'type' => 'checkbox',
-                            'label' => __('Display project excerpt/summary below the post/portfolio?', 'livemesh-so-widgets'),
+                            'label' => __('Display project excerpt/summary for the post/portfolio?', 'livemesh-so-widgets'),
                             'default' => true
                         ),
 
@@ -94,20 +157,20 @@ class LSOW_Portfolio_Widget extends SiteOrigin_Widget {
 
                                 'display_author' => array(
                                     'type' => 'checkbox',
-                                    'label' => __('Display post author info below the post item?', 'livemesh-so-widgets'),
-                                    'default' => false
+                                    'label' => __('Display post author info for the post item?', 'livemesh-so-widgets'),
+                                    'default' => true
                                 ),
 
                                 'display_post_date' => array(
                                     'type' => 'checkbox',
-                                    'label' => __('Display post date info below the post item?', 'livemesh-so-widgets'),
-                                    'default' => false
+                                    'label' => __('Display post date info for the post item?', 'livemesh-so-widgets'),
+                                    'default' => true
                                 ),
 
                                 'display_taxonomy' => array(
                                     'type' => 'checkbox',
-                                    'label' => __('Display taxonomy info below the post item?', 'livemesh-so-widgets'),
-                                    'default' => false
+                                    'label' => __('Display taxonomy info for the post item?', 'livemesh-so-widgets'),
+                                    'default' => true
                                 ),
 
                             )
@@ -182,64 +245,8 @@ class LSOW_Portfolio_Widget extends SiteOrigin_Widget {
                         ),
                     )
                 ),
-            )
-        );
-    }
+            );
 
-    function initialize() {
-
-        $this->register_frontend_scripts(
-            array(
-                array(
-                    'lsow-isotope',
-                    LSOW_PLUGIN_URL . 'assets/js/isotope.pkgd' . LSOW_JS_SUFFIX . '.js',
-                    array('jquery'),
-                    LSOW_VERSION
-                ),
-                array(
-                    'lsow-imagesloaded',
-                    LSOW_PLUGIN_URL . 'assets/js/imagesloaded.pkgd' . LSOW_JS_SUFFIX . '.js',
-                    array('jquery'),
-                    LSOW_VERSION
-                ),
-            )
-        );
-
-        $this->register_frontend_styles(
-            array(
-
-                array(
-                    'lsow-frontend-styles',
-                    LSOW_PLUGIN_URL . 'assets/css/lsow-frontend.css',
-                    array(),
-                    LSOW_VERSION
-                ),
-
-                array(
-                    'lsow-icomoon-styles',
-                    LSOW_PLUGIN_URL . 'assets/css/icomoon.css',
-                    array(),
-                    LSOW_VERSION
-                ),
-            )
-        );
-
-        $this->register_frontend_scripts(array(
-                array(
-                    'lsow-portfolio',
-                    plugin_dir_url(__FILE__) . 'js/portfolio' . LSOW_JS_SUFFIX . '.js',
-                    array('jquery')
-                )
-            )
-        );
-
-        $this->register_frontend_styles(array(
-                array(
-                    'lsow-portfolio',
-                    plugin_dir_url(__FILE__) . 'css/style.css'
-                )
-            )
-        );
     }
 
     function modify_form($form) {

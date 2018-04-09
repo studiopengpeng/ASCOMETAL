@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2015 ServMask Inc.
+ * Copyright (C) 2014-2018 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,8 +23,8 @@
  * ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
  */
 
-class Ai1wmde_Settings
-{
+class Ai1wmde_Settings {
+
 	public function revoke() {
 		// Set Dropbox client
 		$dropbox = new ServMaskDropboxClient(
@@ -37,80 +37,166 @@ class Ai1wmde_Settings
 
 		// Remove token option
 		delete_option( 'ai1wmde_dropbox_token' );
+
+		// Remove cron option
+		delete_option( 'ai1wmde_dropbox_cron' );
+
+		// Reset cron schedules
+		Ai1wm_Cron::clear( 'ai1wmde_dropbox_hourly_export' );
+		Ai1wm_Cron::clear( 'ai1wmde_dropbox_daily_export' );
+		Ai1wm_Cron::clear( 'ai1wmde_dropbox_weekly_export' );
+		Ai1wm_Cron::clear( 'ai1wmde_dropbox_monthly_export' );
 	}
 
-	public function cron( $schedules ) {
+	public function get_last_backup_date( $last_backup_timestamp ) {
+		if ( $last_backup_timestamp ) {
+			$last_backup_date = get_date_from_gmt( date( 'Y-m-d H:i:s', $last_backup_timestamp ), 'F j, Y g:i a' );
+		} else {
+			$last_backup_date = __( 'None', AI1WMDE_PLUGIN_NAME );
+		}
+
+		return $last_backup_date;
+	}
+
+	public function get_next_backup_date( $schedules ) {
+		$future_backup_timestamps = array();
+
+		foreach ( $schedules as $schedule ) {
+			$future_backup_timestamps[] = wp_next_scheduled( "ai1wmde_dropbox_{$schedule}_export", array(
+				array(
+					'secret_key' => get_option( AI1WM_SECRET_KEY ),
+					'dropbox'    => 1,
+				),
+			) );
+		}
+
+		sort( $future_backup_timestamps );
+
+		if ( isset( $future_backup_timestamps[0] ) ) {
+			$next_backup_date = get_date_from_gmt( date( 'Y-m-d H:i:s', $future_backup_timestamps[0] ), 'F j, Y g:i a' );
+		} else {
+			$next_backup_date = __( 'None', AI1WMDE_PLUGIN_NAME );
+		}
+
+		return $next_backup_date;
+	}
+
+	public function get_account( ServMaskDropboxClient $dropbox = null ) {
+		// Set Dropbox client
+		if ( is_null( $dropbox ) ) {
+			$dropbox = new ServMaskDropboxClient(
+				get_option( 'ai1wmde_dropbox_token' ),
+				get_option( 'ai1wmde_dropbox_ssl', true )
+			);
+		}
+
+		// Get account info
+		$account = $dropbox->getAccountInfo();
+
+		// Get space usage info
+		$usage = $dropbox->getUsageInfo();
+
+		// Set account name
+		$name = null;
+		if ( isset( $account['name']['display_name'] ) ) {
+			$name = $account['name']['display_name'];
+		}
+
+		// Set used quota
+		$used = 1;
+		if ( isset( $usage['used'] ) ) {
+			$used = $usage['used'];
+		}
+
+		// Set total quota
+		$total = 1;
+		if ( isset( $usage['allocation']['allocated'] ) ) {
+			$total = $usage['allocation']['allocated'];
+		}
+
+		// Set email
+		$email = null;
+		if ( isset( $account['email'] ) ) {
+			$email = $account['email'];
+		}
+
+		return array(
+			'name'     => $name,
+			'email'    => $email,
+			'used'     => size_format( $used ),
+			'total'    => size_format( $total ),
+			'progress' => ceil( ( $used / $total ) * 100 ),
+		);
+	}
+
+	public function set_cron( $schedules ) {
 		// Reset cron schedules
 		Ai1wm_Cron::clear( 'ai1wmde_dropbox_hourly_export' );
 		Ai1wm_Cron::clear( 'ai1wmde_dropbox_daily_export' );
 		Ai1wm_Cron::clear( 'ai1wmde_dropbox_weekly_export' );
 		Ai1wm_Cron::clear( 'ai1wmde_dropbox_monthly_export' );
 
-		// Update cron options
-		update_option( 'ai1wmde_dropbox_cron', $schedules );
-
 		// Update cron schedules
-		foreach ( $schedules as $recurrence ) {
-			Ai1wm_Cron::add( "ai1wmde_dropbox_{$recurrence}_export", $recurrence, array(
+		foreach ( $schedules as $schedule ) {
+			Ai1wm_Cron::add( "ai1wmde_dropbox_{$schedule}_export", $schedule, array(
 				'secret_key' => get_option( AI1WM_SECRET_KEY ),
 				'dropbox'    => 1,
 			) );
 		}
+
+		// Update cron options
+		return update_option( 'ai1wmde_dropbox_cron', $schedules );
 	}
 
-	public function ssl( $mode ) {
-		update_option( 'ai1wmde_dropbox_ssl', $mode );
+	public function get_cron() {
+		return get_option( 'ai1wmde_dropbox_cron', array() );
 	}
 
-	public function backups( $number ) {
-		update_option( 'ai1wmde_dropbox_backups', $number );
+	public function set_ssl( $mode ) {
+		return update_option( 'ai1wmde_dropbox_ssl', $mode );
 	}
 
-	public function total( $size ) {
-		update_option( 'ai1wmde_dropbox_total', $size );
+	public function get_ssl() {
+		return get_option( 'ai1wmde_dropbox_ssl', false );
 	}
 
-	public function email( $email ) {
-		update_option( 'ai1wmde_dropbox_notify_email', $email );
+	public function set_backups( $number ) {
+		return update_option( 'ai1wmde_dropbox_backups', $number );
 	}
 
-	public function toggle( $toggle ) {
-		update_option( 'ai1wmde_dropbox_notify_toggle', $toggle );
+	public function get_backups() {
+		return get_option( 'ai1wmde_dropbox_backups', false );
 	}
 
-	public function account() {
-		// Set Dropbox client
-		$dropbox = new ServMaskDropboxClient(
-			get_option( 'ai1wmde_dropbox_token' ),
-			get_option( 'ai1wmde_dropbox_ssl', true )
-		);
+	public function set_total( $size ) {
+		return update_option( 'ai1wmde_dropbox_total', $size );
+	}
 
-		// Get account info
-		$account = $dropbox->getAccountInfo();
+	public function get_total() {
+		return get_option( 'ai1wmde_dropbox_total', false );
+	}
 
-		// Set account name
-		$name = null;
-		if ( isset( $account['display_name'] ) ) {
-			$name = $account['display_name'];
-		}
+	public function set_notify_ok_toggle( $toggle ) {
+		return update_option( 'ai1wmde_dropbox_notify_toggle', $toggle );
+	}
 
-		// Set used quota
-		$used = null;
-		if ( isset( $account['quota_info']['normal'] ) ) {
-			$used = $account['quota_info']['normal'];
-		}
+	public function get_notify_ok_toggle() {
+		return get_option( 'ai1wmde_dropbox_notify_toggle', false );
+	}
 
-		// Set total quota
-		$total = null;
-		if ( isset( $account['quota_info']['quota'] ) ) {
-			$total = $account['quota_info']['quota'];
-		}
+	public function set_notify_error_toggle( $toggle ) {
+		return update_option( 'ai1wmde_dropbox_notify_error_toggle', $toggle );
+	}
 
-		return array(
-			'name'     => $name,
-			'used'     => size_format( $used ),
-			'total'    => size_format( $total ),
-			'progress' => ceil( ( $used / $total ) * 100 ),
-		);
+	public function get_notify_error_toggle() {
+		return get_option( 'ai1wmde_dropbox_notify_error_toggle', false );
+	}
+
+	public function set_notify_email( $email ) {
+		return update_option( 'ai1wmde_dropbox_notify_email', $email );
+	}
+
+	public function get_notify_email() {
+		return get_option( 'ai1wmde_dropbox_notify_email', false );
 	}
 }

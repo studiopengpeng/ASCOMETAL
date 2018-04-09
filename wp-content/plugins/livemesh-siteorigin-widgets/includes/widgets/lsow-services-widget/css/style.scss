@@ -16,7 +16,7 @@
       max-width: 100%;
       text-align: center;
       margin: 0 auto 25px;
-      @include lsow-transition();
+      transition: all .4s ease-in-out 0s;
       }
     .lsow-service-text {
       text-align: center;
@@ -29,7 +29,7 @@
       }
     &:hover {
       .lsow-image-wrapper img {
-        @include vendorize(transform, scale(0.9, 0.9));
+        transform: scale(0.9, 0.9);
         }
       }
     }
@@ -130,7 +130,7 @@
   .lsow-service {
     margin-bottom: 50px;
     .lsow-icon-wrapper span {
-      @include lsow-transition(color);
+      transition: color .4s ease-in-out 0s;
       }
     .lsow-service-text {
       font-size: 15px;

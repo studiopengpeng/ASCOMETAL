@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2015 ServMask Inc.
+ * Copyright (C) 2014-2018 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -40,19 +40,19 @@ class ServMaskDropboxCurl {
 	public function __construct() {
 		// Check the cURL extension is loaded
 		if (!extension_loaded('curl')) {
-			throw new Exception('Dropbox Factory requires cURL extension');
+			throw new Exception(__('Dropbox Factory requires cURL extension', AI1WMDE_PLUGIN_NAME));
 		}
 
 		// Default configuration
 		$this->setOption(CURLOPT_HEADER, false);
 		$this->setOption(CURLOPT_RETURNTRANSFER, true);
-		$this->setOption(CURLOPT_CONNECTTIMEOUT, 30);
-		$this->setOption(CURLOPT_TIMEOUT, 60);
+		$this->setOption(CURLOPT_CONNECTTIMEOUT, 120);
+		$this->setOption(CURLOPT_TIMEOUT, 0);
 
 		// Enable SSL support
 		$this->setOption(CURLOPT_SSL_VERIFYHOST, 2);
 		$this->setOption(CURLOPT_SSLVERSION, 1);
-		$this->setOption(CURLOPT_CAINFO, dirname(__FILE__) . '/../certs/trusted-certs.crt');
+		$this->setOption(CURLOPT_CAINFO, dirname(__FILE__) . '/../certs/cacert.pem');
 		$this->setOption(CURLOPT_CAPATH, dirname(__FILE__) . '/../certs/');
 
 		// Limit vulnerability surface area.  Supported in cURL 7.19.4+
@@ -218,7 +218,15 @@ class ServMaskDropboxCurl {
 		// HTTP request
 		$response = curl_exec($this->handler);
 		if ($response === false) {
-			throw new Exception(sprintf('Unable to connect to Dropbox. Error code: %d', curl_errno($this->handler)));
+			throw new Ai1wmde_Connect_Exception(sprintf(__('Unable to connect to Dropbox. Error code: %d', AI1WMDE_PLUGIN_NAME), curl_errno($this->handler)), curl_getinfo($this->handler, CURLINFO_HTTP_CODE));
+		}
+
+		// Get JSON data
+		$data = json_decode($response, true);
+
+		// Handle errors
+		if (isset($data['error_summary']) && ($message = $data['error_summary'])) {
+			throw new Exception(sprintf(__('%s. <a href="https://help.servmask.com/knowledgebase/dropbox-error-codes/" target="_blank">Technical details</a>', AI1WMDE_PLUGIN_NAME), $message), 400);
 		}
 
 		// HTTP headers
@@ -226,7 +234,7 @@ class ServMaskDropboxCurl {
 			return $this->httpParseHeaders($response);
 		}
 
-		return json_decode($response, true);
+		return $data;
 	}
 
 	/**

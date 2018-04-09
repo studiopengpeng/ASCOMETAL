@@ -4,7 +4,7 @@
 Widget Name: Livemesh Testimonials
 Description: Display testimonials from your clients/customers in a multi-column grid.
 Author: LiveMesh
-Author URI: http://portfoliotheme.org
+Author URI: https://www.livemeshthemes.com
 */
 
 class LSOW_Testimonials_Widget extends SiteOrigin_Widget {

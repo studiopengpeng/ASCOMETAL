@@ -4,7 +4,7 @@
 Widget Name: Livemesh Piecharts
 Description: Display one or more piecharts depicting a percentage value in a multi-column grid.
 Author: LiveMesh
-Author URI: http://portfoliotheme.org
+Author URI: https://www.livemeshthemes.com
 */
 
 class LSOW_Piechart_Widget extends SiteOrigin_Widget {

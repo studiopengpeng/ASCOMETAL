@@ -1,9 +1,5 @@
 <?php
 
-if(!class_exists('WPML_Navigation_Widget')) {
-	include WPML_CMS_NAV_PLUGIN_PATH . '/inc/widgets/sidebar_navigation_widget.class.php';
-}
-
 class WPML_CMS_Navigation{
     var $settings;
     private $cache;
@@ -60,7 +56,7 @@ class WPML_CMS_Navigation{
         // theme hooks
         add_action('icl_navigation_breadcrumb', array($this, 'cms_navigation_breadcrumb'));
         add_action('icl_navigation_menu', array($this, 'cms_navigation_menu_nav'));
-        add_action('icl_navigation_sidebar', array($this, 'cms_navigation_page_navigation'));
+        add_action('icl_navigation_sidebar', array( $this, 'page_navigation' ));
         
         // more hooks
         add_action('save_post', array($this, 'cms_navigation_update_post_settings'), 4, 2);
@@ -298,7 +294,7 @@ class WPML_CMS_Navigation{
                             };
                         }
                     }
-                } else {
+                } elseif ( isset( $post_types[$post_type]->labels->name ) ) {
                     echo $post_types[$post_type]->labels->name
                             . $this->settings['breadcrumbs_separator'];
                 }
@@ -419,6 +415,8 @@ class WPML_CMS_Navigation{
         global $sitepress, $sitepress_settings;    
         
 		$current_language = $sitepress->get_current_language();
+		$default_language = $sitepress->get_default_language();
+
         if(function_exists('icl_t')){
             $cat_menu_title = $this->settings['cat_menu_title']? icl_t('WPML', 'Categories Menu', $this->settings['cat_menu_title']):__('News', 'wpml-cms-nav');
         }else{
@@ -459,47 +457,19 @@ class WPML_CMS_Navigation{
                 $page_on_front = 0;
                 $page_for_posts  = 0;        
             }
-    
-            // exclude some pages                                                                                                            
-			$excluded_pages_prepared = $wpdb->prepare( "
-                SELECT post_id
-                FROM {$wpdb->postmeta} pm LEFT JOIN {$wpdb->prefix}icl_translations tr ON pm.post_id = tr.element_id AND element_type='post_page'
-                WHERE meta_key='_top_nav_excluded' AND meta_value <> '' AND tr.language_code = %s
-                ", $current_language );
-			$excluded_pages = $wpdb->get_col( $excluded_pages_prepared );
-            
-            $excluded_pages[] = 0; //add this so we don't have an empty array
-            if(!$show_cat_menu && $page_for_posts){
-                $excluded_pages[] = $page_for_posts;    
-            }                                       
-            $excluded_pages = wpml_prepare_in( $excluded_pages, '%d' );
 
-            if(current_user_can('read_private_pages')){
-                $private = " OR post_status='private'";
-            }else{
-                $private = "";
-            }
-            
-            if( $sitepress_settings['existing_content_language_verified'] && 
-                'all' != $current_language
-			){   // user has initialized
+	        $pages_query = new WPML_CMS_Nav_Pages( $wpdb, new WPML_Display_As_Translated_Posts_Query( $wpdb, 'p' ) );
+	        list( $pages, $excluded_pages ) = $pages_query->get_pages(
+	        	$current_language,
+		        $default_language,
+		        $show_cat_menu,
+		        $page_for_posts,
+		        $sitepress_settings['existing_content_language_verified'],
+		        $order,
+		        $sitepress->is_display_as_translated_post_type( 'page' )
+	        );
 
-				$pages_prepared = $wpdb->prepare("
-                    SELECT p.ID FROM {$wpdb->posts} p
-                        JOIN {$wpdb->prefix}icl_translations tr ON p.ID = tr.element_id AND element_type='post_page'
-                    WHERE post_type='page' AND (post_status='publish' {$private})
-                        AND post_parent=0 AND p.ID NOT IN ({$excluded_pages})  AND tr.language_code = %s
-                    ORDER BY " . $order, $current_language);
-				$pages = $wpdb->get_col( $pages_prepared );
-            }else{
-				$pages_prepared = "
-                    SELECT p.ID FROM {$wpdb->posts} p
-                    WHERE post_type='page' AND (post_status='publish' {$private}) AND post_parent=0 AND p.ID NOT IN ({$excluded_pages})
-                    ORDER BY " . $order;
-				$pages = $wpdb->get_col( $pages_prepared );
-            }
-            
-            $sitepress->switch_lang($sitepress->get_default_language());
+            $sitepress->switch_lang( $default_language );
             $page_for_posts_abs = get_option('page_for_posts');            
             $sitepress->switch_lang();
             if($show_cat_menu && (0 !== strpos('page', get_option('show_on_front')) || !$page_for_posts_abs)){
@@ -711,7 +681,7 @@ class WPML_CMS_Navigation{
         echo $output;
     }    
     
-    function cms_navigation_page_navigation($instance = false){
+    function page_navigation($instance = false){
         if(!is_page()) return;
         global $post, $wpdb;
         global $sitepress;    
@@ -802,7 +772,7 @@ class WPML_CMS_Navigation{
                     <li class="<?php if($post->ID==$s):?>selected_page_side <?php endif;?>icl-level-1"><?php
                         if($post->ID!=$s):?><a href="<?php echo get_permalink($s); ?>"><?php endif?><span><?php echo get_the_title($s) ?></span><?php if($post->ID!=$s):?></a><?php endif;                                
                             if(!get_post_meta($s, '_cms_nav_minihome', 1)){
-                                $this->__cms_navigation_child_pages_recursive($s, $order); 
+                                $this->child_pages_recursive( $s, $order);
                             }                
                     ?></li>
                     <?php endforeach;?>            
@@ -833,7 +803,7 @@ class WPML_CMS_Navigation{
         echo $output;
     }
 
-	function __cms_navigation_child_pages_recursive( $pid, $order, $level = 2 )
+	function child_pages_recursive( $pid, $order, $level = 2 )
 	{
 		global $wpdb, $post;
 		$subpages_prepared = $wpdb->prepare( "
@@ -848,7 +818,7 @@ class WPML_CMS_Navigation{
 				<li class="<?php if ( $post->ID == $s->ID ): ?>selected <?php endif; ?>icl-level-<?php echo $level ?>"><?php
 			if ( $post->ID != $s->ID ):?><a href="<?php echo get_permalink( $s->ID ) ?>"><?php endif; ?><span><?php echo get_the_title( $s->ID ) ?></span><?php if ( $post->ID != $s->ID ): ?></a><?php endif;
 				if ( !$s->minihome ) {
-					$this->__cms_navigation_child_pages_recursive( $s->ID, $order, $level + 1 );
+					$this->child_pages_recursive( $s->ID, $order, $level + 1 );
 				}
 				?></li>
 			<?php endforeach; ?>
@@ -905,12 +875,12 @@ class WPML_CMS_Navigation{
         
     }
 
-		function cms_navigation_page_edit_options() {
-			global $sitepress;
-			if ( function_exists( 'add_meta_box' ) && $sitepress->get_setting( 'setup_complete' ) ) {
-				add_meta_box( 'cmsnavdiv', __( 'CMS Navigation', 'wpml-cms-nav' ), array( $this, 'cms_navigation_meta_box' ), 'page', 'normal', 'high' );
-			}
-    }
+	function cms_navigation_page_edit_options() {
+		global $sitepress;
+		if ( function_exists( 'add_meta_box' ) && $sitepress->get_setting( 'setup_complete' ) ) {
+			add_meta_box( 'cmsnavdiv', __( 'CMS Navigation', 'wpml-cms-nav' ), array( $this, 'cms_navigation_meta_box' ), 'page', 'normal', 'high' );
+		}
+}
 
     function cms_navigation_meta_box($post){
         global $wpdb, $sitepress;

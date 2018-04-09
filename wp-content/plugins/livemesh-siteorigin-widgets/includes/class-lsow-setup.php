@@ -35,50 +35,50 @@ if (!class_exists('LSOW_Setup')):
         function row_style_fields($fields) {
 
             $fields['top_padding'] = array(
-                'name' => __('Top Padding', 'livemesh-so-widgets'),
+                'name' => __('Top Padding (Deprecated)', 'livemesh-so-widgets'),
                 'type' => 'measurement',
                 'group' => 'layout',
-                'description' => __('Top Padding for the row.', 'livemesh-so-widgets'),
+                'description' => __('Top Padding for the row. Deprecated - use native padding attributes above.', 'livemesh-so-widgets'),
                 'priority' => 21,
             );
 
             $fields['bottom_padding'] = array(
-                'name' => __('Bottom Padding', 'livemesh-so-widgets'),
+                'name' => __('Bottom Padding (Deprecated)', 'livemesh-so-widgets'),
                 'type' => 'measurement',
                 'group' => 'layout',
-                'description' => __('Bottom Padding for the row.', 'livemesh-so-widgets'),
+                'description' => __('Bottom Padding for the row. Deprecated - use native padding attributes above.', 'livemesh-so-widgets'),
                 'priority' => 22,
             );
 
             $fields['tablet_top_padding'] = array(
-                'name' => __('Top Padding in Tablet resolution', 'livemesh-so-widgets'),
+                'name' => __('Top Padding in Tablet resolution (Deprecated)', 'livemesh-so-widgets'),
                 'type' => 'measurement',
                 'group' => 'layout',
-                'description' => __('Top Padding for the row in tablet resolutions.', 'livemesh-so-widgets'),
+                'description' => __('Top Padding for the row in tablet resolutions. Deprecated - use native padding attributes above.', 'livemesh-so-widgets'),
                 'priority' => 23,
             );
 
             $fields['tablet_bottom_padding'] = array(
-                'name' => __('Bottom Padding in Tablet resolution', 'livemesh-so-widgets'),
+                'name' => __('Bottom Padding in Tablet resolution (Deprecated)', 'livemesh-so-widgets'),
                 'type' => 'measurement',
                 'group' => 'layout',
-                'description' => __('Bottom Padding for the row in tablet resolutions.', 'livemesh-so-widgets'),
+                'description' => __('Bottom Padding for the row in tablet resolutions. Deprecated - use native padding attributes above.', 'livemesh-so-widgets'),
                 'priority' => 24,
             );
 
             $fields['mobile_top_padding'] = array(
-                'name' => __('Top Padding in Mobile resolution', 'livemesh-so-widgets'),
+                'name' => __('Top Padding in Mobile resolution (Deprecated)', 'livemesh-so-widgets'),
                 'type' => 'measurement',
                 'group' => 'layout',
-                'description' => __('Top Padding for the row in mobile resolutions.', 'livemesh-so-widgets'),
+                'description' => __('Top Padding for the row in mobile resolutions. Deprecated - use native padding attributes above.', 'livemesh-so-widgets'),
                 'priority' => 25,
             );
 
             $fields['mobile_bottom_padding'] = array(
-                'name' => __('Bottom Padding in Mobile resolution', 'livemesh-so-widgets'),
+                'name' => __('Bottom Padding in Mobile resolution (Deprecated)', 'livemesh-so-widgets'),
                 'type' => 'measurement',
                 'group' => 'layout',
-                'description' => __('Bottom Padding for the row in mobile resolutions.', 'livemesh-so-widgets'),
+                'description' => __('Bottom Padding for the row in mobile resolutions. Deprecated - use native padding attributes above.', 'livemesh-so-widgets'),
                 'priority' => 26,
             );
 
@@ -120,25 +120,25 @@ if (!class_exists('LSOW_Setup')):
 
             foreach ($panels_data['grids'] as $gi => $grid) {
 
-                $grid_id = !empty($grid['style']['id']) ? (string)sanitize_html_class($grid['style']['id']) : intval($gi);
+                $grid_id = intval($gi);
 
                 $top_padding = (isset($grid['style']['top_padding']) ? $grid['style']['top_padding'] : null);
                 $bottom_padding = (isset($grid['style']['bottom_padding']) ? $grid['style']['bottom_padding'] : null);;
 
                 // Filter the bottom margin for this row with the arguments
                 if ($top_padding)
-                    $css->add_row_css($post_id, $grid_id, '.lsow-row', array('padding-top' => $top_padding), 1920);
+                    $css->add_row_css($post_id, $grid_id, ' .lsow-row', array('padding-top' => $top_padding), 1920);
                 if ($bottom_padding)
-                    $css->add_row_css($post_id, $grid_id, '.lsow-row', array('padding-bottom' => $bottom_padding), 1920);
+                    $css->add_row_css($post_id, $grid_id, ' .lsow-row', array('padding-bottom' => $bottom_padding), 1920);
 
                 $top_padding = (isset($grid['style']['tablet_top_padding']) ? $grid['style']['tablet_top_padding'] : null);
                 $bottom_padding = (isset($grid['style']['tablet_bottom_padding']) ? $grid['style']['tablet_bottom_padding'] : null);;
 
                 // Filter the bottom margin for this row with the arguments
                 if ($top_padding)
-                    $css->add_row_css($post_id, $grid_id, '.lsow-row', array('padding-top' => $top_padding), 960);
+                    $css->add_row_css($post_id, $grid_id, ' .lsow-row', array('padding-top' => $top_padding), 960);
                 if ($bottom_padding)
-                    $css->add_row_css($post_id, $grid_id, '.lsow-row', array('padding-bottom' => $bottom_padding), 960);
+                    $css->add_row_css($post_id, $grid_id, ' .lsow-row', array('padding-bottom' => $bottom_padding), 960);
 
 
                 $top_padding = (isset($grid['style']['mobile_top_padding']) ? $grid['style']['mobile_top_padding'] : null);
@@ -146,9 +146,9 @@ if (!class_exists('LSOW_Setup')):
 
                 // Filter the bottom margin for this row with the arguments
                 if ($top_padding)
-                    $css->add_row_css($post_id, $grid_id, '.lsow-row', array('padding-top' => $top_padding), 478);
+                    $css->add_row_css($post_id, $grid_id, ' .lsow-row', array('padding-top' => $top_padding), 478);
                 if ($bottom_padding)
-                    $css->add_row_css($post_id, $grid_id, '.lsow-row', array('padding-bottom' => $bottom_padding), 478);
+                    $css->add_row_css($post_id, $grid_id, ' .lsow-row', array('padding-bottom' => $bottom_padding), 478);
 
 
             }
