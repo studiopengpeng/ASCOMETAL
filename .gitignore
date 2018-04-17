@@ -56,9 +56,9 @@ Gruntfile.js
 .bowerrc
 .htaccess
 **/wp-config.php
-**/ai1wm-backups
+ai1wm-backups
 wp-content/uploads
 .DS_Store
 *.log
-**/bases_de_donnees
+bases_de_donnees
 
