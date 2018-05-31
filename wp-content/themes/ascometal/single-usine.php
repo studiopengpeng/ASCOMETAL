@@ -91,7 +91,7 @@ get_header(); ?>
 					<header>
 						<h1 class="entry-title corporate-color"><?php the_title(); ?></h1>
                         <div class="small-7" style="margin-bottom:5px">
-                           <?php echo do_shortcode("[ssba]"); ?>
+                           <?php // echo do_shortcode("[ssba]"); ?>
                         </div>
 					</header>
 

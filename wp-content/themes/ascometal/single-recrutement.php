@@ -115,7 +115,7 @@ get_header(); ?>
                                         <h2 class="entry-title"><?php echo __('Trades in the heart of steel', 'foundationpress'); ?></h2>
                         </div>
                                      <div class="social-icons small-12 medium-4 large-4 columns">
-                                         <?php echo do_shortcode("[ssba]"); ?>
+                                         <?php // echo do_shortcode("[ssba]"); ?>
                                      </div>
 					</header>
 

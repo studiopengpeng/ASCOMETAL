@@ -44,7 +44,7 @@ wp_nav_menu( $args_menu1 );
                                         <h2 class="entry-title"><?php the_title(); ?></h2>
                                         </div>
                                      <div class="social-icons small-12 medium-4 large-4 columns">
-                                         <?php echo do_shortcode("[ssba]"); ?>
+                                         <?php // echo do_shortcode("[ssba]"); ?>
                                      </div>
                                     
                                 </header>
